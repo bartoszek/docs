@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stalker.models.task.TimeLog &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="../index.html" />
+    <link rel="next" title="stalker.models.template.FilenameTemplate" href="stalker.models.template.FilenameTemplate.html" />
+    <link rel="prev" title="stalker.models.task.TaskDependency" href="stalker.models.task.TaskDependency.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.template.FilenameTemplate.html" title="stalker.models.template.FilenameTemplate"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.task.TaskDependency.html" title="stalker.models.task.TaskDependency"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-models-task-timelog">
+<h1>stalker.models.task.TimeLog<a class="headerlink" href="#stalker-models-task-timelog" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+digraph inheritanceb8737bd961 {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Base&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;ORMClass&quot; -&gt; &quot;Base&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.entity.Entity.html#stalker.models.entity.Entity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Entity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ORMClass&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;SimpleEntity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.entity.SimpleEntity.html#stalker.models.entity.SimpleEntity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;SimpleEntity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TimeLog&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;#stalker.models.task.TimeLog&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;TimeLog&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;TimeLog&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+</p>
+<dl class="class">
+<dt id="stalker.models.task.TimeLog">
+<em class="property">class </em><code class="descclassname">stalker.models.task.</code><code class="descname">TimeLog</code><span class="sig-paren">(</span><em>task=None</em>, <em>resource=None</em>, <em>start=None</em>, <em>end=None</em>, <em>duration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.task.TimeLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stalker.models.entity.Entity.html#stalker.models.entity.Entity" title="stalker.models.entity.Entity"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.entity.Entity</span></code></a>, <a class="reference internal" href="stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin" title="stalker.models.mixins.DateRangeMixin"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.mixins.DateRangeMixin</span></code></a></p>
+<p>Holds information about the uninterrupted time spent on a specific
+<a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> by a specific <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a>.</p>
+<p>It is so important to note that the TimeLog reports the <strong>uninterrupted</strong>
+time interval that is spent for a Task. Thus it doesn&#8217;t care about the
+working time attributes like daily working hours, weekly working days or
+anything else. Again it is the uninterrupted time which is spent for a
+task.</p>
+<p>Entering a time log for 2 days will book the resource for 48 hours and not,
+2 * daily working hours.</p>
+<p>TimeLogs are created per resource. It means, you need to record all the
+works separately for each resource. So there is only one resource in a
+TimeLog instance.</p>
+<p>A <a class="reference internal" href="#stalker.models.task.TimeLog" title="stalker.models.task.TimeLog"><code class="xref py py-class docutils literal"><span class="pre">TimeLog</span></code></a> instance needs to be initialized with a <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>
+and a <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instances.</p>
+<p>Adding overlapping time log for a <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> will raise a
+<a class="reference internal" href="stalker.exceptions.OverBookedError.html#stalker.exceptions.OverBookedError" title="stalker.exceptions.OverBookedError"><code class="xref py py-class docutils literal"><span class="pre">OverBookedError</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>task</strong> &#8211; The <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> instance that this time log belongs to.</li>
+<li><strong>resource</strong> &#8211; The <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance that this time log is created
+for.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stalker.models.task.TimeLog.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>task=None</em>, <em>resource=None</em>, <em>start=None</em>, <em>end=None</em>, <em>duration=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.task.TimeLog.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.task.TimeLog.__init__" title="stalker.models.task.TimeLog.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([task,&nbsp;resource,&nbsp;start,&nbsp;end,&nbsp;duration])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.task.TimeLog.computed_duration" title="stalker.models.task.TimeLog.computed_duration"><code class="xref py py-obj docutils literal"><span class="pre">computed_duration</span></code></a></td>
+<td>returns the computed_duration as the difference of computed_start</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.task.TimeLog.computed_total_seconds" title="stalker.models.task.TimeLog.computed_total_seconds"><code class="xref py py-obj docutils literal"><span class="pre">computed_total_seconds</span></code></a></td>
+<td>returns the duration as seconds</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.task.TimeLog.nice_name" title="stalker.models.task.TimeLog.nice_name"><code class="xref py py-obj docutils literal"><span class="pre">nice_name</span></code></a></td>
+<td>Nice name of this object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.task.TimeLog.plural_class_name" title="stalker.models.task.TimeLog.plural_class_name"><code class="xref py py-obj docutils literal"><span class="pre">plural_class_name</span></code></a></td>
+<td>the plural name of this class</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.task.TimeLog.tjp_id" title="stalker.models.task.TimeLog.tjp_id"><code class="xref py py-obj docutils literal"><span class="pre">tjp_id</span></code></a></td>
+<td>returns TaskJuggler compatible id</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.task.TimeLog.to_tjp" title="stalker.models.task.TimeLog.to_tjp"><code class="xref py py-obj docutils literal"><span class="pre">to_tjp</span></code></a></td>
+<td>renders a TaskJuggler compliant string used for TaskJuggler</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.task.TimeLog.total_seconds" title="stalker.models.task.TimeLog.total_seconds"><code class="xref py py-obj docutils literal"><span class="pre">total_seconds</span></code></a></td>
+<td>returns the duration as seconds</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.computed_duration">
+<code class="descname">computed_duration</code><a class="headerlink" href="#stalker.models.task.TimeLog.computed_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the computed_duration as the difference of computed_start
+and computed_end if there are computed_start and computed_end otherwise
+returns None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.computed_total_seconds">
+<code class="descname">computed_total_seconds</code><a class="headerlink" href="#stalker.models.task.TimeLog.computed_total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the duration as seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.created_by">
+<code class="descname">created_by</code><a class="headerlink" href="#stalker.models.task.TimeLog.created_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has created this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.created_by_id">
+<code class="descname">created_by_id</code><a class="headerlink" href="#stalker.models.task.TimeLog.created_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has created this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.date_created">
+<code class="descname">date_created</code><a class="headerlink" href="#stalker.models.task.TimeLog.date_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></code></a> instance showing the creation date
+and time of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.date_updated">
+<code class="descname">date_updated</code><a class="headerlink" href="#stalker.models.task.TimeLog.date_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></code></a> instance showing the update date
+and time of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.description">
+<code class="descname">description</code><a class="headerlink" href="#stalker.models.task.TimeLog.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.duration">
+<code class="descname">duration</code><a class="headerlink" href="#stalker.models.task.TimeLog.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duration of the entity.</p>
+<p>It is a datetime.timedelta instance. Showing the difference of
+the <a class="reference internal" href="#stalker.models.task.TimeLog.start" title="stalker.models.task.TimeLog.start"><code class="xref py py-attr docutils literal"><span class="pre">start</span></code></a> and the <a class="reference internal" href="#stalker.models.task.TimeLog.end" title="stalker.models.task.TimeLog.end"><code class="xref py py-attr docutils literal"><span class="pre">end</span></code></a>. If edited it changes
+the <a class="reference internal" href="#stalker.models.task.TimeLog.end" title="stalker.models.task.TimeLog.end"><code class="xref py py-attr docutils literal"><span class="pre">end</span></code></a> attribute value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.end">
+<code class="descname">end</code><a class="headerlink" href="#stalker.models.task.TimeLog.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date that the entity should be delivered.</p>
+<p>The end can be set to a datetime.timedelta and in this case it will be
+calculated as an offset from the start and converted to
+datetime.datetime again. Setting the start to a date passing the end
+will also set the end, so the timedelta between them is preserved,
+default value is 10 days</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.generic_data">
+<code class="descname">generic_data</code><a class="headerlink" href="#stalker.models.task.TimeLog.generic_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This attribute can hold any kind of data which exists in SOM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.generic_text">
+<code class="descname">generic_text</code><a class="headerlink" href="#stalker.models.task.TimeLog.generic_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>This attribute can hold any text.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.name">
+<code class="descname">name</code><a class="headerlink" href="#stalker.models.task.TimeLog.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.nice_name">
+<code class="descname">nice_name</code><a class="headerlink" href="#stalker.models.task.TimeLog.nice_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nice name of this object.</p>
+<p>It has the same value with the name (contextually) but with a different
+format like, all the white spaces replaced by underscores (&#8220;_&#8221;), all
+the CamelCase form will be expanded by underscore (_) characters and
+it is always lower case.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.notes">
+<code class="descname">notes</code><a class="headerlink" href="#stalker.models.task.TimeLog.notes" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the <code class="xref py py-class docutils literal"><span class="pre">Notes</span></code>s attached to this entity.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.note.Note.html#stalker.models.note.Note" title="stalker.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a> instances or an
+empty list, setting it to None will raise a TypeError.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.plural_class_name">
+<code class="descname">plural_class_name</code><a class="headerlink" href="#stalker.models.task.TimeLog.plural_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the plural name of this class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.resource">
+<code class="descname">resource</code><a class="headerlink" href="#stalker.models.task.TimeLog.resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance that this time_log is created for</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stalker.models.task.TimeLog.round_time">
+<code class="descname">round_time</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.task.TimeLog.round_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Round the given datetime object to the defaults.timing_resolution.</p>
+<p>Uses <code class="xref py py-class docutils literal"><span class="pre">stalker.defaults.timing_resolution</span></code> as the closest number
+of seconds to round to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dt</strong> (<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><em>datetime.datetime</em></a>) &#8211; datetime.datetime object, defaults to now.</td>
+</tr>
+</tbody>
+</table>
+<p>Based on Thierry Husson&#8217;s answer in <a class="reference internal" href="#stackoverflow">Stackoverflow</a></p>
+<p><span class="target" id="stackoverflow">Stackoverflow</span> : <a class="reference external" href="http://stackoverflow.com/a/10854034/1431079">http://stackoverflow.com/a/10854034/1431079</a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.start">
+<code class="descname">start</code><a class="headerlink" href="#stalker.models.task.TimeLog.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date that this entity should start.</p>
+<p>Also effects the <code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.end</span></code> attribute value in certain
+conditions, if the <code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.start</span></code> is set to a time
+passing the <code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.end</span></code> it will also offset the
+<code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.end</span></code> to keep the
+<code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.duration</span></code> value fixed.
+<code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.start</span></code> should be an instance of
+class:<cite>datetime.datetime</cite> and the default value is
+<code class="xref py py-func docutils literal"><span class="pre">datetime.datetime.now()</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.tags">
+<code class="descname">tags</code><a class="headerlink" href="#stalker.models.task.TimeLog.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tags attached to this object.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.tag.Tag.html#stalker.models.tag.Tag" title="stalker.models.tag.Tag"><code class="xref py py-class docutils literal"><span class="pre">Tag</span></code></a> instances which shows
+the tags of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.task">
+<code class="descname">task</code><a class="headerlink" href="#stalker.models.task.TimeLog.task" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> instance that this time log is created for</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.task_id">
+<code class="descname">task_id</code><a class="headerlink" href="#stalker.models.task.TimeLog.task_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the related task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.tjp_id">
+<code class="descname">tjp_id</code><a class="headerlink" href="#stalker.models.task.TimeLog.tjp_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns TaskJuggler compatible id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.to_tjp">
+<code class="descname">to_tjp</code><a class="headerlink" href="#stalker.models.task.TimeLog.to_tjp" title="Permalink to this definition">¶</a></dt>
+<dd><p>renders a TaskJuggler compliant string used for TaskJuggler
+integration. Needs to be overridden in inherited classes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.total_seconds">
+<code class="descname">total_seconds</code><a class="headerlink" href="#stalker.models.task.TimeLog.total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the duration as seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.type">
+<code class="descname">type</code><a class="headerlink" href="#stalker.models.task.TimeLog.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the object.</p>
+<p>It is an instance of <a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> with a proper
+<a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type.target_entity_type" title="stalker.models.type.Type.target_entity_type"><code class="xref py py-attr docutils literal"><span class="pre">Type.target_entity_type</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.type_id">
+<code class="descname">type_id</code><a class="headerlink" href="#stalker.models.task.TimeLog.type_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> of this entity. Mainly used by
+SQLAlchemy to create a Many-to-One relates between SimpleEntities and
+Types.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.updated_by">
+<code class="descname">updated_by</code><a class="headerlink" href="#stalker.models.task.TimeLog.updated_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has updated this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.task.TimeLog.updated_by_id">
+<code class="descname">updated_by_id</code><a class="headerlink" href="#stalker.models.task.TimeLog.updated_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has updated this entity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stalker.models.task.TaskDependency.html"
+                        title="previous chapter">stalker.models.task.TaskDependency</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stalker.models.template.FilenameTemplate.html"
+                        title="next chapter">stalker.models.template.FilenameTemplate</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.template.FilenameTemplate.html" title="stalker.models.template.FilenameTemplate"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.task.TaskDependency.html" title="stalker.models.task.TaskDependency"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nvidia Drivers Install &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="Desktop Install" href="Desktop.html"/>
+        <link rel="prev" title="Basic Kubuntu Install" href="Basic.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Nvidia Drivers Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#desactivating-nouveau-driver">Desactivating nouveau driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-nvidia-drivers">Installing the Nvidia drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nvidia-web-site-and-downloads">Nvidia web site and downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-word-from-linus">a word from linus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Nvidia Drivers Install</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Nvidia.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nvidia-drivers-install">
+<h1>Nvidia Drivers Install<a class="headerlink" href="#nvidia-drivers-install" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/nvidia.jpg" src="_images/nvidia.jpg" />
+<p>by default Kubuntu will install the &#8220;nouveau&#8221; driver which is not well suited
+for cgi applications.</p>
+<div class="section" id="desactivating-nouveau-driver">
+<h2>Desactivating nouveau driver<a class="headerlink" href="#desactivating-nouveau-driver" title="Permalink to this headline">¶</a></h2>
+<p>in /etc/default/grub , edit the following lines</p>
+<div class="highlight-python"><div class="highlight"><pre>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash rdblacklist=nouveau nouveau.modeset=0&quot;
+GRUB_GFXMODE=1280x800
+</pre></div>
+</div>
+<p>regenerate grub conf files and updates the existing initramfs</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">update</span><span class="o">-</span><span class="n">grub</span>
+<span class="n">update</span><span class="o">-</span><span class="n">initramfs</span> <span class="o">-</span><span class="n">u</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-the-nvidia-drivers">
+<h2>Installing the Nvidia drivers<a class="headerlink" href="#installing-the-nvidia-drivers" title="Permalink to this headline">¶</a></h2>
+<p>reboot and switch to console mode (Ctrl-Alt-F1)</p>
+<p>stop the display manager deamon</p>
+<ul class="simple">
+<li>Kubuntu 12.04 or 14.04</li>
+</ul>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>service kdm stop
+</pre></div>
+</div>
+<ul class="simple">
+<li>Kubuntu 15.04</li>
+</ul>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>service sddm stop
+</pre></div>
+</div>
+<p>Download the driver file from Nvidia web site (I
+usually copy the driver .run file to /var/tmp) and recompile it.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd /var/tmp
+chmod 777 NVIDIA-Linux-x86_64-xxx.yy.run
+./NVIDIA-Linux-x86_64-xxx.yy.run
+</pre></div>
+</div>
+<p>when asked , install the 32bits libraries as they are needed later for
+SoftimageXSI to run correctly.</p>
+<p>When succesfully finished , reboot or restart the display manager.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>service kdm start
+</pre></div>
+</div>
+<p>you can check the driver settings (in a terminal)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">nvidia</span><span class="o">-</span><span class="n">settings</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nvidia-web-site-and-downloads">
+<h2>Nvidia web site and downloads<a class="headerlink" href="#nvidia-web-site-and-downloads" title="Permalink to this headline">¶</a></h2>
+<p>which card am I using ?</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>lspci | grep VGA
+</pre></div>
+</div>
+<p><a class="reference external" href="http://www.nvidia.com/Download/index.aspx?lang=en-us">http://www.nvidia.com/Download/index.aspx?lang=en-us</a></p>
+<p>s00X : GeForce GTX680
+<a class="reference external" href="http://www.nvidia.com/download/driverResults.aspx/90279/en-us">http://www.nvidia.com/download/driverResults.aspx/90279/en-us</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>wget https://www.dropbox.com/s/cioabkxm7dpb3vp/NVIDIA-Linux-x86_64-352.21.run?dl=0 -O /var/tmp/NVIDIA-Linux-x86_64-352.21.run
+</pre></div>
+</div>
+<p>v00X : GeForce 8800GTS
+<a class="reference external" href="http://www.nvidia.com/download/driverResults.aspx/91217/en-us">http://www.nvidia.com/download/driverResults.aspx/91217/en-us</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>**Kubuntu 14.04**
+wget https://www.dropbox.com/s/1z0r20wgej8407n/NVIDIA-Linux-x86_64-340.76.run?dl=0 -O /var/tmp/NVIDIA-Linux-x86_64-340.76.run
+**Kubuntu 15.10**
+wget https://www.dropbox.com/s/t6rqh96ph2q7zz0/NVIDIA-Linux-x86_64-340.93.run?dl=0 -O /var/tmp/NVIDIA-Linux-x86_64-340.93.run
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-word-from-linus">
+<h2>a word from linus<a class="headerlink" href="#a-word-from-linus" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.techmansworld.com/2012/06/linus-torvalds-creator-of-linux-to.html">http://www.techmansworld.com/2012/06/linus-torvalds-creator-of-linux-to.html</a></p>
+<img alt="_images/linus.jpg" src="_images/linus.jpg" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Desktop.html" class="btn btn-neutral float-right" title="Desktop Install" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Basic.html" class="btn btn-neutral" title="Basic Kubuntu Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Apache2 Server &mdash; Lamp 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Lamp 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Install Owncloud" href="owncloud.html"/>
+        <link rel="prev" title="Installing a Lamp (Linux Apache Mysql Php)" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Lamp
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Linux Lamp</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Apache2 Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-default-documentroot-value">change default DocumentRoot value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activate-ssl">Activate ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#permissions">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-links-to-docs">create links to Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-links">Web links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">Install Owncloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#additional-packages">additional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#set-permissions">set permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#uploading-big-files">Uploading big files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#memcache">Memcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#performance-tuning">Performance Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#themes">themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#use-https">use https</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#youtube-user-channel">youtube user channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#use-occ">use occ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#external-storage-dropbox">External Storage (Dropbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#web-references">Web References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ghost.html">Ghost Blog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#install-ghost-as-a-service">install ghost as a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#ghost-auto-start">ghost auto start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#markdown-guide">Markdown guide :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#designers-guide-to-theming">Designers Guide to theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#npm-node-package-manager">npm (node package manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#bower-a-package-manager-for-the-web">bower : A package manager for the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#gulp">Gulp :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#accessing-ghost-from-the-outside">Accessing Ghost from the outside</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="html.html">Html misc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="html.html#display-a-random-image">Display a Random Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html.html#center-image">Center image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Iptables.html">Iptables and NAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Iptables.html#web-links">Web links</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Lamp</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Apache2 Server</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Apache.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="apache2-server">
+<h1>Apache2 Server<a class="headerlink" href="#apache2-server" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/Apache.png" src="_images/Apache.png" />
+<div class="section" id="install">
+<h2>install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su -
+apt-get update
+apt-get install apache2
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-default-documentroot-value">
+<h2>change default DocumentRoot value<a class="headerlink" href="#change-default-documentroot-value" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>vi /etc/apache2/sites-available/000-default.conf
+change value : DocumentRoot /var/www
+</pre></div>
+</div>
+</div>
+<div class="section" id="activate-ssl">
+<h2>Activate ssl<a class="headerlink" href="#activate-ssl" title="Permalink to this headline">¶</a></h2>
+<p>Pour activer les connexions sécurisées à votre serveur Apache (https):</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>a2enmod ssl
+a2ensite default-ssl
+service apache2 reload
+</pre></div>
+</div>
+</div>
+<div class="section" id="permissions">
+<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
+<p>add user maison to group www-data and set permissions to /var/www</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>usermod -a -G www-data maison
+chgrp www-data /var/www
+chmod 775 /var/www
+chmod g+s /var/www
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-links-to-docs">
+<h2>create links to Docs<a class="headerlink" href="#create-links-to-docs" title="Permalink to this headline">¶</a></h2>
+<p>(logged as user maison)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ln -s /mnt/media/Docs/ /var/www/Docs
+ls -al
+lrwxrwxrwx  1 maison www-data   15 sept. 10 17:11 Docs -&gt; /mnt/media/Docs/
+</pre></div>
+</div>
+</div>
+<div class="section" id="web-links">
+<h2>Web links<a class="headerlink" href="#web-links" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://httpd.apache.org/docs/">http://httpd.apache.org/docs/</a></p>
+<p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps">https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps</a></p>
+<p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts">https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts</a></p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="owncloud.html" class="btn btn-neutral float-right" title="Install Owncloud" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Installing a Lamp (Linux Apache Mysql Php)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

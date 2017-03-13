@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Maya Specifics Install &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="Houdini" href="Houdini.html"/>
+        <link rel="prev" title="Softimage Specifics Install" href="SoftimageXsi.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Maya Specifics Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-maya-2015-on-kubuntu-14-04-15-04">Installing Maya 2015 on Kubuntu 14.04 15.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-extra-packages">install extra packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-maya-2015-sp6">download maya 2015 SP6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#convert-rpm-redhat-to-deb-debian">convert .rpm (RedHat) to .deb (Debian)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-license-server-for-network-licensing">install License server (for network licensing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-maya-software">Installing Maya Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#almost-there">almost there :)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#done">done!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc-web-references">Misc Web References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Maya Specifics Install</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Maya.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="maya-specifics-install">
+<h1>Maya Specifics Install<a class="headerlink" href="#maya-specifics-install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-maya-2015-on-kubuntu-14-04-15-04">
+<h2>Installing Maya 2015 on Kubuntu 14.04 15.04<a class="headerlink" href="#installing-maya-2015-on-kubuntu-14-04-15-04" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/maya.jpg"><img alt="_images/maya.jpg" src="_images/maya.jpg" style="width: 360.0px; height: 246.0px;" /></a>
+</div>
+<div class="section" id="install-extra-packages">
+<h2>install extra packages<a class="headerlink" href="#install-extra-packages" title="Permalink to this headline">¶</a></h2>
+<p>first install some extra packages: details on <a class="reference external" href="http://help.autodesk.com/view/MAYAUL/2015/ENU/?guid=GUID-D2B5433C-E0D2-421B-9BD8-24FED217FD7F">this page</a> from the Autodesk site</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su -
+apt-get install --yes csh tcsh libjpeg62
+apt-get install --yes libglw1-mesa libglw1-mesa-dev mesa-utils elfutils
+apt-get install --yes xfsprogs xfstt ttf-liberation xfonts-100dpi xfonts-75dpi
+apt-get install --yes libaudiofile* libfam0 libfam-dev
+</pre></div>
+</div>
+<p>you also need alien to convert .rpm (RedHat) to .deb (Debian) packages and lsb to run the license server</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes alien lsb
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-maya-2015-sp6">
+<h2>download maya 2015 SP6<a class="headerlink" href="#download-maya-2015-sp6" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://knowledge.autodesk.com/support/maya/downloads/caas/downloads/content/autodesk-maya-2015-service-pack-6.html">download maya 2015 SP6</a> and extract the installation files in /var/tmp</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>mkdir /var/tmp/maya
+cd /var/tmp/maya
+tar -xvzf Autodesk_Maya_2015_SP6_EN_Linux.tgz
+</pre></div>
+</div>
+</div>
+<div class="section" id="convert-rpm-redhat-to-deb-debian">
+<h2>convert .rpm (RedHat) to .deb (Debian)<a class="headerlink" href="#convert-rpm-redhat-to-deb-debian" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>for i in *.rpm; do sudo alien -cv $i; done
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-license-server-for-network-licensing">
+<h2>install License server (for network licensing)<a class="headerlink" href="#install-license-server-for-network-licensing" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>dpkg -i adlmflexnetserver_9.0.23-201_amd64.deb
+</pre></div>
+</div>
+<p><em>update adskflex and lic.dat</em></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp /var/tmp/adskflex /opt/flexnetserver/
+cp /var/tmp/lic.dat /opt/flexnetserver/
+</pre></div>
+</div>
+<p>edit lic.dat and update the mac adress of the server and the server name</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ifconfig | grep HWaddr
+</pre></div>
+</div>
+<p>pick the mac adress of the server NIC</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>eth0      Link encap:Ethernet  HWaddr 00:e0:81:79:c1:7a
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">vi</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flexnetserver</span><span class="o">/</span><span class="n">lic</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>replace server name and macadress (without :)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>SERVER myhostname 00e08179c17a
+VENDOR adskflex
+...
+</pre></div>
+</div>
+<p>misc details</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>mkdir /usr/tmp
+chmod 777 /usr/tmp
+chmod 777 /opt/flexnetserver/lic.dat
+</pre></div>
+</div>
+<p>start the server (<strong>as a non root user</strong>)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd /opt/flexnetserver
+/opt/flexnetserver/lmgrd -c lic.dat
+</pre></div>
+</div>
+<p>the license server should be up and running and listening to port 27000</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>...
+13:35:12 (lmgrd) (@lmgrd-SLOG@) Listening port: 27000
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-maya-software">
+<h2>Installing Maya Software<a class="headerlink" href="#installing-maya-software" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>dpkg -i adlmapps9_9.0.23-201_amd64.deb
+dpkg -i maya2015-64_2015.0-734_amd64.deb
+dpkg -i mentalrayformaya2015-0_2015.0-20_amd64.deb
+</pre></div>
+</div>
+<p>you should have these directories installed:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>/var/opt/Autodesk/Adlm/R9
+/opt/Autodesk/Adlm/FLEXnet/
+/var/flexlm/
+/usr/autodesk/maya2015-x64
+/usr/autodesk/mentalrayForMaya2015/
+</pre></div>
+</div>
+<p>edit the license files</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>vi /usr/autodesk/maya2015-x64/bin/License.env
+and leave only these two lines..
+MAYA_LICENSE=657G1
+MAYA_LICENSE_METHOD=network
+</pre></div>
+</div>
+<p>Create a file called maya.lic in the /var/flexlm directory with the following two lines:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>SERVER &lt;licenseserver&gt; 0
+USE_SERVER
+where &lt;licenseserver&gt; is the host name or IP address of your license server.
+</pre></div>
+</div>
+<p>Run the following commands to register Maya with the Autodesk licensing software (Network licensing)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>/usr/autodesk/maya2015-x64/bin/adlmreg -i N 657G1 657G1 2015.0.0.F &lt;serialNum&gt; /var/opt/Autodesk/Adlm/Maya2015/MayaConfig.pit
+&lt;serialNum&gt; should be something like xxx-xxxxxxxx
+</pre></div>
+</div>
+<p><em>update libadlmint.so.9.0.23</em></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp /var/tmp/libadlmint.so.9.0.23 /usr/autodesk/maya2015-x64/lib/
+</pre></div>
+</div>
+</div>
+<div class="section" id="almost-there">
+<h2>almost there :)<a class="headerlink" href="#almost-there" title="Permalink to this headline">¶</a></h2>
+<p>hacking the libs</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp /var/tmp/maya/lib* /usr/lib/
+ln -s /usr/lib/x86_64-linux-gnu/libcrypt.so /usr/autodesk/maya2015-x64/lib/libcrypto.so.10
+ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so.62 /usr/lib/libjpeg.so.62
+ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.5.2.0 /usr/lib/libtiff.so.3
+cd /usr/lib/x86_64-linux-gnu/
+ln -s /lib/x86_64-linux-gnu/libssl.so.1.0.0 libssl.so.10
+ln -s libssl.so.10 libssl.so.1.0.0
+</pre></div>
+</div>
+<p>To prevent various crashes</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>vi /usr/autodesk/maya2015-x64/bin/maya2015
+Search for
+setenv LIBQUICKTIME_PLUGIN_DIR &quot;$MAYA_LOCATION/lib&quot;
+After that line add the following:
+setenv LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjpeg.so.62
+setenv LC_ALL en_US.UTF-8
+setenv LC_NUMERIC C
+</pre></div>
+</div>
+<p><em>if you have problems with bitfrost crashing maya</em></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>mkdir /usr/autodesk/maya2015-x64/plugin-backups
+mv /usr/autodesk/maya2015-x64/plug-ins/bifrost /usr/autodesk/maya2015-x64/plugin-backups/
+</pre></div>
+</div>
+<p>launching maya</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>export MAYA_LOCATION=/usr/autodesk/maya2015-x64/
+export LD_LIBRARY_PATH=/opt/Autodesk/Adlm/R9/lib64/
+xset +fp /usr/share/fonts/X11/100dpi/
+xset +fp /usr/share/fonts/X11/75dpi/
+maya -style gtk
+</pre></div>
+</div>
+</div>
+<div class="section" id="done">
+<h2>done!<a class="headerlink" href="#done" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/maya3d.jpg" src="_images/maya3d.jpg" />
+</div>
+<div class="section" id="misc-web-references">
+<h2>Misc Web References<a class="headerlink" href="#misc-web-references" title="Permalink to this headline">¶</a></h2>
+<p>lot of infos here ...</p>
+<p><a class="reference external" href="http://forums.autodesk.com/t5/installation-licensing/installing-maya-on-ubuntu/td-p/4905036">http://forums.autodesk.com/t5/installation-licensing/installing-maya-on-ubuntu/td-p/4905036</a>
+<a class="reference external" href="http://askubuntu.com/questions/392806/installing-maya-on-ubuntu-linux">http://askubuntu.com/questions/392806/installing-maya-on-ubuntu-linux</a>
+<a class="reference external" href="https://gist.github.com/insomniacUNDERSCORElemon/5555214">https://gist.github.com/insomniacUNDERSCORElemon/5555214</a>
+<a class="reference external" href="http://nealbuerger.com/2013/05/ubuntu-13-04-maya-2014-install-script/">http://nealbuerger.com/2013/05/ubuntu-13-04-maya-2014-install-script/</a>
+<a class="reference external" href="http://www.nkoubi.com/blog/tutorial/how-to-install-autodesk-maya-2011-on-debian-ubuntu/">http://www.nkoubi.com/blog/tutorial/how-to-install-autodesk-maya-2011-on-debian-ubuntu/</a>
+<a class="reference external" href="http://www.andrewhazelden.com/blog/2014/10/autodesk-nlm-licensing-issues-with-maya-2015-and-max-2015/">http://www.andrewhazelden.com/blog/2014/10/autodesk-nlm-licensing-issues-with-maya-2015-and-max-2015/</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Houdini.html" class="btn btn-neutral float-right" title="Houdini" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SoftimageXsi.html" class="btn btn-neutral" title="Softimage Specifics Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

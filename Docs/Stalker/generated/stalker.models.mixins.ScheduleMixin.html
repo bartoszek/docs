@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stalker.models.mixins.ScheduleMixin &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="../index.html" />
+    <link rel="next" title="stalker.models.mixins.StatusMixin" href="stalker.models.mixins.StatusMixin.html" />
+    <link rel="prev" title="stalker.models.mixins.ReferenceMixin" href="stalker.models.mixins.ReferenceMixin.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.StatusMixin.html" title="stalker.models.mixins.StatusMixin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.ReferenceMixin.html" title="stalker.models.mixins.ReferenceMixin"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-models-mixins-schedulemixin">
+<h1>stalker.models.mixins.ScheduleMixin<a class="headerlink" href="#stalker-models-mixins-schedulemixin" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+digraph inheritance4649895ce8 {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;ScheduleMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;#stalker.models.mixins.ScheduleMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+}
+</p>
+<dl class="class">
+<dt id="stalker.models.mixins.ScheduleMixin">
+<em class="property">class </em><code class="descclassname">stalker.models.mixins.</code><code class="descname">ScheduleMixin</code><span class="sig-paren">(</span><em>schedule_timing=None</em>, <em>schedule_unit=None</em>, <em>schedule_model=None</em>, <em>schedule_constraint=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.mixins.ScheduleMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Adds schedule info to the mixed in class.</p>
+<p>Adds attributes like schedule_timing, schedule_unit and schedule_model
+attributes to the mixed in class.</p>
+<p>Use the <code class="docutils literal"><span class="pre">__default_schedule_attr_name__</span></code> attribute to customize the
+column names.</p>
+<dl class="method">
+<dt id="stalker.models.mixins.ScheduleMixin.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>schedule_timing=None</em>, <em>schedule_unit=None</em>, <em>schedule_model=None</em>, <em>schedule_constraint=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.mixins.ScheduleMixin.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.mixins.ScheduleMixin.__init__" title="stalker.models.mixins.ScheduleMixin.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([schedule_timing,&nbsp;schedule_unit,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.mixins.ScheduleMixin.least_meaningful_time_unit" title="stalker.models.mixins.ScheduleMixin.least_meaningful_time_unit"><code class="xref py py-obj docutils literal"><span class="pre">least_meaningful_time_unit</span></code></a>(seconds[,&nbsp;...])</td>
+<td>returns the least meaningful timing unit that corresponds to the</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.mixins.ScheduleMixin.to_seconds" title="stalker.models.mixins.ScheduleMixin.to_seconds"><code class="xref py py-obj docutils literal"><span class="pre">to_seconds</span></code></a>(timing,&nbsp;unit,&nbsp;model)</td>
+<td>converts the schedule values to seconds, depending on to the</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.mixins.ScheduleMixin.schedule_seconds" title="stalker.models.mixins.ScheduleMixin.schedule_seconds"><code class="xref py py-obj docutils literal"><span class="pre">schedule_seconds</span></code></a></td>
+<td>Returns the schedule values as seconds, depending on to the schedule_model the value will differ.</td>
+</tr>
+</tbody>
+</table>
+<dl class="classmethod">
+<dt id="stalker.models.mixins.ScheduleMixin.least_meaningful_time_unit">
+<em class="property">classmethod </em><code class="descname">least_meaningful_time_unit</code><span class="sig-paren">(</span><em>seconds</em>, <em>as_work_time=True</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.mixins.ScheduleMixin.least_meaningful_time_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the least meaningful timing unit that corresponds to the
+given seconds. So if:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>as_work_time == True</dt>
+<dd>seconds % (1 years work time as seconds) == 0 &#8211;&gt; &#8216;y&#8217; else:
+seconds % (1 month work time as seconds) == 0 &#8211;&gt; &#8216;m&#8217; else:
+seconds % (1 week work time as seconds) == 0 &#8211;&gt; &#8216;w&#8217; else:
+seconds % (1 day work time as seconds) == 0 &#8211;&gt; &#8216;d&#8217; else:
+seconds % (1 hour work time as seconds) == 0 &#8211;&gt; &#8216;h&#8217; else:
+seconds % (1 minutes work time as seconds) == 0 &#8211;&gt; &#8216;min&#8217; else:
+raise RuntimeError</dd>
+<dt>as_work_time == False</dt>
+<dd>seconds % (1 years as seconds) == 0 &#8211;&gt; &#8216;y&#8217; else:
+seconds % (1 month as seconds) == 0 &#8211;&gt; &#8216;m&#8217; else:
+seconds % (1 week as seconds) == 0 &#8211;&gt; &#8216;w&#8217; else:
+seconds % (1 day as seconds) == 0 &#8211;&gt; &#8216;d&#8217; else:
+seconds % (1 hour as seconds) == 0 &#8211;&gt; &#8216;h&#8217; else:
+seconds % (1 minutes as seconds) == 0 &#8211;&gt; &#8216;min&#8217; else:
+raise RuntimeError</dd>
+</dl>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seconds</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; An integer showing the total seconds to be
+converted.</li>
+<li><strong>as_work_time</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Should the input be considered as work time
+or calendar time.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Returns int, string:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first last">Returns one integer and one string, showing the
+timing value and the unit.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.mixins.ScheduleMixin.schedule_seconds">
+<code class="descname">schedule_seconds</code><a class="headerlink" href="#stalker.models.mixins.ScheduleMixin.schedule_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the schedule values as seconds, depending on to the
+schedule_model the value will differ. So if the schedule_model is
+&#8216;effort&#8217; or &#8216;length&#8217; then the schedule_time and schedule_unit values
+are interpreted as work time, if the schedule_model is &#8216;duration&#8217; then
+the schedule_time and schedule_unit values are considered as calendar
+time.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="stalker.models.mixins.ScheduleMixin.to_seconds">
+<em class="property">classmethod </em><code class="descname">to_seconds</code><span class="sig-paren">(</span><em>timing</em>, <em>unit</em>, <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.mixins.ScheduleMixin.to_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts the schedule values to seconds, depending on to the
+schedule_model the value will differ. So if the schedule_model is
+&#8216;effort&#8217; or &#8216;length&#8217; then the schedule_time and schedule_unit values
+are interpreted as work time, if the schedule_model is &#8216;duration&#8217; then
+the schedule_time and schedule_unit values are considered as calendar
+time.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stalker.models.mixins.ReferenceMixin.html"
+                        title="previous chapter">stalker.models.mixins.ReferenceMixin</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stalker.models.mixins.StatusMixin.html"
+                        title="next chapter">stalker.models.mixins.StatusMixin</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.StatusMixin.html" title="stalker.models.mixins.StatusMixin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.ReferenceMixin.html" title="stalker.models.mixins.ReferenceMixin"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

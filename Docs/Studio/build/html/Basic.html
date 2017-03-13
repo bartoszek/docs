@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic Kubuntu Install &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="Nvidia Drivers Install" href="Nvidia.html"/>
+        <link rel="prev" title="Welcome to my documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Basic Kubuntu Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#super-user">super-user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ldap-authentification">ldap authentification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#settings-for-ldap-authentification">settings for ldap authentification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#royalrender-specifics">RoyalRender specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc-packages">Misc packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-configuration-files">Custom configuration files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuke">Nuke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-all-in-one-command"><em>Basic</em> : all in one command</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Basic Kubuntu Install</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Basic.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basic-kubuntu-install">
+<h1>Basic Kubuntu Install<a class="headerlink" href="#basic-kubuntu-install" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/kubuntu-1404.jpg" src="_images/kubuntu-1404.jpg" />
+<p>Once the initial installation from .iso is finished:</p>
+<div class="section" id="super-user">
+<h2>super-user<a class="headerlink" href="#super-user" title="Permalink to this headline">¶</a></h2>
+<p>I like to work as a super user when installing instead of sudo ...</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>sudo passwd
+</pre></div>
+</div>
+<p>update and upgrade the installation:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get update &amp;&amp; apt-get -y dist-upgrade
+</pre></div>
+</div>
+<p>you will need gcc and make to install Nvidia drivers:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes gcc make
+</pre></div>
+</div>
+<p>ssh and misc sh interpreters</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes ssh openssh-server openssh-client csh tcsh
+</pre></div>
+</div>
+<p>if you want to have ssh root login available (only for LAN)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>vi /etc/ssh/sshd_config
+change setting to  : PermitRootLogin yes
+</pre></div>
+</div>
+<p>autofs to mount volumes later</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes autofs
+</pre></div>
+</div>
+</div>
+<div class="section" id="ldap-authentification">
+<h2>ldap authentification<a class="headerlink" href="#ldap-authentification" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Kubuntu 12.04</strong></li>
+</ul>
+<p>12.04 works fine with nscd</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes libpam-ldap libnss-ldap nscd
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>Kubuntu 14.04 LTS</strong></li>
+</ul>
+<p>14.04 works better with sssd (nscd causes problems with mounting
+external drives and sound and burning CD&#8217;s)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes sssd libpam-sss libnss-sss libnss-ldap
+</pre></div>
+</div>
+<p>use kdm instead lightdm (so you don&#8217;t have all user listed in the connection
+screen) . select kdm as default</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes kdm
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>Kubuntu 15.04 - 15.10</strong></li>
+</ul>
+<p>15.04 works better with sssd (nscd causes problems with mounting
+external drives and sound and burning CD&#8217;s)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes sssd libpam-sss libnss-sss libnss-ldap
+</pre></div>
+</div>
+<p>15.04 doesn&#8217;t support kdm but uses sddm.To be able to log in with a unique user
+you can install the elarun theme:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install sddm-theme-elarun
+</pre></div>
+</div>
+<p>vi /usr/share/sddm/themes/elarun/Main.qlm and change the definition to 1920*1200
+than select the elarun theme in the start/shutdown configuration settings.</p>
+<p>to start the elarun theme with a french keyboard by default</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>echo &#39;setxkbmap &quot;fr&quot;&#39; &gt;&gt; /usr/share/sddm/scripts/Xsetup
+</pre></div>
+</div>
+<p><a class="reference external" href="http://www.linuxfromscratch.org/blfs/view/svn/x/sddm.html">http://www.linuxfromscratch.org/blfs/view/svn/x/sddm.html</a></p>
+</div>
+<div class="section" id="settings-for-ldap-authentification">
+<h2>settings for ldap authentification<a class="headerlink" href="#settings-for-ldap-authentification" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>ldapi : 192.168.32.1
+dc=mystudio
+3 / no / no
+</pre></div>
+</div>
+<p>bug : ldap user with automounted nfs homedir cannot login:</p>
+<p><a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/at-spi2-core/+bug/870874">https://bugs.launchpad.net/ubuntu/+source/at-spi2-core/+bug/870874</a></p>
+</div>
+<div class="section" id="royalrender-specifics">
+<h2>RoyalRender specifics<a class="headerlink" href="#royalrender-specifics" title="Permalink to this headline">¶</a></h2>
+<p>(this is for royalrender v 6.02.51)
+<a class="reference external" href="http://www.royalrender.de/index.htm">http://www.royalrender.de/index.htm</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes ibus
+</pre></div>
+</div>
+<p>to avoid error popups in royalrender</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>chmod u+s /sbin/reboot
+</pre></div>
+</div>
+<p>all users can now poweroff and reboot (not root only)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install ethtool
+ethtool -s eth0 wol g
+</pre></div>
+</div>
+<p>activate Wake on Lan (WOL) on eth0.</p>
+<div class="highlight-python"><div class="highlight"><pre> vi /etc/rc.local and add this line at the end to be sure
+ that wol is always active.
+
+# By default this script does nothing.
+ethtool -s eth0 wol g
+exit 0
+</pre></div>
+</div>
+<p>more on wake on lan (in french):</p>
+<p><a class="reference external" href="http://doc.ubuntu-fr.org/wakeonlan">http://doc.ubuntu-fr.org/wakeonlan</a></p>
+</div>
+<div class="section" id="misc-packages">
+<h2>Misc packages<a class="headerlink" href="#misc-packages" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes ubuntu-restricted-extras
+apt-get install --yes gstreamer0.10-plugins-ugly libavcodec-extra-54
+apt-get install --yes libvdpau-va-gl1 libmad0 mpg321 gstreamer1.0-libav
+apt-get install --yes unace rar unrar p7zip-rar p7zip sharutils uudeview
+apt-get install --yes mpack arj cabextract lzip lunzip
+apt-get --yes update
+apt-get --yes upgrade
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-configuration-files">
+<h2>Custom configuration files<a class="headerlink" href="#custom-configuration-files" title="Permalink to this headline">¶</a></h2>
+<p>download config files</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>wget https://www.dropbox.com/s/9a6o7icyokg6wiu/etc.myzip?dl=0 -O /var/tmp/etc.zip
+wget https://www.dropbox.com/s/kderr8diwywsdum/foundry.myzip?dl=0 -O /var/tmp/foundry.zip
+cd /var/tmp
+unzip etc.zip
+unzip foundry.zip
+#rm etc.zip foundry.zip
+</pre></div>
+</div>
+</div>
+<div class="section" id="nuke">
+<h2>Nuke<a class="headerlink" href="#nuke" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp -r /var/tmp/foundry/ /usr/local
+chmod -R 755 /usr/local/foundry
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-all-in-one-command">
+<h2><em>Basic</em> : all in one command<a class="headerlink" href="#basic-all-in-one-command" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get --yes update
+apt-get --yes upgrade
+apt-get install --yes gcc make autofs
+apt-get install --yes ssh openssh-server openssh-client csh tcsh
+apt-get install --yes sssd libpam-sss libnss-sss libnss-ldap
+apt-get install --yes kdm ibus ethtool
+apt-get install --yes ubuntu-restricted-extras
+apt-get install --yes gstreamer0.10-plugins-ugly libavcodec-extra-54
+apt-get install --yes libvdpau-va-gl1 libmad0 mpg321 gstreamer1.0-libav
+apt-get install --yes unace rar unrar p7zip-rar p7zip sharutils uudeview
+apt-get install --yes mpack arj cabextract lzip lunzip
+chmod u+s /sbin/reboot
+apt-get --yes update
+apt-get --yes upgrade
+</pre></div>
+</div>
+<img alt="_images/plasma5.jpg" src="_images/plasma5.jpg" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Nvidia.html" class="btn btn-neutral float-right" title="Nvidia Drivers Install" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to my documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

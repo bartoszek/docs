@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /Docs/NeuralArt/source</title>
+ </head>
+ <body>
+<h1>Index of /Docs/NeuralArt/source</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/Docs/NeuralArt/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="CNNMRF.rst">CNNMRF.rst</a></td><td align="right">2016-03-15 11:28  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Deflickr.rst">Deflickr.rst</a></td><td align="right">2016-07-05 12:48  </td><td align="right">492 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="DepthEstimation.rst">DepthEstimation.rst</a></td><td align="right">2016-07-08 16:18  </td><td align="right">3.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="OpticalFlow.rst">OpticalFlow.rst</a></td><td align="right">2016-07-13 16:39  </td><td align="right">638 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="RoyalRender.rst">RoyalRender.rst</a></td><td align="right">2016-07-07 15:29  </td><td align="right">2.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="_static/">_static/</a></td><td align="right">2016-02-22 11:13  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="_templates/">_templates/</a></td><td align="right">2016-02-22 11:13  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="andersbll.rst">andersbll.rst</a></td><td align="right">2016-03-15 11:29  </td><td align="right">1.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="animation.rst">animation.rst</a></td><td align="right">2016-05-02 21:57  </td><td align="right">707 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="conf.py">conf.py</a></td><td align="right">2016-02-22 11:22  </td><td align="right">9.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="cuda.rst">cuda.rst</a></td><td align="right">2016-03-04 18:38  </td><td align="right">821 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="deepdream.rst">deepdream.rst</a></td><td align="right">2016-03-15 11:22  </td><td align="right">3.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="imageanalogies.rst">imageanalogies.rst</a></td><td align="right">2016-03-15 11:22  </td><td align="right">404 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="images/">images/</a></td><td align="right">2017-01-03 12:22  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="index.rst">index.rst</a></td><td align="right">2017-01-03 11:27  </td><td align="right">612 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="jcjohnson.rst">jcjohnson.rst</a></td><td align="right">2016-04-15 15:08  </td><td align="right">907 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="quantization.rst">quantization.rst</a></td><td align="right">2016-06-20 13:45  </td><td align="right">586 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="segmentation.rst">segmentation.rst</a></td><td align="right">2016-07-13 16:46  </td><td align="right">189 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="styleswap.rst">styleswap.rst</a></td><td align="right">2017-01-03 11:26  </td><td align="right">464 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="superresolution.rst">superresolution.rst</a></td><td align="right">2016-03-15 11:35  </td><td align="right">1.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="webref.rst">webref.rst</a></td><td align="right">2016-02-22 13:23  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.7 (Ubuntu) Server at 82.127.216.226 Port 80</address>
+</body></html>

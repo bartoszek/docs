@@ -1,0 +1,5 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Tracking 3D de cam\IeC {\'e}ra :}{1}{section.1}
+\contentsline {section}{\numberline {2}Tracking de cam\IeC {\'e}ras st\IeC {\'e}r\IeC {\'e}o :}{2}{section.2}
+\contentsline {section}{\numberline {3}D\IeC {\'e}veloppements effectu\IeC {\'e}s :}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Logiciels utilises :}{3}{subsection.3.1}

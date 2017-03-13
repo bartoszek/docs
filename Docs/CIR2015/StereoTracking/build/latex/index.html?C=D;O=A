@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /Docs/CIR2015/StereoTracking/build/latex</title>
+ </head>
+ <body>
+<h1>Index of /Docs/CIR2015/StereoTracking/build/latex</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/Docs/CIR2015/StereoTracking/build/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Makefile">Makefile</a></td><td align="right">2015-11-18 16:33  </td><td align="right">2.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.aux">StereoTracking.aux</a></td><td align="right">2016-07-18 17:11  </td><td align="right">2.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.idx">StereoTracking.idx</a></td><td align="right">2016-07-18 17:11  </td><td align="right">  0 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.ilg">StereoTracking.ilg</a></td><td align="right">2016-07-18 17:11  </td><td align="right">316 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.ind">StereoTracking.ind</a></td><td align="right">2016-07-18 17:11  </td><td align="right">  0 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.log">StereoTracking.log</a></td><td align="right">2016-07-18 17:11  </td><td align="right"> 43K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.out">StereoTracking.out</a></td><td align="right">2016-07-18 17:11  </td><td align="right">269 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/layout.gif" alt="[   ]"></td><td><a href="StereoTracking.pdf">StereoTracking.pdf</a></td><td align="right">2016-07-18 17:11  </td><td align="right">1.4M</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="StereoTracking.tex">StereoTracking.tex</a></td><td align="right">2016-07-18 17:11  </td><td align="right"> 11K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="StereoTracking.toc">StereoTracking.toc</a></td><td align="right">2016-07-18 17:11  </td><td align="right">407 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="fncychap.sty">fncychap.sty</a></td><td align="right">2015-11-18 16:33  </td><td align="right"> 18K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="python.ist">python.ist</a></td><td align="right">2015-11-18 16:33  </td><td align="right">220 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="sphinx.sty">sphinx.sty</a></td><td align="right">2015-11-18 16:33  </td><td align="right"> 16K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="sphinxhowto.cls">sphinxhowto.cls</a></td><td align="right">2015-11-18 16:33  </td><td align="right">2.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="sphinxmanual.cls">sphinxmanual.cls</a></td><td align="right">2015-11-18 16:33  </td><td align="right">4.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="stereo.00001.jpg">stereo.00001.jpg</a></td><td align="right">2016-07-18 16:16  </td><td align="right">325K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="stereo.00002.jpg">stereo.00002.jpg</a></td><td align="right">2016-07-18 16:16  </td><td align="right">400K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="stereo1.jpg">stereo1.jpg</a></td><td align="right">2016-07-18 16:16  </td><td align="right">325K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="stereo2.jpg">stereo2.jpg</a></td><td align="right">2016-07-18 16:16  </td><td align="right">400K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="tabulary.sty">tabulary.sty</a></td><td align="right">2015-11-18 16:33  </td><td align="right"> 14K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="trackingstereo2.jpg">trackingstereo2.jpg</a></td><td align="right">2016-07-18 16:14  </td><td align="right">245K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="trackingstereo3.jpg">trackingstereo3.jpg</a></td><td align="right">2016-07-18 16:14  </td><td align="right">190K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="trackingstereo5.jpg">trackingstereo5.jpg</a></td><td align="right">2016-07-18 16:14  </td><td align="right">246K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/image2.gif" alt="[IMG]"></td><td><a href="trackingstereo7.jpg">trackingstereo7.jpg</a></td><td align="right">2016-07-18 16:14  </td><td align="right">342K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.7 (Ubuntu) Server at 82.127.216.226 Port 80</address>
+</body></html>

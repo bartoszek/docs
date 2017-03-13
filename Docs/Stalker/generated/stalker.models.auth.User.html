@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stalker.models.auth.User &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="../index.html" />
+    <link rel="next" title="stalker.models.budget.Budget" href="stalker.models.budget.Budget.html" />
+    <link rel="prev" title="stalker.models.auth.Permission" href="stalker.models.auth.Permission.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.budget.Budget.html" title="stalker.models.budget.Budget"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.auth.Permission.html" title="stalker.models.auth.Permission"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-models-auth-user">
+<h1>stalker.models.auth.User<a class="headerlink" href="#stalker-models-auth-user" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+digraph inheritanceb4fd40fdaf {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;ACLMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.mixins.ACLMixin.html#stalker.models.mixins.ACLMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;ORMClass&quot; -&gt; &quot;Base&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Entity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.entity.Entity.html#stalker.models.entity.Entity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Entity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ORMClass&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;SimpleEntity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.entity.SimpleEntity.html#stalker.models.entity.SimpleEntity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;SimpleEntity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;User&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;#stalker.models.auth.User&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;User&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ACLMixin&quot; -&gt; &quot;User&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+</p>
+<dl class="class">
+<dt id="stalker.models.auth.User">
+<em class="property">class </em><code class="descclassname">stalker.models.auth.</code><code class="descname">User</code><span class="sig-paren">(</span><em>name=None</em>, <em>login=None</em>, <em>email=None</em>, <em>password=None</em>, <em>departments=None</em>, <em>companies=None</em>, <em>groups=None</em>, <em>efficiency=1.0</em>, <em>rate=0.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.auth.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stalker.models.entity.Entity.html#stalker.models.entity.Entity" title="stalker.models.entity.Entity"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.entity.Entity</span></code></a>, <a class="reference internal" href="stalker.models.mixins.ACLMixin.html#stalker.models.mixins.ACLMixin" title="stalker.models.mixins.ACLMixin"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.mixins.ACLMixin</span></code></a></p>
+<p>The user class is designed to hold data about a User in the system.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">New to version 0.2.0 users can be assigned to a <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> as a
+<strong>Watcher</strong>. Which can be used to inform the users in watchers list
+about the updates of certain Tasks.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is now possible to define Vacations per user.</p>
+</div>
+<div class="admonition note">
+<p class="first last admonition-title">Note</p>
+</div>
+<div class="admonition note">
+<p class="first last admonition-title">Note</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rate</strong> &#8211; For future usage a rate attribute is added to the User to record the
+daily cost of this user as a resource. It should be either 0 or a
+positive integer or float value. Default is 0.</li>
+<li><strong>efficiency</strong> &#8211; <p>The efficiency is a multiplier for a user as a resource to a task and
+defines how much of the time spent for that particular task is counted as
+an actual effort. The default value is 1.0, lowest possible value is 0.0
+and there is no upper limit.</p>
+<p>The efficiency of a resource can be used for three purposes. First you
+can use it as a crude way to model a team. A team of 5 people should have
+an efficiency of 5.0. Keep in mind that you cannot track the members of
+the team individually if you use this feature. They always act as a
+group.</p>
+<p>Another use is to model performance variations between your resources.
+Again, this is a fairly crude mechanism and should be used with care. A
+resource that isn&#8217;t every good at some task might be pretty good at
+another. This can&#8217;t be taken into account as the resource efficiency can
+only set globally for all tasks.</p>
+<p>One another and interesting use is to model the availability of passive
+resources like a meeting room or a workstation or something that needs to
+be free for a task to take place but does not contribute to a task as an
+active resource.</p>
+<p>All resources that do not contribute effort to the task, that is a
+passive resource, should have an efficiency of 0.0. Again a typical
+example would be a conference room. It&#8217;s necessary for a meeting, but it
+does not contribute any work.</p>
+</li>
+<li><strong>email</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; holds the e-mail of the user, should be in [part1]&#64;[part2]
+format</li>
+<li><strong>login</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; This is the login name of the user, it should be all lower
+case. Giving a string that has uppercase letters, it will be converted to
+lower case. It can not be an empty string or None and it can not contain
+any white space inside.</li>
+<li><strong>departments</strong> (list of <a class="reference internal" href="stalker.models.department.Department.html#stalker.models.department.Department" title="stalker.models.department.Department"><code class="xref py py-class docutils literal"><span class="pre">Department</span></code></a>s) &#8211; It is the departments that the user is a part of. It
+should be a list of Department objects. One user can be listed in
+multiple departments.</li>
+<li><strong>password</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; it is the password of the user, can contain any character.
+Stalker doesn&#8217;t store the raw passwords of the users. To check a stored
+password with a raw password use <a class="reference internal" href="#stalker.models.auth.User.check_password" title="stalker.models.auth.User.check_password"><code class="xref py py-meth docutils literal"><span class="pre">check_password()</span></code></a> and to set the
+password you can use the <a class="reference internal" href="#stalker.models.auth.User.password" title="stalker.models.auth.User.password"><code class="xref py py-attr docutils literal"><span class="pre">password</span></code></a> property directly.</li>
+<li><strong>groups</strong> (list of <a class="reference internal" href="stalker.models.auth.Group.html#stalker.models.auth.Group" title="stalker.models.auth.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a>) &#8211; It is a list of <a class="reference internal" href="stalker.models.auth.Group.html#stalker.models.auth.Group" title="stalker.models.auth.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a> instances that this user
+belongs to.</li>
+<li><strong>tasks</strong> (list of <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s) &#8211; it is a list of Task objects which holds the tasks that this
+user has been assigned to</li>
+<li><strong>last_login</strong> (<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><em>datetime.datetime</em></a>) &#8211; it is a datetime.datetime object holds the last login
+date of the user (not implemented yet)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stalker.models.auth.User.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name=None</em>, <em>login=None</em>, <em>email=None</em>, <em>password=None</em>, <em>departments=None</em>, <em>companies=None</em>, <em>groups=None</em>, <em>efficiency=1.0</em>, <em>rate=0.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.auth.User.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.auth.User.__init__" title="stalker.models.auth.User.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([name,&nbsp;login,&nbsp;email,&nbsp;password,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.auth.User.check_password" title="stalker.models.auth.User.check_password"><code class="xref py py-obj docutils literal"><span class="pre">check_password</span></code></a>(raw_password)</td>
+<td>Checks the given raw_password.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.auth.User.nice_name" title="stalker.models.auth.User.nice_name"><code class="xref py py-obj docutils literal"><span class="pre">nice_name</span></code></a></td>
+<td>Nice name of this object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.auth.User.open_tickets" title="stalker.models.auth.User.open_tickets"><code class="xref py py-obj docutils literal"><span class="pre">open_tickets</span></code></a></td>
+<td>The list of open <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s that this user has.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.auth.User.plural_class_name" title="stalker.models.auth.User.plural_class_name"><code class="xref py py-obj docutils literal"><span class="pre">plural_class_name</span></code></a></td>
+<td>the plural name of this class</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.auth.User.tickets" title="stalker.models.auth.User.tickets"><code class="xref py py-obj docutils literal"><span class="pre">tickets</span></code></a></td>
+<td>The list of <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s that this user has.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.auth.User.tjp_id" title="stalker.models.auth.User.tjp_id"><code class="xref py py-obj docutils literal"><span class="pre">tjp_id</span></code></a></td>
+<td>returns TaskJuggler compatible id</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.auth.User.to_tjp" title="stalker.models.auth.User.to_tjp"><code class="xref py py-obj docutils literal"><span class="pre">to_tjp</span></code></a></td>
+<td>outputs a TaskJuggler formatted string</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stalker.models.auth.User.check_password">
+<code class="descname">check_password</code><span class="sig-paren">(</span><em>raw_password</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.auth.User.check_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the given raw_password.</p>
+<p>Checks the given raw_password with the current Users objects encrypted
+password.</p>
+<p>Checks the given raw password with the given encrypted password.
+Handles the encryption process behind the scene.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.company_role">
+<code class="descname">company_role</code><a class="headerlink" href="#stalker.models.auth.User.company_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="stalker.models.client.Client.html#stalker.models.client.Client" title="stalker.models.client.Client"><code class="xref py py-class docutils literal"><span class="pre">Client</span></code></a>s that this user is a part of.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.created_by">
+<code class="descname">created_by</code><a class="headerlink" href="#stalker.models.auth.User.created_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has created this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.created_by_id">
+<code class="descname">created_by_id</code><a class="headerlink" href="#stalker.models.auth.User.created_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has created this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.date_created">
+<code class="descname">date_created</code><a class="headerlink" href="#stalker.models.auth.User.date_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></code></a> instance showing the creation date
+and time of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.date_updated">
+<code class="descname">date_updated</code><a class="headerlink" href="#stalker.models.auth.User.date_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></code></a> instance showing the update date
+and time of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.department_role">
+<code class="descname">department_role</code><a class="headerlink" href="#stalker.models.auth.User.department_role" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="stalker.models.department.Department.html#stalker.models.department.Department" title="stalker.models.department.Department"><code class="xref py py-class docutils literal"><span class="pre">Department</span></code></a>s that
+this user is a part of</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.description">
+<code class="descname">description</code><a class="headerlink" href="#stalker.models.auth.User.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.email">
+<code class="descname">email</code><a class="headerlink" href="#stalker.models.auth.User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>email of the user, accepts string</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.generic_data">
+<code class="descname">generic_data</code><a class="headerlink" href="#stalker.models.auth.User.generic_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This attribute can hold any kind of data which exists in SOM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.generic_text">
+<code class="descname">generic_text</code><a class="headerlink" href="#stalker.models.auth.User.generic_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>This attribute can hold any text.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.groups">
+<code class="descname">groups</code><a class="headerlink" href="#stalker.models.auth.User.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permission groups that this users is a member of.</p>
+<p>Accepts <a class="reference internal" href="stalker.models.auth.Group.html#stalker.models.auth.Group" title="stalker.models.auth.Group"><code class="xref py py-class docutils literal"><span class="pre">Group</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.last_login">
+<code class="descname">last_login</code><a class="headerlink" href="#stalker.models.auth.User.last_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last login time of this user.</p>
+<p>It is an instance of datetime.datetime class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.login">
+<code class="descname">login</code><a class="headerlink" href="#stalker.models.auth.User.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>The login name of the user.</p>
+<p>Can not be empty.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.name">
+<code class="descname">name</code><a class="headerlink" href="#stalker.models.auth.User.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.nice_name">
+<code class="descname">nice_name</code><a class="headerlink" href="#stalker.models.auth.User.nice_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nice name of this object.</p>
+<p>It has the same value with the name (contextually) but with a different
+format like, all the white spaces replaced by underscores (&#8220;_&#8221;), all
+the CamelCase form will be expanded by underscore (_) characters and
+it is always lower case.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.notes">
+<code class="descname">notes</code><a class="headerlink" href="#stalker.models.auth.User.notes" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the <code class="xref py py-class docutils literal"><span class="pre">Notes</span></code>s attached to this entity.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.note.Note.html#stalker.models.note.Note" title="stalker.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a> instances or an
+empty list, setting it to None will raise a TypeError.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.open_tickets">
+<code class="descname">open_tickets</code><a class="headerlink" href="#stalker.models.auth.User.open_tickets" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of open <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s that this user has.</p>
+<p>returns a list of <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a> instances which has a status of
+<cite>Open</cite> that this user is assigned as the owner.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.password">
+<code class="descname">password</code><a class="headerlink" href="#stalker.models.auth.User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p>The password of the user.</p>
+<p>It is scrambled before it is stored.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.plural_class_name">
+<code class="descname">plural_class_name</code><a class="headerlink" href="#stalker.models.auth.User.plural_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the plural name of this class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.responsible_of">
+<code class="descname">responsible_of</code><a class="headerlink" href="#stalker.models.auth.User.responsible_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> instances that this user is responsible
+of.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.tags">
+<code class="descname">tags</code><a class="headerlink" href="#stalker.models.auth.User.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tags attached to this object.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.tag.Tag.html#stalker.models.tag.Tag" title="stalker.models.tag.Tag"><code class="xref py py-class docutils literal"><span class="pre">Tag</span></code></a> instances which shows
+the tags of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.tasks">
+<code class="descname">tasks</code><a class="headerlink" href="#stalker.models.auth.User.tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s assigned to this user.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.tickets">
+<code class="descname">tickets</code><a class="headerlink" href="#stalker.models.auth.User.tickets" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s that this user has.</p>
+<p>returns a list of <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a> instances
+which this user is the owner of.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.time_logs">
+<code class="descname">time_logs</code><a class="headerlink" href="#stalker.models.auth.User.time_logs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="stalker.models.task.TimeLog.html#stalker.models.task.TimeLog" title="stalker.models.task.TimeLog"><code class="xref py py-class docutils literal"><span class="pre">TimeLog</span></code></a> instances which
+holds the time logs created for this <a class="reference internal" href="#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.tjp_id">
+<code class="descname">tjp_id</code><a class="headerlink" href="#stalker.models.auth.User.tjp_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns TaskJuggler compatible id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.to_tjp">
+<code class="descname">to_tjp</code><a class="headerlink" href="#stalker.models.auth.User.to_tjp" title="Permalink to this definition">¶</a></dt>
+<dd><p>outputs a TaskJuggler formatted string</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.type">
+<code class="descname">type</code><a class="headerlink" href="#stalker.models.auth.User.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the object.</p>
+<p>It is an instance of <a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> with a proper
+<a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type.target_entity_type" title="stalker.models.type.Type.target_entity_type"><code class="xref py py-attr docutils literal"><span class="pre">Type.target_entity_type</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.type_id">
+<code class="descname">type_id</code><a class="headerlink" href="#stalker.models.auth.User.type_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> of this entity. Mainly used by
+SQLAlchemy to create a Many-to-One relates between SimpleEntities and
+Types.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.updated_by">
+<code class="descname">updated_by</code><a class="headerlink" href="#stalker.models.auth.User.updated_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has updated this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.updated_by_id">
+<code class="descname">updated_by_id</code><a class="headerlink" href="#stalker.models.auth.User.updated_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has updated this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.vacations">
+<code class="descname">vacations</code><a class="headerlink" href="#stalker.models.auth.User.vacations" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <code class="xref py py-class docutils literal"><span class="pre">Vacation</span></code> instances
+which holds the vacations created for this <a class="reference internal" href="#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.User.watching">
+<code class="descname">watching</code><a class="headerlink" href="#stalker.models.auth.User.watching" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal"><span class="pre">Tasks</span></code>s that this user is
+assigned as a watcher.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> instances.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stalker.models.auth.Permission.html"
+                        title="previous chapter">stalker.models.auth.Permission</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stalker.models.budget.Budget.html"
+                        title="next chapter">stalker.models.budget.Budget</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.budget.Budget.html" title="stalker.models.budget.Budget"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.auth.Permission.html" title="stalker.models.auth.Permission"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

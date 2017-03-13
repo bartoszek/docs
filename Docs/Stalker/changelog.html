@@ -1,0 +1,1780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Stalker Changes &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="index.html" />
+    <link rel="next" title="TODO" href="todo.html" />
+    <link rel="prev" title="Stalker Development Roadmap" href="roadmap.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="todo.html" title="TODO"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="roadmap.html" title="Stalker Development Roadmap"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-changes">
+<span id="changelog-toplevel"></span><h1>Stalker Changes<a class="headerlink" href="#stalker-changes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>0.2.13.3<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a bug in <code class="docutils literal"><span class="pre">Review.finalize_review_set()</span></code> for tasks that are
+sent to review and still have some extra time were not clamped to their total
+logged seconds when the review set is all approved.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.2.13.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Removed <code class="docutils literal"><span class="pre">msrp</span></code>, <code class="docutils literal"><span class="pre">cost</span></code> and <code class="docutils literal"><span class="pre">unit</span></code> arguments from
+<code class="docutils literal"><span class="pre">BudgetEntry.__init__()</span></code> and added a new <code class="docutils literal"><span class="pre">good</span></code> argument to get all of
+the data from the related <code class="docutils literal"><span class="pre">Good</span></code> instance. But the <code class="docutils literal"><span class="pre">msrp</span></code>, <code class="docutils literal"><span class="pre">cost</span></code> and
+<code class="docutils literal"><span class="pre">unit</span></code> attributes of <code class="docutils literal"><span class="pre">BudgetEntry</span></code> class are still there to store the
+values that may not correlate with the related <code class="docutils literal"><span class="pre">Good</span></code> in future.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>0.2.13.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a bug in <code class="docutils literal"><span class="pre">Review.finalize_review_set()</span></code> which causes Task
+instances to not to get any status update if the revised task is a second
+degree dependee to that particular task.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>0.2.13<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>New:</strong> <code class="docutils literal"><span class="pre">Project</span></code> instances can now have multiple repositories. Thus the
+<code class="docutils literal"><span class="pre">repository</span></code> attribute is renamed to <code class="docutils literal"><span class="pre">repositories</span></code>. And the order of the
+items in the <code class="docutils literal"><span class="pre">repositories</span></code> attribute is restored correctly.</p>
+</li>
+<li><p class="first"><strong>New:</strong> <code class="docutils literal"><span class="pre">stalker.db.init()</span></code> now automatically creates environment
+variables for each repository in the database.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new <code class="docutils literal"><span class="pre">after_insert</span></code> which listens <code class="docutils literal"><span class="pre">Repository</span></code> instance
+<a href="#id5"><span class="problematic" id="id6">``</span></a>insert``s to automatically add environment variables for the newly inserted
+repositories.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> <code class="docutils literal"><span class="pre">Repository.make_relative()</span></code> now handles paths with environment
+variables.</p>
+</li>
+<li><p class="first"><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">TaskJugglerScheduler</span></code> to correctly generate task absolute
+paths for PostgreSQL DB.</p>
+</li>
+<li><p class="first"><strong>New:</strong> <code class="docutils literal"><span class="pre">Repository.path</span></code> is now writable and sets the correct path
+(<code class="docutils literal"><span class="pre">linux_path</span></code>, <code class="docutils literal"><span class="pre">windows_path</span></code>, or <code class="docutils literal"><span class="pre">osx_path</span></code>) according to the current
+system.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Setting either of the <code class="docutils literal"><span class="pre">Repository.path</span></code>,
+<code class="docutils literal"><span class="pre">Repository.linux_path</span></code>, <code class="docutils literal"><span class="pre">Repository.windows_path</span></code>,
+<code class="docutils literal"><span class="pre">Repository.osx_path</span></code> attributes will update the related environment
+variable if the system and attribute are matching to each other, setting the
+<code class="docutils literal"><span class="pre">linux_path</span></code> on Linux or setting the <code class="docutils literal"><span class="pre">windows_path</span></code> on Windows or setting
+the <code class="docutils literal"><span class="pre">osx_path</span></code> on OSX will update the environment variable.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Task.good</span></code> attribute to easily connect tasks to <a href="#id7"><span class="problematic" id="id8">``</span></a>Good``s.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added new methods to <code class="docutils literal"><span class="pre">Repository</span></code> to help managing paths:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">Repository.find_repo()</span></code> to find a repo from a given path. This is a
+class method so it can be directly used with the Repository class.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Repository.to_os_independent_path()</span></code> to convert the given path to a OS
+independent path which uses environment variables. Again this is a class
+method too so it can be directly used with the Repository class.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Repository.env_var</span></code> a new property that returns the related environment
+variable name of a repo instance. This is an instance property:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># with default settings</span>
+</pre></div>
+</div>
+<p>repo  = Repository(...)
+repo.env_var  # should print something like &#8220;REPO131&#8221; which will be used</p>
+<blockquote>
+<div><p># in paths as &#8220;$REPO131&#8221;</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">User.company_role</span></code> attribute which is a relationship to
+the <code class="docutils literal"><span class="pre">ClienUser</span></code> to cascade <code class="docutils literal"><span class="pre">all,</span> <span class="pre">delete-orphan</span></code> to prevent
+AssertionErrors when a Client instance is removed from the <code class="docutils literal"><span class="pre">User.companies</span></code>
+collection.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>0.2.12.1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Version</span></code> class is now mixed with the <code class="docutils literal"><span class="pre">DAGMixin</span></code>, so all the
+parent/child relation is coming from the DAGMixin.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">DAGMixin.walk_hierarchy()</span></code> is updated to walk the hierarchy in
+<code class="docutils literal"><span class="pre">Depth</span> <span class="pre">First</span></code> mode by default (method=0) instead of <code class="docutils literal"><span class="pre">Breadth</span> <span class="pre">First</span></code> mode
+(method=1).</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">alembic_revision</span></code> on database initialization.</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>0.2.12<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed importing of <code class="docutils literal"><span class="pre">ProjectUser</span></code> directly from <code class="docutils literal"><span class="pre">stalker</span></code>
+namespace.</li>
+<li><strong>Fix:</strong> Fixed importing of <code class="docutils literal"><span class="pre">ClientUser</span></code> directly from <code class="docutils literal"><span class="pre">stalker</span></code>
+namespace.</li>
+<li><strong>New:</strong> Added two new columns to the <code class="docutils literal"><span class="pre">BudgetEntry</span></code> class to allow more
+detailed info to be hold.</li>
+<li><strong>New:</strong> Added a new Mixin called <code class="docutils literal"><span class="pre">DAGMixin</span></code> to create parent/child
+relation between mixed in class.</li>
+<li><strong>Update:</strong> The <code class="docutils literal"><span class="pre">Task</span></code> class is now mixed with the <code class="docutils literal"><span class="pre">DAGMixin</span></code>, so all the
+parent/child relation is coming from the DAGMixin.</li>
+<li><strong>New:</strong> Added a new class called <code class="docutils literal"><span class="pre">Good</span></code> to hold details about the
+commercial items/services sold in the Studio.</li>
+<li><strong>New:</strong> Added a new class called <code class="docutils literal"><span class="pre">PriceList</span></code> to create price lists from
+Goods.</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>0.2.11<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> User instances now have a new attribute called <code class="docutils literal"><span class="pre">rate</span></code> to track
+their cost as a resource.</li>
+<li><strong>New:</strong> Added two new classes called <code class="docutils literal"><span class="pre">Budget</span></code> and <code class="docutils literal"><span class="pre">BudgetEntry</span></code> to
+record Project budgets in a simple way.</li>
+<li><strong>New:</strong> Added a new class called <strong>Role</strong> to manage user roles in different
+Departments, Clients and Projects.</li>
+<li><strong>New:</strong> User and Department relation is updated to include the role of the
+user in that department in a more flexible way by using the newly introduced
+Role class and some association proxy tricks.</li>
+<li><strong>New:</strong> Also updated the User to Project relation to include the role of the
+user in that Project by using an associated Role class.</li>
+<li><strong>Update:</strong> Department.members attribute is renamed to <strong>users</strong> (and removed
+the <em>synonym</em> property).</li>
+<li><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">Project.lead</span></code> attribute use <code class="docutils literal"><span class="pre">Role</span></code> instead.</li>
+<li><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">Department.lead</span></code> attribute use <code class="docutils literal"><span class="pre">Role</span></code> instead.</li>
+<li><strong>Update:</strong> Because the <code class="docutils literal"><span class="pre">Project.lead</span></code> attribute is removed, it is now
+possible to have tasks with no responsible.</li>
+<li><strong>Update:</strong> Client to User relation is updated to use an association proxy
+which makes it possible to set a Role for each User for each Client it is
+assigned to.</li>
+<li><strong>Update:</strong> Renamed User.company to User.companies as the relation is now
+able to handle more than one Client instances for the User company.</li>
+<li><strong>Update:</strong> Task Status Workflow has been updated to convert the status of a
+DREV task to HREV instead of WIP when the dependent tasks has been set to
+CMPL. Also the timing of the task is expanded by the value of
+<code class="docutils literal"><span class="pre">stalker.defaults.timing_resolution</span></code> if it doesn&#8217;t have any effort left
+(generally true for CMPL tasks) to allow the resource to review and decide if
+he/she needs more time to do any update on the task and also give a chance of
+setting the Task status to WIP by creating a time log.</li>
+<li><strong>New:</strong> It is now possible to schedule only a desired set of projects by
+passing a <strong>projects</strong> argument to the TaskJugglerScheduler.</li>
+<li><strong>New:</strong> Task.request_review() and Review.finalize() will not cap the timing
+of the task until it is approved and also Review.finalize() will extend the
+timing of the task if the total timing of the given revisions are not fitting
+in to the left timing.</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>0.2.10.5<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> TaskJuggler output is now written to debug output once per line.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>0.2.10.4<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> &#8216;&#64;&#8217; character is now allowed in Entity nice name.</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>0.2.10.3<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> &#8216;&#64;&#8217; character is now allowed in Version take names.</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>0.2.10.2<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a bug in
+<code class="docutils literal"><span class="pre">stalker.models.schedulers.TaskJugglerScheduler._create_tjp_file_content()</span></code>
+caused by non-ascii task names.</li>
+<li><strong>Fix:</strong> Removed the residual <code class="docutils literal"><span class="pre">RootFactory</span></code> class reference from
+documentation.</li>
+<li><strong>New:</strong> Added to new functions called <code class="docutils literal"><span class="pre">utc_to_local</span></code> and <code class="docutils literal"><span class="pre">local_to_utc</span></code>
+for UTC to Local time and vice versa conversion.</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2>0.2.10.1<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a bug where for a WIP Task with no time logs (apparently
+something went wrong) and no dependencies using
+<code class="docutils literal"><span class="pre">Task.update_status_with_dependent_statuses()</span></code> will convert the status to
+RTS.</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>0.2.10<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> It is now possible to track the Edit information per Shot using the
+newly introduced <code class="docutils literal"><span class="pre">source_in</span></code>, <code class="docutils literal"><span class="pre">source_out</span></code> and <code class="docutils literal"><span class="pre">record_in</span></code> along with
+existent <code class="docutils literal"><span class="pre">cut_in</span></code> and <code class="docutils literal"><span class="pre">cut_out</span></code> attributes.</li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>0.2.9.2<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed MySQL initialization problem in <code class="docutils literal"><span class="pre">stalker.db.init()</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>0.2.9.1<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> As usual, after a new release, fixed a bug in
+<code class="docutils literal"><span class="pre">stalker.db.create_entity_statuses()</span></code> caused by the behavioral change of
+the <code class="docutils literal"><span class="pre">map</span></code> built-in function in Python 3.</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>0.2.9<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added a new class called <code class="docutils literal"><span class="pre">Daily</span></code> which will help managing
+<code class="docutils literal"><span class="pre">Version</span></code> outputs (Link instances including Versions itself) as a group.</li>
+<li><strong>New:</strong> Added a new status list for <code class="docutils literal"><span class="pre">Daily</span></code> class which contains two
+statuses called &#8220;Open&#8221; and &#8220;Closed&#8221;.</li>
+<li><strong>Update:</strong> Setting the <code class="docutils literal"><span class="pre">Version.take_name</span></code> to a value other than a string
+will now raise a <code class="docutils literal"><span class="pre">TypeError</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h2>0.2.8.4<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">SimpleEntity._validate_name()</span></code> method for unicode strings.</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2>0.2.8.3<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed str/unicode errors due to the code written for Python3
+compatibility.</li>
+<li><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">Task.is_complete</span></code> attribute. Use the status &#8220;CMPL&#8221;
+instead of this attribute.</li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h2>0.2.8.2<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">stalker.db.create_alembic_table()</span></code> again to prevent extra
+row insertion.</li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h2>0.2.8.1.1<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">stalker.db.create_alembic_table()</span></code> function to handle the
+situation where the table is already created.</li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h2>0.2.8.1<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">stalker.db.create_alembic_table()</span></code> function, it is not
+using the <code class="docutils literal"><span class="pre">alembic</span></code> library anymore to create the <code class="docutils literal"><span class="pre">alembic_version</span></code>
+table, which was the proper way of doing it but it created a lot of problems
+when Stalker is installed as a package.</li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h2>0.2.8<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Stalker is now Python3 compatible.</li>
+<li><strong>New:</strong> Added a new class called <code class="docutils literal"><span class="pre">Client</span></code> which can be used to track down
+information about the clients of <code class="docutils literal"><span class="pre">Projects</span></code>. Also added <code class="docutils literal"><span class="pre">Project.client</span></code>
+and <code class="docutils literal"><span class="pre">User.company</span></code> attributes which are referencing a Client instance
+allowing to add clients as normal users.</li>
+<li><strong>New:</strong> <code class="docutils literal"><span class="pre">db.init()</span></code> now creates <code class="docutils literal"><span class="pre">alembic_version</span></code> table and stamps the
+most recent version number to that table allowing newly initialized databases
+to be considered in head revision.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Version._format_take_name()</span></code> method. It is now possible to
+use multiple underscore characters in <code class="docutils literal"><span class="pre">Version.take_name</span></code> attribute.</li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h2>0.2.7.6<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">TimeLog._expand_task_schedule_timing()</span></code> method which
+was automatically adjusting the <code class="docutils literal"><span class="pre">schedule_timing</span></code> and <code class="docutils literal"><span class="pre">schedule_unit</span></code> of
+a Task to total duration of the TimeLogs of that particular task, thus
+increasing the schedule info with the entered time logs.</p>
+<p>But it was setting the <code class="docutils literal"><span class="pre">schedule_timing</span></code> to 0 in some certain cases and it
+was unnecessary because the main purpose of this method was to prevent
+TaskJuggler to raise any errors related to the inconsistencies between the
+schedule values and the duration of TimeLogs and TaskJuggler has never given
+a real error about that situation.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h2>0.2.7.5<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed Task parent/child relationship, previously setting the parent
+of a task to None was cascading a delete operation due to the
+&#8220;all, delete-orphan&#8221; setting of the Task parent/child relationship, this is
+updated to be &#8220;all, delete&#8221; and it is now safe to set the parent to None
+without causing the task to be deleted.</li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h2>0.2.7.4<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Fix:</strong> Fixed the following columns column type from String to Text:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Permissions.class_name</li>
+<li>SimpleEntities.description</li>
+<li>Links.full_path</li>
+<li>Structures.custom_template</li>
+<li>FilenameTemplates.path</li>
+<li>FilenameTemplates.filename</li>
+<li>Tickets.summary</li>
+<li>Wiki.title</li>
+<li>Wiki.content</li>
+</ul>
+</div></blockquote>
+<p>and specified a size for the following columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SimpleEntities.html_class -&gt; String(32)</li>
+<li>SimpleEntities.html_style -&gt; String(32)</li>
+<li>FilenameTemplates.target_entity_type -&gt; String(32)</li>
+</ul>
+</div></blockquote>
+<p>to be compatible with MySQL.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> It is now possible to create TimeLog instances for a Task with
+PREV status.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h2>0.2.7.3<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Task.update_status_with_dependent_statuses()</span></code> method for a
+Task where there is no dependency but the status is DREV. Now calling
+<code class="docutils literal"><span class="pre">Task.update_status_with_dependent_statuses()</span></code> will set the status to RTS
+if there is no <code class="docutils literal"><span class="pre">TimeLog</span></code> for that task and will set the status to WIP if
+the task has time logs.</li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h2>0.2.7.2<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">TaskJugglerScheduler</span></code> is now 466x faster when dumping all the
+data to TJP file. So with this new update it is taking only 1.5 seconds to
+dump ~20k tasks to a valid TJP file where it was around ~10 minutes in
+previous implementation. The speed enhancements is available only to
+PostgreSQL dialect for now.</li>
+</ul>
+</div>
+<div class="section" id="id32">
+<h2>0.2.7.1<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed TimeLog output in one line per task in <code class="docutils literal"><span class="pre">Task.to_tjp()</span></code>.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">TaskJugglerScheduler</span></code> now accepts a new argument called
+<code class="docutils literal"><span class="pre">compute_resources</span></code> which when set to True will also consider
+<cite>Task.alternative_resources</cite> attribute and will fill
+<code class="docutils literal"><span class="pre">Task.computed_resources</span></code> attribute for each Task. With
+<code class="docutils literal"><span class="pre">TaskJugglerScheduler</span></code> when the total number of Task is around 15k it will
+take around 7 minutes to generate this data, so by default it is set to
+False.</li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h2>0.2.7<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">efficiency</span></code> attribute to <code class="docutils literal"><span class="pre">User</span></code> class. See User
+documentation for more info.</li>
+</ul>
+</div>
+<div class="section" id="id34">
+<h2>0.2.6.14<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed an <strong>autoflush</strong> problem in <code class="docutils literal"><span class="pre">Studio.schedule()</span></code> method.</li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h2>0.2.6.13<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Repository.make_relative()</span></code> method, which makes the given
+path to relative to the repository root. It considers that the path is
+already in the repository. So for now, be careful about not to pass a path
+outside of the repository.</li>
+</ul>
+</div>
+<div class="section" id="id36">
+<h2>0.2.6.12<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">TaskJugglerScheduler.schedule()</span></code> method now uses the
+<code class="docutils literal"><span class="pre">Studio.start</span></code> and <code class="docutils literal"><span class="pre">Studio.end</span></code> values for the scheduling range instead
+of the hardcoded dates.</li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h2>0.2.6.11<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Task.create_time_log()</span></code> method now returns the created
+<code class="docutils literal"><span class="pre">TimeLog</span></code> instance.</li>
+</ul>
+</div>
+<div class="section" id="id38">
+<h2>0.2.6.10<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed an <code class="docutils literal"><span class="pre">autoflush</span></code> issue in
+<code class="docutils literal"><span class="pre">Task.update_status_with_children_statuses()</span></code> method.</li>
+</ul>
+</div>
+<div class="section" id="id39">
+<h2>0.2.6.9<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Studio.is_scheduling</span></code> and <code class="docutils literal"><span class="pre">Studio.is_scheduling_by</span></code>
+attributes will not be updated or checked at the beginning of the
+<code class="docutils literal"><span class="pre">Studio.schedule()</span></code> method. It is the duty of the user to check those
+attributes before calling <code class="docutils literal"><span class="pre">Studio.schedule()</span></code>. This is done in this way
+because without being able to do a db commit inside <code class="docutils literal"><span class="pre">Studio.schedule()</span></code>
+method (which is the case with transaction managers which may be used in web
+applications like <strong>Stalker Pyramid</strong>) it is not possible to persist and thus
+use those variables. So, to be able to use those attributes meaningfully the
+user should set them. Those variables will be set to False and None
+accordingly by the <code class="docutils literal"><span class="pre">Studio.schedule()</span></code> method after the scheduling is done.</li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h2>0.2.6.8<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a deadlock in <code class="docutils literal"><span class="pre">TaskJugglerScheduler.schedule()</span></code> method
+related with the <code class="docutils literal"><span class="pre">Popen.stderr.readlines()</span></code> blocking the TaskJuggler
+process without being able to read the output buffer.</li>
+</ul>
+</div>
+<div class="section" id="id41">
+<h2>0.2.6.7<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">TaskJugglerScheduler.schedule()</span></code> is now using bulk inserts and
+updates which is way faster than doing it with pure Python. Use
+<code class="docutils literal"><span class="pre">parsing_method</span></code> (0: SQL, 1: Python) to choose between SQL or Pure Python
+implementation. Also updated <code class="docutils literal"><span class="pre">Studio.schedule()</span></code> to take in a
+<code class="docutils literal"><span class="pre">parsing_method</span></code> parameter.</li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h2>0.2.6.6<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> The <code class="docutils literal"><span class="pre">cut_in</span></code>, <code class="docutils literal"><span class="pre">cut_out</span></code> and <code class="docutils literal"><span class="pre">cut_duration</span></code> attribute
+behaviour and the attribute order is updated in <code class="docutils literal"><span class="pre">Shot</span></code> class. So, if three
+of the values are given, then the <code class="docutils literal"><span class="pre">cut_duration</span></code> attribute value will be
+calculated from <code class="docutils literal"><span class="pre">cut_in</span></code> and <code class="docutils literal"><span class="pre">cut_out</span></code> attribute values. In any case
+<code class="docutils literal"><span class="pre">cut_out</span></code> precedes <code class="docutils literal"><span class="pre">cut_duration</span></code>, and if none of them given <code class="docutils literal"><span class="pre">cut_in</span></code>
+and <code class="docutils literal"><span class="pre">cut_duration</span></code> values will default to 1 and <code class="docutils literal"><span class="pre">cut_out</span></code> will be
+calculated by using <code class="docutils literal"><span class="pre">cut_in</span></code> and <code class="docutils literal"><span class="pre">cut_duration</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h2>0.2.6.5<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Entity to Note relation is now Many-to-Many. So one Note can now be
+assigned more than one Entity.</li>
+<li><strong>New:</strong> Added alembic revision for <code class="docutils literal"><span class="pre">Entity_Notes</span></code> table creation and data
+migration from <code class="docutils literal"><span class="pre">Notes</span></code> table to <code class="docutils literal"><span class="pre">Entity_Notes</span></code> table. So all notes are
+preserved.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Shot.cut_duration</span></code> attribute initialization on <code class="docutils literal"><span class="pre">Shot</span></code>
+instances restored from database.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Studios.is_scheduling_by</span></code> relationship configuration, which
+was wrongly referencing the <code class="docutils literal"><span class="pre">Studios.last_scheduled_by_id</span></code> column instead
+of <code class="docutils literal"><span class="pre">Studios.is_scheduled_by_id</span></code> column.</li>
+</ul>
+</div>
+<div class="section" id="id44">
+<h2>0.2.6.4<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added a <code class="docutils literal"><span class="pre">Task.review_set(review_number)</span></code> method to get the desired
+set of reviews. It will return the latest set of reviews if <code class="docutils literal"><span class="pre">review_number</span></code>
+is skipped or it is None.</li>
+<li><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">Task.approve()</span></code> it was making things complex than it
+should be.</li>
+</ul>
+</div>
+<div class="section" id="id45">
+<h2>0.2.6.3<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Added <code class="docutils literal"><span class="pre">Page</span></code> to <code class="docutils literal"><span class="pre">class_names</span></code> in <code class="docutils literal"><span class="pre">db.init()</span></code>.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">TimeLog</span></code> tjp representation to use bot the <code class="docutils literal"><span class="pre">start</span></code> and
+<code class="docutils literal"><span class="pre">end</span></code> date values instead of the <code class="docutils literal"><span class="pre">start</span></code> and <code class="docutils literal"><span class="pre">duration</span></code>. This is much
+better because it is independent from the timing resolution settings.</li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h2>0.2.6.2<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">stalker.models.studio.schedule()</span></code> method, and prevented it
+to call <code class="docutils literal"><span class="pre">DBSession.commit()</span></code> which causes errors if there is a transaction
+manager.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">stalker.models._parse_csv_file()</span></code> method for empty
+computed resources list.</li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h2>0.2.6.1<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> <code class="docutils literal"><span class="pre">stalker.models.task.TimeLog</span></code> instances are now checking if the
+dependency relation between the task that receives the time log and the tasks
+that the task depends to will be violated in terms of the start and end dates
+and raises a <code class="docutils literal"><span class="pre">DependencyViolationError</span></code> if it is the case.</li>
+</ul>
+</div>
+<div class="section" id="id48">
+<h2>0.2.6<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">stalker.models.wiki.Page</span></code> class, for holding a per Project
+wiki.</li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h2>0.2.5.5<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> <code class="docutils literal"><span class="pre">Review.task</span></code> attribute now accepts None but this is mainly done
+to allow its relation to the <code class="docutils literal"><span class="pre">Task</span></code> instance can be broken when it needs to
+be deleted without issuing a database commit.</li>
+</ul>
+</div>
+<div class="section" id="id50">
+<h2>0.2.5.4<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Update:</strong> The following column names are updated:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Tasks._review_number</span></code> to <code class="docutils literal"><span class="pre">Tasks.review_number</span></code></li>
+<li><code class="docutils literal"><span class="pre">Tasks._schedule_seconds</span></code> to <code class="docutils literal"><span class="pre">Tasks.schedule_seconds</span></code></li>
+<li><code class="docutils literal"><span class="pre">Tasks._total_logged_seconds</span></code> to <code class="docutils literal"><span class="pre">Tasks.total_logged_seconds</span></code></li>
+<li><code class="docutils literal"><span class="pre">Reviews._review_number</span></code> to <code class="docutils literal"><span class="pre">Reviews.review_number</span></code></li>
+<li><code class="docutils literal"><span class="pre">Shots._cut_in</span></code> to <code class="docutils literal"><span class="pre">Shots.cut_in</span></code></li>
+<li><code class="docutils literal"><span class="pre">Shots._cut_out</span></code> to <code class="docutils literal"><span class="pre">Shots.cut_out</span></code></li>
+</ul>
+<p>Also updated alembic migration to create columns with those names.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Updated Alembic revision <code class="docutils literal"><span class="pre">433d9caaafab</span></code> (the one related with
+stalker 2.5 update) to also include following updates:</p>
+<ul class="simple">
+<li>Create StatusLists for Tasks, Asset, Shot and Sequences and add all the
+Statuses in the Task Status Workflow.</li>
+<li>Remove <code class="docutils literal"><span class="pre">NEW</span></code> from all of the status lists of Task, Asset, Shot and
+Sequence.</li>
+<li>Update all the <code class="docutils literal"><span class="pre">PREV</span></code> tasks to <code class="docutils literal"><span class="pre">WIP</span></code> to let them use the new Review
+Workflow.</li>
+<li>Update the <code class="docutils literal"><span class="pre">Tasks.review_number</span></code> to 0 for all tasks.</li>
+<li>Create StatusLists and Statuses (<code class="docutils literal"><span class="pre">NEW</span></code>, <code class="docutils literal"><span class="pre">RREV</span></code>, <code class="docutils literal"><span class="pre">APP</span></code>) for Reviews.</li>
+<li>Remove any other status then defined in the Task Status Workflow from Task,
+Asset, Shot and Sequence status list.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id51">
+<h2>0.2.5.3<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a bug in <code class="docutils literal"><span class="pre">Task</span></code> class where trying to remove the
+dependencies will raise an <code class="docutils literal"><span class="pre">AttributeError</span></code> caused by the
+<code class="docutils literal"><span class="pre">Task._previously_removed_dependent_tasks</span></code> attribute.</li>
+</ul>
+</div>
+<div class="section" id="id52">
+<h2>0.2.5.2<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Task instances now have two new properties called <code class="docutils literal"><span class="pre">path</span></code> and
+<code class="docutils literal"><span class="pre">absolute_path</span></code>. As in Version instances, these are the rendered version
+of the related FilenameTemplate object in the related Project. The <code class="docutils literal"><span class="pre">path</span></code>
+attribute is Repository root relative and <code class="docutils literal"><span class="pre">absolute_path</span></code> is the absolute
+path including the OS dependent Repository path.</li>
+<li><strong>Update:</strong> Updated alembic revision with revision number &#8220;433d9caaafab&#8221; to
+also create Statuses introduced with Stalker v0.2.5.</li>
+</ul>
+</div>
+<div class="section" id="id53">
+<h2>0.2.5.1<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Version.__repr__</span></code> results with a more readable string.</li>
+<li><strong>New:</strong> Added a generalized generator called
+<code class="docutils literal"><span class="pre">stalker.models.walk_hierarchy()</span></code> that walks and yields the entities over
+the given attribute in DFS or BFS fashion.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Task.walk_hierarchy()</span></code> which iterates over the hierarchy of
+the task. It walks in a breadth first fashion. Use <code class="docutils literal"><span class="pre">method=0</span></code> to walk in
+depth first.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Task.walk_dependencies()</span></code> which iterates over the
+dependencies of the task. It walks in a breadth first fashion. Use
+<code class="docutils literal"><span class="pre">method=0</span></code> to walk in depth first.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Version.walk_hierarchy()</span></code> which iterates over the hierarchy
+of the version. It walks in a depth first fashion. Use <code class="docutils literal"><span class="pre">method=1</span></code> to walk
+in breadth first.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Version.walk_inputs()</span></code> which iterates over the inputs of
+the version. It walks in a depth first fashion. Use <code class="docutils literal"><span class="pre">method=1</span></code> to walk in
+breath first.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">stalker.models.check_circular_dependency()</span></code> function is now
+using <code class="docutils literal"><span class="pre">stalker.models.walk_hierarchy()</span></code> instead of recursion over itself,
+which makes it more robust in deep hierarchies.</li>
+<li><strong>Fix:</strong> <code class="docutils literal"><span class="pre">db.init()</span></code> now updates the statuses of already created status
+lists for <code class="docutils literal"><span class="pre">Task</span></code>, <code class="docutils literal"><span class="pre">Asset</span></code>, <code class="docutils literal"><span class="pre">Shot</span></code> and <code class="docutils literal"><span class="pre">Sequence</span></code> classes.</li>
+</ul>
+</div>
+<div class="section" id="id54">
+<h2>0.2.5<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Update:</strong> <code class="docutils literal"><span class="pre">Revision</span></code> class is renamed to <code class="docutils literal"><span class="pre">Review</span></code> and introduced a
+couple of new attributes.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new workflow called &#8220;Task Review Workflow&#8221;. Please see the
+documentation about the new workflow.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> <code class="docutils literal"><span class="pre">Task.responsible</span></code> attribute is now a list which allows
+multiple responsible to be set for a <code class="docutils literal"><span class="pre">Task</span></code>.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Because of the new &#8220;Task Review Workflow&#8221; task statuses which are
+normally created in Stalker Pyramid are now automatically created in Stalker
+database initialization. The new statuses are
+<strong>Waiting For Dependency (WFD)</strong>, <strong>Ready To Start (RTS)</strong>,
+<strong>Work In Progress (WIP)</strong>, <strong>Pending Review (PREV)</strong>,
+<strong>Has Revision (HREV)</strong>, <strong>On Hold (OH)</strong>, <strong>Stopped (STOP)</strong> and
+<strong>Completed (CMPL)</strong> are all used in <code class="docutils literal"><span class="pre">Task</span></code>, <code class="docutils literal"><span class="pre">Asset</span></code>, <code class="docutils literal"><span class="pre">Shot</span></code> and
+<code class="docutils literal"><span class="pre">Sequence</span></code> status lists by default.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Because of the new &#8220;Task Review Workflow&#8221; also a status list for
+<code class="docutils literal"><span class="pre">Review</span></code> class is created by default. It contains the statuses of
+<strong>New (NEW)</strong>, <strong>Requested Revision (RREV)</strong> and <strong>Approved (APP)</strong>.</p>
+</li>
+<li><p class="first"><strong>Fix:</strong> <code class="docutils literal"><span class="pre">Users.login</span></code> column is now unique.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Ticket workflow in config is now using the proper status names
+instead of the lower case names of the statuses.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new exception called <strong>StatusError</strong> which states the entity
+status is not suitable for the action it is applied to.</p>
+</li>
+<li><p class="first"><strong>New:</strong> <code class="docutils literal"><span class="pre">Studio</span></code> instance now stores the scheduling state to the database
+to prevent two scheduling process to override each other. It also stores the
+last schedule message and the last schedule date and the id of the user who
+has done the scheduling.</p>
+</li>
+<li><p class="first"><strong>New:</strong> The <strong>Task Dependency</strong> relation is now using an
+<strong>Association Object</strong> instead of just a <strong>Secondary Table</strong>. The
+<code class="docutils literal"><span class="pre">Task.depends</span></code> and <code class="docutils literal"><span class="pre">Task.dependent_of</span></code> attributes are now
+<em>association_proxies</em>.</p>
+<p>Also added extra parameters like <code class="docutils literal"><span class="pre">dependency_target</span></code>, <code class="docutils literal"><span class="pre">gap_timing</span></code>,
+<code class="docutils literal"><span class="pre">gap_unit</span></code> and <code class="docutils literal"><span class="pre">gap_model</span></code> to the dependency relation. So all of the
+dependency relations are now able to hold those extra information.</p>
+<p>Updated the <code class="docutils literal"><span class="pre">task_tjp_template</span></code> to reflect the details of the dependencies
+that a task has.</p>
+</li>
+<li><p class="first"><strong>New:</strong> <code class="docutils literal"><span class="pre">ScheduleMixin</span></code> class now has some default class attributes that
+will allow customizations in inherited classes. This is mainly done for
+<code class="docutils literal"><span class="pre">TaskDependency</span></code> class and for <code class="docutils literal"><span class="pre">the</span> <span class="pre">gap_timing</span></code>, <code class="docutils literal"><span class="pre">gap_unit</span></code>,
+<code class="docutils literal"><span class="pre">gap_model</span></code> attributes which are in fact synonyms of <code class="docutils literal"><span class="pre">schedule_timing</span></code>,
+<code class="docutils literal"><span class="pre">schedule_unit</span></code> and <code class="docutils literal"><span class="pre">schedule_model</span></code> attributes coming from the
+<code class="docutils literal"><span class="pre">ScheduleMixin</span></code> class. So by using the <code class="docutils literal"><span class="pre">__default_schedule_attr_name__</span></code>
+Stalker is able to display error messages complaining about <code class="docutils literal"><span class="pre">gap_timing</span></code>
+attribute instead of <code class="docutils literal"><span class="pre">schedule_timing</span></code> etc.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Updating a task by calling <code class="docutils literal"><span class="pre">Task.request_revision()</span></code> will now set
+the <code class="docutils literal"><span class="pre">TaskDependency.dependency_target</span></code> to <strong>&#8216;onstart&#8217;</strong> for tasks those are
+depending to the revised task and updated to have a status of <strong>DREV</strong>,
+<strong>OH</strong> or <strong>STOP</strong>. Thus, TaskJuggler will be able to continue scheduling
+these tasks even if the tasks are now working together.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Updated the TaskJuggler templates to make the tjp output a little
+bit more readable.</p>
+</li>
+<li><p class="first"><strong>New:</strong> <code class="docutils literal"><span class="pre">ScheduleMixin</span></code> now creates more localized (to the mixed in class)
+column and enum type names in the mixed in classes.</p>
+<p>For example, it creates the <code class="docutils literal"><span class="pre">TaskScheduleModel</span></code> enum type for <code class="docutils literal"><span class="pre">Task</span></code>
+class and for <code class="docutils literal"><span class="pre">TaskDependency</span></code> it creates <code class="docutils literal"><span class="pre">TaskDependencyGapModel</span></code> with
+the same setup following the <code class="docutils literal"><span class="pre">{{class_name}}{{attr_name}}Model</span></code> template.</p>
+<p>Also it creates <code class="docutils literal"><span class="pre">schedule_model</span></code> column for <code class="docutils literal"><span class="pre">Task</span></code>, and <code class="docutils literal"><span class="pre">gap_model</span></code> for
+<code class="docutils literal"><span class="pre">TaskDependency</span></code> class.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Renamed the <code class="docutils literal"><span class="pre">TaskScheduleUnit</span></code> enum type name to <code class="docutils literal"><span class="pre">TimeUnit</span></code>
+in <code class="docutils literal"><span class="pre">ScheduleMixin</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id55">
+<h2>0.2.4<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>New:</strong> Added new class called <code class="docutils literal"><span class="pre">Revision</span></code> to hold info about Task
+revisions.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Renamed <code class="docutils literal"><span class="pre">ScheduleMixin</span></code> to <code class="docutils literal"><span class="pre">DateRangeMixin</span></code>.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new mixin called <code class="docutils literal"><span class="pre">ScheduleMixin</span></code> (replacing the old one)
+which adds attributes like <code class="docutils literal"><span class="pre">schedule_timing</span></code>, <code class="docutils literal"><span class="pre">schedule_unit</span></code>,
+<code class="docutils literal"><span class="pre">schedule_model</span></code> and <code class="docutils literal"><span class="pre">schedule_constraint</span></code>.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Task.tickets</span></code> and <code class="docutils literal"><span class="pre">Task.open_tickets</span></code> properties.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Removed unnecessary arguments (<code class="docutils literal"><span class="pre">project_lead</span></code>, <code class="docutils literal"><span class="pre">tasks</span></code>,
+<code class="docutils literal"><span class="pre">watching</span></code>, <code class="docutils literal"><span class="pre">last_login</span></code>) from User class.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> The <code class="docutils literal"><span class="pre">timing_resolution</span></code> attribute is moved from the
+<code class="docutils literal"><span class="pre">DateRangeMixin</span></code> to <code class="docutils literal"><span class="pre">Studio</span></code> class. So instances of classes like
+<code class="docutils literal"><span class="pre">Project</span></code> or <code class="docutils literal"><span class="pre">Task</span></code> will not have their own timing resolution anymore.</p>
+</li>
+<li><p class="first"><strong>New:</strong> The <code class="docutils literal"><span class="pre">Studio</span></code> instance now overrides the values on
+<code class="docutils literal"><span class="pre">stalker.defaults</span></code> on creation and on load, and also the <code class="docutils literal"><span class="pre">db.setup()</span></code>
+function lets the first <code class="docutils literal"><span class="pre">Studio</span></code> instance that it finds to update the
+defaults. So it is now possible to use <code class="docutils literal"><span class="pre">stalker.defaults</span></code> all the time
+without worrying about the Studio settings.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> The <code class="docutils literal"><span class="pre">Studio.yearly_working_days</span></code> value is now always an
+integer.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new method <code class="docutils literal"><span class="pre">ScheduleMixin.least_meaningful_time_unit()</span></code> to
+calculate the most appropriate timing unit and the value of the given seconds
+which represents an interval of time.</p>
+<p>So it will convert 3600 seconds to 1 hours, and 8424000 seconds to 1 years if
+it represents working time (<code class="docutils literal"><span class="pre">as_working_time=True</span></code>) or 2340 hours if it is
+representing the calendar time.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new method to <code class="docutils literal"><span class="pre">ScheduleMixin</span></code> called <code class="docutils literal"><span class="pre">to_seconds()</span></code>. The
+<code class="docutils literal"><span class="pre">to_seconds()</span></code> method converts the given schedule info values
+(<code class="docutils literal"><span class="pre">schedule_timing</span></code>, <code class="docutils literal"><span class="pre">schedule_unit</span></code>, <code class="docutils literal"><span class="pre">schedule_model</span></code>) to seconds
+considering if the given <code class="docutils literal"><span class="pre">schedule_model</span></code> is work time based (&#8216;effort&#8217; or
+&#8216;length&#8217;) or calendar time based (&#8216;duration&#8217;).</p>
+</li>
+<li><p class="first"><strong>New:</strong> Added a new method to <code class="docutils literal"><span class="pre">ScheduleMixin</span></code> called <code class="docutils literal"><span class="pre">schedule_seconds</span></code>
+which you may recognise from <code class="docutils literal"><span class="pre">Task</span></code> class. What it does is pretty much the
+same as in the <code class="docutils literal"><span class="pre">Task</span></code> class, it converts the given schedule info values to
+seconds.</p>
+</li>
+<li><p class="first"><strong>Update:</strong> In <code class="docutils literal"><span class="pre">DateRangeMixin</span></code>, when the <code class="docutils literal"><span class="pre">start</span></code>, <code class="docutils literal"><span class="pre">end</span></code> or
+<code class="docutils literal"><span class="pre">duration</span></code> arguments given so that the duration is smaller then the
+<code class="docutils literal"><span class="pre">defaults.timing_resolution</span></code> the <code class="docutils literal"><span class="pre">defaults.timing_resolution</span></code> will be
+used as the <code class="docutils literal"><span class="pre">duration</span></code> and the <code class="docutils literal"><span class="pre">end</span></code> will be recalculated by anchoring
+the <code class="docutils literal"><span class="pre">start</span></code> value.</p>
+</li>
+<li><p class="first"><strong>New:</strong> Adding a <code class="docutils literal"><span class="pre">TimeLog</span></code> to a <code class="docutils literal"><span class="pre">Task</span></code> and extending its schedule info
+values now will always use the least meaningful timing unit. So expanding a
+task from 16 hours to 18 hours will result a task with 2 days of schedule
+(considering the <code class="docutils literal"><span class="pre">daily_working_hours</span> <span class="pre">=</span> <span class="pre">9</span></code>).</p>
+</li>
+<li><p class="first"><strong>Update:</strong> Moved the <code class="docutils literal"><span class="pre">daily_working_hours</span></code> attribute from <code class="docutils literal"><span class="pre">Studio</span></code> class
+to <code class="docutils literal"><span class="pre">WorkingHours</span></code> class as it was much related to this one then <code class="docutils literal"><span class="pre">Studio</span></code>
+class. Left a property with the same name in the <code class="docutils literal"><span class="pre">Studio</span></code> class, so it will
+still function as it was before but there will be no column in the database
+for that attribute anymore.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id56">
+<h2>0.2.3.5<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed a bug in <code class="docutils literal"><span class="pre">stalker.models.auth.LocalSession</span></code> where stalker
+was complaining about &#8220;copy_reg&#8221; module, it seems that it is related to
+<a class="reference external" href="http://www.archivum.info/python-bugs-list&#64;python.org/2007-04/msg00222.html">this bug</a>.</li>
+</ul>
+</div>
+<div class="section" id="id57">
+<h2>0.2.3.4<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Fixed a little bug in Link.extension property setter.</li>
+<li><strong>New:</strong> Moved the stalker.models.env.EnvironmentBase class to
+&#8220;Anima Tools&#8221; python module.</li>
+<li><strong>Fix:</strong> Fixed a bug in stalker.models.task.Task._responsible_getter() where
+it was always returning the greatest parents responsible as the responsible
+for the child task when the responsible is set to None for the child.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">stalker.models.version.Version.naming_parents</span></code> which
+returns a list of parents starting from the closest parent Asset, Shot or
+Sequence.</li>
+<li><strong>New:</strong> <code class="docutils literal"><span class="pre">stalker.models.version.Version.nice_name</span></code> now generates a name
+starting from the closest Asset, Shot or Sequence parent.</li>
+</ul>
+</div>
+<div class="section" id="id58">
+<h2>0.2.3.3<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> <code class="docutils literal"><span class="pre">Ticket</span></code> action methods (<code class="docutils literal"><span class="pre">resolve</span></code>, <code class="docutils literal"><span class="pre">accept</span></code>, <code class="docutils literal"><span class="pre">reassign</span></code>,
+<code class="docutils literal"><span class="pre">reopen</span></code>) now return the created <code class="docutils literal"><span class="pre">TicketLog</span></code> instance.</li>
+</ul>
+</div>
+<div class="section" id="id59">
+<h2>0.2.3.2<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Added tests for negative or zero fps value in Project class.</li>
+<li><strong>Fix:</strong> Minor fix to <code class="docutils literal"><span class="pre">schedule_timing</span></code> argument in Task class, where IDEs
+where assuming that the value passed to the <code class="docutils literal"><span class="pre">schedule_timing</span></code> should be
+integer where as it accepts floats also.</li>
+<li><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">bg_color</span></code> and <code class="docutils literal"><span class="pre">fg_color</span></code> attributes (and columns)
+from Status class. Use SimpleEntity.html_class and SimpleEntity.html_style
+attributes instead.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Project.open_tickets</span></code> property.</li>
+</ul>
+</div>
+<div class="section" id="id60">
+<h2>0.2.3.1<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed an inconvenience in SimpleEntity.__init__() when a
+date_created argument with a value is later than datetime.datetime.now() is
+supplied and the date_updated argument is skipped or given as None, then the
+date_updated attribute value was generated from datetime.datetime.now() this
+was causing an unnecessary ValueError. This is fixed by directly copying the
+date_created value to date_updated value when it is skipped or None.</li>
+</ul>
+</div>
+<div class="section" id="id61">
+<h2>0.2.3<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> SimpleEntity now have two new attributes called <code class="docutils literal"><span class="pre">html_style</span></code> and
+<code class="docutils literal"><span class="pre">html_class</span></code> which can be used in storing cosmetic html values.</li>
+</ul>
+</div>
+<div class="section" id="id62">
+<h2>0.2.2.3<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Note.content attribute is now a synonym of the Note.description
+attribute.</li>
+</ul>
+</div>
+<div class="section" id="id63">
+<h2>0.2.2.2<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Studio.schedule() now returns information about how much did it
+take to schedule the tasks.</li>
+<li><strong>Update:</strong> Studio.to_tjp() now returns information about how much did it
+take to complete the conversion.</li>
+</ul>
+</div>
+<div class="section" id="id64">
+<h2>0.2.2.1<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Task.percent_complete() now calculates the percent complete
+correctly.</li>
+</ul>
+</div>
+<div class="section" id="id65">
+<h2>0.2.2<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Added cascade attributes to all necessary relations for all the
+classes.</li>
+<li><strong>Update:</strong> The Version class is not mixed with the StatusMixin anymore. So
+the versions are not going to be statusable anymore. Also created alembic
+revision (a6598cde6b) for that update.</li>
+</ul>
+</div>
+<div class="section" id="id66">
+<h2>0.2.1.2<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> TaskJugglerScheduler and the Studio classes are now returning the
+stderr message out of their <code class="docutils literal"><span class="pre">schedule()</span></code> methods.</li>
+</ul>
+</div>
+<div class="section" id="id67">
+<h2>0.2.1.1<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Disabled some deep debug messages on
+TaskJugglerScheduler._parse_csv_file().</li>
+<li><strong>Fix:</strong> Fixed a flush issue related to the Task.parent attribute which is
+lazily loaded in Task._schedule_seconds_setter().</li>
+</ul>
+</div>
+<div class="section" id="id68">
+<h2>0.2.1<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> As usual distutil thinks <code class="docutils literal"><span class="pre">0.2.0</span></code> is a lower version number than
+<code class="docutils literal"><span class="pre">0.2.0.rc5</span></code> (I should have read the documentation again and used
+<code class="docutils literal"><span class="pre">0.2.0.c5</span></code> instead of <code class="docutils literal"><span class="pre">0.2.0.rc5</span></code>) so this is a dummy update to just to
+fix the version number.</li>
+</ul>
+</div>
+<div class="section" id="id69">
+<h2>0.2.0<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Vacation tjp template now includes the time values of the start
+and end dates of the Vacation instance.</li>
+</ul>
+</div>
+<div class="section" id="rc5">
+<h2>0.2.0.rc5<a class="headerlink" href="#rc5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> For a container task, <code class="docutils literal"><span class="pre">Task.total_logged_seconds</span></code> and
+<code class="docutils literal"><span class="pre">Task.schedule_seconds</span></code> attributes are now using the info of the child
+tasks. Also these attributes are cached to database, so instead of querying
+the child tasks all the time, the calculated data is cached and whenever a
+TimeLog is created or updated for a child task (which changes the
+<code class="docutils literal"><span class="pre">total_logged_seconds</span></code> for the child task) or the <code class="docutils literal"><span class="pre">schedule_timing</span></code> or
+<code class="docutils literal"><span class="pre">schedule_unit</span></code> attributes are updated, the cached values are updated on
+the parents. Allowing Stalker to display percent_complete info of a container
+task without loading any of its children.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Task.percent_complete</span></code> attribute, which calculates the
+percent of completeness of the task based on the
+<code class="docutils literal"><span class="pre">Task.total_logged_seconds</span></code> and <code class="docutils literal"><span class="pre">Task.schedule_seconds</span></code> attributes.</li>
+<li><strong>Fix:</strong> Added <code class="docutils literal"><span class="pre">TimeLog.__eq__()</span></code> operator to more robustly check if the
+time logs are overlapping.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Project.percent_complete</span></code>,
+<code class="docutils literal"><span class="pre">Percent.total_logged_seconds</span></code> and <code class="docutils literal"><span class="pre">Project.schedule_seconds</span></code> attributes.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">ScheduleMixin._validate_dates()</span></code> does not set the date values
+anymore, it just return the calculated and validated <code class="docutils literal"><span class="pre">start</span></code>, <code class="docutils literal"><span class="pre">end</span></code> and
+<code class="docutils literal"><span class="pre">duration</span></code> values.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Vacation</span></code> now can be created without a <code class="docutils literal"><span class="pre">User</span></code> instance,
+effectively making the <code class="docutils literal"><span class="pre">Vacation</span></code> a <code class="docutils literal"><span class="pre">Studio</span></code> wide vacation, which applies
+to all users.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Vacation.__strictly_typed__</span></code> is updated to <code class="docutils literal"><span class="pre">False</span></code>, so there
+is no need to create a <code class="docutils literal"><span class="pre">Type</span></code> instance to be able to create a <code class="docutils literal"><span class="pre">Vacation</span></code>.</li>
+<li><strong>New:</strong> <code class="docutils literal"><span class="pre">Studio.vacations</span></code> property now returns the <code class="docutils literal"><span class="pre">Vacation</span></code> instances
+which has no <em>user</em>.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">Task.start</span></code> and <code class="docutils literal"><span class="pre">Task.end</span></code> values are no more read from
+children Tasks for a container task over and over again but calculated
+whenever the start and end values of a child task are changed or a new child
+is appended or removed.</li>
+<li><strong>Update:</strong> <code class="docutils literal"><span class="pre">SimpleEntity.description</span></code> validation routine doesn&#8217;t convert
+the input to string anymore, but checks the given description value against
+being a string or unicode instance.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Ticket.summary</span></code> field.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Link.extension</span></code>, it is now accepting unicode.</li>
+</ul>
+</div>
+<div class="section" id="rc4">
+<h2>0.2.0.rc4<a class="headerlink" href="#rc4" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>New:</strong> Added a new attribute to <code class="docutils literal"><span class="pre">Version</span></code> class called
+<code class="docutils literal"><span class="pre">latest_version</span></code> which holds the latest version in the version queue.</p>
+</li>
+<li><p class="first"><strong>New:</strong> To optimize the database connection times, <code class="docutils literal"><span class="pre">stalker.db.setup()</span></code>
+will not try to initialize the database every time it is called anymore. This
+leads a ~4x speed up in database connection setup. To initialize a newly
+created database please use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># for a newly created database</span>
+<span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span> <span class="c"># connects to database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>  <span class="c"># fills some default values to be used with Stalker</span>
+
+<span class="c"># for any subsequent access just use (don&#39;t need to call db.init())</span>
+<span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Update:</strong> Removed all <code class="docutils literal"><span class="pre">__init_on_load()</span></code> methods from all of the classes.
+It was causing SQLAlchemy to eagerly load relations, thus slowing down
+queries in certain cases (especially in <code class="docutils literal"><span class="pre">Task.parent</span></code> -&gt; <code class="docutils literal"><span class="pre">Task.children</span></code>
+relation).</p>
+</li>
+<li><p class="first"><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Vacation</span></code> class tj3 format.</p>
+</li>
+<li><p class="first"><strong>Fix:</strong> <code class="docutils literal"><span class="pre">Studio.now</span></code> attribute was not properly working when the
+<code class="docutils literal"><span class="pre">Studio</span></code> instance has been restored from database.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rc3">
+<h2>0.2.0.rc3<a class="headerlink" href="#rc3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added a new attribute to <code class="docutils literal"><span class="pre">Task</span></code> class called <code class="docutils literal"><span class="pre">responsible</span></code>.</li>
+<li><strong>Update:</strong> Removed <code class="docutils literal"><span class="pre">Sequence.lead_id</span></code> use <code class="docutils literal"><span class="pre">Task.reponsible</span></code> instead.</li>
+<li><strong>Update:</strong> Updated documentation to include documentation about
+Configuring Stalker with <code class="docutils literal"><span class="pre">config.py</span></code>.</li>
+<li><strong>Update:</strong> The <code class="docutils literal"><span class="pre">duration</span></code> argument in <code class="docutils literal"><span class="pre">Task</span></code> class is removed. It is
+somehow against the idea of having <code class="docutils literal"><span class="pre">schedule_model</span></code> and <code class="docutils literal"><span class="pre">schedule_timing</span></code>
+arguments (<code class="docutils literal"><span class="pre">schedule_model='duration'</span></code> is kind of the same).</li>
+<li><strong>Update:</strong> Updated <code class="docutils literal"><span class="pre">Task</span></code> class documentation.</li>
+</ul>
+</div>
+<div class="section" id="rc2">
+<h2>0.2.0.rc2<a class="headerlink" href="#rc2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Version.created_with</span></code> attribute to track the environment or
+host program name that a particular <code class="docutils literal"><span class="pre">Version</span></code> instance is created with.</li>
+</ul>
+</div>
+<div class="section" id="rc1">
+<h2>0.2.0.rc1<a class="headerlink" href="#rc1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Moved the Pyramid part of the system to another package called
+<code class="docutils literal"><span class="pre">stalker_pyramid</span></code>.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">setup.py</span></code> where importing <code class="docutils literal"><span class="pre">stalker</span></code> to get the
+<code class="docutils literal"><span class="pre">__version__</span></code> variable causing problems.</li>
+</ul>
+</div>
+<div class="section" id="b9">
+<h2>0.2.0.b9<a class="headerlink" href="#b9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Version.latest_published_version</span></code> and
+<code class="docutils literal"><span class="pre">Version.is_latest_published_version()</span></code>.</li>
+<li><strong>Fix:</strong> Fixed <code class="docutils literal"><span class="pre">Version.__eq__()</span></code>, now Stalker correctly distinguishes
+different Version instances.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Repository.to_linux_path()</span></code>,
+<code class="docutils literal"><span class="pre">Repository.to_windows_path()</span></code>, <code class="docutils literal"><span class="pre">Repository.to_osx_path()</span></code> and
+<code class="docutils literal"><span class="pre">Repository.to_native_path()</span></code> to the <code class="docutils literal"><span class="pre">Repository</span></code> class.</li>
+<li><strong>New:</strong> Added <code class="docutils literal"><span class="pre">Repository.is_in_repo(path)</span></code> which checks if the given
+path is in this repo.</li>
+</ul>
+</div>
+<div class="section" id="b8">
+<h2>0.2.0.b8<a class="headerlink" href="#b8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> Renamed <strong>Version.version_of</strong> attribute to <strong>Version.task</strong>.</li>
+<li><strong>Fix:</strong> Fixed <strong>Version.version_number</strong> where it was not possible to have
+a version number bigger than 2.</li>
+<li><strong>Fix:</strong> In <strong>db.setup()</strong> Ticket statuses are only created if there aren&#8217;t
+any.</li>
+<li><strong>Fix:</strong> Added <strong>Vacation</strong> class to the registered class list in
+stalker.db.</li>
+</ul>
+</div>
+<div class="section" id="b7">
+<h2>0.2.0.b7<a class="headerlink" href="#b7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> <strong>Task.schedule_constraint</strong> is now reflected to the tjp file
+correctly.</li>
+<li><strong>Fix:</strong> <strong>check_circular_dependency()</strong> now checks if the <strong>entity</strong> and
+the <strong>other_entity</strong> are the same.</li>
+<li><strong>Fix:</strong> <strong>Task.to_tjp()</strong> now correctly add the dependent tasks of a
+container task.</li>
+<li><strong>Fix:</strong> <strong>Task.__eq__()</strong> now correctly considers the parent, depends,
+resources, start and end dates.</li>
+<li><strong>Update:</strong> <strong>Task.priority</strong> is now reflected in tjp file if it is
+different than the default value (500).</li>
+<li><strong>New::</strong> Added a new class called <strong>Vacation</strong> to hold user vacations.</li>
+<li><strong>Update:</strong> Removed dependencies to <code class="docutils literal"><span class="pre">pyramid.security.Allow</span></code> and
+<code class="docutils literal"><span class="pre">pyramid.security.Deny</span></code> in couple of packages.</li>
+<li><strong>Update:</strong> Changed the way the <code class="docutils literal"><span class="pre">stalker.defaults</span></code> is created.</li>
+<li><strong>Fix:</strong> <strong>EnvironmentBase.get_version_from_full_path()</strong>,
+<strong>EnvironmentBase.get_versions_from_path()</strong>,
+<strong>EnvironmentBase.trim_repo_path()</strong>, <strong>EnvironmentBase.find_repo</strong> methods
+are now working properly.</li>
+<li><strong>Update:</strong> Added <strong>Version.absolute_full_path</strong> property which renders the
+absolute full path which also includes the repository path.</li>
+<li><strong>Update:</strong> Added <strong>Version.absolute_path</strong> property which renders the
+absolute path which also includes the repository path.</li>
+</ul>
+</div>
+<div class="section" id="b6">
+<h2>0.2.0.b6<a class="headerlink" href="#b6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fix:</strong> Fixed <strong>LocalSession._write_data()</strong>, previously it was not
+creating the local session folder.</li>
+<li><strong>New:</strong> Added a new method called <strong>LocalSession.delete()</strong> to remove the
+local session file.</li>
+<li><strong>Update:</strong> <strong>Link.full_path</strong> can now be set to an empty string. This is
+updated in this way for <strong>Version</strong> class.</li>
+<li><strong>Update:</strong> Updated the formatting of <strong>SimpleEntity.nice_name</strong>, it is now
+possible to have uppercase letters and camel case format will be preserved.</li>
+<li><strong>Update</strong>: <strong>Version.take_name</strong> formatting is enhanced.</li>
+<li><strong>New</strong>: <strong>Task</strong> class is now mixed in with <strong>ReferenceMixin</strong> making it
+unnecessary to have <strong>Asset</strong>, <strong>Shot</strong> and <strong>Sequence</strong> classes all mixed
+in individually. Thus removed the <strong>ReferenceMixin</strong> from <strong>Asset</strong>,
+<strong>Shot</strong> and <strong>Sequence</strong> classes.</li>
+<li><strong>Update</strong>: Added <strong>Task.schedule_model</strong> validation and its tests.</li>
+<li><strong>New</strong>: Added <strong>ScheduleMixin.total_seconds</strong> and
+<strong>ScheduleMixin.computed_total_seconds</strong>.</li>
+</ul>
+</div>
+<div class="section" id="b5">
+<h2>0.2.0.b5<a class="headerlink" href="#b5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>New:</strong> <strong>Version</strong> class now has two new attributes called <code class="docutils literal"><span class="pre">parent</span></code> and
+<code class="docutils literal"><span class="pre">children</span></code> which will be used in tracking of the history of Version
+instances and track which Versions are derived from which Version.</li>
+<li><strong>New:</strong> <strong>Versions</strong> instances are now derived from <strong>Link</strong> class and not
+<strong>Entity</strong>.</li>
+<li><strong>Update:</strong> Added new revisions to <strong>alembic</strong> to reflect the change in
+<strong>Versions</strong> table.</li>
+<li><strong>Update:</strong> <strong>Links.path</strong> is renamed to <strong>Links.full_path</strong> and added
+three new attributes called <strong>path</strong>, <strong>filename</strong> and <strong>extension</strong>.</li>
+<li><strong>Update:</strong> Added new revisions to alembic to reflect the change in
+<strong>Links</strong> table.</li>
+<li><strong>New:</strong> Added a new class called <strong>LocalSession</strong> to store session data in
+users local filesystem. It is going to be replaced with some other system
+like <strong>Beaker</strong>.</li>
+<li><strong>Fix:</strong> Database part of Stalker can now be imported without depending to
+<strong>Pyramid</strong>.</li>
+<li><strong>Fix:</strong> Fixed documentation errors that <strong>Sphinx</strong> complained about.</li>
+</ul>
+</div>
+<div class="section" id="b4">
+<h2>0.2.0.b4<a class="headerlink" href="#b4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>No changes in SOM.</li>
+</ul>
+</div>
+<div class="section" id="b3">
+<h2>0.2.0.b3<a class="headerlink" href="#b3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Update:</strong> FilenameTemplate&#8217;s are not <code class="docutils literal"><span class="pre">strictly</span> <span class="pre">typed</span></code> anymore.</li>
+<li><strong>Update:</strong> Removed the FilenameTemplate type initialization, FilenameTemplates
+do not depend on Types anymore.</li>
+<li><strong>Update:</strong> Added back the <code class="docutils literal"><span class="pre">plural_class_name</span></code> (previously <code class="docutils literal"><span class="pre">plural_name</span></code>)
+property to the ORMClass class, so all the classes in SOM now have this new
+property.</li>
+<li><strong>Update:</strong> Added <code class="docutils literal"><span class="pre">accepts_references</span></code> attribute to the EntityType class.</li>
+<li><strong>New:</strong> The Link class has a new attribute called <code class="docutils literal"><span class="pre">original_filename</span></code> to
+store the original file names of link files.</li>
+<li><strong>New:</strong> Added <strong>alembic</strong> to the project requirements.</li>
+<li><strong>New:</strong> Added alembic migrations which adds the <code class="docutils literal"><span class="pre">accepts_references</span></code> column
+to <code class="docutils literal"><span class="pre">EntityTypes</span></code> table and <code class="docutils literal"><span class="pre">original_name</span></code> to the <code class="docutils literal"><span class="pre">Links</span></code> table.</li>
+</ul>
+</div>
+<div class="section" id="b2">
+<h2>0.2.0.b2<a class="headerlink" href="#b2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Stalker is now compatible with Python 2.6.</li>
+<li>Task:<ul>
+<li><strong>Update:</strong> Tasks now have a new attribute called <code class="docutils literal"><span class="pre">watchers</span></code> which holds a
+list of User instances watching the particular Task.</li>
+<li><strong>Update:</strong> Users now have a new attribute called <code class="docutils literal"><span class="pre">watching</span></code> which is a
+list of Task instances that this user is watching.</li>
+</ul>
+</li>
+<li>TimeLog:<ul>
+<li><strong>Update:</strong> TimeLog instances will expand Task.schedule_timing value
+automatically if the total amount of logged time is more than the
+schedule_timing value.</li>
+<li><strong>Update:</strong> TimeLogs are now considered while scheduling the task.</li>
+<li><strong>Fix:</strong> TimeLogs raises OverBookedError when appending the same TimeLog
+instance to the same resource.</li>
+</ul>
+</li>
+<li>Auth:<ul>
+<li><strong>Fix:</strong> The default ACLs for determining the permissions are now working
+properly.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="b1">
+<h2>0.2.0.b1<a class="headerlink" href="#b1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>WorkingHours.is_working_hour() is working now.</li>
+<li>WorkingHours class is moved from stalker.models.project to
+stalker.models.studio module.</li>
+<li><code class="docutils literal"><span class="pre">daily_working_hours</span></code> attribute is moved from
+stalker.models.project.Project to stalker.models.studio.Studio class.</li>
+<li>Repository path variables now ends with a forward slash even if it is not
+given.</li>
+<li>Updated Project classes validation messages to correlate with Stalker
+standard.</li>
+<li>Implementation of the Studio class is finished. The scheduling works like a
+charm.</li>
+<li>It is now possible to use any characters in SimpleEntity.name and the derived
+classes.</li>
+<li>Booking class is renamed to TimeLog.</li>
+</ul>
+</div>
+<div class="section" id="a10">
+<h2>0.2.0.a10<a class="headerlink" href="#a10" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Added new attribute to WorkingHours class called <code class="docutils literal"><span class="pre">weekly_working_hours</span></code>,
+which calculates the weekly working hours based on the working hours defined
+in the instance.</p>
+</li>
+<li><p class="first">Task class now has a new attribute called <code class="docutils literal"><span class="pre">schedule_timing</span></code> which is
+replacing the <code class="docutils literal"><span class="pre">effort</span></code>, <code class="docutils literal"><span class="pre">length</span></code> and <code class="docutils literal"><span class="pre">duration</span></code> attributes. Together
+with the <code class="docutils literal"><span class="pre">schedule_model</span></code> attribute it will be used in scheduling the Task.</p>
+</li>
+<li><p class="first">Updated the config system to the one used in oyProjectManager (based on
+Sphinx config system). Now to reach the defaults:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># instead of doing the following</span>
+<span class="kn">from</span> <span class="nn">stalker.conf</span> <span class="kn">import</span> <span class="n">defaults</span> <span class="c"># not valid anymore</span>
+
+<span class="c"># use this</span>
+<span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">defaults</span>
+</pre></div>
+</div>
+<p>If the above idiom is used, the old <code class="docutils literal"><span class="pre">defaults</span></code> module behaviour is
+retained, so no code change is required other than the new lower case config
+variable names.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="a9">
+<h2>0.2.0.a9<a class="headerlink" href="#a9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A new property called <code class="docutils literal"><span class="pre">to_tjp</span></code> added to the SimpleEntity class which needs
+to be implemented in the child and is going to be used in TaskJuggler
+integration.</li>
+<li>A new attribute called <code class="docutils literal"><span class="pre">is_scheduled</span></code> added to Task class and it is going
+to be used in Gantt charts. Where it will lock the class and will not try
+to snap it to anywhere if it is scheduled.</li>
+<li>Changed the <code class="docutils literal"><span class="pre">resolution</span></code> attribute name to <code class="docutils literal"><span class="pre">timing_resolution</span></code> to comply
+with TaskJuggler.</li>
+<li>ScheduleMixin:<ul>
+<li>Updated ScheduleMixin class documentation.</li>
+<li>There are two new read-only attributes called <code class="docutils literal"><span class="pre">computed_start</span></code> and
+<code class="docutils literal"><span class="pre">computed_end</span></code>. These attributes will be used in storing of the values
+calculated by TaskJuggler, and will be used in Gantt Charts if available.</li>
+<li>Added <code class="docutils literal"><span class="pre">computed_duration</span></code>.</li>
+</ul>
+</li>
+<li>Task:<ul>
+<li>Arranged the TaskJuggler workflow.</li>
+<li>The task will use the effort &gt; length &gt; duration attributes in <cite>to_tjp</cite>
+property.</li>
+</ul>
+</li>
+<li>Changed the license of Stalker from BSD-2 to LGPL 2.1. Any version previous
+to 0.2.0.a9 will be still BSD-2 and any version from and including 0.2.0.a9
+will be distributed under LGPL 2.1 license.</li>
+<li>Added new types of classes called Schedulers which are going to be used in
+scheduling the tasks.</li>
+<li>Added TaskJugglerScheduler, it uses the given project and schedules its
+tasks.</li>
+</ul>
+</div>
+<div class="section" id="a8">
+<h2>0.2.0.a8<a class="headerlink" href="#a8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>TagSelect now can be filled by setting its <code class="docutils literal"><span class="pre">value</span></code> attribute (Ex:
+TagSelect.set(&#8216;value&#8217;, data))</li>
+<li>Added a new method called <code class="docutils literal"><span class="pre">is_root</span></code> to Task class. It is true for tasks
+where there are no parents.</li>
+<li>Added a new attribute called <code class="docutils literal"><span class="pre">users</span></code> to the Department class which is a
+synonym for the <code class="docutils literal"><span class="pre">members</span></code> attribute.</li>
+<li>Task:<ul>
+<li>Task class is now preventing one of the dependents to be set as the parent
+of a task.</li>
+<li>Task class is now preventing one of the parents to be set as the one of the
+dependents of a task.</li>
+<li>Fixed <code class="docutils literal"><span class="pre">autoflush</span></code> bugs in Task class.</li>
+</ul>
+</li>
+<li>Fixed <cite>admin</cite> users department initialization.</li>
+<li>Added <code class="docutils literal"><span class="pre">thumbnail</span></code> attribute to the SimpleEntity class which is a reference
+to a Link instance, showing the path of the thumbnail.</li>
+<li>Fixed Circular Dependency bug in Task class, where a parent of a newly
+created task is depending to another task which is set as the dependee for
+this newly created task (T1 -&gt; T3 -&gt; T2 -&gt; T1 (parent relation) -&gt; T3 -&gt; T2
+etc.).</li>
+</ul>
+</div>
+<div class="section" id="a7">
+<h2>0.2.0.a7<a class="headerlink" href="#a7" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Changed these default setting value names to corresponding new names:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">DEFAULT_TASK_DURATION</span></code> -&gt; <code class="docutils literal"><span class="pre">TASK_DURATION</span></code></li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_TASK_PRIORITY</span></code> -&gt; <code class="docutils literal"><span class="pre">TASK_PRIORITY</span></code></li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_VERSION_TAKE_NAME</span></code> -&gt; <code class="docutils literal"><span class="pre">VERSION_TAKE_NAME</span></code></li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_TICKET_LABEL</span></code> -&gt; <code class="docutils literal"><span class="pre">TICKET_LABEL</span></code></li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_ACTIONS</span></code> -&gt; <code class="docutils literal"><span class="pre">ACTIONS</span></code></li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_BG_COLOR</span></code> -&gt; <code class="docutils literal"><span class="pre">BG_COLOR</span></code></li>
+<li><code class="docutils literal"><span class="pre">DEFAULT_FG_COLOR</span></code> -&gt; <code class="docutils literal"><span class="pre">FG_COLOR</span></code></li>
+</ul>
+</li>
+<li><p class="first">stalker.conf.defaults:</p>
+<ul class="simple">
+<li>Added default settings for project working hours (<code class="docutils literal"><span class="pre">WORKING_HOURS</span></code>,
+<code class="docutils literal"><span class="pre">DAY_ORDER</span></code>, <code class="docutils literal"><span class="pre">DAILY_WORKING_HOURS</span></code>)</li>
+<li>Added a new variable for setting the task time resolution called
+<code class="docutils literal"><span class="pre">TIME_RESOLUTION</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">stalker.models.project.Project:</p>
+<ul>
+<li><p class="first">Removed Project.project_tasks attribute, use Project.tasks directly to get
+all the Tasks in that project. For root task you can do a quick query:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Task</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Task</span><span class="o">.</span><span class="n">project</span><span class="o">==</span><span class="n">proj_id</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Task</span><span class="o">.</span><span class="n">parent</span><span class="o">==</span><span class="bp">None</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will also return the Assets, Sequences and Shots in that project,
+which are also Tasks.</p>
+</li>
+<li><p class="first">Users are now assigned to Projects by appending them to the Project.users
+list. This is done in this way to allow a reduced list of resources to be
+shown in the Task creation dialogs.</p>
+</li>
+<li><p class="first">Added a new helper class for Project working hour management, called
+WorkingHours.</p>
+</li>
+<li><p class="first">Added a new attribute to Project class called <code class="docutils literal"><span class="pre">working_hours</span></code> which holds
+stalker.models.project.WorkingHours instances to manage the Project working
+hours. It will directly be passed to TaskJuggler.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">stalker.models.task.Task:</p>
+<ul class="simple">
+<li>Removed the Task.task_of attribute, use Task.parent to get the owner of
+this Task.</li>
+<li>Task now has two new attributes called Task.parent and Task.children which
+allow more complex Task-to-Task relation.</li>
+<li>Secondary table name for holding Task to Task dependency relation is
+renamed from <code class="docutils literal"><span class="pre">Task_Tasks</span></code> to <code class="docutils literal"><span class="pre">Task_Dependencies</span></code>.</li>
+<li>check_circular_dependency function is now accepting a third argument which
+is the name of the attribute to be investigated for circular relationship.
+It is done in that way to be able to use the same function in searching for
+circular relations both in parent/child and depender/dependee relations.</li>
+</ul>
+</li>
+<li><p class="first">ScheduleMixin:</p>
+<ul class="simple">
+<li>Added a new attribute to ScheduleMixin for time resolution adjustment.
+Default value is 1 hour and can be set with
+stalker.conf.defaults.TIME_RESOLUTION. Any finer time than the resolution
+is rounded to the closest multiply of the resolution. It is possible to set
+it from microseconds to years. Although 1 hour is a very reasonable
+resolution which is also the default resolution for TaskJuggler.</li>
+<li>ScheduleMixin now uses datetime.datetime for the start and end attributes.</li>
+<li>Renamed the <code class="docutils literal"><span class="pre">start_date</span></code> attribute to <code class="docutils literal"><span class="pre">start</span></code>.</li>
+<li>Renamed the <code class="docutils literal"><span class="pre">end_date</span></code> attribute to <code class="docutils literal"><span class="pre">end</span></code></li>
+</ul>
+</li>
+<li><p class="first">Removed the TaskableEntity.</p>
+</li>
+<li><p class="first">Asset, Sequence and Shot classes are now derived from Task class allowing
+more complex Task relation combined with the new parent/child relation of
+Tasks. Use Asset.children or Asset.tasks to reach the child tasks of that
+asset (same with Sequence and Shot classes).</p>
+</li>
+<li><p class="first">stalker.models.shot.Shot:</p>
+<ul class="simple">
+<li>Removed the sequence and introduced sequences attribute in Shot class. Now
+one shot can be in more than one Sequence. Allowing more complex
+Shot/Sequence relations..</li>
+<li>Shots can now be created without a Sequence instance. The sequence
+attribute is just used to group the Shots.</li>
+<li>Shots now have a new attribute called <code class="docutils literal"><span class="pre">scenes</span></code>, holding Scene instances.
+It is created to group same shots occurring in the same scenes.</li>
+</ul>
+</li>
+<li><p class="first">In tests all the Warnings are now properly handled as Warnings.</p>
+</li>
+<li><p class="first">stalker.models.ticket.Ticket:</p>
+<ul class="simple">
+<li>Ticket instances are now tied to Projects and it is now possible to create
+Tickets without supplying a Version. They are free now.</li>
+<li>It is now possible to link any SimpleEntity to a Ticket.</li>
+<li>The Ticket Workflow is now fully customizable. Use
+stalker.conf.defaults.TICKET_WORKFLOW dictionary to define the workflow and
+stalker.conf.defaults.TICKET_STATUS_ORDER for the order of the ticket
+statuses.</li>
+</ul>
+</li>
+<li><p class="first">Added a new class called <code class="docutils literal"><span class="pre">Scene</span></code> to manage Shots with another property.</p>
+</li>
+<li><p class="first">Removed the <code class="docutils literal"><span class="pre">output_path</span></code> attribute in FilenameTemplate class.</p>
+</li>
+<li><p class="first">Grouped the templates for each entity under a directory with the entity name.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="a6">
+<h2>0.2.0.a6<a class="headerlink" href="#a6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Users now can have more than one Department.</li>
+<li>User instances now have two new properties for getting the user tickets
+(User.tickets) and the open tickets (User.open_tickets).</li>
+<li>New shortcut Task.project returns the Task.task_of.project value.</li>
+<li>Shot and Asset creation dialogs now automatically updated with the given
+Project instance info.</li>
+<li>User overview page is now reflection the new design.</li>
+</ul>
+</div>
+<div class="section" id="a5">
+<h2>0.2.0.a5<a class="headerlink" href="#a5" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The <code class="docutils literal"><span class="pre">code</span></code> attribute of the SimpleEntity is now introduced as a separate
+mixin. To let it be used by the classes it is really needed.</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">query</span></code> method is now converted to a property so it is now possible to
+use it like a property as in the SQLAlchemy.orm.Session as shown below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Project</span>
+<span class="n">Project</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="c"># instead of Project.query().all()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">ScheduleMixin.due_date is renamed to ScheduleMixin.end_date.</p>
+</li>
+<li><p class="first">Added a new class attribute to SimpleEntity called <code class="docutils literal"><span class="pre">__auto_name__</span></code> which
+controls the naming of the instances and instances derived from SimpleEntity.
+If <code class="docutils literal"><span class="pre">__auto_name__</span></code> is set to True the <code class="docutils literal"><span class="pre">name</span></code> attribute of the instance
+will be automatically generated and it will have the following format:</p>
+<div class="highlight-python"><div class="highlight"><pre>{{ClassName}}_{{UUID4}}
+</pre></div>
+</div>
+<p>Here are a couple of naming examples:</p>
+<div class="highlight-python"><div class="highlight"><pre>Ticket_74bb46b0-29de-4f3e-b4e6-8bcf6aed352d
+Version_2fa5749e-8cdb-4887-aef2-6d8cec6a4faa
+</pre></div>
+</div>
+</li>
+<li><p class="first">Fixed an autoflush issue with SQLAlchemy in StatusList class. Now the status
+column is again not nullable in StatusMixin.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="a4">
+<h2>0.2.0.a4<a class="headerlink" href="#a4" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Added a new class called EntityType to hold all the available class names and
+capabilities.</p>
+</li>
+<li><p class="first">Version class now has a new attribute called <code class="docutils literal"><span class="pre">inputs</span></code> to hold the inputs of
+the current Version instance. It is a list of Link instances.</p>
+</li>
+<li><p class="first">FilenameTemplate classes <code class="docutils literal"><span class="pre">path</span></code> and <code class="docutils literal"><span class="pre">filename</span></code> attributes are no more
+converted to string, so given a non string value will raise TypeError.</p>
+</li>
+<li><p class="first">Structure.custom_template now only accepts strings and None, setting it to
+anything else will raise a TypeError.</p>
+</li>
+<li><p class="first">Two Type&#8217;s for FilenameTemplate&#8217;s are created by default when initializing
+the database, first is called &#8220;Version&#8221; and it is used to define
+FilenameTemplates which are used for placing Version source files. The second
+one is called &#8220;Reference&#8221; and it is used when injecting references to a given
+class. Along with the FilenameTemplate.target_entity_type this will allow one
+to create two different FilenameTemplates for one class:</p>
+<div class="highlight-python"><div class="highlight"><pre># first get the Types
+vers_type = Type.query()\
+            .filter_by(target_entity_type=&quot;FilenameTemplate&quot;)\
+            .filter_by(type=&quot;Version&quot;)\
+            .first()
+
+ref_type = Type.query()\
+           .filter_by(target_entity_type=&quot;FilenameTemplate&quot;)\
+           .filter_by(type=&quot;Reference&quot;)\
+           .first()
+
+# lets create a FilenameTemplate for placing Asset Version files.
+f_ver = FilenameTemplate(
+    target_entity_type=&quot;Asset&quot;,
+    type=vers_type,
+    path=&quot;Assets/{{asset.type.code}}/{{asset.code}}/{{task.type.code}}&quot;,
+    filename=&quot;{{asset.code}}_{{version.take_name}}_{{task.type.code}}_v{{&#39;%03d&#39;|version.version_number}}{{link.extension}}&quot;
+    output_path=&quot;{{version.path}}/Outputs/{{version.take_name}}&quot;
+)
+
+# and now define a FilenameTemplate for placing Asset Reference files.
+# no need to have an output_path here...
+f_ref = FilenameTemplate(
+    target_entity_type=&quot;Asset&quot;,
+    type=ref_type,
+    path=&quot;Assets/{{asset.type.code}}/{{asset.code}}/References&quot;,
+    filename=&quot;{{link.type.code}}/{{link.id}}{{link.extension}}&quot;
+)
+</pre></div>
+</div>
+</li>
+<li><p class="first">stalker.db.register() now accepts only real classes instead of class names.
+This way it can store more information about classes.</p>
+</li>
+<li><p class="first">Status.bg_color and Status.fg_color attributes are now simple integers. And
+the Color class is removed.</p>
+</li>
+<li><p class="first">StatusMixin.status is now a ForeignKey to a the Statuses table, thus it is a
+real Status instance instead of an integer showing the index of the Status in
+the related StatusList. This way the Status of the object will not change if
+the content of the StatusList is changed.</p>
+</li>
+<li><p class="first">Added new attribute Project.project_tasks which holds all the direct or
+indirect Tasks created for that project.</p>
+</li>
+<li><p class="first">User.login_name is renamed to User.login.</p>
+</li>
+<li><p class="first">Removed the <code class="docutils literal"><span class="pre">first_name</span></code>, <code class="docutils literal"><span class="pre">last_name</span></code> and <code class="docutils literal"><span class="pre">initials</span></code> attributes from
+User class. Now the <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">code</span></code> attributes are going to be used,
+thus the <code class="docutils literal"><span class="pre">name</span></code> attribute is no more the equivalent of <code class="docutils literal"><span class="pre">login</span></code> and the
+<code class="docutils literal"><span class="pre">code</span></code> attribute is doing what was <code class="docutils literal"><span class="pre">initials</span></code> doing previously.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="a3">
+<h2>0.2.0.a3<a class="headerlink" href="#a3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Status class now has two new attributes <code class="docutils literal"><span class="pre">bg_color</span></code> and <code class="docutils literal"><span class="pre">fg_color</span></code> to hold
+the UI colors of the Status instance. The colors are Color instances.</li>
+</ul>
+</div>
+<div class="section" id="a2">
+<h2>0.2.0.a2<a class="headerlink" href="#a2" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">SimpleEntity now has an attribute called <code class="docutils literal"><span class="pre">generic_data</span></code> which can hold any
+kind of <code class="docutils literal"><span class="pre">SOM</span></code> object inside and it is a list.</p>
+</li>
+<li><p class="first">Changed the formatting rules for the <code class="docutils literal"><span class="pre">name</span></code> in SimpleEntity class, now it
+can start with a number, and it is not allowed to have multiple whitespace
+characters following each other.</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">source</span></code> attribute in Version is renamed to <code class="docutils literal"><span class="pre">source_file</span></code>.</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">version</span></code> attribute in Version is renamed to <code class="docutils literal"><span class="pre">version_number</span></code>.</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">take</span></code> attribute in Version is renamed to <code class="docutils literal"><span class="pre">take_name</span></code>.</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">version_number</span></code> in Version is now generated automatically if it is
+skipped or given as None or it is too low where there is already a version
+number for the same Version series (means attached to the same Task and has
+the same <code class="docutils literal"><span class="pre">take_name</span></code>.</p>
+</li>
+<li><p class="first">Moved the User class to <code class="docutils literal"><span class="pre">stalker.models.auth</span> <span class="pre">module</span></code>.</p>
+</li>
+<li><p class="first">Removed the <code class="docutils literal"><span class="pre">stalker.ext.auth</span></code> module because it is not necessary anymore.
+Thus the User now handles all the password conversions by itself.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">PermissionGroup</span></code> is renamed back to Group
+again to match with the general naming of the authorization concept.</p>
+</li>
+<li><p class="first">Created two new classes for the Authorization system, first one is called
+Permission and the second one is a Mixin which is called ACLMixin which adds
+ACLs to the mixed in class. For now, only the User and Group classes are
+mixed with this mixin by default.</p>
+</li>
+<li><p class="first">The declarative Base class of SQLAlchemy is now created by binding it to a
+ORMClass (a random name) which lets all the derived class to have a method
+called <code class="docutils literal"><span class="pre">query</span></code> which will bypass the need of calling
+<code class="docutils literal"><span class="pre">DBSession.query(class_)</span></code> but instead just call <code class="docutils literal"><span class="pre">class_.query()</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker.models.auth</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="n">user_1</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;a user name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="a1">
+<h2>0.2.0.a1<a class="headerlink" href="#a1" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Changed the <code class="docutils literal"><span class="pre">db.setup</span></code> arguments. It is now accepting a dictionary instead
+of just a string to comply with the SQLAlchemy scaffold and this dictionary
+should contain keys for the SQLAlchemy engine setup. There is another utility
+that comes with Pyramid to setup the database under the <cite>scripts</cite> folder, it
+is also working without any problem with stalker.db.</p>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">session</span></code> variable is renamed to <code class="docutils literal"><span class="pre">DBSession</span></code> and is now a scopped
+session, so there is no need to use <code class="docutils literal"><span class="pre">DBSession.commit</span></code> it will be handled
+by the system it self.</p>
+</li>
+<li><p class="first">Even though the <code class="docutils literal"><span class="pre">DBSession</span></code> is using the Zope Transaction Manager extension
+normally, in the database tests no extension is used because the transaction
+manager was swallowing all errors and it was a little weird to try to catch
+this errors out of the <code class="docutils literal"><span class="pre">with</span></code> block.</p>
+</li>
+<li><p class="first">Refactored the code, all the models are now in separate python files, but can
+be directly imported from the main stalker module as shown:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">Department</span><span class="p">,</span> <span class="n">Task</span>
+</pre></div>
+</div>
+<p>By using this kind of organization, both development and usage will be eased
+out.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">task_of</span></code> now only accepts TaskableEntity instances.</p>
+</li>
+<li><p class="first">Updated the examples. It is now showing how to extend SOM correctly.</p>
+</li>
+<li><p class="first">Updated the references to the SOM classes in docstrings and rst files.</p>
+</li>
+<li><p class="first">Removed the <code class="docutils literal"><span class="pre">Review</span></code> class. And introduced the much handier Ticket class.
+Now reviewing a data is the process of creating Ticket&#8217;s to that data.</p>
+</li>
+<li><p class="first">The database is now initialized with a StatusList and a couple of Statuses
+appropriate for Ticket instances.</p>
+</li>
+<li><p class="first">The database is now initialized with two Type instances (&#8216;Enhancement&#8217; and
+&#8216;Defect&#8217;) suitable for Ticket instances.</p>
+</li>
+<li><p class="first">StatusMixin now stores the status attribute as an Integer showing the index
+of the Status in the <code class="docutils literal"><span class="pre">status_list</span></code> attribute but when asked for the value
+of <code class="docutils literal"><span class="pre">StatusMixin.status</span></code> attribute it will return a proper Status instance
+and the attribute can be set with an integer or with a proper Status
+instance.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Stalker Changes</a><ul>
+<li><a class="reference internal" href="#id1">0.2.13.3</a></li>
+<li><a class="reference internal" href="#id2">0.2.13.2</a></li>
+<li><a class="reference internal" href="#id3">0.2.13.1</a></li>
+<li><a class="reference internal" href="#id4">0.2.13</a></li>
+<li><a class="reference internal" href="#id9">0.2.12.1</a></li>
+<li><a class="reference internal" href="#id10">0.2.12</a></li>
+<li><a class="reference internal" href="#id11">0.2.11</a></li>
+<li><a class="reference internal" href="#id12">0.2.10.5</a></li>
+<li><a class="reference internal" href="#id13">0.2.10.4</a></li>
+<li><a class="reference internal" href="#id14">0.2.10.3</a></li>
+<li><a class="reference internal" href="#id15">0.2.10.2</a></li>
+<li><a class="reference internal" href="#id16">0.2.10.1</a></li>
+<li><a class="reference internal" href="#id17">0.2.10</a></li>
+<li><a class="reference internal" href="#id18">0.2.9.2</a></li>
+<li><a class="reference internal" href="#id19">0.2.9.1</a></li>
+<li><a class="reference internal" href="#id20">0.2.9</a></li>
+<li><a class="reference internal" href="#id21">0.2.8.4</a></li>
+<li><a class="reference internal" href="#id22">0.2.8.3</a></li>
+<li><a class="reference internal" href="#id23">0.2.8.2</a></li>
+<li><a class="reference internal" href="#id24">0.2.8.1.1</a></li>
+<li><a class="reference internal" href="#id25">0.2.8.1</a></li>
+<li><a class="reference internal" href="#id26">0.2.8</a></li>
+<li><a class="reference internal" href="#id27">0.2.7.6</a></li>
+<li><a class="reference internal" href="#id28">0.2.7.5</a></li>
+<li><a class="reference internal" href="#id29">0.2.7.4</a></li>
+<li><a class="reference internal" href="#id30">0.2.7.3</a></li>
+<li><a class="reference internal" href="#id31">0.2.7.2</a></li>
+<li><a class="reference internal" href="#id32">0.2.7.1</a></li>
+<li><a class="reference internal" href="#id33">0.2.7</a></li>
+<li><a class="reference internal" href="#id34">0.2.6.14</a></li>
+<li><a class="reference internal" href="#id35">0.2.6.13</a></li>
+<li><a class="reference internal" href="#id36">0.2.6.12</a></li>
+<li><a class="reference internal" href="#id37">0.2.6.11</a></li>
+<li><a class="reference internal" href="#id38">0.2.6.10</a></li>
+<li><a class="reference internal" href="#id39">0.2.6.9</a></li>
+<li><a class="reference internal" href="#id40">0.2.6.8</a></li>
+<li><a class="reference internal" href="#id41">0.2.6.7</a></li>
+<li><a class="reference internal" href="#id42">0.2.6.6</a></li>
+<li><a class="reference internal" href="#id43">0.2.6.5</a></li>
+<li><a class="reference internal" href="#id44">0.2.6.4</a></li>
+<li><a class="reference internal" href="#id45">0.2.6.3</a></li>
+<li><a class="reference internal" href="#id46">0.2.6.2</a></li>
+<li><a class="reference internal" href="#id47">0.2.6.1</a></li>
+<li><a class="reference internal" href="#id48">0.2.6</a></li>
+<li><a class="reference internal" href="#id49">0.2.5.5</a></li>
+<li><a class="reference internal" href="#id50">0.2.5.4</a></li>
+<li><a class="reference internal" href="#id51">0.2.5.3</a></li>
+<li><a class="reference internal" href="#id52">0.2.5.2</a></li>
+<li><a class="reference internal" href="#id53">0.2.5.1</a></li>
+<li><a class="reference internal" href="#id54">0.2.5</a></li>
+<li><a class="reference internal" href="#id55">0.2.4</a></li>
+<li><a class="reference internal" href="#id56">0.2.3.5</a></li>
+<li><a class="reference internal" href="#id57">0.2.3.4</a></li>
+<li><a class="reference internal" href="#id58">0.2.3.3</a></li>
+<li><a class="reference internal" href="#id59">0.2.3.2</a></li>
+<li><a class="reference internal" href="#id60">0.2.3.1</a></li>
+<li><a class="reference internal" href="#id61">0.2.3</a></li>
+<li><a class="reference internal" href="#id62">0.2.2.3</a></li>
+<li><a class="reference internal" href="#id63">0.2.2.2</a></li>
+<li><a class="reference internal" href="#id64">0.2.2.1</a></li>
+<li><a class="reference internal" href="#id65">0.2.2</a></li>
+<li><a class="reference internal" href="#id66">0.2.1.2</a></li>
+<li><a class="reference internal" href="#id67">0.2.1.1</a></li>
+<li><a class="reference internal" href="#id68">0.2.1</a></li>
+<li><a class="reference internal" href="#id69">0.2.0</a></li>
+<li><a class="reference internal" href="#rc5">0.2.0.rc5</a></li>
+<li><a class="reference internal" href="#rc4">0.2.0.rc4</a></li>
+<li><a class="reference internal" href="#rc3">0.2.0.rc3</a></li>
+<li><a class="reference internal" href="#rc2">0.2.0.rc2</a></li>
+<li><a class="reference internal" href="#rc1">0.2.0.rc1</a></li>
+<li><a class="reference internal" href="#b9">0.2.0.b9</a></li>
+<li><a class="reference internal" href="#b8">0.2.0.b8</a></li>
+<li><a class="reference internal" href="#b7">0.2.0.b7</a></li>
+<li><a class="reference internal" href="#b6">0.2.0.b6</a></li>
+<li><a class="reference internal" href="#b5">0.2.0.b5</a></li>
+<li><a class="reference internal" href="#b4">0.2.0.b4</a></li>
+<li><a class="reference internal" href="#b3">0.2.0.b3</a></li>
+<li><a class="reference internal" href="#b2">0.2.0.b2</a></li>
+<li><a class="reference internal" href="#b1">0.2.0.b1</a></li>
+<li><a class="reference internal" href="#a10">0.2.0.a10</a></li>
+<li><a class="reference internal" href="#a9">0.2.0.a9</a></li>
+<li><a class="reference internal" href="#a8">0.2.0.a8</a></li>
+<li><a class="reference internal" href="#a7">0.2.0.a7</a></li>
+<li><a class="reference internal" href="#a6">0.2.0.a6</a></li>
+<li><a class="reference internal" href="#a5">0.2.0.a5</a></li>
+<li><a class="reference internal" href="#a4">0.2.0.a4</a></li>
+<li><a class="reference internal" href="#a3">0.2.0.a3</a></li>
+<li><a class="reference internal" href="#a2">0.2.0.a2</a></li>
+<li><a class="reference internal" href="#a1">0.2.0.a1</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="roadmap.html"
+                        title="previous chapter">Stalker Development Roadmap</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="todo.html"
+                        title="next chapter">TODO</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="todo.html" title="TODO"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="roadmap.html" title="Stalker Development Roadmap"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

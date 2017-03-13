@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Studio Specifics Install &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="Volumes Access Install" href="Volumes.html"/>
+        <link rel="prev" title="Desktop Install" href="Desktop.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Studio Specifics Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#backup-original-files">Backup original files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-configuration-files">Custom configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Studio Specifics Install</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Studio.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="studio-specifics-install">
+<h1>Studio Specifics Install<a class="headerlink" href="#studio-specifics-install" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/computer.png" src="_images/computer.png" />
+<p>these are the configuration files for the studio</p>
+<div class="section" id="backup-original-files">
+<h2>Backup original files<a class="headerlink" href="#backup-original-files" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Kubuntu 12.04</li>
+</ul>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">grub</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">grub</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">auto</span><span class="o">.</span><span class="n">master</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">auto</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">autofs</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">autofs</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ldap</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ldap</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nsswitch</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nsswitch</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ldap</span><span class="o">/</span><span class="n">ldap</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ldap</span><span class="o">/</span><span class="n">ldap</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">account</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">account</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">auth</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">auth</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">password</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">password</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">session</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">session</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">session</span><span class="o">-</span><span class="n">noninteractive</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">common</span><span class="o">-</span><span class="n">session</span><span class="o">-</span><span class="n">noninteractive</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">kdm</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">kdm</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Kubuntu 14.04 15.04</li>
+</ul>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">grub</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">grub</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">auto</span><span class="o">.</span><span class="n">master</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">auto</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">autofs</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">autofs</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ldap</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ldap</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">kdm</span><span class="o">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">/</span><span class="n">kdm</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">orig</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-configuration-files">
+<h2>Custom configuration files<a class="headerlink" href="#custom-configuration-files" title="Permalink to this headline">¶</a></h2>
+<p>download config files</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>wget https://www.dropbox.com/s/9a6o7icyokg6wiu/etc.myzip?dl=0 -O /var/tmp/etc.zip
+cd /var/tmp
+unzip etc.zip
+#rm etc.zip
+</pre></div>
+</div>
+<ul class="simple">
+<li>Kubuntu 12.04</li>
+</ul>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp /var/tmp/etc/default/grub /etc/default/grub
+cp /var/tmp/etc/auto.master /etc/auto.master
+cp /var/tmp/etc/auto.lamaison /etc/auto.lamaison
+chmod 644 /etc/auto.lamaison
+cp /var/tmp/etc/ldap.conf /etc/ldap.conf
+cp /var/tmp/etc/nsswitch.conf /etc/nsswitch.conf
+cp /var/tmp/etc/ldap/ldap.conf /etc/ldap/ldap.conf
+cp /var/tmp/etc/pam.d/common-account /etc/pam.d/common-account
+cp /var/tmp/etc/pam.d/common-auth /etc/pam.d/common-auth
+cp /var/tmp/etc/pam.d/common-password /etc/pam.d/common-password
+cp /var/tmp/etc/pam.d/common-session /etc/pam.d/common-session
+cp /var/tmp/etc/pam.d/common-session-noninteractive /etc/pam.d/common-session-noninteractive
+cp /var/tmp/etc/init/kdm.conf /etc/init/kdm.conf
+cp /var/tmp/etc/init/autofs.conf /etc/init/autofs.conf
+cp /var/tmp/etc/profile.d/lamaison.sh /etc/profile.d/lamaison.sh
+chmod 755 /etc/profile.d/lamaison.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li>Kubuntu 14.04 15.04</li>
+</ul>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp /var/tmp/etc/default/grub /etc/default/grub
+#blacklist nouveau
+cp /var/tmp/etc/auto.master /etc/auto.master
+#launch auto.lamaison
+cp /var/tmp/etc/auto.lamaison /etc/auto.lamaison
+#mount bluearc partitions
+chmod 644 /etc/auto.lamaison
+cp /var/tmp/etc/init/autofs.conf /etc/init/autofs.conf
+#check that autofs is launched at the right moment :
+#start on (local-filesystems and net-device-up IFACE!=lo)
+cp /var/tmp/etc/profile.d/lamaison.sh /etc/profile.d/lamaison.sh
+#profile la maison : setenv RR_ROOT
+chmod 755 /etc/profile.d/lamaison.sh
+cp /var/tmp/etc/sssd/sssd.conf /etc/sssd/sssd.conf
+#config forr sssd - authentification ldap
+cp /var/tmp/etc/ldap.conf /etc/ldap.conf
+#config ldap
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Volumes.html" class="btn btn-neutral float-right" title="Volumes Access Install" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Desktop.html" class="btn btn-neutral" title="Desktop Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

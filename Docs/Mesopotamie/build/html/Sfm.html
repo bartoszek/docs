@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure From Motion &mdash; documentation MESOPOTAMIE </title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="documentation MESOPOTAMIE " href="index.html"/>
+        <link rel="next" title="Multi-View Stereo" href="mvs.html"/>
+        <link rel="prev" title="Collecte de photos sur Internet" href="collection.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MESOPOTAMIE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collecte de photos sur Internet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Structure From Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#logiciels-opensource-libre"><strong>Logiciels OpenSource (libre)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logiciels-commerciaux"><strong>Logiciels commerciaux</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#etapes-de-reconstruction"><strong>Étapes de reconstruction</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mvs.html">Multi-View Stereo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finalisation.html">Finalisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autres.html">Autres exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basrelief.html">Génération de Bas-reliefs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MESOPOTAMIE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Structure From Motion</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Sfm.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="structure-from-motion">
+<h1>Structure From Motion<a class="headerlink" href="#structure-from-motion" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La reconstruction 3D à partir d&#8217;images, image-based 3D reconstruction en anglais, désigne la technique qui permet d&#8217;obtenir une représentation en trois dimensions d&#8217;un objet ou d&#8217;une scène à partir d&#8217;un ensemble d&#8217;images prises sous différents points de vue de l&#8217;objet ou de la scène.</p>
+<p>D&#8217;une manière plus générale, le problème appelé reconstruction 3D est le suivant : on dispose d&#8217;une ou plusieurs représentations en 2D d&#8217;un objet et on souhaite déterminer les coordonnées des éléments visibles sur ces représentations dans un repère de l&#8217;espace réel 3D.</p>
+<p>il existe plusieurs logiciels permettant de faire cette reconstruction.</p>
+<div class="section" id="logiciels-opensource-libre">
+<h2><strong>Logiciels OpenSource (libre)</strong><a class="headerlink" href="#logiciels-opensource-libre" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>openMVG :  <a class="reference external" href="http://imagine.enpc.fr/~moulonp/openMVG/">http://imagine.enpc.fr/~moulonp/openMVG/</a></li>
+<li>TheiaSfm : <a class="reference external" href="http://www.theia-sfm.org/">http://www.theia-sfm.org/</a></li>
+<li>MVE : <a class="reference external" href="http://www.gcc.tu-darmstadt.de/home/proj/mve/">http://www.gcc.tu-darmstadt.de/home/proj/mve/</a></li>
+<li>bundler : <a class="reference external" href="http://www.cs.cornell.edu/~snavely/bundler/">http://www.cs.cornell.edu/~snavely/bundler/</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="logiciels-commerciaux">
+<h2><strong>Logiciels commerciaux</strong><a class="headerlink" href="#logiciels-commerciaux" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Agisoft Photoscan : <a class="reference external" href="http://www.agisoft.com/">http://www.agisoft.com/</a></li>
+<li>Capturing Reality : <a class="reference external" href="https://www.capturingreality.com/">https://www.capturingreality.com/</a></li>
+<li>Autodesk 123D Catch : <a class="reference external" href="http://www.123dapp.com/catch">http://www.123dapp.com/catch</a></li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line">La première étape consiste a séparer les images pour lesquelles nous disposons des données de focales et taille du capteur et celles ou ces données sont manquantes.</div>
+<div class="line">Une première passe nous permet de choisir automatiquement la paire d&#8217;images qui va permettre d&#8217;initialiser le processus incrémental de reconstruction.</div>
+<div class="line">Dans une seconde passe nous introduisons alors toutes les photos collectées et la paire d&#8217;images sélectionnées précédemment.</div>
+</div>
+</div>
+<div class="section" id="etapes-de-reconstruction">
+<h2><strong>Étapes de reconstruction</strong><a class="headerlink" href="#etapes-de-reconstruction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>-Extraction des points significatifs dans les images (Features).Il existe plusieurs types de descripteur pour cela (SIFT,A-KAZE).les descripteurs de type A-Kaze permettent de trouver plus de correspondances.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/features.jpg"><img alt="_images/features.jpg" src="_images/features.jpg" style="width: 819.2px; height: 579.2px;" /></a>
+<p class="caption"><span class="caption-text">exemple de features de type A-Kaze obtenues apres analyse des images</span></p>
+</div>
+<p>-Recherches des correspondances entre toutes les features pour toutes les images traitées.(fig. 5)</p>
+<p>-Reconstruction incrémentale des paramètres extrinsèques et intrinsèques de la camera (bundler adjustment)</p>
+<p>-Une dernière passe peut être faite pour éliminer les points non robustes (robust estimation)</p>
+<p>-On obtient alors une scène 3D contenant toutes les cameras reconstruites ainsi qu&#8217;un nuage de points décrivant de façon sommaire l&#8217;objet.(fig. 6)</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/mysnap20.jpg"><img alt="_images/mysnap20.jpg" src="_images/mysnap20.jpg" style="width: 1278.0px; height: 694.0px;" /></a>
+<p class="caption"><span class="caption-text">exemple de scène obtenue aprés reconstruction incrémentale</span></p>
+<div class="legend">
+ici dans UMVE</div>
+</div>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/mysnap8.jpg"><img alt="_images/mysnap8.jpg" src="_images/mysnap8.jpg" style="width: 1015.2px; height: 572.0px;" /></a>
+<p class="caption"><span class="caption-text">exemple de nuage de points obtenu aprés reconstruction incrémentale</span></p>
+<div class="legend">
+~20000 points</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mvs.html" class="btn btn-neutral float-right" title="Multi-View Stereo" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="collection.html" class="btn btn-neutral" title="Collecte de photos sur Internet" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

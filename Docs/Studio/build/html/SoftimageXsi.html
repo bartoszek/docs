@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Softimage Specifics Install &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="Maya Specifics Install" href="Maya.html"/>
+        <link rel="prev" title="Volumes Access Install" href="Volumes.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Softimage Specifics Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-softimage-xsi-on-kubuntu">Installing Softimage XSI on Kubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launching-setup">launching setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#almost-there">almost there !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-registration">checking registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#done">done !</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Softimage Specifics Install</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/SoftimageXsi.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="softimage-specifics-install">
+<h1>Softimage Specifics Install<a class="headerlink" href="#softimage-specifics-install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-softimage-xsi-on-kubuntu">
+<h2>Installing Softimage XSI on Kubuntu<a class="headerlink" href="#installing-softimage-xsi-on-kubuntu" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/xsi3.jpg"><img alt="_images/xsi3.jpg" src="_images/xsi3.jpg" style="width: 420.0px; height: 276.0px;" /></a>
+<p><a class="reference external" href="http://www.autodesk.com/products/softimage/overview">Softimage EOL anouncement</a> or why you shouldn&#8217;t buy Autodesk Software anymore.</p>
+<ul class="simple">
+<li>Softimage 2012-SP1 to 2015-SP1</li>
+</ul>
+<p>Softimage was not supported on Kubuntu.Only CentOS and RedHat.You&#8217;ll need some hacks to get around that.</p>
+<p>install old libjpeg62</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install --yes libjpeg62
+</pre></div>
+</div>
+<p>some symlinks and dirs</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ln -s /usr/lib /usr/lib64
+ln -s /usr/lib/x86_64-linux-gnu/libtiff.so.5 /usr/lib/libtiff.so.3
+mkdir /usr/tmp
+chmod 777 /usr/tmp
+</pre></div>
+</div>
+<ul class="simple">
+<li>Softimage 2015-SP1</li>
+</ul>
+<p><a class="reference external" href="http://download.autodesk.com/us/support/files/softimage_2015_sp1/Autodesk_Softimage_2015_SP1_English_Linux_64bit.tar.gz">Download Softimage 2015 SP1 for linux</a></p>
+<p>or get it from /shared/sys/AUTODESK/</p>
+<p>copy and extract the file to /var/tmp.then execute the setup command.you need to be root to do that.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su -
+</pre></div>
+</div>
+<p>you&#8217;ll also need to redirect the display to see the installation gui</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>setenv DISPLAY :0.0
+</pre></div>
+</div>
+<img alt="_images/display1.png" src="_images/display1.png" />
+<p>accepts display connection (in a user (non root) shell)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>xhost +
+</pre></div>
+</div>
+<img alt="_images/display2.png" src="_images/display2.png" />
+</div>
+<div class="section" id="launching-setup">
+<h2>launching setup<a class="headerlink" href="#launching-setup" title="Permalink to this headline">¶</a></h2>
+<p>in your root shell</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd /var/tmp
+tar -xvzf Autodesk_Softimage_2015_SP1_English_Linux_64bit.tar.gz
+cd /var/tmp/Softimage-2015_SP1.140-linux64
+chmod 777 setup _setup
+./setup
+</pre></div>
+</div>
+<img alt="_images/xsi1.png" src="_images/xsi1.png" />
+<p>follow the installation menus.choose Network licensing and type the name of your license server host,then Add.Don&#8217;t bother about the last popup that tells you that the installation didn&#8217;t complete
+well.</p>
+<p>you can change the license host name in /usr/Softimage/Softimage_2015_SP1/.xsi_2015_SP1</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre># Set the ADSKFLEX_LICENSE_FILE
+setenv ADSKFLEX_LICENSE_FILE &quot;@myserver&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="almost-there">
+<h2>almost there !<a class="headerlink" href="#almost-there" title="Permalink to this headline">¶</a></h2>
+<p><em>update the libadlmint dso</em></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp /var/tmp/libadlmint.so.9.0.23 /usr/Softimage/Softimage_2015_SP1/Application/bin
+chmod a+rwx /usr/Softimage/Softimage_2015_SP1/Application/bin/libadlmint.so.9.0.23
+</pre></div>
+</div>
+<p>To get rid of the infamous undefined symbol: <a class="reference external" href="http://www.si-community.com/community/viewtopic.php?f=12&amp;t=5687&amp;start=0">_XGetRequest</a> in Softimage 2015</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>rm /usr/Softimage/Softimage_2015_SP1/Application/mainwin/mw/lib-amd64_linux/X11/libX11.so
+rm /usr/Softimage/Softimage_2015_SP1/Application/mainwin/mw/lib-amd64_linux/X11/libX11.so.6
+cd /usr/Softimage/Softimage_2015_SP1/Application/mainwin/mw/lib-amd64_linux/X11
+mv libX11.so.6.3.0 libX11.so.6.3.0.bak
+ln -s /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0 libX11.so
+ln -s /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0 libX11.so.6
+ln -s /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0 libX11.so.6.3.0
+</pre></div>
+</div>
+<p>copy the workgroup</p>
+<p>the workgroup ramdisk is in /shared/etc/ramdisk.copy it first to /var/tmp then:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp -r /var/tmp/ramdisk /
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-registration">
+<h2>checking registration<a class="headerlink" href="#checking-registration" title="Permalink to this headline">¶</a></h2>
+<p>check and solve registrations problems : <a class="reference external" href="http://xsisupport.com/2011/04/27/running-softimage-on-other-distros-like-ubuntu-kubuntu-pardus-and-gentoo/">more infos</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd /usr/Softimage/Softimage_2015_SP1/Application/bin/
+tcsh
+source ../../.xsi_2015_SP1
+cmdreg -f XSICOMDLLs.lst
+</pre></div>
+</div>
+</div>
+<div class="section" id="done">
+<h2>done !<a class="headerlink" href="#done" title="Permalink to this headline">¶</a></h2>
+<p>launch the application</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>/usr/Softimage/Softimage_2015_SP1/Application/bin/xsi
+</pre></div>
+</div>
+<img alt="_images/xsi2.jpg" src="_images/xsi2.jpg" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Maya.html" class="btn btn-neutral float-right" title="Maya Specifics Install" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Volumes.html" class="btn btn-neutral" title="Volumes Access Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

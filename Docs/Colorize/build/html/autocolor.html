@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AutoColorize &mdash; Colorize 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Colorize 1 documentation" href="index.html"/>
+        <link rel="next" title="Colorful Image Colorization" href="colorful.html"/>
+        <link rel="prev" title="Web references" href="webrefs.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Colorize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Colorize</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webrefs.html">Web references</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">AutoColorize</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-caffe-kubuntu-14-04">Install Caffe (Kubuntu 14.04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-caffe-kubuntu-16-04">Install Caffe (Kubuntu 16.04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#problem-with-hdf5-h-debian-jessie">problem with hdf5.h (debian jessie)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-autocolorize-on-renderfarm">install autocolorize on renderfarm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="colorful.html">Colorful Image Colorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="letthere.html">Let there be color</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Colorize</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>AutoColorize</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/autocolor.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="autocolorize">
+<h1>AutoColorize<a class="headerlink" href="#autocolorize" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://people.cs.uchicago.edu/~larsson/colorization/">http://people.cs.uchicago.edu/~larsson/colorization/</a></p>
+<p><a class="reference external" href="https://github.com/gustavla/autocolorize">https://github.com/gustavla/autocolorize</a></p>
+<div class="section" id="install-caffe-kubuntu-14-04">
+<h2>Install Caffe (Kubuntu 14.04)<a class="headerlink" href="#install-caffe-kubuntu-14-04" title="Permalink to this headline">¶</a></h2>
+<p>user needs caffe installed in his home directory</p>
+<p><a class="reference external" href="http://caffe.berkeleyvision.org/install_apt.html">http://caffe.berkeleyvision.org/install_apt.html</a></p>
+<p>general (su)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+apt-get install libatlas-base-dev
+apt-get install --no-install-recommends libboost-all-dev
+apt-get install python-dev
+apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+</pre></div>
+</div>
+<p>in the user home dir :</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/BVLC/caffe.git
+cp Makefile.config.example Makefile.config
+# Adjust Makefile.config (for example, if using Anaconda Python, or if cuDNN is desired)
+#adjust for use CUdnn or CPU only
+make all
+make test
+make runtest
+</pre></div>
+</div>
+<p>python bindings</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install python-matplotlib
+apt-get install python-numpy python-scipy
+apt-get install python-skimage
+make pycaffe
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-caffe-kubuntu-16-04">
+<h2>Install Caffe (Kubuntu 16.04)<a class="headerlink" href="#install-caffe-kubuntu-16-04" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://caffe.berkeleyvision.org/install_apt.html">http://caffe.berkeleyvision.org/install_apt.html</a></p>
+<p><a class="reference external" href="https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide">https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+apt-get install --no-install-recommends libboost-all-dev
+apt-get install libatlas-base-dev
+apt-get install python-dev
+apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/BVLC/caffe.git
+cp Makefile.config.example Makefile.config
+# Adjust Makefile.config (For CPU-only Caffe, uncomment CPU_ONLY := 1 in Makefile.config)
+make all (see problem with hdf5.h)
+make test
+make runtest
+</pre></div>
+</div>
+<p>python bindings</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install python-matplotlib
+apt-get install python-numpy python-scipy
+apt-get install python-skimage
+make pycaffe
+</pre></div>
+</div>
+</div>
+<div class="section" id="problem-with-hdf5-h-debian-jessie">
+<h2>problem with hdf5.h (debian jessie)<a class="headerlink" href="#problem-with-hdf5-h-debian-jessie" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/BVLC/caffe/issues/2347">https://github.com/BVLC/caffe/issues/2347</a></p>
+</div>
+<div class="section" id="install-autocolorize-on-renderfarm">
+<h2>install autocolorize on renderfarm<a class="headerlink" href="#install-autocolorize-on-renderfarm" title="Permalink to this headline">¶</a></h2>
+<p>use english sources.list</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>#------------------------------------------------------------------------------#
+#                            OFFICIAL UBUNTU REPOS                             #
+#------------------------------------------------------------------------------#
+###### Ubuntu Main Repos
+deb http://en.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb-src http://en.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+###### Ubuntu Update Repos
+deb http://en.archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+deb http://en.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb-src http://en.archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse
+deb-src http://en.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cp sources.list /etc/apt/sources.list
+apt-get clean
+apt-get update
+apt-get --yes upgrade
+apt-get --yes autoremove
+apt-get install --yes libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+apt-get install --yes libatlas-base-dev
+apt-get install --yes --no-install-recommends libboost-all-dev
+apt-get install --yes libgflags-dev libgoogle-glog-dev liblmdb-dev
+apt-get install --yes python-matplotlib
+apt-get install --yes python-numpy python-scipy python-skimage
+apt-get install --yes python-pip
+pip install protobuf
+pip install autocolorize
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="colorful.html" class="btn btn-neutral float-right" title="Colorful Image Colorization" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="webrefs.html" class="btn btn-neutral" title="Web references" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, lulu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

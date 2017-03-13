@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aegisub Subtitle Generator &mdash; MiscTools 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MiscTools 1.0 documentation" href="index.html"/>
+        <link rel="next" title="kdenlive with Kubuntu 15" href="kdenlive.html"/>
+        <link rel="prev" title="Sphinx Documentation Generator" href="sphinx.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MiscTools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Misc Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx Documentation Generator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Aegisub Subtitle Generator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-version-3-2">install version 3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-dictionaries">use dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#burn-subtitles-on-video">burn subtitles on video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dictionaries">dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-aegisub">Building Aegisub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wiki">Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subtitles-formats">Subtitles formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial">Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kdenlive.html">kdenlive with Kubuntu 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmic.html">G&#8217;MIC</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MiscTools</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Aegisub Subtitle Generator</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/aegisub.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aegisub-subtitle-generator">
+<h1>Aegisub Subtitle Generator<a class="headerlink" href="#aegisub-subtitle-generator" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/aegisub.png" src="_images/aegisub.png" />
+<div class="section" id="web-references">
+<h2>Web References<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.aegisub.org/">http://www.aegisub.org/</a></p>
+</div>
+<div class="section" id="install-version-3-2">
+<h2>install version 3.2<a class="headerlink" href="#install-version-3-2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://forum.aegisub.org/viewtopic.php?f=10&amp;t=66167">http://forum.aegisub.org/viewtopic.php?f=10&amp;t=66167</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>add-apt-repository ppa:djcj/aegisub
+apt-get update
+apt-get install aegisub
+apt-get install aegisub-unstable
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-dictionaries">
+<h2>use dictionaries<a class="headerlink" href="#use-dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>Options/Interface/chemin des dictionnaires</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>/usr/share/hunspell
+</pre></div>
+</div>
+</div>
+<div class="section" id="burn-subtitles-on-video">
+<h2>burn subtitles on video<a class="headerlink" href="#burn-subtitles-on-video" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo">https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ffmpeg -i video.avi -vf &quot;ass=subtitle.ass&quot; out.avi
+</pre></div>
+</div>
+</div>
+<div class="section" id="docs">
+<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.aegisub.org/">http://docs.aegisub.org/</a></p>
+<p><a class="reference external" href="http://docs.aegisub.org/3.2/Main_Page/">http://docs.aegisub.org/3.2/Main_Page/</a></p>
+</div>
+<div class="section" id="dictionaries">
+<h2>dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://wiki.mozilla.org/L10n:Dictionaries">https://wiki.mozilla.org/L10n:Dictionaries</a></p>
+</div>
+<div class="section" id="building-aegisub">
+<h2>Building Aegisub<a class="headerlink" href="#building-aegisub" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://devel.aegisub.org/wiki/Build/Unix">http://devel.aegisub.org/wiki/Build/Unix</a></p>
+</div>
+<div class="section" id="wiki">
+<h2>Wiki<a class="headerlink" href="#wiki" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://devel.aegisub.org/wiki">http://devel.aegisub.org/wiki</a></p>
+</div>
+<div class="section" id="subtitles-formats">
+<h2>Subtitles formats<a class="headerlink" href="#subtitles-formats" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://devel.aegisub.org/wiki/SubtitleFormats">http://devel.aegisub.org/wiki/SubtitleFormats</a></p>
+</div>
+<div class="section" id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://sub.wordnerd.de/linux-subs.html">http://sub.wordnerd.de/linux-subs.html</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kdenlive.html" class="btn btn-neutral float-right" title="kdenlive with Kubuntu 15" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sphinx.html" class="btn btn-neutral" title="Sphinx Documentation Generator" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

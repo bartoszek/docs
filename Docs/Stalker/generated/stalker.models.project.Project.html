@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stalker.models.project.Project &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="../index.html" />
+    <link rel="next" title="stalker.models.project.ProjectRepository" href="stalker.models.project.ProjectRepository.html" />
+    <link rel="prev" title="stalker.models.note.Note" href="stalker.models.note.Note.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.project.ProjectRepository.html" title="stalker.models.project.ProjectRepository"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.note.Note.html" title="stalker.models.note.Note"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-models-project-project">
+<h1>stalker.models.project.Project<a class="headerlink" href="#stalker-models-project-project" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+digraph inheritancec599151c1f {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Base&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;ORMClass&quot; -&gt; &quot;Base&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.mixins.CodeMixin.html#stalker.models.mixins.CodeMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;DateRangeMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.entity.Entity.html#stalker.models.entity.Entity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Entity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ORMClass&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;Project&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;#stalker.models.project.Project&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ReferenceMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ReferenceMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.mixins.ReferenceMixin.html#stalker.models.mixins.ReferenceMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.entity.SimpleEntity.html#stalker.models.entity.SimpleEntity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;SimpleEntity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;stalker.models.mixins.StatusMixin.html#stalker.models.mixins.StatusMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+}
+</p>
+<dl class="class">
+<dt id="stalker.models.project.Project">
+<em class="property">class </em><code class="descclassname">stalker.models.project.</code><code class="descname">Project</code><span class="sig-paren">(</span><em>name=None</em>, <em>code=None</em>, <em>client=None</em>, <em>repositories=None</em>, <em>structure=None</em>, <em>image_format=None</em>, <em>fps=25.0</em>, <em>is_stereoscopic=False</em>, <em>users=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.project.Project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="stalker.models.entity.Entity.html#stalker.models.entity.Entity" title="stalker.models.entity.Entity"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.entity.Entity</span></code></a>, <a class="reference internal" href="stalker.models.mixins.ReferenceMixin.html#stalker.models.mixins.ReferenceMixin" title="stalker.models.mixins.ReferenceMixin"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.mixins.ReferenceMixin</span></code></a>, <a class="reference internal" href="stalker.models.mixins.StatusMixin.html#stalker.models.mixins.StatusMixin" title="stalker.models.mixins.StatusMixin"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.mixins.StatusMixin</span></code></a>, <a class="reference internal" href="stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin" title="stalker.models.mixins.DateRangeMixin"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.mixins.DateRangeMixin</span></code></a>, <a class="reference internal" href="stalker.models.mixins.CodeMixin.html#stalker.models.mixins.CodeMixin" title="stalker.models.mixins.CodeMixin"><code class="xref py py-class docutils literal"><span class="pre">stalker.models.mixins.CodeMixin</span></code></a></p>
+<p>All the information about a Project in Stalker is hold in this class.</p>
+<p>Project is one of the main classes that will direct the others. A project
+in Stalker is a gathering point.</p>
+<p>It is mixed with <a class="reference internal" href="stalker.models.mixins.ReferenceMixin.html#stalker.models.mixins.ReferenceMixin" title="stalker.models.mixins.ReferenceMixin"><code class="xref py py-class docutils literal"><span class="pre">ReferenceMixin</span></code></a>, <a class="reference internal" href="stalker.models.mixins.StatusMixin.html#stalker.models.mixins.StatusMixin" title="stalker.models.mixins.StatusMixin"><code class="xref py py-class docutils literal"><span class="pre">StatusMixin</span></code></a>,
+<a class="reference internal" href="stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin" title="stalker.models.mixins.DateRangeMixin"><code class="xref py py-class docutils literal"><span class="pre">DateRangeMixin</span></code></a> and <a class="reference internal" href="stalker.models.mixins.CodeMixin.html#stalker.models.mixins.CodeMixin" title="stalker.models.mixins.CodeMixin"><code class="xref py py-class docutils literal"><span class="pre">CodeMixin</span></code></a> to give reference, status,
+schedule and code attribute. Please read the individual documentation of
+each of the mixins.</p>
+<p><strong>Project Users</strong></p>
+<p>The <code class="xref py py-attr docutils literal"><span class="pre">Project.users</span></code> attribute lists the users in this project. UIs
+like task creation for example will only list these users as available
+resources for this project.</p>
+<p><strong>TaskJuggler Integration</strong></p>
+<p>Stalker uses TaskJuggler for scheduling the project tasks. The
+<a class="reference internal" href="#stalker.models.project.Project.to_tjp" title="stalker.models.project.Project.to_tjp"><code class="xref py py-attr docutils literal"><span class="pre">Project.to_tjp</span></code></a> attribute generates a tjp compliant string which
+includes the project definition, the tasks of the project, the resources in
+the project including the vacation definitions and all the time logs
+recorded for the project.</p>
+<p>For custom attributes or directives that needs to be passed to TaskJuggler
+you can use the <code class="xref py py-attr docutils literal"><span class="pre">Project.custom_tjp</span></code> attribute which will be
+attached to the generated tjp file (inside the &#8220;project&#8221; directive).</p>
+<p>To manage all the studio projects at once (schedule them at once please use
+<a class="reference internal" href="stalker.models.studio.Studio.html#stalker.models.studio.Studio" title="stalker.models.studio.Studio"><code class="xref py py-class docutils literal"><span class="pre">Studio</span></code></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.2.13: </span>Multiple Repositories per Project</p>
+<p>Starting with v0.2.13 Project instances can have multiple Repositories,
+which allows the project files to be placed in more than one repository
+according to the need of the studio pipeline. One great advantage of
+having multiple repositories is to be able to place Published versions
+in to another repository which is placed on to a faster server.</p>
+<p>Also the <code class="xref py py-attr docutils literal"><span class="pre">repositories</span></code> attribute is not a read-only attribute
+anymore.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>client</strong> (<a class="reference internal" href="stalker.models.client.Client.html#stalker.models.client.Client" title="stalker.models.client.Client"><code class="xref py py-class docutils literal"><span class="pre">Client</span></code></a>) &#8211; The client which the project is affiliated with. Default
+value is None.</li>
+<li><strong>image_format</strong> (<a class="reference internal" href="stalker.models.format.ImageFormat.html#stalker.models.format.ImageFormat" title="stalker.models.format.ImageFormat"><code class="xref py py-class docutils literal"><span class="pre">ImageFormat</span></code></a>) &#8211; The output image format of the project. Default
+value is None.</li>
+<li><strong>fps</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The FPS of the project, it should be a integer or float
+number, or a string literal which can be correctly converted to a float.
+Default value is 25.0.</li>
+<li><strong>type</strong> (<a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a>) &#8211; The type of the project. Default value is None.</li>
+<li><strong>structure</strong> (<a class="reference internal" href="stalker.models.structure.Structure.html#stalker.models.structure.Structure" title="stalker.models.structure.Structure"><code class="xref py py-class docutils literal"><span class="pre">Structure</span></code></a>) &#8211; The structure of the project. Default value is None</li>
+<li><strong>repositories</strong> &#8211; A list of <a class="reference internal" href="stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> instances that the
+project files are going to be stored in. You can not create a project
+without specifying the repositories argument and passing a
+<a class="reference internal" href="stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> to it. Default value is None which raises a
+TypeError.</li>
+<li><strong>is_stereoscopic</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; a bool value, showing if the project is going
+to be a stereo 3D project, anything given as the argument will be
+converted to True or False. Default value is False.</li>
+<li><strong>users</strong> &#8211; A list of <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a>s holding the users in this
+project. This will create a reduced or grouped list of studio workers and
+will make it easier to define the resources for a Task related to this
+project. The default value is an empty list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stalker.models.project.Project.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name=None</em>, <em>code=None</em>, <em>client=None</em>, <em>repositories=None</em>, <em>structure=None</em>, <em>image_format=None</em>, <em>fps=25.0</em>, <em>is_stereoscopic=False</em>, <em>users=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.project.Project.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.__init__" title="stalker.models.project.Project.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([name,&nbsp;code,&nbsp;client,&nbsp;repositories,&nbsp;...])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.assets" title="stalker.models.project.Project.assets"><code class="xref py py-obj docutils literal"><span class="pre">assets</span></code></a></td>
+<td>returns the assets related to this project</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.computed_duration" title="stalker.models.project.Project.computed_duration"><code class="xref py py-obj docutils literal"><span class="pre">computed_duration</span></code></a></td>
+<td>returns the computed_duration as the difference of computed_start</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.computed_total_seconds" title="stalker.models.project.Project.computed_total_seconds"><code class="xref py py-obj docutils literal"><span class="pre">computed_total_seconds</span></code></a></td>
+<td>returns the duration as seconds</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.is_active" title="stalker.models.project.Project.is_active"><code class="xref py py-obj docutils literal"><span class="pre">is_active</span></code></a></td>
+<td>predicate for Project.active attribute</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.nice_name" title="stalker.models.project.Project.nice_name"><code class="xref py py-obj docutils literal"><span class="pre">nice_name</span></code></a></td>
+<td>Nice name of this object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.open_tickets" title="stalker.models.project.Project.open_tickets"><code class="xref py py-obj docutils literal"><span class="pre">open_tickets</span></code></a></td>
+<td>The list of open <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s in this project.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.percent_complete" title="stalker.models.project.Project.percent_complete"><code class="xref py py-obj docutils literal"><span class="pre">percent_complete</span></code></a></td>
+<td>returns the percent_complete based on the total_logged_seconds and</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.plural_class_name" title="stalker.models.project.Project.plural_class_name"><code class="xref py py-obj docutils literal"><span class="pre">plural_class_name</span></code></a></td>
+<td>the plural name of this class</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.repository" title="stalker.models.project.Project.repository"><code class="xref py py-obj docutils literal"><span class="pre">repository</span></code></a></td>
+<td>compatibility attribute for pre v0.2.13 systems. Returns the first</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.root_tasks" title="stalker.models.project.Project.root_tasks"><code class="xref py py-obj docutils literal"><span class="pre">root_tasks</span></code></a></td>
+<td>returns a list of Tasks which have no parent</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.schedule_seconds" title="stalker.models.project.Project.schedule_seconds"><code class="xref py py-obj docutils literal"><span class="pre">schedule_seconds</span></code></a></td>
+<td>returns an integer showing the total amount of schedule timing of</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.sequences" title="stalker.models.project.Project.sequences"><code class="xref py py-obj docutils literal"><span class="pre">sequences</span></code></a></td>
+<td>returns the sequences related to this project</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.shots" title="stalker.models.project.Project.shots"><code class="xref py py-obj docutils literal"><span class="pre">shots</span></code></a></td>
+<td>returns the shots related to this project</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.tjp_id" title="stalker.models.project.Project.tjp_id"><code class="xref py py-obj docutils literal"><span class="pre">tjp_id</span></code></a></td>
+<td>returns TaskJuggler compatible id</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.to_tjp" title="stalker.models.project.Project.to_tjp"><code class="xref py py-obj docutils literal"><span class="pre">to_tjp</span></code></a></td>
+<td>returns a TaskJuggler compatible string representing this project</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#stalker.models.project.Project.total_logged_seconds" title="stalker.models.project.Project.total_logged_seconds"><code class="xref py py-obj docutils literal"><span class="pre">total_logged_seconds</span></code></a></td>
+<td>returns an integer representing the total TimeLog seconds recorded</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.project.Project.total_seconds" title="stalker.models.project.Project.total_seconds"><code class="xref py py-obj docutils literal"><span class="pre">total_seconds</span></code></a></td>
+<td>returns the duration as seconds</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="stalker.models.project.Project.assets">
+<code class="descname">assets</code><a class="headerlink" href="#stalker.models.project.Project.assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the assets related to this project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.client">
+<code class="descname">client</code><a class="headerlink" href="#stalker.models.project.Project.client" title="Permalink to this definition">¶</a></dt>
+<dd><p>The client company assigning the studio
+with the project.</p>
+<p>Should be an instance of <a class="reference internal" href="stalker.models.client.Client.html#stalker.models.client.Client" title="stalker.models.client.Client"><code class="xref py py-class docutils literal"><span class="pre">Client</span></code></a>,
+can also be set to None.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.code">
+<code class="descname">code</code><a class="headerlink" href="#stalker.models.project.Project.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>The code name of this object.</p>
+<p>It accepts strings. Can not be None.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.computed_duration">
+<code class="descname">computed_duration</code><a class="headerlink" href="#stalker.models.project.Project.computed_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the computed_duration as the difference of computed_start
+and computed_end if there are computed_start and computed_end otherwise
+returns None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.computed_total_seconds">
+<code class="descname">computed_total_seconds</code><a class="headerlink" href="#stalker.models.project.Project.computed_total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the duration as seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.created_by">
+<code class="descname">created_by</code><a class="headerlink" href="#stalker.models.project.Project.created_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has created this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.created_by_id">
+<code class="descname">created_by_id</code><a class="headerlink" href="#stalker.models.project.Project.created_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has created this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.date_created">
+<code class="descname">date_created</code><a class="headerlink" href="#stalker.models.project.Project.date_created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></code></a> instance showing the creation date
+and time of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.date_updated">
+<code class="descname">date_updated</code><a class="headerlink" href="#stalker.models.project.Project.date_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></code></a> instance showing the update date
+and time of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.description">
+<code class="descname">description</code><a class="headerlink" href="#stalker.models.project.Project.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.duration">
+<code class="descname">duration</code><a class="headerlink" href="#stalker.models.project.Project.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duration of the entity.</p>
+<p>It is a datetime.timedelta instance. Showing the difference of
+the <a class="reference internal" href="#stalker.models.project.Project.start" title="stalker.models.project.Project.start"><code class="xref py py-attr docutils literal"><span class="pre">start</span></code></a> and the <a class="reference internal" href="#stalker.models.project.Project.end" title="stalker.models.project.Project.end"><code class="xref py py-attr docutils literal"><span class="pre">end</span></code></a>. If edited it changes
+the <a class="reference internal" href="#stalker.models.project.Project.end" title="stalker.models.project.Project.end"><code class="xref py py-attr docutils literal"><span class="pre">end</span></code></a> attribute value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.end">
+<code class="descname">end</code><a class="headerlink" href="#stalker.models.project.Project.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date that the entity should be delivered.</p>
+<p>The end can be set to a datetime.timedelta and in this case it will be
+calculated as an offset from the start and converted to
+datetime.datetime again. Setting the start to a date passing the end
+will also set the end, so the timedelta between them is preserved,
+default value is 10 days</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.fps">
+<code class="descname">fps</code><a class="headerlink" href="#stalker.models.project.Project.fps" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fps of the project.</p>
+<p>It is a float value, any other types will be converted to float. The
+default value is 25.0.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.generic_data">
+<code class="descname">generic_data</code><a class="headerlink" href="#stalker.models.project.Project.generic_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This attribute can hold any kind of data which exists in SOM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.generic_text">
+<code class="descname">generic_text</code><a class="headerlink" href="#stalker.models.project.Project.generic_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>This attribute can hold any text.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.image_format">
+<code class="descname">image_format</code><a class="headerlink" href="#stalker.models.project.Project.image_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.format.ImageFormat.html#stalker.models.format.ImageFormat" title="stalker.models.format.ImageFormat"><code class="xref py py-class docutils literal"><span class="pre">ImageFormat</span></code></a> of this project.</p>
+<p>This value defines the output image format of the project, should be an
+instance of <a class="reference internal" href="stalker.models.format.ImageFormat.html#stalker.models.format.ImageFormat" title="stalker.models.format.ImageFormat"><code class="xref py py-class docutils literal"><span class="pre">ImageFormat</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.is_active">
+<code class="descname">is_active</code><a class="headerlink" href="#stalker.models.project.Project.is_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>predicate for Project.active attribute</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.is_stereoscopic">
+<code class="descname">is_stereoscopic</code><a class="headerlink" href="#stalker.models.project.Project.is_stereoscopic" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the project is a stereoscopic project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.name">
+<code class="descname">name</code><a class="headerlink" href="#stalker.models.project.Project.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.nice_name">
+<code class="descname">nice_name</code><a class="headerlink" href="#stalker.models.project.Project.nice_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nice name of this object.</p>
+<p>It has the same value with the name (contextually) but with a different
+format like, all the white spaces replaced by underscores (&#8220;_&#8221;), all
+the CamelCase form will be expanded by underscore (_) characters and
+it is always lower case.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.notes">
+<code class="descname">notes</code><a class="headerlink" href="#stalker.models.project.Project.notes" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the <code class="xref py py-class docutils literal"><span class="pre">Notes</span></code>s attached to this entity.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.note.Note.html#stalker.models.note.Note" title="stalker.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a> instances or an
+empty list, setting it to None will raise a TypeError.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.open_tickets">
+<code class="descname">open_tickets</code><a class="headerlink" href="#stalker.models.project.Project.open_tickets" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of open <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s in this project.</p>
+<p>returns a list of <a class="reference internal" href="stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a> instances which has a status of
+<cite>Open</cite> and created in this project.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.percent_complete">
+<code class="descname">percent_complete</code><a class="headerlink" href="#stalker.models.project.Project.percent_complete" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the percent_complete based on the total_logged_seconds and
+schedule_seconds of the root tasks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.plural_class_name">
+<code class="descname">plural_class_name</code><a class="headerlink" href="#stalker.models.project.Project.plural_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the plural name of this class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.references">
+<code class="descname">references</code><a class="headerlink" href="#stalker.models.project.Project.references" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="stalker.models.link.Link.html#stalker.models.link.Link" title="stalker.models.link.Link"><code class="xref py py-class docutils literal"><span class="pre">Link</span></code></a> instances given as a reference for
+this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.repositories_proxy">
+<code class="descname">repositories_proxy</code><a class="headerlink" href="#stalker.models.project.Project.repositories_proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> that this project files should reside.</p>
+<p>Should be a list of <a class="reference internal" href="stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a>instances.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.repository">
+<code class="descname">repository</code><a class="headerlink" href="#stalker.models.project.Project.repository" title="Permalink to this definition">¶</a></dt>
+<dd><p>compatibility attribute for pre v0.2.13 systems. Returns the first
+repository instance in the project.repositories attribute if there is
+any or None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.root_tasks">
+<code class="descname">root_tasks</code><a class="headerlink" href="#stalker.models.project.Project.root_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of Tasks which have no parent</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="stalker.models.project.Project.round_time">
+<code class="descname">round_time</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.project.Project.round_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Round the given datetime object to the defaults.timing_resolution.</p>
+<p>Uses <code class="xref py py-class docutils literal"><span class="pre">stalker.defaults.timing_resolution</span></code> as the closest number
+of seconds to round to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dt</strong> (<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><em>datetime.datetime</em></a>) &#8211; datetime.datetime object, defaults to now.</td>
+</tr>
+</tbody>
+</table>
+<p>Based on Thierry Husson&#8217;s answer in <a class="reference internal" href="#stackoverflow">Stackoverflow</a></p>
+<p><span class="target" id="stackoverflow">Stackoverflow</span> : <a class="reference external" href="http://stackoverflow.com/a/10854034/1431079">http://stackoverflow.com/a/10854034/1431079</a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.schedule_seconds">
+<code class="descname">schedule_seconds</code><a class="headerlink" href="#stalker.models.project.Project.schedule_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns an integer showing the total amount of schedule timing of
+the in child tasks in seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.sequences">
+<code class="descname">sequences</code><a class="headerlink" href="#stalker.models.project.Project.sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the sequences related to this project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.shots">
+<code class="descname">shots</code><a class="headerlink" href="#stalker.models.project.Project.shots" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the shots related to this project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.start">
+<code class="descname">start</code><a class="headerlink" href="#stalker.models.project.Project.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date that this entity should start.</p>
+<p>Also effects the <code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.end</span></code> attribute value in certain
+conditions, if the <code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.start</span></code> is set to a time
+passing the <code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.end</span></code> it will also offset the
+<code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.end</span></code> to keep the
+<code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.duration</span></code> value fixed.
+<code class="xref py py-attr docutils literal"><span class="pre">DateRangeMixin.start</span></code> should be an instance of
+class:<cite>datetime.datetime</cite> and the default value is
+<code class="xref py py-func docutils literal"><span class="pre">datetime.datetime.now()</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.status">
+<code class="descname">status</code><a class="headerlink" href="#stalker.models.project.Project.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current status of the object.</p>
+<p>It is a <a class="reference internal" href="stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instance which
+is one of the Statuses stored in the <code class="docutils literal"><span class="pre">status_list</span></code> attribute
+of this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.structure">
+<code class="descname">structure</code><a class="headerlink" href="#stalker.models.project.Project.structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>The structure of the project. Should be an instance of
+<a class="reference internal" href="stalker.models.structure.Structure.html#stalker.models.structure.Structure" title="stalker.models.structure.Structure"><code class="xref py py-class docutils literal"><span class="pre">Structure</span></code></a> class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.tags">
+<code class="descname">tags</code><a class="headerlink" href="#stalker.models.project.Project.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of tags attached to this object.</p>
+<p>It is a list of <a class="reference internal" href="stalker.models.tag.Tag.html#stalker.models.tag.Tag" title="stalker.models.tag.Tag"><code class="xref py py-class docutils literal"><span class="pre">Tag</span></code></a> instances which shows
+the tags of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.tjp_id">
+<code class="descname">tjp_id</code><a class="headerlink" href="#stalker.models.project.Project.tjp_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns TaskJuggler compatible id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.to_tjp">
+<code class="descname">to_tjp</code><a class="headerlink" href="#stalker.models.project.Project.to_tjp" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a TaskJuggler compatible string representing this project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.total_logged_seconds">
+<code class="descname">total_logged_seconds</code><a class="headerlink" href="#stalker.models.project.Project.total_logged_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns an integer representing the total TimeLog seconds recorded
+in child tasks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.total_seconds">
+<code class="descname">total_seconds</code><a class="headerlink" href="#stalker.models.project.Project.total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the duration as seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.type">
+<code class="descname">type</code><a class="headerlink" href="#stalker.models.project.Project.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the object.</p>
+<p>It is an instance of <a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> with a proper
+<a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type.target_entity_type" title="stalker.models.type.Type.target_entity_type"><code class="xref py py-attr docutils literal"><span class="pre">Type.target_entity_type</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.type_id">
+<code class="descname">type_id</code><a class="headerlink" href="#stalker.models.project.Project.type_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.type.Type.html#stalker.models.type.Type" title="stalker.models.type.Type"><code class="xref py py-class docutils literal"><span class="pre">Type</span></code></a> of this entity. Mainly used by
+SQLAlchemy to create a Many-to-One relates between SimpleEntities and
+Types.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.updated_by">
+<code class="descname">updated_by</code><a class="headerlink" href="#stalker.models.project.Project.updated_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has updated this object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.project.Project.updated_by_id">
+<code class="descname">updated_by_id</code><a class="headerlink" href="#stalker.models.project.Project.updated_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The id of the <a class="reference internal" href="stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> who has updated this entity.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stalker.models.note.Note.html"
+                        title="previous chapter">stalker.models.note.Note</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stalker.models.project.ProjectRepository.html"
+                        title="next chapter">stalker.models.project.ProjectRepository</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.project.ProjectRepository.html" title="stalker.models.project.ProjectRepository"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.note.Note.html" title="stalker.models.note.Note"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

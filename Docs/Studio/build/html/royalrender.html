@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RoyalRender &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="DNS-DHCP" href="DNS-DHCP.html"/>
+        <link rel="prev" title="Houdini" href="Houdini.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">RoyalRender</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#serveur">Serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configs">Configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc">Misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuke">Nuke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#houdini">Houdini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mecanisme-de-submission">Mecanisme de submission</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>RoyalRender</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/royalrender.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="royalrender">
+<h1>RoyalRender<a class="headerlink" href="#royalrender" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/royalrender.png"><img alt="_images/royalrender.png" src="_images/royalrender.png" style="width: 500.0px; height: 288.0px;" /></a>
+<div class="section" id="serveur">
+<h2>Serveur<a class="headerlink" href="#serveur" title="Permalink to this headline">¶</a></h2>
+<p>le serveur royal render s&#8217;apelle royal (192.168.32.35)</p>
+<p>le serveur est lance au boot dans le fichier /etc/kde4/kdm/Xsetup</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su - render -c &#39;/shared/apps/royal-render/bin/lx64/rrServerconsole &amp;&#39;
+</pre></div>
+</div>
+<p>pour voir les logs du serveur : tail -f /shared/apps/royal-render/sub/log/server_Royal.txt</p>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<p>le client est lance au boot dans le fichier /etc/kde4/kdm/Xsetup</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su - render -c &#39;/shared/apps/royal-render/bin/lx64/rrClientconsole &amp;&#39;
+su - render -c &#39;/shared/apps/royal-render/bin/lx64/rrClientwatch &amp;&#39;
+</pre></div>
+</div>
+<p>les dossiers locaux sont aussi crees par Xsetup : /usr/local/RR_localdata</p>
+</div>
+<div class="section" id="configs">
+<h2>Configs<a class="headerlink" href="#configs" title="Permalink to this headline">¶</a></h2>
+<p>le fichier principal se trouve dans /shared/apps/royal-render/sub/cfg_global/clients.ini</p>
+<p>pour rajouter une Render Application : dans rrClientWatch -&gt; Restore UI puis dans l&#8217;UI -&gt; Options/Configuration</p>
+<p>les configs generales se font dans rrConfig</p>
+</div>
+<div class="section" id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h2>
+<p>If you set Sequence Divide Min to 0, then the sequence is not divided.All frames are send at once to one client.</p>
+</div>
+<div class="section" id="nuke">
+<h2>Nuke<a class="headerlink" href="#nuke" title="Permalink to this headline">¶</a></h2>
+<p>dans /shared/apps/nuke/Nuke7.0v9/plugins/menu.py : cree un menu et fait le lien avec le script</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">m</span> <span class="o">=</span>  <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s">&quot;RRender&quot;</span><span class="p">);</span>
+<span class="n">m</span><span class="o">.</span><span class="n">addCommand</span><span class="p">(</span><span class="s">&quot;Submit Comp&quot;</span><span class="p">,</span> <span class="s">&quot;nuke.load(&#39;rrSubmit_Nuke_5&#39;), rrSubmit_Nuke_5()&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>le script est /shared/apps/nuke/Nuke7.0v9/plugins/rrSubmit_Nuke_5.py copie depuis
+royal-render/render_apps/_submitplugins/rrSubmit_Nuke_5.py</p>
+</div>
+<div class="section" id="houdini">
+<h2>Houdini<a class="headerlink" href="#houdini" title="Permalink to this headline">¶</a></h2>
+<p>(13.0.582 par ex) dans /shared/apps/houdini/hsite/houdini13.0/MainMenuCommon.xml</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>....
+&lt;addScriptItem id=&quot;h.royalrender&quot;&gt;
+      &lt;parent&gt;render_menu&lt;/parent&gt;
+      &lt;label&gt;Submit Royal Render&lt;/label&gt;
+              &lt;scriptPath&gt;menu/lmSubmitToRoyalRender.py&lt;/scriptPath&gt;
+      &lt;scriptArgs&gt;&lt;/scriptArgs&gt;
+      &lt;insertAfter/&gt;
+&lt;/addScriptItem&gt;
+.....
+</pre></div>
+</div>
+<p>le script se trouve dans /shared/apps/houdini/hsite/houdini_multiple_versions/scripts/menu/lmSubmitToRoyalRender.py</p>
+<p>le dossier se trouve dans la variable d&#8217;environnement</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>HOUDINI_PATH=/shared/apps/houdini/hsite/houdini13.0:/groups/3d/houdini/hsite/houdini13.0:/shared/apps/houdini/hsite/houdini_multiple_versions;&amp;
+</pre></div>
+</div>
+<p>cette variable est sete dans /shared/bin/_houdini_version.sh</p>
+</div>
+<div class="section" id="mecanisme-de-submission">
+<h2>Mecanisme de submission<a class="headerlink" href="#mecanisme-de-submission" title="Permalink to this headline">¶</a></h2>
+<p>le script de submit (lance dans l&#8217;application) cree un fichier .xml (par ex houdini cree /tmp/tmp_file_for_houdini_submission_to_rr.xml)</p>
+<p>dans ce fichier sont tous les parametres des jobs/layers etc</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>......
+&lt;Job&gt;
+
+              &lt;Layer&gt; /obj/ropnet1/mantra1 &lt;/Layer&gt;
+              &lt;ImageExtension&gt; .exr &lt;/ImageExtension&gt;
+              &lt;ImageDir&gt; /work/cgi/Perso/lulu/rr_test/houdini/linetests &lt;/ImageDir&gt;
+              &lt;SeqStart&gt; 1.0 &lt;/SeqStart&gt;
+              &lt;OutputPath&gt; /work/cgi/Perso/lulu/rr_test/houdini/linetests &lt;/OutputPath&gt;
+              &lt;SeqEnd&gt; 240.0 &lt;/SeqEnd&gt;
+              &lt;ImageFilename&gt; w1. &lt;/ImageFilename&gt;
+              &lt;SceneName&gt; /work/cgi/Perso/lulu/rr_test/houdini/w1.hip &lt;/SceneName&gt;
+              &lt;SceneDatabaseDir&gt; /work/cgi/Perso/lulu/rr_test/houdini &lt;/SceneDatabaseDir&gt;
+              &lt;ImageFileNameVariables&gt; /work/cgi/Perso/lulu/rr_test/houdini/w1.hip &lt;/ImageFileNameVariables&gt;
+              etc
+....
+</pre></div>
+</div>
+<p>puis est lance la commande /shared/apps/royal-render/lx__rrSubmitter.sh tmp_file_for_houdini_submission_to_rr.xml qui va tout envoyer au serveur</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DNS-DHCP.html" class="btn btn-neutral float-right" title="DNS-DHCP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Houdini.html" class="btn btn-neutral" title="Houdini" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

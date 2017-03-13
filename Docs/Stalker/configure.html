@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuring Stalker &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="index.html" />
+    <link rel="next" title="How To Contribute" href="contribute.html" />
+    <link rel="prev" title="Design" href="design.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="contribute.html" title="How To Contribute"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="design.html" title="Design"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configuring-stalker">
+<span id="configuration-toplevel"></span><span id="id1"></span><h1>Configuring Stalker<a class="headerlink" href="#configuring-stalker" title="Permalink to this headline">¶</a></h1>
+<p>To configure Stalker and make it fit to your Studios need you should use the
+<code class="docutils literal"><span class="pre">config.py</span></code> file as mentioned in next sections.</p>
+<div class="section" id="config-py-file">
+<h2>config.py File<a class="headerlink" href="#config-py-file" title="Permalink to this headline">¶</a></h2>
+<p>Stalker uses the <code class="docutils literal"><span class="pre">config.py</span></code> to let one to customize the system config.</p>
+<p>The <code class="docutils literal"><span class="pre">config.py</span></code> file is searched in a couple of places through the system:</p>
+<blockquote>
+<div><ul class="simple">
+<li>under &#8220;~/.strc/&#8221; directory (not yet)</li>
+<li>under &#8220;$STALKER_PATH&#8221;</li>
+</ul>
+</div></blockquote>
+<p>The first path is a folder in the users home dir. The second one is a path
+defined by the <code class="docutils literal"><span class="pre">STALKER_PATH</span></code> environment variable.</p>
+<p>Defining the <code class="docutils literal"><span class="pre">config.py</span></code> by using the environment variable gives the most
+customizable and consistent setup through the studio. You can set
+<code class="docutils literal"><span class="pre">STALKER_PATH</span></code> to a shared folder in your fileserver where all the users can
+access.</p>
+<p>Because, <code class="docutils literal"><span class="pre">config.py</span></code> is a regular Python code which is executed by
+Stalker, you can do anything you were doing in a normal Python
+script. This is very handy (also dangerous!) if you have another source of
+information which is reachable by a Python script.</p>
+<p>If there is no <code class="docutils literal"><span class="pre">STALKER_PATH</span></code> variable in your current environment or it is
+not showing an existing path or there is no <code class="docutils literal"><span class="pre">config.py</span></code> file the system will
+use the system defaults.</p>
+</div>
+<div class="section" id="config-variables">
+<h2>Config Variables<a class="headerlink" href="#config-variables" title="Permalink to this headline">¶</a></h2>
+<p>Variables which can be set in <code class="docutils literal"><span class="pre">config.py</span></code> are as follows:</p>
+<dl class="confval">
+<dt id="confval-actions">
+<code class="descname">actions</code><a class="headerlink" href="#confval-actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actions for authorization system. These are used to create ACLs. Stalker
+uses <a class="reference external" href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUDL</a> system. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Create&#39;</span><span class="p">,</span> <span class="s">&#39;Read&#39;</span><span class="p">,</span> <span class="s">&#39;Update&#39;</span><span class="p">,</span> <span class="s">&#39;Delete&#39;</span><span class="p">,</span> <span class="s">&#39;List&#39;</span><span class="p">]</span> <span class="c">#CRUDL</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-auto_create_admin">
+<code class="descname">auto_create_admin</code><a class="headerlink" href="#confval-auto_create_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tells Stalker to create an admin by default. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">auto_create_admin</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-admin_name">
+<code class="descname">admin_name</code><a class="headerlink" href="#confval-admin_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default admin user name. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">admin_name</span> <span class="o">=</span> <span class="s">&#39;admin&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-admin_login">
+<code class="descname">admin_login</code><a class="headerlink" href="#confval-admin_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default admin login. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">admin_login</span> <span class="o">=</span> <span class="s">&#39;admin&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-admin_password">
+<code class="descname">admin_password</code><a class="headerlink" href="#confval-admin_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default admin password. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">admin_password</span> <span class="o">=</span> <span class="s">&#39;admin&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-admin_email">
+<code class="descname">admin_email</code><a class="headerlink" href="#confval-admin_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default email for admin user. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">admin_email</span> <span class="o">=</span> <span class="s">&#39;admin@admin.com&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-admin_department_name">
+<code class="descname">admin_department_name</code><a class="headerlink" href="#confval-admin_department_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default department name for admin. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">admin_department_name</span> <span class="o">=</span> <span class="s">&#39;admins&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-admin_group_name">
+<code class="descname">admin_group_name</code><a class="headerlink" href="#confval-admin_group_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default admin permission group name. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">admin_group_name</span> <span class="o">=</span> <span class="s">&#39;admins&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-database_engine_settings">
+<code class="descname">database_engine_settings</code><a class="headerlink" href="#confval-database_engine_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of config values. The default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">database_engine_settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;sqlalchemy.url&quot;</span><span class="p">:</span> <span class="s">&quot;sqlite:///:memory:&quot;</span><span class="p">,</span>
+    <span class="s">&quot;sqlalchemy.echo&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-database_session_settings">
+<code class="descname">database_session_settings</code><a class="headerlink" href="#confval-database_session_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>This value is not used.</p>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-local_storage_path">
+<code class="descname">local_storage_path</code><a class="headerlink" href="#confval-local_storage_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The local storage path for Stalker.</p>
+<blockquote>
+<div>local_storage_path = os.path.expanduser(&#8216;~/.strc&#8217;)</div></blockquote>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-local_session_data_file_name">
+<code class="descname">local_session_data_file_name</code><a class="headerlink" href="#confval-local_session_data_file_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The per user or local session file name. It is used for storing logged in
+user info. The default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">local_session_data_file_name</span> <span class="o">=</span> <span class="s">&#39;local_session_data&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-server_side_storage_path">
+<code class="descname">server_side_storage_path</code><a class="headerlink" href="#confval-server_side_storage_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Storage for uploaded files. This used by <a class="reference external" href="https://pypi.python.org/pypi/stalker_pyramid">Stalker Pyramid</a> and shows the
+server side storage path. Will be moved to Stalker Pyramid in later
+versions. Not used by Stalker by default. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">server_side_storage_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s">&#39;~/Stalker_Storage&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-key">
+<code class="descname">key</code><a class="headerlink" href="#confval-key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default keyword which is going to be used in password scrambling.
+Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">key</span> <span class="o">=</span> <span class="s">&quot;stalker_default_key&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-version_take_name">
+<code class="descname">version_take_name</code><a class="headerlink" href="#confval-version_take_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default take name for <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a>
+instances. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">version_take_name</span> <span class="o">=</span> <span class="s">&quot;Main&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-status_bg_color">
+<code class="descname">status_bg_color</code><a class="headerlink" href="#confval-status_bg_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default background color for <a class="reference internal" href="generated/stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a>
+instances. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">status_bg_color</span> <span class="o">=</span> <span class="mh">0xffffff</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-status_fg_color">
+<code class="descname">status_fg_color</code><a class="headerlink" href="#confval-status_fg_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default foreground color for <a class="reference internal" href="generated/stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a>
+instances. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">status_fg_color</span> <span class="o">=</span> <span class="mh">0x000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-ticket_label">
+<code class="descname">ticket_label</code><a class="headerlink" href="#confval-ticket_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default ticket label. Used by <a class="reference internal" href="generated/stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a> when
+generating a ticket name. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ticket_label</span> <span class="o">=</span> <span class="s">&quot;Ticket&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-ticket_status_order">
+<code class="descname">ticket_status_order</code><a class="headerlink" href="#confval-ticket_status_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the ticket statuses and the order of them. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ticket_status_order</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&#39;new&#39;</span><span class="p">,</span> <span class="s">&#39;accepted&#39;</span><span class="p">,</span> <span class="s">&#39;assigned&#39;</span><span class="p">,</span> <span class="s">&#39;reopened&#39;</span><span class="p">,</span> <span class="s">&#39;closed&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-ticket_resolutions">
+<code class="descname">ticket_resolutions</code><a class="headerlink" href="#confval-ticket_resolutions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default ticket resolutions. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ticket_resolutions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&#39;fixed&#39;</span><span class="p">,</span> <span class="s">&#39;invalid&#39;</span><span class="p">,</span> <span class="s">&#39;wontfix&#39;</span><span class="p">,</span> <span class="s">&#39;duplicate&#39;</span><span class="p">,</span> <span class="s">&#39;worksforme&#39;</span><span class="p">,</span> <span class="s">&#39;cantfix&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-ticket_workflow">
+<code class="descname">ticket_workflow</code><a class="headerlink" href="#confval-ticket_workflow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default ticket workflow. It is a dictionary of actions. Shows
+the new status per action. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ticket_workflow</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;resolve&#39;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;new&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;closed&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_resolution&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;accepted&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;closed&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_resolution&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;assigned&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;closed&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_resolution&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;reopened&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;closed&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_resolution&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s">&#39;accept&#39;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;new&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;accepted&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;accepted&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;accepted&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;assigned&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;accepted&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;reopened&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;accepted&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s">&#39;reassign&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;new&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;assigned&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;accepted&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;assigned&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;assigned&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;assigned&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+        <span class="s">&#39;reopened&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;assigned&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;set_owner&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s">&#39;reopen&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;closed&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;new_status&#39;</span><span class="p">:</span> <span class="s">&#39;reopened&#39;</span><span class="p">,</span>
+            <span class="s">&#39;action&#39;</span><span class="p">:</span> <span class="s">&#39;del_resolution&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-timing_resolution">
+<code class="descname">timing_resolution</code><a class="headerlink" href="#confval-timing_resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default timing resolution for classes which are mixed with
+<a class="reference internal" href="generated/stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin" title="stalker.models.mixins.DateRangeMixin"><code class="xref py py-class docutils literal"><span class="pre">DateRangeMixin</span></code></a>. Stalker uses the
+TaskJuggler default timing resolution which is 1 hour:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">timing_resolution</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-task_duration">
+<code class="descname">task_duration</code><a class="headerlink" href="#confval-task_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default task duration. If only a start or end value is entered
+for a <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> then Stalker calculates the other
+value by adding or subtracting the default task duration value from it.
+Default value is 1 hour:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">task_duration</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-task_priority">
+<code class="descname">task_priority</code><a class="headerlink" href="#confval-task_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default task priority. This is used by TaskJuggler to prioritize
+tasks. Should be a number between 0 and 1000. Default value is 500:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">task_priority</span> <span class="o">=</span> <span class="mi">500</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-working_hours">
+<code class="descname">working_hours</code><a class="headerlink" href="#confval-working_hours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default weekly working hours per week day. Stalker uses the
+TaskJuggler default value of 9am to 6pm. The values entered are minutes from
+midnight, and it is a list of lists of two integers. Each list of two
+integers shows a working hour interval. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">working_hours</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;mon&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">540</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]],</span> <span class="c"># 9:00 - 18:00</span>
+  <span class="s">&#39;tue&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">540</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]],</span> <span class="c"># 9:00 - 18:00</span>
+  <span class="s">&#39;wed&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">540</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]],</span> <span class="c"># 9:00 - 18:00</span>
+  <span class="s">&#39;thu&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">540</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]],</span> <span class="c"># 9:00 - 18:00</span>
+  <span class="s">&#39;fri&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">540</span><span class="p">,</span> <span class="mi">1080</span><span class="p">]],</span> <span class="c"># 9:00 - 18:00</span>
+  <span class="s">&#39;sat&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="c"># saturday off</span>
+  <span class="s">&#39;sun&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="c"># sunday off</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-daily_working_hours">
+<code class="descname">daily_working_hours</code><a class="headerlink" href="#confval-daily_working_hours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default daily working hour. This is strongly related with the
+<code class="docutils literal"><span class="pre">working_hours</span></code>, <code class="docutils literal"><span class="pre">weekly_working_hours</span></code>, <code class="docutils literal"><span class="pre">weekly_working_days</span></code> and
+<code class="docutils literal"><span class="pre">yearly_working_days</span></code> settings and shows a mean value of daily working
+hour. Default value is 9:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">daily_working_hours</span> <span class="o">=</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-weekly_working_hours">
+<code class="descname">weekly_working_hours</code><a class="headerlink" href="#confval-weekly_working_hours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default weekly working hour. This is strongly related with the
+<code class="docutils literal"><span class="pre">working_hours</span></code>, <code class="docutils literal"><span class="pre">daily_working_hours</span></code>, <code class="docutils literal"><span class="pre">weekly_working_days</span></code> and
+<code class="docutils literal"><span class="pre">yearly_working_days</span></code> settings. Default value is 45:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">weekly_working_hours</span> <span class="o">=</span> <span class="mi">45</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-weekly_working_days">
+<code class="descname">weekly_working_days</code><a class="headerlink" href="#confval-weekly_working_days" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default weekly working days. This is strongly related with the
+<code class="docutils literal"><span class="pre">working_hours</span></code>, <code class="docutils literal"><span class="pre">daily_working_hours</span></code>, <code class="docutils literal"><span class="pre">weekly_working_hours</span></code> and
+<code class="docutils literal"><span class="pre">yearly_working_days</span></code> settings. Default value is 5:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">weekly_working_days</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-yearly_working_days">
+<code class="descname">yearly_working_days</code><a class="headerlink" href="#confval-yearly_working_days" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default yearly working days. This is strongly related with the
+<code class="docutils literal"><span class="pre">working_hours</span></code>, <code class="docutils literal"><span class="pre">daily_working_hours</span></code>, <code class="docutils literal"><span class="pre">weekly_working_hours</span></code> and
+<code class="docutils literal"><span class="pre">weekly_working_days</span></code> settings. Default value is 260.714 which equals
+<code class="docutils literal"><span class="pre">weekly_working_days</span></code> * 52.1428:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">yearly_working_days</span> <span class="o">=</span> <span class="mf">260.714</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-day_order">
+<code class="descname">day_order</code><a class="headerlink" href="#confval-day_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the order of the week days. Default value uses European system:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">day_order</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;mon&#39;</span><span class="p">,</span> <span class="s">&#39;tue&#39;</span><span class="p">,</span> <span class="s">&#39;wed&#39;</span><span class="p">,</span> <span class="s">&#39;thu&#39;</span><span class="p">,</span> <span class="s">&#39;fri&#39;</span><span class="p">,</span> <span class="s">&#39;sat&#39;</span><span class="p">,</span> <span class="s">&#39;sun&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-datetime_units">
+<code class="descname">datetime_units</code><a class="headerlink" href="#confval-datetime_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the date and time units. The order should match the
+<code class="docutils literal"><span class="pre">datetime_unit_names</span></code> setting. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">datetime_units</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;min&#39;</span><span class="p">,</span> <span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-datetime_unit_names">
+<code class="descname">datetime_unit_names</code><a class="headerlink" href="#confval-datetime_unit_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the names of date and time units. The order should match the
+<code class="docutils literal"><span class="pre">datetime_units</span></code> setting. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">datetime_unit_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;minute&#39;</span><span class="p">,</span> <span class="s">&#39;hour&#39;</span><span class="p">,</span> <span class="s">&#39;day&#39;</span><span class="p">,</span> <span class="s">&#39;week&#39;</span><span class="p">,</span> <span class="s">&#39;month&#39;</span><span class="p">,</span> <span class="s">&#39;year&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-datetime_units_to_timedelta_kwargs">
+<code class="descname">datetime_units_to_timedelta_kwargs</code><a class="headerlink" href="#confval-datetime_units_to_timedelta_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the conversion ratios of each date and time unit. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">datetime_units_to_timedelta_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;min&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;minutes&#39;</span><span class="p">,</span> <span class="s">&#39;multiplier&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s">&#39;h&#39;</span>  <span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;hours&#39;</span>  <span class="p">,</span> <span class="s">&#39;multiplier&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s">&#39;d&#39;</span>  <span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;days&#39;</span>   <span class="p">,</span> <span class="s">&#39;multiplier&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s">&#39;w&#39;</span>  <span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;weeks&#39;</span>  <span class="p">,</span> <span class="s">&#39;multiplier&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s">&#39;m&#39;</span>  <span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;days&#39;</span>   <span class="p">,</span> <span class="s">&#39;multiplier&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+    <span class="s">&#39;y&#39;</span>  <span class="p">:</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;days&#39;</span>   <span class="p">,</span> <span class="s">&#39;multiplier&#39;</span><span class="p">:</span> <span class="mi">365</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-task_schedule_models">
+<code class="descname">task_schedule_models</code><a class="headerlink" href="#confval-task_schedule_models" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default schedule models. These are highly related with
+TaskJuggler, so anything entered here should exist in TaskJuggler. Default
+value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">task_schedule_models</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;effort&#39;</span><span class="p">,</span> <span class="s">&#39;length&#39;</span><span class="p">,</span> <span class="s">&#39;duration&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-task_schedule_constraints">
+<code class="descname">task_schedule_constraints</code><a class="headerlink" href="#confval-task_schedule_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default schedule constraints. The order also defines a binary
+number corresponding to each value (00: none, 01: start, 10:end, 11:both)
+and used in defining which side of a Task is constrained to a date. Also
+used by TaskJuggler to constrain the start or end or both dates of a task to
+a certain date. Also a Task with schedule_constraint is set to 2 (both) is
+considered a <strong>duration</strong> task even if its schedule_model is set to
+<strong>effort</strong> or <strong>length</strong>. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">task_schedule_constraints</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;start&#39;</span><span class="p">,</span> <span class="s">&#39;end&#39;</span><span class="p">,</span> <span class="s">&#39;both&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_working_hours_template">
+<code class="descname">tjp_working_hours_template</code><a class="headerlink" href="#confval-tjp_working_hours_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting
+<a class="reference internal" href="generated/stalker.models.studio.WorkingHours.html#stalker.models.studio.WorkingHours" title="stalker.models.studio.WorkingHours"><code class="xref py py-class docutils literal"><span class="pre">WorkingHours</span></code></a> instances to a TaskJuggler
+compatible string. By default Stalker converts a WorkingHours instance to a
+<code class="docutils literal"><span class="pre">workinghours</span></code> statement in TaskJuggler. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_working_hours_template</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;{% macro wh(wh, day) -%}</span>
+<span class="s">{</span><span class="si">%- i</span><span class="s">f wh[day]|length %}    workinghours {{day}} {</span><span class="si">% f</span><span class="s">or part in wh[day] -%}</span>
+<span class="s">        {</span><span class="si">%- i</span><span class="s">f loop.index != 1%}, {</span><span class="si">% e</span><span class="s">ndif -%}</span>
+<span class="s">        {{&quot;</span><span class="si">%02d</span><span class="s">&quot;|format(part[0]//60)}}:{{&quot;</span><span class="si">%02d</span><span class="s">&quot;|format(part[0]%60)}} - {{&quot;</span><span class="si">%02d</span><span class="s">&quot;|format(part[1]//60)}}:{{&quot;</span><span class="si">%02d</span><span class="s">&quot;|format(part[1]%60)}}</span>
+<span class="s">        {</span><span class="si">%- e</span><span class="s">ndfor -%}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">lse %}    workinghours {{day}} off</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">ndif -%}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">ndmacro -%}</span>
+<span class="s">{{wh(workinghours, &#39;mon&#39;)}}</span>
+<span class="s">{{wh(workinghours, &#39;tue&#39;)}}</span>
+<span class="s">{{wh(workinghours, &#39;wed&#39;)}}</span>
+<span class="s">{{wh(workinghours, &#39;thu&#39;)}}</span>
+<span class="s">{{wh(workinghours, &#39;fri&#39;)}}</span>
+<span class="s">{{wh(workinghours, &#39;sat&#39;)}}</span>
+<span class="s">{{wh(workinghours, &#39;sun&#39;)}}&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_studio_template">
+<code class="descname">tjp_studio_template</code><a class="headerlink" href="#confval-tjp_studio_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting a
+<a class="reference internal" href="generated/stalker.models.studio.Studio.html#stalker.models.studio.Studio" title="stalker.models.studio.Studio"><code class="xref py py-class docutils literal"><span class="pre">Studio</span></code></a> instance to a TaskJuggler compatible
+string. By default Stalker converts a Studio instance to a <code class="docutils literal"><span class="pre">project</span></code>
+statement in TaskJuggler. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_studio_template</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;project {{ studio.tjp_id }} &quot;{{ studio.name }}&quot; {{ studio.start.date() }} - {{ studio.end.date() }} {</span>
+<span class="s">    timingresolution {{ &#39;</span><span class="si">%i</span><span class="s">&#39;|format((studio.timing_resolution.days * 86400 + studio.timing_resolution.seconds)//60|int) }}min</span>
+<span class="s">    now {{ studio.now.strftime(&#39;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M&#39;) }}</span>
+<span class="s">    dailyworkinghours {{ studio.daily_working_hours }}</span>
+<span class="s">    weekstartsmonday</span>
+<span class="s">{{ studio.working_hours.to_tjp }}</span>
+<span class="s">    timeformat &quot;%Y-%m-</span><span class="si">%d</span><span class="s">&quot;</span>
+<span class="s">    scenario plan &quot;Plan&quot;</span>
+<span class="s">    trackingscenario plan</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_project_template">
+<code class="descname">tjp_project_template</code><a class="headerlink" href="#confval-tjp_project_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting a
+<a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> instance to a TaskJuggler
+compatible string. By default Stalker converts a Project instance to a
+<code class="docutils literal"><span class="pre">task</span></code> statement in TaskJuggler. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_project_template</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;task {{project.tjp_id}} &quot;{{project.name}}&quot; {</span>
+<span class="s">    {</span><span class="si">% f</span><span class="s">or task in project.root_tasks %}</span>
+<span class="s">        {{task.to_tjp}}</span>
+<span class="s">    {</span><span class="si">% e</span><span class="s">ndfor %}</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_task_template">
+<code class="descname">tjp_task_template</code><a class="headerlink" href="#confval-tjp_task_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting a
+<a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> instance to a TaskJuggler compatible
+string. By default Stalker converts a Task to a <code class="docutils literal"><span class="pre">task</span></code> statement in
+TaskJuggler. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_task_template</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;task {{task.tjp_id}} &quot;{{task.name}}&quot; {</span>
+<span class="s">{</span><span class="si">% i</span><span class="s">f task.priority != 500 -%}priority {{task.priority}}{</span><span class="si">%- e</span><span class="s">ndif %}</span>
+<span class="s">{</span><span class="si">%- i</span><span class="s">f task.depends %}</span>
+<span class="s">    depends {</span><span class="si">% f</span><span class="s">or depends in task.depends %}</span>
+<span class="s">    {</span><span class="si">%- i</span><span class="s">f loop.index != 1 %}, {</span><span class="si">% e</span><span class="s">ndif %}{{depends.tjp_abs_id}}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">ndfor -%}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">ndif -%}</span>
+<span class="s">{</span><span class="si">%- i</span><span class="s">f task.is_container -%}</span>
+<span class="s">    {</span><span class="si">%- f</span><span class="s">or child_task in task.children %}</span>
+<span class="s">        {{ child_task.to_tjp }}</span>
+<span class="s">    {</span><span class="si">%- e</span><span class="s">ndfor %}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">lse %}</span>
+<span class="s">    {</span><span class="si">% i</span><span class="s">f task.resources|length -%}</span>
+<span class="s">    {</span><span class="si">% i</span><span class="s">f task.schedule_constraint %}</span>
+<span class="s">        {</span><span class="si">%- i</span><span class="s">f task.schedule_constraint == 1 or task.schedule_constraint == 3 -%}</span>
+<span class="s">            start {{ task.start.strftime(&#39;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M&#39;) }}</span>
+<span class="s">        {</span><span class="si">%- e</span><span class="s">ndif %}</span>
+<span class="s">        {</span><span class="si">%- i</span><span class="s">f task.schedule_constraint == 2 or task.schedule_constraint == 3 %}</span>
+<span class="s">            end {{ task.end.strftime(&#39;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M&#39;) }}</span>
+<span class="s">        {</span><span class="si">%- e</span><span class="s">ndif -%}</span>
+<span class="s">    {</span><span class="si">% e</span><span class="s">ndif %}</span>
+<span class="s">    {{task.schedule_model}} {{task.schedule_timing}}{{task.schedule_unit}}</span>
+<span class="s">    allocate {</span><span class="si">% f</span><span class="s">or resource in task.resources -%}</span>
+<span class="s">        {</span><span class="si">%-i</span><span class="s">f loop.index != 1 %}, {</span><span class="si">% e</span><span class="s">ndif %}{{resource.tjp_id}}{</span><span class="si">% e</span><span class="s">ndfor %}</span>
+<span class="s">    {</span><span class="si">%- e</span><span class="s">ndif -%}</span>
+<span class="s">    {</span><span class="si">% f</span><span class="s">or time_log in task.time_logs %}</span>
+<span class="s">    booking {{time_log.resource.tjp_id}} {{time_log.start.strftime(&#39;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M:%S&#39;)}} +{{&#39;</span><span class="si">%i</span><span class="s">&#39;|format(time_log.duration.days*24 + time_log.duration.seconds/3600)}}h { overtime 2 }</span>
+<span class="s">    {</span><span class="si">%- e</span><span class="s">ndfor -%}</span>
+<span class="s">{</span><span class="si">% e</span><span class="s">ndif %}</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_department_template">
+<code class="descname">tjp_department_template</code><a class="headerlink" href="#confval-tjp_department_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting a
+<a class="reference internal" href="generated/stalker.models.department.Department.html#stalker.models.department.Department" title="stalker.models.department.Department"><code class="xref py py-class docutils literal"><span class="pre">Department</span></code></a> instance to a TaskJuggler
+compatible string. By default Stalker converts a Department to a
+<code class="docutils literal"><span class="pre">resource</span></code> statement in TaskJuggler. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_department_template</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;resource {{department.tjp_id}} &quot;{{department.name}}&quot; {</span>
+<span class="s">{</span><span class="si">%- f</span><span class="s">or resource in department.users %}</span>
+<span class="s">    {{resource.to_tjp}}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">ndfor %}</span>
+<span class="s">}&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_vacation_template">
+<code class="descname">tjp_vacation_template</code><a class="headerlink" href="#confval-tjp_vacation_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting a
+<code class="xref py py-class docutils literal"><span class="pre">Vacation</span></code> instance to a TaskJuggler
+compatible string. By default Stalker converts a Vacation instance to a
+<code class="docutils literal"><span class="pre">vacation</span></code> statement in TaskJuggler. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_vacation_template</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;vacation {{ vacation.start.strftime(&#39;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M&#39;) }}, {{ vacation.end.strftime(&#39;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M&#39;) }}&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_user_template">
+<code class="descname">tjp_user_template</code><a class="headerlink" href="#confval-tjp_user_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting a
+<a class="reference internal" href="generated/stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> instance to a TaskJuggler <code class="docutils literal"><span class="pre">resource</span></code>
+statement. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_user_template</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;resource {{user.tjp_id}} &quot;{{user.name}}&quot;{</span><span class="si">% i</span><span class="s">f user.vacations %} {</span>
+<span class="s">    {</span><span class="si">% f</span><span class="s">or vacation in user.vacations -%}</span>
+<span class="s">        {{vacation.to_tjp}}</span>
+<span class="s">    {</span><span class="si">% e</span><span class="s">ndfor -%}</span>
+<span class="s">}{</span><span class="si">% e</span><span class="s">ndif %}&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tjp_main_template">
+<code class="descname">tjp_main_template</code><a class="headerlink" href="#confval-tjp_main_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a Jinja2 template for converting all the information coming from
+Stalker to a TaskJuggler compatible <code class="docutils literal"><span class="pre">tjp</span></code> file. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tjp_main_template</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;# Generated By Stalker v{{stalker.__version__}}</span>
+<span class="s">{{studio.to_tjp}}</span>
+
+<span class="s"># resources</span>
+<span class="s">resource resources &quot;Resources&quot; {</span>
+<span class="s">{</span><span class="si">%- f</span><span class="s">or user in studio.users %}</span>
+<span class="s">    {{user.to_tjp}}</span>
+<span class="s">{</span><span class="si">%- e</span><span class="s">ndfor %}</span>
+<span class="s">}</span>
+
+<span class="s"># tasks</span>
+<span class="s">{</span><span class="si">% f</span><span class="s">or project in studio.active_projects %}</span>
+<span class="s">    {{project.to_tjp}}</span>
+<span class="s">{</span><span class="si">% e</span><span class="s">ndfor %}</span>
+
+<span class="s"># reports</span>
+<span class="s">taskreport breakdown &quot;{{csv_file_full_path}}&quot;{</span>
+<span class="s">    formats csv</span>
+<span class="s">    timeformat &quot;%Y-%m-</span><span class="si">%d</span><span class="s">-%H:%M&quot;</span>
+<span class="s">    columns id, start, end</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-tj_command">
+<code class="descname">tj_command</code><a class="headerlink" href="#confval-tj_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the TaskJuggler command. Stalker uses this configuration value to
+call TaskJugglers <code class="docutils literal"><span class="pre">tj3</span></code> command.</p>
+<blockquote>
+<div>tj_command = &#8216;/usr/local/bin/tj3&#8217;,</div></blockquote>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-path_template">
+<code class="descname">path_template</code><a class="headerlink" href="#confval-path_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a default value for path template for
+<a class="reference internal" href="generated/stalker.models.template.FilenameTemplate.html#stalker.models.template.FilenameTemplate" title="stalker.models.template.FilenameTemplate"><code class="xref py py-class docutils literal"><span class="pre">FilenameTemplate</span></code></a> instances to be used by
+<a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> instances. This value is not used
+yet. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">path_template</span> <span class="o">=</span> <span class="s">&#39;{{project.code}}/{</span><span class="si">%- f</span><span class="s">or parent_task in parent_tasks -%}{{parent_task.nice_name}}/{</span><span class="si">%- e</span><span class="s">ndfor -%}&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-filename_template">
+<code class="descname">filename_template</code><a class="headerlink" href="#confval-filename_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a default value for filename template for
+<a class="reference internal" href="generated/stalker.models.template.FilenameTemplate.html#stalker.models.template.FilenameTemplate" title="stalker.models.template.FilenameTemplate"><code class="xref py py-class docutils literal"><span class="pre">FilenameTemplate</span></code></a> instances to be used by
+<a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> instances. This value is not used
+yet. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">filename_template</span> <span class="o">=</span> <span class="s">&#39;{{task.entity_type}}_{{task.id}}_{{version.take_name}}_v{{&quot;</span><span class="si">%03d</span><span class="s">&quot;|format(version.version_number)}}&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-sequence_format">
+<code class="descname">sequence_format</code><a class="headerlink" href="#confval-sequence_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default file sequence format to be used with <a class="reference external" href="http://rsgalloway.github.com/pyseq/">PySeq</a>. This
+value is not used yet. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sequence_format</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%h%</span><span class="s">p%t %R&quot;</span>
+</pre></div>
+</div>
+<p>Fore details about the format see the <a class="reference external" href="http://rsgalloway.github.com/pyseq/">PySeq documentation</a>.</p>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-file_size_format">
+<code class="descname">file_size_format</code><a class="headerlink" href="#confval-file_size_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default file size format to be used in UI. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">file_size_format</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%.2f</span><span class="s"> MB&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-date_time_format">
+<code class="descname">date_time_format</code><a class="headerlink" href="#confval-date_time_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default datetime format to be used in UI and string
+representations of datetime.datetime instances. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">date_time_format</span> <span class="o">=</span> <span class="s">&#39;%Y.%m.</span><span class="si">%d</span><span class="s"> %H:%M&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-resolution_presets">
+<code class="descname">resolution_presets</code><a class="headerlink" href="#confval-resolution_presets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines default resolution presets. This value is not used yet. Default
+value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">resolution_presets</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;PC Video&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;NTSC&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">720</span><span class="p">,</span> <span class="mi">486</span><span class="p">,</span> <span class="mf">0.91</span><span class="p">],</span>
+    <span class="s">&quot;NTSC 16:9&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">720</span><span class="p">,</span> <span class="mi">486</span><span class="p">,</span> <span class="mf">1.21</span><span class="p">],</span>
+    <span class="s">&quot;PAL&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">720</span><span class="p">,</span> <span class="mi">576</span><span class="p">,</span> <span class="mf">1.067</span><span class="p">],</span>
+    <span class="s">&quot;PAL 16:9&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">720</span><span class="p">,</span> <span class="mi">576</span><span class="p">,</span> <span class="mf">1.46</span><span class="p">],</span>
+    <span class="s">&quot;HD 720&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;HD 1080&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;1K Super 35&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">778</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;2K Super 35&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">1556</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;4K Super 35&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">3112</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;A4 Portrait&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2480</span><span class="p">,</span> <span class="mi">3508</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;A4 Landscape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3508</span><span class="p">,</span> <span class="mi">2480</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;A3 Portrait&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3508</span><span class="p">,</span> <span class="mi">4960</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;A3 Landscape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4960</span><span class="p">,</span> <span class="mi">3508</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;A2 Portrait&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4960</span><span class="p">,</span> <span class="mi">7016</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;A2 Landscape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7016</span><span class="p">,</span> <span class="mi">4960</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;50x70cm Poster Portrait&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5905</span><span class="p">,</span> <span class="mi">8268</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;50x70cm Poster Landscape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8268</span><span class="p">,</span> <span class="mi">5905</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;70x100cm Poster Portrait&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8268</span><span class="p">,</span> <span class="mi">11810</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;70x100cm Poster Landscape&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">11810</span><span class="p">,</span> <span class="mi">8268</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;1k Square&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;2k Square&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;3k Square&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3072</span><span class="p">,</span> <span class="mi">3072</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="s">&quot;4k Square&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-default_resolution_preset">
+<code class="descname">default_resolution_preset</code><a class="headerlink" href="#confval-default_resolution_preset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default resolution preset fro new Projects. This value is not
+used yet. Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">default_resolution_preset</span> <span class="o">=</span> <span class="s">&quot;HD 1080&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-project_structure">
+<code class="descname">project_structure</code><a class="headerlink" href="#confval-project_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default project structure. This value is not used by Stalker.
+Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">project_structure</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;{</span><span class="si">% f</span><span class="s">or shot in project.shots %}</span>
+<span class="s">        Shots/{{shot.code}}</span>
+<span class="s">        Shots/{{shot.code}}/Plate</span>
+<span class="s">        Shots/{{shot.code}}/Reference</span>
+<span class="s">        Shots/{{shot.code}}/Texture</span>
+<span class="s">    {</span><span class="si">% e</span><span class="s">ndfor %}</span>
+<span class="s">{</span><span class="si">% f</span><span class="s">or asset in project.assets%}</span>
+<span class="s">    {</span><span class="si">% s</span><span class="s">et asset_path = project.full_path + &#39;/Assets/&#39; + asset.type.name + &#39;/&#39; + asset.code %}</span>
+<span class="s">    {{asset_path}}/Texture</span>
+<span class="s">    {{asset_path}}/Reference</span>
+<span class="s">{</span><span class="si">% e</span><span class="s">ndfor %}</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-thumbnail_format">
+<code class="descname">thumbnail_format</code><a class="headerlink" href="#confval-thumbnail_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default thumbnail format. This value is not used by Stalker.
+Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">thumbnail_format</span> <span class="o">=</span> <span class="s">&quot;jpg&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-thumbnail_quality">
+<code class="descname">thumbnail_quality</code><a class="headerlink" href="#confval-thumbnail_quality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the default thumbnail quality. This value is not used by Stalker.
+Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">thumbnail_quality</span> <span class="o">=</span> <span class="mi">70</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="confval">
+<dt id="confval-thumbnail_size">
+<code class="descname">thumbnail_size</code><a class="headerlink" href="#confval-thumbnail_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the defaul thumbnail size. This value is not used by Stalker.
+Default value is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">thumbnail_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">180</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuring Stalker</a><ul>
+<li><a class="reference internal" href="#config-py-file">config.py File</a></li>
+<li><a class="reference internal" href="#config-variables">Config Variables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="design.html"
+                        title="previous chapter">Design</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="contribute.html"
+                        title="next chapter">How To Contribute</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="contribute.html" title="How To Contribute"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="design.html" title="Design"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

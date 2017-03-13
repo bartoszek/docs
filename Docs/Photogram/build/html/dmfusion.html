@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dmfusion &mdash; Photogrammetry 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Photogrammetry 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Sift" href="sift.html"/>
+        <link rel="prev" title="mvs-texturing" href="mvs-texturing.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Photogrammetry
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">open-MVG-MVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openMVS.html">OpenMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openMVG.html">OpenMVG</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MVE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mve.html">MVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvs-texturing.html">mvs-texturing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">dmfusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#build">build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#construction">construction</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">CMVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sift.html">Sift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bundler.html">Bundler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMVS-PMVS.html">CMVS-PMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoissonRecon.html">Poisson Surface Reconstruction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STANFORD</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scanalyze.html">Scanalyze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vrippack.html">VripPack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="volfill.html">Volfill</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MISC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ceres.html">Build Ceres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ply.html">ply</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlmodules.html">perl modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exif.html">Exif tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camerasensor.html">Camera Sensor Size Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bin.html">bin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">source me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualSfm.html">Visual Sfm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudCompare.html">CloudCompare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theia.html">Theia  Vision Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regard3d.html">Regard3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstantMesh.html">InstantMesh</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Photogrammetry</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>dmfusion</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/dmfusion.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dmfusion">
+<h1>dmfusion<a class="headerlink" href="#dmfusion" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/dmfusion.png" src="_images/dmfusion.png" />
+<p><a class="reference external" href="http://www.gris.informatik.tu-darmstadt.de/projects/multiscale-depthmap-fusion/">http://www.gris.informatik.tu-darmstadt.de/projects/multiscale-depthmap-fusion/</a></p>
+<div class="section" id="build">
+<h2>build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>wget <a class="reference external" href="http://www.gris.informatik.tu-darmstadt.de/projects/multiscale-depthmap-fusion/data/dmfusion-20140505.tar.gz">http://www.gris.informatik.tu-darmstadt.de/projects/multiscale-depthmap-fusion/data/dmfusion-20140505.tar.gz</a></p>
+<p>copier le dossier dans mve/apps</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd mve/apps/dmfusion
+make -C dmfusion
+</pre></div>
+</div>
+</div>
+<div class="section" id="construction">
+<h2>construction<a class="headerlink" href="#construction" title="Permalink to this headline">¶</a></h2>
+<p>Running the software involves first building an octree using the dmfoctree app, extracting a tetrahedral mesh from the octree using dmfextract and triangulating the tetrahedral mesh using dmfsurface.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>dmfoctree -d depth-L2 -i undist-L2 take1_mve/ take1_mve/tmp.octree
+dmfextract -f10 take1_mve/tmp.octree take1_mve/tmp.ply
+</pre></div>
+</div>
+<p>la tetrahedralization se bloque dans dmfextract.rendant dmfsurface inutilisable.l&#8217;option -fxx permet de trianguler l&#8217;octree au niveau donne.</p>
+<p>ces programmes semblent obsoletes ou inacheves.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sift.html" class="btn btn-neutral float-right" title="Sift" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mvs-texturing.html" class="btn btn-neutral" title="mvs-texturing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

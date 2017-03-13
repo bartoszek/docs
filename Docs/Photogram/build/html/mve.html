@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MVE &mdash; Photogrammetry 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Photogrammetry 1.0 documentation" href="index.html"/>
+        <link rel="next" title="mvs-texturing" href="mvs-texturing.html"/>
+        <link rel="prev" title="OpenMVG" href="openMVG.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Photogrammetry
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">open-MVG-MVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openMVS.html">OpenMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openMVG.html">OpenMVG</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MVE</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">MVE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web references</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-mve"><strong>using mve</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-pipeline">typical pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#makescene">makescene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sfmrecon">sfmrecon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-sfm-from-openmvg">get sfm from openMVG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dmrecon">dmrecon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scene2pset">scene2pset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#poissonrecon">PoissonRecon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surfacetrimmer">SurfaceTrimmer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fssrecon">fssrecon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#texrecon">texrecon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-mve"><strong>building mve</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-umve">build umve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-qt5">install qt5</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mvs-texturing.html">mvs-texturing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmfusion.html">dmfusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CMVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sift.html">Sift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bundler.html">Bundler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMVS-PMVS.html">CMVS-PMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoissonRecon.html">Poisson Surface Reconstruction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STANFORD</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scanalyze.html">Scanalyze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vrippack.html">VripPack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="volfill.html">Volfill</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MISC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ceres.html">Build Ceres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ply.html">ply</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlmodules.html">perl modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exif.html">Exif tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camerasensor.html">Camera Sensor Size Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bin.html">bin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">source me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualSfm.html">Visual Sfm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudCompare.html">CloudCompare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theia.html">Theia  Vision Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regard3d.html">Regard3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstantMesh.html">InstantMesh</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Photogrammetry</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>MVE</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/mve.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mve">
+<h1>MVE<a class="headerlink" href="#mve" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="web-references">
+<h2>Web references<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.gris.informatik.tu-darmstadt.de/projects/multiview-environment/">http://www.gris.informatik.tu-darmstadt.de/projects/multiview-environment/</a></p>
+<p><a class="reference external" href="https://github.com/simonfuhrmann/mve">https://github.com/simonfuhrmann/mve</a></p>
+<p><a class="reference external" href="https://github.com/simonfuhrmann/mve/wiki">https://github.com/simonfuhrmann/mve/wiki</a></p>
+<p><a class="reference external" href="http://www.gris.informatik.tu-darmstadt.de/projects/floating-scale-surface-recon/">http://www.gris.informatik.tu-darmstadt.de/projects/floating-scale-surface-recon/</a></p>
+</div>
+<div class="section" id="using-mve">
+<h2><strong>using mve</strong><a class="headerlink" href="#using-mve" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/simonfuhrmann/mve/wiki/MVE-Users-Guide">https://github.com/simonfuhrmann/mve/wiki/MVE-Users-Guide</a></p>
+</div>
+<div class="section" id="typical-pipeline">
+<h2>typical pipeline<a class="headerlink" href="#typical-pipeline" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>/mnt/media/Projects/Photogrametry/mve/apps/makescene/makescene -i originales/ mve/
+/mnt/media/Projects/Photogrametry/mve/apps/sfmrecon/sfmrecon mve
+/mnt/media/Projects/Photogrametry/mve/apps/dmrecon/dmrecon -s2 mve
+/mnt/media/Projects/Photogrametry/mve/apps/scene2pset/scene2pset -F2 mve mve/pset-L2.ply
+/mnt/media/Projects/Photogrametry/mve/apps/fssrecon/fssrecon mve/pset-L2.ply mve/surface-L2.ply
+/mnt/media/Projects/Photogrametry/mve/apps/meshclean/meshclean -t10 mve/surface-L2.ply mve/surface-L2-clean.ply
+</pre></div>
+</div>
+</div>
+<div class="section" id="makescene">
+<h2>makescene<a class="headerlink" href="#makescene" title="Permalink to this headline">¶</a></h2>
+<p>creates a mve project in mve dir.makescene can also create a project from a bundler file.</p>
+<p>(see Lulu&#8217;s pipeline Reconstruct_MVE.pl)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>makescene -i originales/ mve/
+</pre></div>
+</div>
+</div>
+<div class="section" id="sfmrecon">
+<h2>sfmrecon<a class="headerlink" href="#sfmrecon" title="Permalink to this headline">¶</a></h2>
+<p>command line application that runs the SfM reconstruction on the input images</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>sfmrecon mve/
+sfmrecon --initial-pair=0,1 mve/
+sfmrecon --max-pixels=7000000 mve/
+</pre></div>
+</div>
+<p>sfmrecon reuses data in prebundle.sfm and meta.ini.(il vaut mieux effacer le projet et le regenerer pour reinitialiser les donnees.)
+you can specify initial pairs with &#8211;initial-pair=0,1 for example, &#8211;max-pixels=7000000 force to use full frames</p>
+<p>use umve to see the results</p>
+</div>
+<div class="section" id="get-sfm-from-openmvg">
+<h2>get sfm from openMVG<a class="headerlink" href="#get-sfm-from-openmvg" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>openMVG_main_openMVG2MVE2 -i mvg/reconstruction_sequential/sfm_data.json -o .
+openMVG_main_openMVG2MVE2 -i mvg/reconstruction_sequential/robust.json -o .
+</pre></div>
+</div>
+</div>
+<div class="section" id="dmrecon">
+<h2>dmrecon<a class="headerlink" href="#dmrecon" title="Permalink to this headline">¶</a></h2>
+<p>runs Multi-View Stereo (MVS) to reconstruct a depth map for every input image</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>dmrecon -s2 mve/
+dmrecon -s0 mve/
+dmrecon -f7 -s0 --force mve/
+dmrecon -s1 --keep-dz --keep-conf -p MVE/
+</pre></div>
+</div>
+<p>-f7 option increase patch size , slower but more points.(certain values generates core dumped)
+&#8211;force force reconstruction of depth maps.</p>
+<p>use umve to see the results</p>
+</div>
+<div class="section" id="scene2pset">
+<h2>scene2pset<a class="headerlink" href="#scene2pset" title="Permalink to this headline">¶</a></h2>
+<p>create an extremely dense point cloud as the union of all samples from all depth maps.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>scene2pset -n -p -c -s  -F2 MVE/ MVE/pset-L2.ply
+scene2pset -F0 mve/ mve/pset-L0.ply
+scene2pset -p -F0 mve/ mve/pset-L0.ply
+scene2pset -ddepth-L0 -iundistorted -mmask -n -s -c -p mve/ mve/pset-L0.ply
+</pre></div>
+</div>
+<p>-p, &#8211;poisson-normals Scale normals according to confidence</p>
+<p>masks should be one channel png (no alpha) called mask.png and saved in the views</p>
+</div>
+<div class="section" id="poissonrecon">
+<h2>PoissonRecon<a class="headerlink" href="#poissonrecon" title="Permalink to this headline">¶</a></h2>
+<p>from the generated point set you can use PoissonRecon directly</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>PoissonRecon --in MVE/pset-L2.ply --out MVE/Poisson-L2.ply --verbose --color 16 --depth 10 --density
+PoissonRecon --in MVE/pset-L0.ply --out MVE/Poisson-L0.ply --verbose
+PoissonRecon --in MVE/pset-L0.ply --out MVE/Poisson-L0.ply --verbose --color 16 --depth 8
+PoissonRecon --in MVE/pset-L0.ply --out MVE/Poisson-L0.ply --verbose --color 16 --depth 8 --density
+PoissonRecon --in MVE/pset-L0.ply --out MVE/Poisson-L0-node5.ply --verbose --color 16 --depth 8 --density --samplesPerNode 5
+PoissonRecon --in MVE/pset-L0.ply --out MVE/Poisson-L0-node20.ply --verbose --color 16 --depth 8 --density --samplesPerNode 20
+</pre></div>
+</div>
+<p>using the &#8211;density flag to indicate that density estimates should be output with the vertices of the mesh</p>
+<p>samplesPerNode : This floating point value specifies the minimum number of sample points that should fall within an octree node as the octree construction is adapted to sampling density. For noise-free samples, small values in the range [1.0 - 5.0] can be used. For more noisy samples, larger values in the range [15.0 - 20.0] may be needed to provide a smoother, noise-reduced, reconstruction.</p>
+</div>
+<div class="section" id="surfacetrimmer">
+<h2>SurfaceTrimmer<a class="headerlink" href="#surfacetrimmer" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>SurfaceTrimmer --in Poisson-L0.ply --out Poissontrim-L0.ply --trim 7
+</pre></div>
+</div>
+<p>to remove all subsets of the surface where the sampling density corresponds to a depth smaller than 7.</p>
+</div>
+<div class="section" id="fssrecon">
+<h2>fssrecon<a class="headerlink" href="#fssrecon" title="Permalink to this headline">¶</a></h2>
+<p>Samples the implicit function defined by the input samples and produces a
+surface mesh. The input samples must have normals and the &#8220;values&#8221; PLY
+attribute (the scale of the samples). Both confidence values and vertex
+colors are optional. The final surface should be cleaned (sliver triangles,
+isolated components, low-confidence vertices) afterwards.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>fssrecon MVE/pset-L1.ply MVE/surface-L1.ply
+</pre></div>
+</div>
+</div>
+<div class="section" id="texrecon">
+<h2>texrecon<a class="headerlink" href="#texrecon" title="Permalink to this headline">¶</a></h2>
+<p>Textures a mesh given images in form of a 3D scene</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>texrecon mve::undistorted mve/Poissontrim-L0.ply mve/textured
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-mve">
+<h2><strong>building mve</strong><a class="headerlink" href="#building-mve" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/simonfuhrmann/mve.git
+cd mve
+make -j8
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-umve">
+<h2>build umve<a class="headerlink" href="#build-umve" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="install-qt5">
+<h2>install qt5<a class="headerlink" href="#install-qt5" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install qt5-default qttools5-dev-tools
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd apps/umve/
+qmake
+</pre></div>
+</div>
+<p>force c++11 standart in c++</p>
+<p>in /umve/Makefile add <strong>-std=c++11</strong></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>CXXFLAGS      = -m64 -pipe -fPIC -fopenmp -O2 -D_REENTRANT -Wall -W $(DEFINES) -std=c++11
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>make -j8
+./umve
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mvs-texturing.html" class="btn btn-neutral float-right" title="mvs-texturing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="openMVG.html" class="btn btn-neutral" title="OpenMVG" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

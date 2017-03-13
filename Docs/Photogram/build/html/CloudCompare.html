@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CloudCompare &mdash; Photogrammetry 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Photogrammetry 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Theia Vision Library" href="theia.html"/>
+        <link rel="prev" title="Visual Sfm" href="VisualSfm.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Photogrammetry
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">open-MVG-MVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openMVS.html">OpenMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openMVG.html">OpenMVG</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MVE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mve.html">MVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvs-texturing.html">mvs-texturing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmfusion.html">dmfusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CMVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sift.html">Sift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bundler.html">Bundler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMVS-PMVS.html">CMVS-PMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoissonRecon.html">Poisson Surface Reconstruction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STANFORD</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scanalyze.html">Scanalyze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vrippack.html">VripPack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="volfill.html">Volfill</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MISC</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Ceres.html">Build Ceres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ply.html">ply</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlmodules.html">perl modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exif.html">Exif tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camerasensor.html">Camera Sensor Size Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bin.html">bin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">source me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualSfm.html">Visual Sfm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">CloudCompare</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web references</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cloudcompare">install CloudCompare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edit-bashrc">edit .bashrc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="theia.html">Theia  Vision Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regard3d.html">Regard3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstantMesh.html">InstantMesh</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Photogrammetry</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>CloudCompare</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/CloudCompare.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudcompare">
+<h1>CloudCompare<a class="headerlink" href="#cloudcompare" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/CloudCompare.jpg"><img alt="_images/CloudCompare.jpg" src="_images/CloudCompare.jpg" style="width: 402.0px; height: 315.0px;" /></a>
+<p>CloudCompare is a 3D point cloud (and triangular mesh) processing software.
+It has been originally designed to perform comparison between two 3D points clouds (such as the ones obtained with a laser
+scanner) or between a point cloud and a triangular mesh.
+It relies on a specific octree structure that enables great performances1 in this particular function. It was also meant to deal with huge
+point clouds (typically more than 10 millions points, and up to 120 millions2 with 2 Gb of memory).</p>
+<div class="section" id="web-references">
+<h2>Web references<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.cloudcompare.org/">http://www.cloudcompare.org/</a></p>
+<p><a class="reference external" href="https://github.com/cloudcompare/trunk">https://github.com/cloudcompare/trunk</a></p>
+</div>
+<div class="section" id="install-cloudcompare">
+<h2>install CloudCompare<a class="headerlink" href="#install-cloudcompare" title="Permalink to this headline">¶</a></h2>
+<p>you need to install VTK and PCL for cloudcompare plugins</p>
+<p>install mandatory libraries</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install libboost-filesystem-dev
+apt-get install libflann-dev
+apt-get install libusb-1.0
+apt-get install libpcap-dev
+apt-get install libqhull-dev
+</pre></div>
+</div>
+<ul class="simple">
+<li>install VTK</li>
+</ul>
+<p><a class="reference external" href="http://www.vtk.org/download/">http://www.vtk.org/download/</a>  -&gt; download latest version</p>
+<p><a class="reference external" href="http://www.vtk.org/Wiki/VTK/Configure_and_Build">http://www.vtk.org/Wiki/VTK/Configure_and_Build</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>tar -xvf VTK-7.0.0.tar.gz
+mkdir VTK-7.0.0-build
+cd VTK-7.0.0-build
+cmake -DCMAKE_BUILD_TYPE=RELEASE . ../VTK-7.0.0/
+make -j8
+sudo make install
+</pre></div>
+</div>
+<ul class="simple">
+<li>install PCL for Qpcl plugins (from source)</li>
+</ul>
+<p><a class="reference external" href="http://www.pointclouds.org/documentation/tutorials/compiling_pcl_posix.php">http://www.pointclouds.org/documentation/tutorials/compiling_pcl_posix.php</a>  -&gt; download latest version</p>
+<p><a class="reference external" href="http://www.pointclouds.org/documentation/tutorials/building_pcl.php#building-pcl">http://www.pointclouds.org/documentation/tutorials/building_pcl.php#building-pcl</a></p>
+<p>(sur s00X , pcl_visualisation plante : le desactiver avec ccmake)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>tar xvfj pcl-pcl-1.7.2.tar.gz
+cd pcl-pcl-1.7.2 &amp;&amp; mkdir build &amp;&amp; cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j2
+make -j2 install
+</pre></div>
+</div>
+<p>install shapelib,doxygen</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>sudo apt-get install shapelib
+sudo apt-get install doxygen
+</pre></div>
+</div>
+<p>install cmake gui</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>sudo apt-get install cmake-qt-gui
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone --recursive https://github.com/cloudcompare/trunk.git
+cmake-gui
+</pre></div>
+</div>
+<p>select all plugins -&gt; generate</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>make
+sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit-bashrc">
+<h2>edit .bashrc<a class="headerlink" href="#edit-bashrc" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+alias cloudcompare=&#39;/usr/local/CloudCompare/CloudCompare&#39;
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/CloudCompare1.jpg"><img alt="_images/CloudCompare1.jpg" src="_images/CloudCompare1.jpg" style="width: 1016.8px; height: 689.6px;" /></a>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="theia.html" class="btn btn-neutral float-right" title="Theia Vision Library" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="VisualSfm.html" class="btn btn-neutral" title="Visual Sfm" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

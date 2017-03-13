@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>anderbsll implementation &mdash; NeuralArt 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="NeuralArt 1.0 documentation" href="index.html"/>
+        <link rel="next" title="CNNMRF" href="CNNMRF.html"/>
+        <link rel="prev" title="JcJohnson implementation" href="jcjohnson.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NeuralArt
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">NeuralArt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webref.html">Web references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jcjohnson.html">JcJohnson implementation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">anderbsll implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-link">web link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-python-stuffs">install python stuffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cudarray">install CUDArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-deeppy">install deeppy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-neural-artistic-style">install neural_artistic_style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-neural-network">download neural network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CNNMRF.html">CNNMRF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styleswap.html">Style-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda.html">Cuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deepdream.html">Deepdream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imageanalogies.html">Images Analogies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deflickr.html">Deflickr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Color Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superresolution.html">Super-Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpticalFlow.html">OpticalFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DepthEstimation.html">DepthEstimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segmentation.html">Semantic Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RoyalRender.html">RoyalRender</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NeuralArt</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>anderbsll implementation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/andersbll.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anderbsll-implementation">
+<h1>anderbsll implementation<a class="headerlink" href="#anderbsll-implementation" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/lemmy_moebius.jpg"><img alt="_images/lemmy_moebius.jpg" src="_images/lemmy_moebius.jpg" style="width: 233.0px; height: 350.0px;" /></a>
+<div class="section" id="web-link">
+<h2>web link<a class="headerlink" href="#web-link" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/andersbll/neural_artistic_style">https://github.com/andersbll/neural_artistic_style</a></p>
+<p><a class="reference external" href="https://www.reddit.com/r/MachineLearning/comments/3jhe26/artistic_style_network_in_python_yet_another/">https://www.reddit.com/r/MachineLearning/comments/3jhe26/artistic_style_network_in_python_yet_another/</a></p>
+</div>
+<div class="section" id="install-python-stuffs">
+<h2>install python stuffs<a class="headerlink" href="#install-python-stuffs" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install python-dev
+apt-get install python-pip
+pip install pgen
+pip install cython
+pip install scipy
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-cudarray">
+<h2>install CUDArray<a class="headerlink" href="#install-cudarray" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/andersbll/cudarray">https://github.com/andersbll/cudarray</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/andersbll/cudarray.git
+cd cudarray/
+make
+make install
+python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-deeppy">
+<h2>install deeppy<a class="headerlink" href="#install-deeppy" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/andersbll/deeppy">https://github.com/andersbll/deeppy</a></p>
+<p><a class="reference external" href="http://andersbll.github.io/deeppy-website/installation-guide.html">http://andersbll.github.io/deeppy-website/installation-guide.html</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/andersbll/deeppy.git
+cd deeppy
+python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-neural-artistic-style">
+<h2>install neural_artistic_style<a class="headerlink" href="#install-neural-artistic-style" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/andersbll/neural_artistic_style.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-neural-network">
+<h2>download neural network<a class="headerlink" href="#download-neural-network" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.vlfeat.org/matconvnet/pretrained/">http://www.vlfeat.org/matconvnet/pretrained/</a></p>
+<p><a class="reference external" href="http://www.vlfeat.org/matconvnet/models/">http://www.vlfeat.org/matconvnet/models/</a><strong>imagenet-vgg-verydeep-19.mat</strong></p>
+<a class="reference internal image-reference" href="_images/derrico1_lulu.jpg"><img alt="_images/derrico1_lulu.jpg" src="_images/derrico1_lulu.jpg" style="width: 350.0px; height: 350.0px;" /></a>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CNNMRF.html" class="btn btn-neutral float-right" title="CNNMRF" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jcjohnson.html" class="btn btn-neutral" title="JcJohnson implementation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, lulu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

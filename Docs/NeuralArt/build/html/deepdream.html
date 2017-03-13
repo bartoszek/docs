@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Deepdream &mdash; NeuralArt 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="NeuralArt 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Images Analogies" href="imageanalogies.html"/>
+        <link rel="prev" title="Cuda" href="cuda.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NeuralArt
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">NeuralArt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webref.html">Web references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jcjohnson.html">JcJohnson implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="andersbll.html">anderbsll implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CNNMRF.html">CNNMRF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styleswap.html">Style-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda.html">Cuda</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Deepdream</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#misc-papers">misc papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inceptionism">inceptionism</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imageanalogies.html">Images Analogies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deflickr.html">Deflickr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Color Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superresolution.html">Super-Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpticalFlow.html">OpticalFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DepthEstimation.html">DepthEstimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segmentation.html">Semantic Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RoyalRender.html">RoyalRender</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NeuralArt</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Deepdream</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/deepdream.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deepdream">
+<h1>Deepdream<a class="headerlink" href="#deepdream" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/deepdream.jpg"><img alt="_images/deepdream.jpg" src="_images/deepdream.jpg" style="width: 404.4px; height: 309.0px;" /></a>
+<p><a class="reference external" href="http://googleresearch.blogspot.fr/2015/06/inceptionism-going-deeper-into-neural.html">http://googleresearch.blogspot.fr/2015/06/inceptionism-going-deeper-into-neural.html</a></p>
+<p><a class="reference external" href="http://yosinski.com/deepvis">http://yosinski.com/deepvis</a></p>
+<p><a class="reference external" href="https://github.com/yosinski/deep-visualization-toolbox">https://github.com/yosinski/deep-visualization-toolbox</a></p>
+<p><a class="reference external" href="https://github.com/google/deepdream/blob/master/dream.ipynb">https://github.com/google/deepdream/blob/master/dream.ipynb</a></p>
+<a class="reference internal image-reference" href="_images/deepdream1.jpg"><img alt="_images/deepdream1.jpg" src="_images/deepdream1.jpg" style="width: 440.4px; height: 278.4px;" /></a>
+<div class="section" id="misc-papers">
+<h2>misc papers<a class="headerlink" href="#misc-papers" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://blog.keras.io/how-convolutional-neural-networks-see-the-world.html">http://blog.keras.io/how-convolutional-neural-networks-see-the-world.html</a></p>
+</div>
+<div class="section" id="inceptionism">
+<h2>inceptionism<a class="headerlink" href="#inceptionism" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/jcjohnson/cnn-vis">https://github.com/jcjohnson/cnn-vis</a></p>
+<p>Although CNNs perform well on a variety of tasks, it can be difficult to understand exactly what types of image features a CNN is using to work its magic. One trick for demystifying a CNN is to choose a neuron in a trained CNN, and attempt to generate an image that causes the neuron to activate strongly. We initialize the image with random noise, propagate the image forward through the network to compute the activation of the target neuron, then propagate the activation of the neuron backward through the network to compute an update direction for the image. We use this information to update the image, and repeat the process until convergence. This general strategy has been used to visualize the activations of individual neurons [8, 9], to generate images of particular object classes [5], to invert CNN features [1, 2], and to generate images to fool CNNs [3, 6].</p>
+<p>Inceptionism builds on this line of work, adding three unique twists:</p>
+<ul class="simple">
+<li><strong>Layer amplification</strong>: Instead of choosing a neuron and generating an image to maximize it, we instead choose a layer of the network and attempt to amplify the neurons in that layer that are already activated by the image. This leads to a feedback loop, causing the network to emphasize features of the image that are already present. Google&#8217;s blog post doesn&#8217;t specify many technical details around this point; in cnn-vis we achieve this by maximizing the sum of the absolute value and the square of each neuron in the chosen layer, but in principle any superlinear function of the chosen layer should work.</li>
+<li><strong>Multiscale, high-res images</strong>: Because they are so computationally expensive, CNNs tend to work on relatively low-resolution images. The state-of-the-art GoogLeNet network [7], for example, works on input images that are 224x224 pixels. To generate higher-resolution images, Inceptionism &#8220;appl[ies] the algorithm iteratively on its own outputs and appl[ies] some zooming after each iteration&#8221;. In addition to giving high resolution images, this trick also causes the generated images to have structure at multiple scales, giving them a fractal-like appearance. In cnn-vis we implement this idea by tiling the image with overlapping 224x224 patches, and interleaving updates on each patch. After some number of iterations we upsample the image, retile it, and continue.</li>
+<li><strong>Non-random initialization</strong>: Instead of initializing our generated image with random noise or zero as is common in the literature, Inceptionism (and cnn-vis!) allow you to start from a user-specified image. I&#8217;m not sure how much scientific value this has, but it sure does look cool!</li>
+</ul>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=AgkfIQ4IGaM">https://www.youtube.com/watch?v=AgkfIQ4IGaM</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="imageanalogies.html" class="btn btn-neutral float-right" title="Images Analogies" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cuda.html" class="btn btn-neutral" title="Cuda" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, lulu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

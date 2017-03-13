@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Stalker Concepts &mdash; Stalker-lulu 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Stalker-lulu 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Python" href="Python.html"/>
+        <link rel="prev" title="Stalker" href="Stalker.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Stalker-lulu
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Stalker.html">Stalker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Stalker.html#get-code">get code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Stalker.html#create-virtual-env">create virtual env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Stalker.html#install-python-libs">install python libs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Stalker.html#api-tutorial">api tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Stalker.html#web-references">Web references</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Stalker Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#stalker-object-model">Stalker Object Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-create-a-project-we-need">To create a Project, we need:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Python.html#install-python-dev">install python dev</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python.html#web-references">Web references</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Pyramid.html">Pyramid Web Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Pyramid.html#installing-pyramid">installing Pyramid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Pyramid.html#glossary">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Pyramid.html#web-ressources">Web ressources</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Stalker-lulu</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Stalker Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/concepts.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="stalker-concepts">
+<h1>Stalker Concepts<a class="headerlink" href="#stalker-concepts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stalker-object-model">
+<h2>Stalker Object Model<a class="headerlink" href="#stalker-object-model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Studio</strong> :</li>
+</ul>
+<p>With Stalker you can manage all you Studio data by using this class.
+Studio knows all the projects, all the departments, all the users and every thing about the studio.
+But the most important part of the Studio is that it can schedule all the Projects by using TaskJuggler.</p>
+<ul class="simple">
+<li><strong>Project</strong> :</li>
+</ul>
+<p>An animation/vfx studios duty is to complete a Project .
+A project, generally is about to create a Sequence of Shots which are a series of images those at the end converts to a movie.
+So a sequence in general contains Shots.
+And Shots can use Assets.
+So basically to complete a project the studio should complete the shots and assets needed by those shots.
+Project is one of the main classes that will direct the others. A project in Stalker is a gathering point.</p>
+<ul class="simple">
+<li><strong>Sequence</strong> :</li>
+</ul>
+<p>Sequences are a way of grouping the Shots according to their temporal position to each other.</p>
+<ul class="simple">
+<li><strong>Shot</strong> :</li>
+</ul>
+<p>Manages Shot related data.</p>
+<ul class="simple">
+<li><strong>Asset</strong> :</li>
+</ul>
+<p>Assets are containers of Tasks.And Tasks are the smallest meaningful part that should be accomplished to complete the Project.
+These Tasks can be defined by the type of the Asset, which is a Type object created specifically for Asset .
+So basically to complete a project the studio should complete the shots and assets needed by those shots.</p>
+<ul class="simple">
+<li><strong>Task</strong> :</li>
+</ul>
+<p>Furthermore all the Projects, Sequences, Shots or Assets are divided in to different Tasks those need to be done sequentially or in parallel to complete that project.
+Tasks are the smallest unit of work that should be accomplished to complete a Project.
+Tasks define a certain amount of time needed to be spent for a purpose.
+A Task relates to a work, a work is a quantity of time spent or going to be spend for that specific task.</p>
+<ul class="simple">
+<li><strong>TimeLog</strong> :</li>
+</ul>
+<p>Holds information about the uninterrupted time spent on a specific Task by a specific User.
+A Task relates to a work, a work is a quantity of time spent or going to be spend for that specific task.
+The time spent on the course of completion of a Task can be recorded with TimeLogs.
+TimeLogs show the total time spent by an artist for a certain Task.
+So it holds information about how much effort has been spent to complete a Task.</p>
+<ul class="simple">
+<li><strong>Repository</strong> :</li>
+</ul>
+<p>A repository is a network share that all users have access to.
+During the completion of the Task or at the end of the work a User creates Versions for that particular Task.
+Versions are the different incarnations or the progress of the resultant product,
+and it is connected to files in the fileserver or in Stalkers term the Repository.</p>
+</div>
+<div class="section" id="to-create-a-project-we-need">
+<h2>To create a Project, we need:<a class="headerlink" href="#to-create-a-project-we-need" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A Repository</li>
+<li>A Structure object to define the file structure of the Project:</li>
+<li>FilenameTemplates for Task, Asset, Shot, Sequence types, to define the placement of the Versions created for them.</li>
+<li>An ImageFormat to define the output size of the project.</li>
+<li>A StatusList with enough Statuses that will define the desired Project Statuses. Stalker doesn’t have a Project Status Workflow, yet! so define yours.</li>
+<li>If desired we can also add a Type for the Project to distinguish commercials from Feature Film projects.</li>
+<li>We need to create a user as the lead for the project.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Python.html" class="btn btn-neutral float-right" title="Python" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Stalker.html" class="btn btn-neutral" title="Stalker" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, luluxXX.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

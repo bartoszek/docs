@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Crontab &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="changing apt sources" href="AptSources.html"/>
+        <link rel="prev" title="LDAP Administration" href="NewUser.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Using Crontab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web references</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-crontab">editing crontab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-vi">use vi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sendmail">sendmail</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Using Crontab</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/crontab.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-crontab">
+<h1>Using Crontab<a class="headerlink" href="#using-crontab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="web-references">
+<h2>Web references<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://help.ubuntu.com/community/CronHowto">https://help.ubuntu.com/community/CronHowto</a></p>
+</div>
+<div class="section" id="editing-crontab">
+<h2>editing crontab<a class="headerlink" href="#editing-crontab" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">crontab</span> <span class="o">-</span><span class="n">e</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Each of the sections is separated by a space, with the final section having one or more spaces in it.</p>
+<p>minute (0-59), hour (0-23, 0 = midnight), day (1-31), month (1-12), weekday (0-6, 0 = Sunday), command</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>01 04 1 1 1 /usr/bin/somedirectory/somecommand
+</pre></div>
+</div>
+<p>will run /usr/bin/somedirectory/somecommand at 4:01am on January 1st plus every Monday in January. An asterisk (*) can be used so that every instance (every hour, every weekday, every month, etc.) of a time period is used.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>01 04 * * * /usr/bin/somedirectory/somecommand
+</pre></div>
+</div>
+<p>will run /usr/bin/somedirectory/somecommand at 4:01am on every day of every month.</p>
+<p>It is recommended that you use the full path to the desired commands</p>
+</div>
+<div class="section" id="use-vi">
+<h2>use vi<a class="headerlink" href="#use-vi" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>export EDITOR=vi
+</pre></div>
+</div>
+</div>
+<div class="section" id="sendmail">
+<h2>sendmail<a class="headerlink" href="#sendmail" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>$catcmd=&quot;echo \&quot;Subject: serenity cron $date\&quot; | cat - $logfile | /usr/sbin/sendmail luc.froehlicher\@alamaison.fr&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AptSources.html" class="btn btn-neutral float-right" title="changing apt sources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="NewUser.html" class="btn btn-neutral" title="LDAP Administration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

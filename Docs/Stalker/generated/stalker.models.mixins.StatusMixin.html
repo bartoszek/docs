@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stalker.models.mixins.StatusMixin &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="../index.html" />
+    <link rel="next" title="stalker.models.mixins.TargetEntityTypeMixin" href="stalker.models.mixins.TargetEntityTypeMixin.html" />
+    <link rel="prev" title="stalker.models.mixins.ScheduleMixin" href="stalker.models.mixins.ScheduleMixin.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.TargetEntityTypeMixin.html" title="stalker.models.mixins.TargetEntityTypeMixin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.ScheduleMixin.html" title="stalker.models.mixins.ScheduleMixin"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-models-mixins-statusmixin">
+<h1>stalker.models.mixins.StatusMixin<a class="headerlink" href="#stalker-models-mixins-statusmixin" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+digraph inheritancebccd5f1dbb {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;StatusMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;#stalker.models.mixins.StatusMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+}
+</p>
+<dl class="class">
+<dt id="stalker.models.mixins.StatusMixin">
+<em class="property">class </em><code class="descclassname">stalker.models.mixins.</code><code class="descname">StatusMixin</code><span class="sig-paren">(</span><em>status=None</em>, <em>status_list=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.mixins.StatusMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Makes the mixed in object statusable.</p>
+<p>This mixin adds status and status_list attributes to the mixed in class.
+Any object that needs a status and a corresponding status list can include
+this mixin.</p>
+<p>When mixed with a class which don&#8217;t have an __init__ method, the mixin
+supplies one, and in this case the parameters below must be defined.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>status_list</strong> &#8211; <p>this attribute holds a status list object, which shows
+the possible statuses that this entity could be in. This attribute can
+not be empty or None. Giving a StatusList object, the
+StatusList.target_entity_type should match the current class.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.1.2.a4: </span>The status_list argument now can be skipped or can be None if there
+is an active database connection and there is a suitable
+<a class="reference internal" href="stalker.models.status.StatusList.html#stalker.models.status.StatusList" title="stalker.models.status.StatusList"><code class="xref py py-class docutils literal"><span class="pre">StatusList</span></code></a> instance in the database whom
+<a class="reference internal" href="stalker.models.status.StatusList.html#stalker.models.status.StatusList.target_entity_type" title="stalker.models.status.StatusList.target_entity_type"><code class="xref py py-attr docutils literal"><span class="pre">StatusList.target_entity_type</span></code></a> attribute is set to the current
+mixed-in class name.</p>
+</div>
+</li>
+<li><strong>status</strong> &#8211; <p>It is a <a class="reference internal" href="stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instance which shows the current
+status of the statusable object. Integer values are also accepted, which
+shows the index of the desired status in the <code class="docutils literal"><span class="pre">status_list</span></code> attribute of
+the current statusable object. If a <a class="reference internal" href="stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instance is
+supplied, it should also be present in the <code class="docutils literal"><span class="pre">status_list</span></code> attribute. If
+set to None then the first <a class="reference internal" href="stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instance in the
+<code class="docutils literal"><span class="pre">status_list</span></code> will be used.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.2.0: </span>Status attribute as Status instance:</p>
+<p>It is now possible to set the status of the instance by a
+<a class="reference internal" href="stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instance directly. And the <code class="xref py py-attr docutils literal"><span class="pre">StatusMixin.status</span></code>
+will return a proper <a class="reference internal" href="stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instance.</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="stalker.models.mixins.StatusMixin.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>status=None</em>, <em>status_list=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.mixins.StatusMixin.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.mixins.StatusMixin.__init__" title="stalker.models.mixins.StatusMixin.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([status,&nbsp;status_list])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stalker.models.mixins.ScheduleMixin.html"
+                        title="previous chapter">stalker.models.mixins.ScheduleMixin</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stalker.models.mixins.TargetEntityTypeMixin.html"
+                        title="next chapter">stalker.models.mixins.TargetEntityTypeMixin</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.TargetEntityTypeMixin.html" title="stalker.models.mixins.TargetEntityTypeMixin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.mixins.ScheduleMixin.html" title="stalker.models.mixins.ScheduleMixin"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

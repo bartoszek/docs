@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ghost Blog &mdash; Lamp 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Lamp 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Html misc" href="html.html"/>
+        <link rel="prev" title="Install Owncloud" href="owncloud.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Lamp
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Linux Lamp</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Apache.html">Apache2 Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#change-default-documentroot-value">change default DocumentRoot value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#activate-ssl">Activate ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#permissions">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#create-links-to-docs">create links to Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#web-links">Web links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owncloud.html">Install Owncloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#additional-packages">additional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#set-permissions">set permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#uploading-big-files">Uploading big files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#memcache">Memcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#performance-tuning">Performance Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#themes">themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#use-https">use https</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#youtube-user-channel">youtube user channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#use-occ">use occ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#external-storage-dropbox">External Storage (Dropbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owncloud.html#web-references">Web References</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Ghost Blog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-ghost-from-the-outside">Accessing Ghost from the outside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-ghost-from-port-80-with-apache">Accessing Ghost from port 80 with Apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-ghost-as-a-service">install ghost as a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-auto-start">ghost auto start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#markdown-guide">Markdown guide :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#designers-guide-to-theming">Designers Guide to theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#npm-node-package-manager">npm (node package manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bower-a-package-manager-for-the-web">bower : A package manager for the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gulp">Gulp :</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="html.html">Html misc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="html.html#display-a-random-image">Display a Random Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html.html#center-image">Center image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Iptables.html">Iptables and NAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Iptables.html#web-links">Web links</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Lamp</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Ghost Blog</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ghost.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="ghost-blog">
+<h1>Ghost Blog<a class="headerlink" href="#ghost-blog" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/ghost.png"><img alt="_images/ghost.png" src="_images/ghost.png" style="width: 400.0px; height: 200.0px;" /></a>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.ghost.org/fr/installation/linux/">http://docs.ghost.org/fr/installation/linux/</a></p>
+<p>install node et npm</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
+apt-get install nodejs
+</pre></div>
+</div>
+<p><a class="reference external" href="https://ghost.org/download/">https://ghost.org/download/</a></p>
+<p>unzip in /var/www</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd /var/www
+npm install --production/development
+npm start (need to be in /var/www)
+</pre></div>
+</div>
+<p>Url configured as: <a class="reference external" href="http://localhost:2368">http://localhost:2368</a></p>
+<p><a class="reference external" href="http://127.0.0.1:2368/welcome-to-ghost/">http://127.0.0.1:2368/welcome-to-ghost/</a></p>
+<p><a class="reference external" href="http://127.0.0.1:2368/ghost">http://127.0.0.1:2368/ghost</a></p>
+</div>
+<div class="section" id="accessing-ghost-from-the-outside">
+<h2>Accessing Ghost from the outside<a class="headerlink" href="#accessing-ghost-from-the-outside" title="Permalink to this headline">¶</a></h2>
+<p>in /var/www/config.js</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>server: {
+    // Host to be passed to node&#39;s `net.Server#listen()`
+    host: &#39;0.0.0.0&#39;,
+    // Port to be passed to node&#39;s `net.Server#listen()`, for iisnode set this to `process.env.PORT`
+    port: &#39;2368&#39;
+},
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-ghost-from-port-80-with-apache">
+<h2>Accessing Ghost from port 80 with Apache<a class="headerlink" href="#accessing-ghost-from-port-80-with-apache" title="Permalink to this headline">¶</a></h2>
+<p>dans /etc/apache2/sites-enabled/000-default.conf</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>....
+ServerName lulu116.ddns.net
+ProxyPass / http://127.0.0.1:2368/
+ProxyPassReverse / http:/127.0.0.1:2368/
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>a2enmod proxy proxy_http
+service apache2 restart
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-ghost-as-a-service">
+<h2>install ghost as a service<a class="headerlink" href="#install-ghost-as-a-service" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.ghost.org/fr/installation/deploy/">http://docs.ghost.org/fr/installation/deploy/</a></p>
+<p>attention dans le script d&#8217;init remplacer VERBOSE = yes par VERBOSE=yes.</p>
+<p>NODE_ENV=development</p>
+</div>
+<div class="section" id="ghost-auto-start">
+<h2>ghost auto start<a class="headerlink" href="#ghost-auto-start" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>update-rc.d ghost defaults
+update-rc.d ghost enable
+</pre></div>
+</div>
+<p>edit /var/www/config.js to set the correct url</p>
+</div>
+<div class="section" id="markdown-guide">
+<h2>Markdown guide :<a class="headerlink" href="#markdown-guide" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.ghost.org/fr/usage/writing/">http://docs.ghost.org/fr/usage/writing/</a></p>
+</div>
+<div class="section" id="designers-guide-to-theming">
+<h2>Designers Guide to theming<a class="headerlink" href="#designers-guide-to-theming" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://themes.ghost.org/v0.6.0/docs/about">http://themes.ghost.org/v0.6.0/docs/about</a></p>
+<p><a class="reference external" href="http://www.svenread.com/a-designers-guide-to-ghost-theming/">http://www.svenread.com/a-designers-guide-to-ghost-theming/</a></p>
+<p><a class="reference external" href="https://www.ghostforbeginners.com/ghost-theme-structure/">https://www.ghostforbeginners.com/ghost-theme-structure/</a></p>
+</div>
+<div class="section" id="npm-node-package-manager">
+<h2>npm (node package manager)<a class="headerlink" href="#npm-node-package-manager" title="Permalink to this headline">¶</a></h2>
+<p>npm uses a package.json file to install</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>npm install
+</pre></div>
+</div>
+</div>
+<div class="section" id="bower-a-package-manager-for-the-web">
+<h2>bower : A package manager for the web<a class="headerlink" href="#bower-a-package-manager-for-the-web" title="Permalink to this headline">¶</a></h2>
+<p>Bower works by fetching and installing packages from all over, taking care of hunting, finding, downloading, and saving the stuff you’re looking for. Bower keeps track of these packages in a manifest
+file, bower.json</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>npm install bower
+bower install
+</pre></div>
+</div>
+</div>
+<div class="section" id="gulp">
+<h2>Gulp :<a class="headerlink" href="#gulp" title="Permalink to this headline">¶</a></h2>
+<p>use a gulpfile.js file</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>npm install -g gulp
+gulp build
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="html.html" class="btn btn-neutral float-right" title="Html misc" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="owncloud.html" class="btn btn-neutral" title="Install Owncloud" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

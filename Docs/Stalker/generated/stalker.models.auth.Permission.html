@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stalker.models.auth.Permission &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="../index.html" />
+    <link rel="next" title="stalker.models.auth.User" href="stalker.models.auth.User.html" />
+    <link rel="prev" title="stalker.models.auth.LocalSession" href="stalker.models.auth.LocalSession.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.auth.User.html" title="stalker.models.auth.User"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.auth.LocalSession.html" title="stalker.models.auth.LocalSession"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stalker-models-auth-permission">
+<h1>stalker.models.auth.Permission<a class="headerlink" href="#stalker-models-auth-permission" title="Permalink to this headline">¶</a></h1>
+<p class="graphviz">
+digraph inheritance68c19cffe8 {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Base&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;ORMClass&quot; -&gt; &quot;Base&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ORMClass&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;Permission&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;#stalker.models.auth.Permission&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;Permission&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+</p>
+<dl class="class">
+<dt id="stalker.models.auth.Permission">
+<em class="property">class </em><code class="descclassname">stalker.models.auth.</code><code class="descname">Permission</code><span class="sig-paren">(</span><em>access</em>, <em>action</em>, <em>class_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.auth.Permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">sqlalchemy.ext.declarative.api.Base</span></code></p>
+<p>A class to hold permissions.</p>
+<p>Permissions in Stalker defines what one can do or do not. A Permission
+instance is composed by three attributes; access, action and class_name.</p>
+<p>Permissions for all the classes in SOM are generally created by Stalker
+when initializing the database.</p>
+<p>If you created any custom classes to extend SOM you are also responsible to
+create the Permissions for it by calling <code class="xref py py-meth docutils literal"><span class="pre">stalker.db.register()</span></code> and
+passing your class to it. See the <a class="reference internal" href="stalker.db.html#module-stalker.db" title="stalker.db"><code class="xref py py-mod docutils literal"><span class="pre">stalker.db</span></code></a> documentation for
+details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>access</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An Enum value which can have the one of the values of
+<code class="docutils literal"><span class="pre">Allow</span></code> or <code class="docutils literal"><span class="pre">Deny</span></code>.</li>
+<li><strong>action</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An Enum value from the list [&#8216;Create&#8217;, &#8216;Read&#8217;, &#8216;Update&#8217;,
+&#8216;Delete&#8217;, &#8216;List&#8217;]. Can not be None. The list can be changed from
+stalker.config.Config.default_actions.</li>
+<li><strong>class_name</strong> (<a class="reference external" href="http://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The name of the class that this action is applied
+to. Can not be None or an empty string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: Let say that you want to create a Permission specifying a Group of
+Users are allowed to create Projects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">stalker.models.auth</span> <span class="kn">import</span> <span class="n">User</span><span class="p">,</span> <span class="n">Group</span><span class="p">,</span> <span class="n">Permission</span>
+
+<span class="c"># first setup the db with the default database</span>
+<span class="c">#</span>
+<span class="c"># stalker.db.init() will create all the Actions possible with the</span>
+<span class="c"># SOM classes automatically</span>
+<span class="c">#</span>
+<span class="c"># What is left to you is to create the permissions</span>
+<span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="n">user1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Test User&#39;</span><span class="p">,</span>
+    <span class="n">login</span><span class="o">=</span><span class="s">&#39;test_user1&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s">&#39;1234&#39;</span><span class="p">,</span>
+    <span class="n">email</span><span class="o">=</span><span class="s">&#39;testuser1@test.com&#39;</span>
+<span class="p">)</span>
+<span class="n">user2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Test User&#39;</span><span class="p">,</span>
+    <span class="n">login</span><span class="o">=</span><span class="s">&#39;test_user2&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s">&#39;1234&#39;</span><span class="p">,</span>
+    <span class="n">email</span><span class="o">=</span><span class="s">&#39;testuser2@test.com&#39;</span>
+<span class="p">)</span>
+
+<span class="n">group1</span> <span class="o">=</span> <span class="n">Group</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;users&#39;</span><span class="p">)</span>
+<span class="n">group1</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">user1</span><span class="p">,</span> <span class="n">user2</span><span class="p">]</span>
+
+<span class="c"># get the permissions for the Project class</span>
+<span class="n">project_permissions</span> <span class="o">=</span> <span class="n">Permission</span><span class="o">.</span><span class="n">query</span>          <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Actions</span><span class="o">.</span><span class="n">access</span><span class="o">=</span><span class="s">&#39;Allow&#39;</span><span class="p">)</span>          <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Actions</span><span class="o">.</span><span class="n">action</span><span class="o">=</span><span class="s">&#39;Create&#39;</span><span class="p">)</span>          <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Actions</span><span class="o">.</span><span class="n">class_name</span><span class="o">=</span><span class="s">&#39;Project&#39;</span><span class="p">)</span>          <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="c"># now we have the permission specifying the allowance of creating a</span>
+<span class="c"># Project</span>
+
+<span class="c"># to make group1 users able to create a Project we simply add this</span>
+<span class="c"># Permission to the groups permission attribute</span>
+<span class="n">group1</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">permission</span><span class="p">)</span>
+
+<span class="c"># and persist this information in the database</span>
+<span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="stalker.models.auth.Permission.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>access</em>, <em>action</em>, <em>class_name</em><span class="sig-paren">)</span><a class="headerlink" href="#stalker.models.auth.Permission.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.auth.Permission.__init__" title="stalker.models.auth.Permission.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>(access,&nbsp;action,&nbsp;class_name)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#stalker.models.auth.Permission.plural_class_name" title="stalker.models.auth.Permission.plural_class_name"><code class="xref py py-obj docutils literal"><span class="pre">plural_class_name</span></code></a></td>
+<td>the plural name of this class</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="stalker.models.auth.Permission.access">
+<code class="descname">access</code><a class="headerlink" href="#stalker.models.auth.Permission.access" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the _access value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.Permission.action">
+<code class="descname">action</code><a class="headerlink" href="#stalker.models.auth.Permission.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the _action value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.Permission.class_name">
+<code class="descname">class_name</code><a class="headerlink" href="#stalker.models.auth.Permission.class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the _class_name attribute value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stalker.models.auth.Permission.plural_class_name">
+<code class="descname">plural_class_name</code><a class="headerlink" href="#stalker.models.auth.Permission.plural_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the plural name of this class</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="stalker.models.auth.LocalSession.html"
+                        title="previous chapter">stalker.models.auth.LocalSession</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stalker.models.auth.User.html"
+                        title="next chapter">stalker.models.auth.User</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.auth.User.html" title="stalker.models.auth.User"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stalker.models.auth.LocalSession.html" title="stalker.models.auth.LocalSession"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

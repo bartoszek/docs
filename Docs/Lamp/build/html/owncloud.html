@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Install Owncloud &mdash; Lamp 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Lamp 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Ghost Blog" href="ghost.html"/>
+        <link rel="prev" title="Apache2 Server" href="Apache.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Lamp
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Linux Lamp</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Apache.html">Apache2 Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#change-default-documentroot-value">change default DocumentRoot value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#activate-ssl">Activate ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#permissions">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#create-links-to-docs">create links to Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apache.html#web-links">Web links</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Install Owncloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#additional-packages">additional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-permissions">set permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uploading-big-files">Uploading big files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memcache">Memcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-tuning">Performance Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#themes">themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-https">use https</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#youtube-user-channel">youtube user channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-occ">use occ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#external-storage-dropbox">External Storage (Dropbox)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ghost.html">Ghost Blog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#install-ghost-as-a-service">install ghost as a service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#ghost-auto-start">ghost auto start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#markdown-guide">Markdown guide :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#designers-guide-to-theming">Designers Guide to theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#npm-node-package-manager">npm (node package manager)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#bower-a-package-manager-for-the-web">bower : A package manager for the web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#gulp">Gulp :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ghost.html#accessing-ghost-from-the-outside">Accessing Ghost from the outside</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="html.html">Html misc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="html.html#display-a-random-image">Display a Random Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html.html#center-image">Center image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Iptables.html">Iptables and NAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Iptables.html#web-links">Web links</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Lamp</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Install Owncloud</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/owncloud.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="install-owncloud">
+<h1>Install Owncloud<a class="headerlink" href="#install-owncloud" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/owncloud.png"><img alt="_images/owncloud.png" src="_images/owncloud.png" style="width: 600.0px; height: 300.0px;" /></a>
+<div class="section" id="additional-packages">
+<h2>additional packages<a class="headerlink" href="#additional-packages" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su -
+apt-get install apache2 mariadb-server libapache2-mod-php5
+apt-get install php5-gd php5-json php5-mysql php5-curl
+apt-get install php5-intl php5-mcrypt php5-imagick
+service apache2 restart
+</pre></div>
+</div>
+<p>download owncloud <a class="reference external" href="https://download.owncloud.org/community/owncloud-8.1.3.tar.bz2">https://download.owncloud.org/community/owncloud-8.1.3.tar.bz2</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>tar -xjf owncloud-x.y.z.tar.bz2
+mv owncloud /var/www
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-permissions">
+<h2>set permissions<a class="headerlink" href="#set-permissions" title="Permalink to this headline">¶</a></h2>
+<p>run this script in /var/www</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>#!/bin/bash
+ocpath=&#39;/var/www/owncloud&#39;
+htuser=&#39;www-data&#39;
+htgroup=&#39;www-data&#39;
+find ${ocpath}/ -type f -print0 | xargs -0 chmod 0640
+find ${ocpath}/ -type d -print0 | xargs -0 chmod 0750
+chown -R root:${htuser} ${ocpath}/
+chown -R ${htuser}:${htgroup} ${ocpath}/apps/
+chown -R ${htuser}:${htgroup} ${ocpath}/config/
+chown -R ${htuser}:${htgroup} ${ocpath}/data/
+chown -R ${htuser}:${htgroup} ${ocpath}/themes/
+chown root:${htuser} ${ocpath}/.htaccess
+chown root:${htuser} ${ocpath}/data/.htaccess
+chmod 0644 ${ocpath}/.htaccess
+chmod 0644 ${ocpath}/data/.htaccess
+</pre></div>
+</div>
+<p>dans /var/www/owncloud/config/config.php rajouter l&#8217;IP externe du serveur</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>&#39;trusted_domains&#39; =&gt;
+ array (
+   0 =&gt; &#39;localhost&#39;,
+   1 =&gt; &#39;82.127.216.226&#39;,
+ ),
+</pre></div>
+</div>
+</div>
+<div class="section" id="uploading-big-files">
+<h2>Uploading big files<a class="headerlink" href="#uploading-big-files" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/8.1/admin_manual/configuration_files/big_file_upload_configuration.html">https://doc.owncloud.org/server/8.1/admin_manual/configuration_files/big_file_upload_configuration.html</a></p>
+<p>edit /etc/php5/apache2/php.ini</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>upload_max_filesize = 16G
+post_max_size = 16G
+</pre></div>
+</div>
+</div>
+<div class="section" id="memcache">
+<h2>Memcache<a class="headerlink" href="#memcache" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://owncloud.org/blog/making-owncloud-faster-through-caching/">https://owncloud.org/blog/making-owncloud-faster-through-caching/</a></p>
+<p>install php5-apcu version 4.0.6 (see details in comments)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd /tmp
+wget http://mirrors.kernel.org/ubuntu/pool/universe/p/php-apcu/php5-apcu_4.0.6-1_amd64.deb
+dpkg -i php5-apcu_4.0.6-1_amd64.deb
+rm php5-apcu_4.0.6-1_amd64.deb
+service apache2 restart
+cp /usr/share/doc/php5-apcu/apc.php /var/www/html/
+</pre></div>
+</div>
+<p>check localhost/html/apc.php5 in a browser</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre><span class="n">vi</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">owncloud</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">config</span><span class="o">.</span><span class="n">php5</span>
+</pre></div>
+</div>
+<p>add key : &#8216;memcache.local&#8217; =&gt; &#8216;OCMemcacheAPCu&#8217;,</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>service apache2 restart
+</pre></div>
+</div>
+</div>
+<div class="section" id="performance-tuning">
+<h2>Performance Tuning<a class="headerlink" href="#performance-tuning" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/8.1/admin_manual/configuration_server/performance_tuning.html">https://doc.owncloud.org/server/8.1/admin_manual/configuration_server/performance_tuning.html</a></p>
+</div>
+<div class="section" id="themes">
+<h2>themes<a class="headerlink" href="#themes" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/8.1/developer_manual/core/theming.html">https://doc.owncloud.org/server/8.1/developer_manual/core/theming.html</a></p>
+</div>
+<div class="section" id="use-https">
+<h2>use https<a class="headerlink" href="#use-https" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/8.1/admin_manual/configuration_server/harden_server.html">https://doc.owncloud.org/server/8.1/admin_manual/configuration_server/harden_server.html</a></p>
+</div>
+<div class="section" id="youtube-user-channel">
+<h2>youtube user channel<a class="headerlink" href="#youtube-user-channel" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.youtube.com/playlist?list=PLtZe22ggl2YBi1u2dH0qg9fgnym5DwYbW">https://www.youtube.com/playlist?list=PLtZe22ggl2YBi1u2dH0qg9fgnym5DwYbW</a></p>
+</div>
+<div class="section" id="use-occ">
+<h2>use occ<a class="headerlink" href="#use-occ" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/7.0/admin_manual/configuration/occ_command.html">https://doc.owncloud.org/server/7.0/admin_manual/configuration/occ_command.html</a></p>
+</div>
+<div class="section" id="external-storage-dropbox">
+<h2>External Storage (Dropbox)<a class="headerlink" href="#external-storage-dropbox" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/8.1/admin_manual/configuration_files/external_storage_configuration_gui.html">https://doc.owncloud.org/server/8.1/admin_manual/configuration_files/external_storage_configuration_gui.html</a></p>
+</div>
+<div class="section" id="web-references">
+<h2>Web References<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doc.owncloud.org/server/7.0/admin_manual/installation/source_installation.html">https://doc.owncloud.org/server/7.0/admin_manual/installation/source_installation.html</a></p>
+<p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-owncloud-and-configure-owncloud-apps-on-an-ubuntu-12-04-vps">https://www.digitalocean.com/community/tutorials/how-to-install-owncloud-and-configure-owncloud-apps-on-an-ubuntu-12-04-vps</a></p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ghost.html" class="btn btn-neutral float-right" title="Ghost Blog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Apache.html" class="btn btn-neutral" title="Apache2 Server" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

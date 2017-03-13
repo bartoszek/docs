@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpenMVG &mdash; Photogrammetry 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Photogrammetry 1.0 documentation" href="index.html"/>
+        <link rel="next" title="MVE" href="mve.html"/>
+        <link rel="prev" title="OpenMVS" href="openMVS.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Photogrammetry
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">open-MVG-MVS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openMVS.html">OpenMVS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">OpenMVG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web references</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openmvg-pipeline">openMVG pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-descriptors">see descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#color-harmonisation">Color Harmonisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-tools">Other Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-openmvg">build OpenMVG</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">MVE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mve.html">MVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvs-texturing.html">mvs-texturing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmfusion.html">dmfusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CMVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sift.html">Sift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bundler.html">Bundler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMVS-PMVS.html">CMVS-PMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoissonRecon.html">Poisson Surface Reconstruction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STANFORD</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scanalyze.html">Scanalyze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vrippack.html">VripPack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="volfill.html">Volfill</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MISC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ceres.html">Build Ceres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ply.html">ply</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlmodules.html">perl modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exif.html">Exif tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camerasensor.html">Camera Sensor Size Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bin.html">bin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">source me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualSfm.html">Visual Sfm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudCompare.html">CloudCompare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theia.html">Theia  Vision Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regard3d.html">Regard3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstantMesh.html">InstantMesh</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Photogrammetry</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>OpenMVG</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openMVG.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="openmvg">
+<h1>OpenMVG<a class="headerlink" href="#openmvg" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/openMVG_Logo.png" src="_images/openMVG_Logo.png" />
+<div class="section" id="web-references">
+<h2>Web references<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://imagine.enpc.fr/~moulonp/openMVG/index.html">http://imagine.enpc.fr/~moulonp/openMVG/index.html</a></p>
+<p><a class="reference external" href="https://github.com/openMVG/openMVG/">https://github.com/openMVG/openMVG/</a></p>
+</div>
+<div class="section" id="docs">
+<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://openmvg.readthedocs.org/en/latest/">http://openmvg.readthedocs.org/en/latest/</a></p>
+</div>
+<div class="section" id="openmvg-pipeline">
+<h2>openMVG pipeline<a class="headerlink" href="#openmvg-pipeline" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>python /shared/Code/openMVG-build/software/SfM/SfM_SequentialPipeline.py originales/ MVG/
+python /shared/Code/openMVG-build/software/SfM/SfM_GlobalPipeline.py originales/ MVG/
+</pre></div>
+</div>
+<p>modifiy some parameters for best results</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>openMVG_main_ComputeFeatures -&gt; , &quot;-m&quot;, &quot;AKAZE_FLOAT&quot; , &quot;-p&quot;, &quot;HIGH&quot;] )
+openMVG_main_ComputeMatches -&gt; , &quot;-r&quot; , &quot;.8&quot; , &quot;-f&quot; , &quot;1&quot;] )
+openMVG_main_IncrementalSfM -&gt; , &quot;-a&quot; , &quot;xxxx.jpg&quot; , &quot;-b&quot; , &quot;yyyy.jpg&quot;] )
+</pre></div>
+</div>
+</div>
+<div class="section" id="see-descriptors">
+<h2>see descriptors<a class="headerlink" href="#see-descriptors" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>openMVG_main_exportKeypoints -i mvg/matches/sfm_data.json -d mvg/matches/ -o mvg/
+</pre></div>
+</div>
+</div>
+<div class="section" id="color-harmonisation">
+<h2>Color Harmonisation<a class="headerlink" href="#color-harmonisation" title="Permalink to this headline">¶</a></h2>
+<p>openMVG_main_ColHarmonize -i with the input sfm_data.json file -m the matching file matches.X.txt with X f/e/h depending of the constraint you will choose in ComputeMatches.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>openMVG_main_ColHarmonize -i ./MVG/matches/sfm_data.json -m ./MVG/matches/matches.f.txt -o . -r 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-tools">
+<h2>Other Tools<a class="headerlink" href="#other-tools" title="Permalink to this headline">¶</a></h2>
+<p>/shared/Code/openMVG-build/Linux-x86_64-RELEASE/</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>openMVG_main_ColHarmonize [-i|--input_file] path to a SfM_Data scene[-m|--sMatchesFile path] [-o|--outdir path] [-s|--selectionMethod int] [-r|--referenceImage int]
+openMVG_main_openMVG2CMPMVS
+openMVG_main_openMVG2MESHLAB
+openMVG_main_openMVG2MVE2
+openMVG_main_openMVG2MVSTEXTURING
+openMVG_main_openMVG2PMVS
+ui_openMVG_control_points_registration
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-openmvg">
+<h2>build OpenMVG<a class="headerlink" href="#build-openmvg" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://raw.githubusercontent.com/openMVG/openMVG/master/BUILD">https://raw.githubusercontent.com/openMVG/openMVG/master/BUILD</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install libpng-dev libjpeg-dev libtiff-dev libxxf86vm1
+apt-apt-get install libxxf86vm-dev libxi-dev libxrandr-dev
+apt-get install graphviz
+apt-get install cmake
+</pre></div>
+</div>
+<p>more</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install mesa-common-dev (instead of mesa-dev)
+apt-get install libboost-program-options-dev
+apt-get install qt4-qmake
+apt-get install qt4-dev-tools
+apt-get install libqtcore4
+apt-get install python-glpk glpk-util
+apt-get install coinor-cbc
+apt-get install coinor-clp
+apt-get install coinor-libclp-dev
+apt-get install coinor-libclp1
+apt-get install coinor-libcbc-dev
+apt-get install coinor-libcgl-dev
+apt-get install coinor-libosi-dev
+apt-get install libglpk-dev
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone --recursive https://github.com/openMVG/openMVG.git
+mkdir openMVG_Build
+cd openMVG_Build
+</pre></div>
+</div>
+<p>from openMVG</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cmake -DCMAKE_BUILD_TYPE=RELEASE -DOpenMVG_BUILD_TESTS=ON -DOpenMVG_BUILD_EXAMPLES=ON . ../openMVG/src/
+make
+make install
+</pre></div>
+</div>
+<p>from openMVS</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>current_path=`pwd`
+cmake -DCMAKE_BUILD_TYPE=RELEASE . ../openMVG/src/ -DCMAKE_INSTALL_PREFIX=$current_path/openMVG_install
+make
+make install
+</pre></div>
+</div>
+<p>how many cores ? (use make instead it fucks mddhd!)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cat /proc/cpuinfo | grep processor | wc -l
+make -j nbcores
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mve.html" class="btn btn-neutral float-right" title="MVE" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="openMVS.html" class="btn btn-neutral" title="OpenMVS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

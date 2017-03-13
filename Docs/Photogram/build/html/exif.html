@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exif tools &mdash; Photogrammetry 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Photogrammetry 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Camera Sensor Size Database" href="camerasensor.html"/>
+        <link rel="prev" title="perl modules" href="perlmodules.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Photogrammetry
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">open-MVG-MVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openMVS.html">OpenMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openMVG.html">OpenMVG</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MVE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mve.html">MVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvs-texturing.html">mvs-texturing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmfusion.html">dmfusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CMVS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sift.html">Sift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bundler.html">Bundler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CMVS-PMVS.html">CMVS-PMVS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoissonRecon.html">Poisson Surface Reconstruction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STANFORD</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scanalyze.html">Scanalyze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vrippack.html">VripPack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="volfill.html">Volfill</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MISC</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Ceres.html">Build Ceres</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ply.html">ply</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlmodules.html">perl modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Exif tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">exif tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jhead">jhead</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camerasensor.html">Camera Sensor Size Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">compilers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bin.html">bin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">source me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisualSfm.html">Visual Sfm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudCompare.html">CloudCompare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theia.html">Theia  Vision Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regard3d.html">Regard3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstantMesh.html">InstantMesh</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Photogrammetry</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Exif tools</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/exif.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="exif-tools">
+<h1>Exif tools<a class="headerlink" href="#exif-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>exif tools<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.sno.phy.queensu.ca/~phil/exiftool/">http://www.sno.phy.queensu.ca/~phil/exiftool/</a></p>
+<p><a class="reference external" href="http://www.sno.phy.queensu.ca/~phil/exiftool/install.html#Unix">http://www.sno.phy.queensu.ca/~phil/exiftool/install.html#Unix</a></p>
+<p><a class="reference external" href="http://phototour.cs.washington.edu/focal.html">http://phototour.cs.washington.edu/focal.html</a></p>
+<p><a class="reference external" href="http://www.sno.phy.queensu.ca/~phil/exiftool/ExifTool.html">http://www.sno.phy.queensu.ca/~phil/exiftool/ExifTool.html</a></p>
+<p><a class="reference external" href="http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html">http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/EXIF.html</a></p>
+</div>
+<div class="section" id="jhead">
+<h2>jhead<a class="headerlink" href="#jhead" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.sentex.net/~mwandel/jhead/">http://www.sentex.net/~mwandel/jhead/</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>apt-get install jhead
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>Jhead is a program for manipulating settings and thumbnails in Exif jpeg headers
+used by most Digital Cameras.  v2.97 Matthias Wandel, Jan 30 2013.
+http://www.sentex.net/~mwandel/jhead
+
+Usage: jhead [options] files
+Where:
+ files       path/filenames with or without wildcards
+[options] are:
+
+GENERAL METADATA:
+  -te &lt;name&gt; Transfer exif header from another image file &lt;name&gt;
+             Uses same name mangling as &#39;-st&#39; option
+  -dc        Delete comment field (as left by progs like Photoshop &amp; Compupic)
+  -de        Strip Exif section (smaller JPEG file, but lose digicam info)
+  -di        Delete IPTC section (from Photoshop, or Picasa)
+  -dx        Deletex XMP section
+  -du        Delete non image sections except for Exif and comment sections
+  -purejpg   Strip all unnecessary data from jpeg (combines -dc -de and -du)
+  -mkexif    Create new minimal exif section (overwrites pre-existing exif)
+  -ce        Edit comment field.  Uses environment variable &#39;editor&#39; to
+             determine which editor to use.  If editor not set, uses VI
+             under Unix and notepad with windows
+  -cs &lt;name&gt; Save comment section to a file
+  -ci &lt;name&gt; Insert comment section from a file.  -cs and -ci use same naming
+             scheme as used by the -st option
+  -cl string Insert literal comment string
+
+DATE / TIME MANIPULATION:
+  -ft        Set file modification time to Exif time
+  -dsft      Set Exif time to file modification time
+  -n[format-string]
+             Rename files according to date.  Uses exif date if present, file
+             date otherwise.  If the optional format-string is not supplied,
+             the format is mmdd-hhmmss.  If a format-string is given, it is
+             is passed to the &#39;strftime&#39; function for formatting
+             %d Day of month    %H Hour (24-hour)
+             %m Month number    %M Minute    %S Second
+             %y Year (2 digit 00 - 99)        %Y Year (4 digit 1980-2036)
+             For more arguments, look up the &#39;strftime&#39; function.
+             In addition to strftime format codes:
+             &#39;%f&#39; as part of the string will include the original file name
+             &#39;%i&#39; will include a sequence number, starting from 1. You can
+             You can specify &#39;%03i&#39; for example to get leading zeros.
+             This feature is useful for ordering files from multiple digicams to
+             sequence of taking.
+             The &#39;.jpg&#39; is automatically added to the end of the name.  If the
+             destination name already exists, a letter or digit is added to
+             the end of the name to make it unique.
+             The new name may include a path as part of the name.  If this path
+             does not exist, it will be created
+  -a         (Windows only) Rename files with same name but different extension
+             Use together with -n to rename .AVI files from exif in .THM files
+             for example
+  -ta&lt;+|-&gt;h[:mm[:ss]]
+             Adjust time by h:mm forwards or backwards.  Useful when having
+             taken pictures with the wrong time set on the camera, such as when
+             traveling across time zones or DST changes. Dates can be adjusted
+             by offsetting by 24 hours or more.  For large date adjustments,
+             use the -da option
+  -da&lt;date&gt;-&lt;date&gt;
+             Adjust date by large amounts.  This is used to fix photos from
+             cameras where the date got set back to the default camera date
+             by accident or battery removal.
+             To deal with different months and years having different numbers of
+             days, a simple date-month-year offset would result in unexpected
+             results.  Instead, the difference is specified as desired date
+             minus original date.  Date is specified as yyyy:mm:dd or as date
+             and time in the format yyyy:mm:dd/hh:mm:ss
+  -ts&lt;time&gt;  Set the Exif internal time to &lt;time&gt;.  &lt;time&gt; is in the format
+             yyyy:mm:dd-hh:mm:ss
+  -ds&lt;date&gt;  Set the Exif internal date.  &lt;date&gt; is in the format YYYY:MM:DD
+             or YYYY:MM or YYYY
+
+THUMBNAIL MANIPULATION:
+  -dt        Remove exif integral thumbnails.   Typically trims 10k
+  -st &lt;name&gt; Save Exif thumbnail, if there is one, in file &lt;name&gt;
+             If output file name contains the substring &quot;&amp;i&quot; then the
+             image file name is substitute for the &amp;i.  Note that quotes around
+             the argument are required for the &#39;&amp;&#39; to be passed to the program.
+             An output name of &#39;-&#39; causes thumbnail to be written to stdout
+  -rt &lt;name&gt; Replace Exif thumbnail.  Can only be done with headers that
+             already contain a thumbnail.
+  -rgt[size] Regnerate exif thumbnail.  Only works if image already
+             contains a thumbail.  size specifies maximum height or width of
+             thumbnail.  Relies on &#39;mogrify&#39; programs to be on path
+
+ROTATION TAG MANIPULATION:
+  -autorot   Invoke jpegtran to rotate images according to Exif orientation tag
+             Note: Windows users must get jpegtran for this to work
+  -norot     Zero out the rotation tag.  This to avoid some browsers from
+             rotating the image again after you rotated it but neglected to
+             clear the rotation tag
+
+OUTPUT VERBOSITY CONTROL:
+  -h         help (this text)
+  -v         even more verbose output
+  -q         Quiet (no messages on success, like Unix)
+  -V         Show jhead version
+  -exifmap   Dump header bytes, annotate.  Pipe thru sort for better viewing
+  -se        Supress error messages relating to corrupt exif header structure
+  -c         concise output
+  -nofinfo   Don&#39;t show file info (name/size/date)
+
+FILE MATCHING AND SELECTION:
+  -model model
+             Only process files from digicam containing model substring in
+             camera model description
+  -exonly    Skip all files that don&#39;t have an exif header (skip all jpegs that
+             were not created by digicam)
+  -cmd command
+             Apply &#39;command&#39; to every file, then re-insert exif and command
+             sections into the image. &amp;i will be substituted for the input file
+             name, and &amp;o (if &amp;o is used). Use quotes around the command string
+             This is most useful in conjunction with the free ImageMagick tool.
+             For example, with my Canon S100, which suboptimally compresses
+             jpegs I can specify
+                jhead -cmd &quot;mogrify -quality 80 &amp;i&quot; *.jpg
+             to re-compress a lot of images using ImageMagick to half the size,
+             and no visible loss of quality while keeping the exif header
+             Another invocation I like to use is jpegtran (hard to find for
+             windows).  I type:
+                jhead -cmd &quot;jpegtran -progressive &amp;i &amp;o&quot; *.jpg
+             to convert jpegs to progressive jpegs (Unix jpegtran syntax
+             differs slightly)
+  -orp       Only operate on &#39;portrait&#39; aspect ratio images
+  -orl       Only operate on &#39;landscape&#39; aspect ratio images
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="camerasensor.html" class="btn btn-neutral float-right" title="Camera Sensor Size Database" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="perlmodules.html" class="btn btn-neutral" title="perl modules" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

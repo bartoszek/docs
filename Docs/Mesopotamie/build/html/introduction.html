@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; documentation MESOPOTAMIE </title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="documentation MESOPOTAMIE " href="index.html"/>
+        <link rel="next" title="Collecte de photos sur Internet" href="collection.html"/>
+        <link rel="prev" title="Les dernières Pierres de Mésopotamie" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MESOPOTAMIE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#structure-from-motion-sfm"><strong>Structure from motion (Sfm)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-view-stereo-mvs"><strong>Multi view Stereo (Mvs)</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collecte de photos sur Internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sfm.html">Structure From Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvs.html">Multi-View Stereo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finalisation.html">Finalisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autres.html">Autres exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basrelief.html">Génération de Bas-reliefs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MESOPOTAMIE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+<a class="reference internal image-reference" href="_images/mysnap73.jpg"><img alt="_images/mysnap73.jpg" class="align-center" src="_images/mysnap73.jpg" style="width: 1216.0px; height: 784.0px;" /></a>
+<p>Ce document décrit de manière détaillée le &#8220;workflow&#8221; que nous souhaitons utiliser pour modéliser et reproduire des vestiges de la civilisation Assyrienne dans le but de générer des séquences visuelles pour le documentaire &#8220;MESOPOTAMIA : Les Dernières Pierres de Mésopotamie&#8221;</p>
+<p>Le principe général consiste a collecter sur Internet des images de sculptures et de bas-relief puis a utiliser des techniques de photogrammétrie pour recréer un modèle numérique 3D.</p>
+<p>La reconstruction photogrammétrique est basée sur l’enchaînement de 2 techniques:</p>
+<div class="section" id="structure-from-motion-sfm">
+<h2><strong>Structure from motion (Sfm)</strong><a class="headerlink" href="#structure-from-motion-sfm" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div>cette première phase permet de retrouver les paramètres intrinsèques (focale,distorsion) ainsi que les paramètres extrinsèques (position,orientation) des cameras ayant servi a prendre les photos originales.Il génère aussi un nuage de points 3D décrivant de manière sommaire l&#8217;objet observe (sparse point cloud).Il comporte en général plusieurs centaines voire plusieurs milliers de points.</div></blockquote>
+</div>
+<div class="section" id="multi-view-stereo-mvs">
+<h2><strong>Multi view Stereo (Mvs)</strong><a class="headerlink" href="#multi-view-stereo-mvs" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div>Lors de cette deuxième phase , les résultats obtenus précédemment sont exploités pour générer un nuage de points 3D beaucoup plus dense (dense point cloud).Il est constitue habituellement de plusieurs millions de points.Ces points sont obtenus en analysant les similitudes entre les différentes images.Ce nuage de points est alors utilise pour construire un maillage polygonal de l&#8217;objet observé.Au final ce maillage servira de support pour générer une texture 2D combinant les meilleures photographies initiales.</div></blockquote>
+<p>Le maillage final comporte en général des irrégularités ou des trous.En effet les images sources étant de nature très hétérogènes (conditions d’éclairage et colorimétrie différentes).Les objets observes n&#8217;apparaissant pas obligatoirement sous tout les angles possibles.La finalisation des objets se fera manuellement par un artiste 3D dans des logiciels tel que Zbrush (Pixologic) ou 3DCoat.</p>
+<p>Les objets obtenus peuvent être extrêmement dense (plusieurs millions de polygones).Afin de pouvoir les manipuler plus aisément dans les logiciels 3D une dernière phase consiste a générer des modèles basse résolution (low-def) et d&#8217;y associer des textures représentant le déplacement par rapport a l&#8217;objet haute définition (displacement map).La combinaison de ces 2 éléments permet de retrouver la finesse des détails lors du rendu 3D.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="collection.html" class="btn btn-neutral float-right" title="Collecte de photos sur Internet" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Les dernières Pierres de Mésopotamie" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

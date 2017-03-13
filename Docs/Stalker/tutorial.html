@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API Tutorial &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="index.html" />
+    <link rel="next" title="Design" href="design.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="design.html" title="Design"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api-tutorial">
+<span id="tutorial-toplevel"></span><h1>API Tutorial<a class="headerlink" href="#api-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Using Stalker along with Python is all about interacting with a database by
+using the Stalker Object Model (SOM). Stalker uses the powerful <a class="reference external" href="http://www.sqlalchemy.org/docs/orm/tutorial.html">SQLAlchemy
+ORM</a>.</p>
+<p>This tutorial section let you familiarise with the Stalker Python API and
+Stalker Object Model (SOM). If you used SQLAlchemy before you will feel at
+home and if you aren&#8217;t you will see that it is fun dealing with databases with
+SOM.</p>
+</div>
+<div class="section" id="part-i-basics">
+<h2>Part I - Basics<a class="headerlink" href="#part-i-basics" title="Permalink to this headline">¶</a></h2>
+<p>Lets say that we just installed Stalker (as you are right now) and want to use
+Stalker in our first project.</p>
+<p>The first thing we are going to learn about is how to connect to the database
+so we can enter information about our studio and the projects.</p>
+<p>We are going to use a helper script to connect to the default database. Use the
+following command to connect to the database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will create an in-memory SQLite3 database, which is useless other than
+testing purposes. To be able to get more out of Stalker we should give a proper
+database information. The most basic setup is to use a file based SQLite3
+database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">({</span><span class="s">&quot;sqlalchemy.url&quot;</span><span class="p">:</span> <span class="s">&quot;sqlite:///C:/studio.db&quot;</span><span class="p">})</span> <span class="c"># assumed Windows</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">({</span><span class="s">&quot;sqlalchemy.url&quot;</span><span class="p">:</span> <span class="s">&quot;sqlite:////home/ozgur/studio.db&quot;</span><span class="p">})</span> <span class="c"># under linux or osx</span>
+</pre></div>
+</div>
+<p>Then if this is the first time you are connecting to the database, then you
+should initialize the database and create some defaults:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will create some very important default data required for Stalker to work
+properly. Although it will not break anything to call <code class="docutils literal"><span class="pre">db.init()</span></code> multiple
+times it is needed only once (so you don&#8217;t need to call it again when you close
+your python shell and open up a new and fresh one).</p>
+<p>Lets continue by creating a <a class="reference internal" href="generated/stalker.models.studio.Studio.html#stalker.models.studio.Studio" title="stalker.models.studio.Studio"><code class="xref py py-class docutils literal"><span class="pre">Studio</span></code></a> for our self:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Studio</span>
+<span class="n">my_studio</span> <span class="o">=</span> <span class="n">Studio</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;My Great Studio&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>For now don&#8217;t care what a Studio is about. It will be explained later on this
+tutorial.</p>
+<p>Lets continue by creating a <strong>User</strong> for ourselves in the database. The first
+thing we need to do is to import the <a class="reference internal" href="generated/stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> class in to the current
+namespace:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">User</span>
+</pre></div>
+</div>
+<p>then create the <a class="reference internal" href="generated/stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">me</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Erkan Ozgur Yilmaz&quot;</span><span class="p">,</span>
+    <span class="n">login</span><span class="o">=</span><span class="s">&quot;eoyilmaz&quot;</span><span class="p">,</span>
+    <span class="n">email</span><span class="o">=</span><span class="s">&quot;some_email_address@gmail.com&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s">&quot;secret&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s">&quot;This is me&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we have just created a user which represents us.</p>
+<p>Lets create a new <a class="reference internal" href="generated/stalker.models.department.Department.html#stalker.models.department.Department" title="stalker.models.department.Department"><code class="xref py py-class docutils literal"><span class="pre">Department</span></code></a> to define your department:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Department</span>
+<span class="n">tds_department</span> <span class="o">=</span> <span class="n">Department</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;TDs&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s">&quot;This is the TDs department&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Now add your user to the department:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tds_department</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or we can do it by using the User instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">me</span><span class="o">.</span><span class="n">departments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tds_department</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Even if you didn&#8217;t do the latter, when you run:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">me</span><span class="o">.</span><span class="n">departments</span><span class="p">)</span>
+<span class="c"># you should get something like</span>
+<span class="c"># [&lt;TDs (Department)&gt;]</span>
+</pre></div>
+</div>
+<p>We have successfully created a <a class="reference internal" href="generated/stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a> and a <a class="reference internal" href="generated/stalker.models.department.Department.html#stalker.models.department.Department" title="stalker.models.department.Department"><code class="xref py py-class docutils literal"><span class="pre">Department</span></code></a> and we
+assigned the user as one of the member of the <strong>TDs Department</strong>.</p>
+<p>Because we didn&#8217;t tell Stalker to commit the changes, no data has been saved to
+the database yet. So lets send it the data to the database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">my_studio</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tds_department</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you see we have used the <code class="docutils literal"><span class="pre">db.DBSession</span></code> object to send the data to the
+database. These information are in the database right now.</p>
+<p>Lets try to get something back from the database by querying all the
+departments, then getting the second one (the first department is always the
+&#8220;admins&#8221; which is created by default) and getting its first members name:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">all_departments</span> <span class="o">=</span> <span class="n">Department</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">all_departments</span><span class="p">)</span>
+<span class="c"># This should print something like</span>
+<span class="c"># [&lt;admins (Department)&gt;, &lt;TDs (Department)&gt;]</span>
+<span class="c"># &quot;admins&quot; department is created by default</span>
+
+<span class="n">admins</span> <span class="o">=</span> <span class="n">all_departments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tds</span> <span class="o">=</span> <span class="n">all_departments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">all_users</span> <span class="o">=</span> <span class="n">tds</span><span class="o">.</span><span class="n">users</span>  <span class="c"># Department.users is a synonym for Department.members</span>
+                       <span class="c"># they are essentially the same attribute</span>
+<span class="k">print</span><span class="p">(</span><span class="n">all_users</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c"># this should print</span>
+<span class="c"># &lt;Erkan Ozgur Yilmaz (&#39;eoyilmaz&#39;) (User)&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="part-ii-a-creating-simple-data">
+<h2>Part II/A - Creating Simple Data<a class="headerlink" href="#part-ii-a-creating-simple-data" title="Permalink to this headline">¶</a></h2>
+<p>Lets say that we have this new commercial project coming and you want to start
+using Stalker with it. So we need to create a <a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> object to hold
+data about it.</p>
+<p>A project instance needs to have a suitable <a class="reference internal" href="generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList" title="stalker.models.status.StatusList"><code class="xref py py-class docutils literal"><span class="pre">StatusList</span></code></a> (see
+<a class="reference internal" href="status_and_status_lists.html#status-and-status-lists-toplevel"><span>Statuses and Status Lists</span></a>) and it needs to be attached to a
+<a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># we will reuse the Statuses created by default (in db.init())</span>
+<span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Status</span>
+
+<span class="n">status_new</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;NEW&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">status_wip</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;WIP&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">status_cmpl</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;CMPL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When the Stalker database is first initialized (with <code class="docutils literal"><span class="pre">db.init()</span></code>) a set of
+<a class="reference internal" href="generated/stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a>es for <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s, <a class="reference internal" href="generated/stalker.models.asset.Asset.html#stalker.models.asset.Asset" title="stalker.models.asset.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a>s,
+<a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a>s, <a class="reference internal" href="generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence" title="stalker.models.sequence.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a>s and <a class="reference internal" href="generated/stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a>s are created
+along with a <a class="reference internal" href="generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList" title="stalker.models.status.StatusList"><code class="xref py py-class docutils literal"><span class="pre">StatusList</span></code></a> for each of the data types. Up in this
+tutorial we have used those Statuses (new, wip and cmpl) created by default.</p>
+</div>
+<p>For now we have just created generic statuses. These <a class="reference internal" href="generated/stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a> instances
+can be used with any kind of statusable objects. The idea behind is to define
+the statuses only once, and use them in mixtures suitable for different type of
+objects. So you can define all the possible Statuses for your entities, then
+you can create a list of them for specific type of objects.</p>
+<p>Lets create a <a class="reference internal" href="generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList" title="stalker.models.status.StatusList"><code class="xref py py-class docutils literal"><span class="pre">StatusList</span></code></a> suitable for <a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> instances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># a status list which is suitable for Project instances</span>
+<span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">StatusList</span><span class="p">,</span> <span class="n">Project</span>
+
+<span class="n">project_statuses</span> <span class="o">=</span> <span class="n">StatusList</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Project Status List&quot;</span><span class="p">,</span>
+    <span class="n">statuses</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">status_new</span><span class="p">,</span>
+        <span class="n">status_wip</span><span class="p">,</span>
+        <span class="n">status_cmpl</span>
+    <span class="p">],</span>
+    <span class="n">target_entity_type</span><span class="o">=</span><span class="n">Project</span>  <span class="c"># you can also use &quot;Project&quot; which is a str</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>So we defined a status list which is suitable for Project instances. As you
+see we didn&#8217;t used all the generic Statuses in our <code class="docutils literal"><span class="pre">project_statuses</span></code> because
+for a Project object we thought that these statuses are enough.</p>
+<p>And finally, the <a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a>. The Repository (or Repo if you like) is
+a path in our file server, where we place files and which is visible to all the
+workstations/render farmers:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Repository</span>
+
+<span class="c"># and the repository itself</span>
+<span class="n">commercial_repo</span> <span class="o">=</span> <span class="n">Repository</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Commercial Repository&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> class will be explained in detail in upcoming sections.</p>
+<p>So:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">new_project</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Fancy Commercial&quot;</span><span class="p">,</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;FC&#39;</span><span class="p">,</span>
+    <span class="n">status_list</span><span class="o">=</span><span class="n">project_statuses</span><span class="p">,</span>
+    <span class="n">repositories</span><span class="o">=</span><span class="p">[</span><span class="n">commercial_repo</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>So we have created our project now.</p>
+<p>Lets enter more information about this new project:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">ImageFormat</span>
+
+<span class="n">new_project</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> \
+<span class="sd">&quot;&quot;&quot;The commercial is about this fancy product. The</span>
+<span class="sd">client want us to have a shiny look with their</span>
+<span class="sd">product bla bla bla...&quot;&quot;&quot;</span>
+
+<span class="n">new_project</span><span class="o">.</span><span class="n">image_format</span> <span class="o">=</span> <span class="n">ImageFormat</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;HD 1080&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">1080</span>
+<span class="p">)</span>
+
+<span class="n">new_project</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">new_project</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">new_project</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lets save all the new data to the database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_project</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you see, even though we have created multiple objects (new_project,
+statuses, status lists etc.) we&#8217;ve just added the <code class="docutils literal"><span class="pre">new_project</span></code> object to the
+database, but don&#8217;t worry all the related objects will be added to the
+database.</p>
+<p>A Project generally is group of <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s that needs to be completed. A
+<a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> in Stalker is a type of entity where we define the total amount
+of effort need to be done (or the duration or the length of the task, see
+<a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> class documentation) to consider that Task as completed. All of
+the tasks (leaf tasks in fact, coming next) has <code class="docutils literal"><span class="pre">resources</span></code> which defines the
+<a class="reference internal" href="generated/stalker.models.auth.User.html#stalker.models.auth.User" title="stalker.models.auth.User"><code class="xref py py-class docutils literal"><span class="pre">User</span></code></a>s who need to work on that task and complete it. This will all
+be explained in <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> class documentation.</p>
+<p>For now you just need to now that <a class="reference internal" href="generated/stalker.models.asset.Asset.html#stalker.models.asset.Asset" title="stalker.models.asset.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a>s, <a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a>s and
+<a class="reference internal" href="generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence" title="stalker.models.sequence.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a>s in Stalker are derived from <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a> and they are
+in fact other type of Tasks or a specialized version of Tasks.</p>
+<p>So lets create a <a class="reference internal" href="generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence" title="stalker.models.sequence.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="n">seq1</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Sequence 1&quot;</span><span class="p">,</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&quot;SEQ1&quot;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">new_project</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>And a Sequence generally has <a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a>s:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Shot</span>
+
+<span class="n">sh001</span> <span class="o">=</span> <span class="n">Shot</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;SH001&#39;</span><span class="p">,</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;SH001&#39;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">new_project</span><span class="p">,</span>
+    <span class="n">sequences</span><span class="o">=</span><span class="p">[</span><span class="n">seq1</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">sh002</span> <span class="o">=</span> <span class="n">Shot</span><span class="p">(</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;SH002&#39;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">new_project</span><span class="p">,</span>
+    <span class="n">sequences</span><span class="o">=</span><span class="p">[</span><span class="n">seq1</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">sh003</span> <span class="o">=</span> <span class="n">Shot</span><span class="p">(</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;SH003&#39;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">new_project</span><span class="p">,</span>
+    <span class="n">sequences</span><span class="o">=</span><span class="p">[</span><span class="n">seq1</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>send them to the database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add_all</span><span class="p">([</span><span class="n">sh001</span><span class="p">,</span> <span class="n">sh002</span><span class="p">,</span> <span class="n">sh003</span><span class="p">])</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Even though, in this tutorial we have created <a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a>s with one
+<a class="reference internal" href="generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence" title="stalker.models.sequence.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a> instance, it is not needed. You can create
+<a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a>s without any <a class="reference internal" href="generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence" title="stalker.models.sequence.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a> instance needed.</p>
+<p>For small projects like commercials, you may skip creating a Sequence at
+all.</p>
+<p>For bigger projects, like feature movies, it is a very good idea to use
+Sequences and then group the Shots under them.</p>
+<p class="last">But again, a Shot can be connected to multiple sequences, which is useful if
+your shot, let say, is a kind of flashback and you will use this shot again
+without changing it at all, then this feature becomes handy.</p>
+</div>
+</div>
+<div class="section" id="part-ii-b-querying-updating-and-deleting-data">
+<h2>Part II/B - Querying, Updating and Deleting Data<a class="headerlink" href="#part-ii-b-querying-updating-and-deleting-data" title="Permalink to this headline">¶</a></h2>
+<p>So far we just created some simple data. What about updating them. Let say that
+we created a new shot with wrong info:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sh004</span> <span class="o">=</span> <span class="n">Shot</span><span class="p">(</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;SH004&#39;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">new_project</span><span class="p">,</span>
+    <span class="n">sequences</span><span class="o">=</span><span class="p">[</span><span class="n">seq1</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sh004</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and you figured out that you have created and committed a wrong info and you
+want to correct it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sh004</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="s">&quot;SH005&quot;</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>later on lets say you wanted to get the shot back from database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># first find the data</span>
+<span class="n">wrong_shot</span> <span class="o">=</span> <span class="n">Shot</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&quot;SH005&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="c"># now update it</span>
+<span class="n">wrong_shot</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="s">&quot;SH004&quot;</span>
+
+<span class="c"># commit the changes to the database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and let say that you decided to delete the data:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">wrong_shot</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you don&#8217;t close your python session, your variable are still going to
+contain the data but they do not exist in the database anymore:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">wrong_shot</span> <span class="o">=</span> <span class="n">Shot</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&quot;SH005&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wrong_shot</span><span class="p">)</span>
+<span class="c"># should print None</span>
+</pre></div>
+</div>
+<p>for more info about update and delete options (like cascades) in SQLAlchemy
+please see the <a class="reference external" href="http://www.sqlalchemy.org/docs/orm/session.html">SQLAlchemy documentation</a>.</p>
+</div>
+<div class="section" id="part-iii-pipeline">
+<h2>Part III - Pipeline<a class="headerlink" href="#part-iii-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>Up until now, we skipped a lot of stuff here to take little steps every time.
+Even tough we have created users, departments, projects, sequences and shots,
+Stalker still doesn&#8217;t know much about our studio. For example, it doesn&#8217;t have
+any information about the <strong>pipeline</strong> that we are following and what steps we
+do to complete those shots, thus to complete the project.</p>
+<p>In Stalker, pipeline is managed by <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s. So
+you create Tasks for Shots and then you can create dependencies between tasks.</p>
+<p>So lets create a couple of tasks for one of the shots we have created before:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Task</span>
+
+<span class="n">previs</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Previs&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sh001</span>
+<span class="p">)</span>
+
+<span class="n">matchmove</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Matchmove&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sh001</span>
+<span class="p">)</span>
+
+<span class="n">anim</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Animation&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sh001</span>
+<span class="p">)</span>
+
+<span class="n">lighting</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Lighting&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sh001</span>
+<span class="p">)</span>
+
+<span class="n">comp</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;comp&quot;</span><span class="p">,</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">sh001</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Now create the dependencies between them:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">comp</span><span class="o">.</span><span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="n">lighting</span><span class="p">]</span>
+<span class="n">lighting</span><span class="o">.</span><span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="n">anim</span><span class="p">]</span>
+<span class="n">anim</span><span class="o">.</span><span class="n">depends</span> <span class="o">=</span> <span class="p">[</span><span class="n">previs</span><span class="p">,</span> <span class="n">matchmove</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Stalker uses this dependency relation in scheduling these tasks. That is by
+appending &#8220;lighting&#8221; task as one of the dependencies of comp, Stalker now know
+that lighting should be completed to let the resource of the comp task start
+working. The &#8220;Task Scheduling&#8221; will be explained in detail later on in this
+tutorial.</p>
+</div>
+<div class="section" id="part-iv-task-resource-management">
+<h2>Part IV - Task &amp; Resource Management<a class="headerlink" href="#part-iv-task-resource-management" title="Permalink to this headline">¶</a></h2>
+<p>Now we have a couple of Shots with couple of tasks inside it but we didn&#8217;t
+assign the tasks to anybody to let them complete this job.</p>
+<p>Lets assign all this stuff to our self (for now :) ):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">previs</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="n">previs</span><span class="o">.</span><span class="n">schedule_timing</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">previs</span><span class="o">.</span><span class="n">schedule_unit</span> <span class="o">=</span> <span class="s">&#39;d&#39;</span>
+
+<span class="n">matchmove</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="n">matchmove</span><span class="o">.</span><span class="n">schedule_timing</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">matchmove</span><span class="o">.</span><span class="n">schedule_unit</span> <span class="o">=</span> <span class="s">&#39;d&#39;</span>
+
+<span class="n">anim</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="n">anim</span><span class="o">.</span><span class="n">schedule_timing</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">anim</span><span class="o">.</span><span class="n">schedule_unit</span> <span class="o">=</span> <span class="s">&#39;d&#39;</span>
+
+<span class="n">lighting</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="n">lighting</span><span class="o">.</span><span class="n">schedule_timing</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">lighting</span><span class="o">.</span><span class="n">schedule_unit</span> <span class="o">=</span> <span class="s">&#39;d&#39;</span>
+
+<span class="n">comp</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="n">comp</span><span class="o">.</span><span class="n">schedule_timing</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">comp</span><span class="o">.</span><span class="n">schedule_unit</span> <span class="o">=</span> <span class="s">&#39;h&#39;</span>
+</pre></div>
+</div>
+<p>Now Stalker knows the hierarchy of the tasks and how much effort is needed to
+complete this tasks. Stalker will use this information to solve the Scheduling
+problem, and will tell you when to start and complete this tasks.</p>
+<p>Lets commit the changes again:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you noticed, this time we didn&#8217;t add anything to the session, cause we have
+added the <code class="docutils literal"><span class="pre">sh001</span></code> in a previous commit, and because all the objects are
+attached to this shot object in some way, all the changes has been tracked and
+added to the database.</p>
+</div>
+<div class="section" id="part-v-scheduling">
+<h2>Part V - Scheduling<a class="headerlink" href="#part-v-scheduling" title="Permalink to this headline">¶</a></h2>
+<p>In previous sections of this tutorial we have created a <a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a> and then
+created a couple of <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s to this shot and then assigned our self
+as the resource of these tasks.</p>
+<p>Stalker knows enough about our little project now, but we don&#8217;t know where to
+start the project from. That is which task should we start from.</p>
+<p>In Stalker, defining the start and end dates of a Task (also of an Asset, Shot
+and Sequence) is called &#8220;Scheduling&#8221;. Stalker, with the help of <a class="reference external" href="http://www.taskjuggler.org/">TaskJuggler</a>,
+can solve this problem and define when the resource should work on a specific
+task.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>You should have <a class="reference external" href="http://www.taskjuggler.org/">TaskJuggler</a> installed in your system, and you should have
+configured your Stalker installation to be able to find the <code class="docutils literal"><span class="pre">tj3</span></code>
+executable.</p>
+<p>On a linux system this should be fairly straight forward, just install
+<a class="reference external" href="http://www.taskjuggler.org/">TaskJuggler</a> and stalker will be able to use it.</p>
+<p>But for other OSes, like OSX and Windows, you should create an environment
+variable called <code class="docutils literal"><span class="pre">STALKER_PATH</span></code> and then place a file called <code class="docutils literal"><span class="pre">config.py</span></code>
+inside the folder that this path is pointing at. And then add the following
+to this <code class="docutils literal"><span class="pre">config.py</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tj_command</span> <span class="o">=</span> <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Path</span><span class="se">\\</span><span class="s">to</span><span class="se">\\</span><span class="s">tj3.exe&#39;</span>
+</pre></div>
+</div>
+<p>The default value for <code class="docutils literal"><span class="pre">tj_command</span></code> config variable is
+<code class="docutils literal"><span class="pre">/usr/local/bin/tj3</span></code>, so if on a Linux or OSX system when you run:</p>
+<div class="highlight-python"><div class="highlight"><pre>which tj3
+</pre></div>
+</div>
+<p class="last">is returning this value (<code class="docutils literal"><span class="pre">/usr/local/bin/tj3</span></code>) you don&#8217;t need to setup
+anything.</p>
+</div>
+<p>So, lets schedule our project by using the <a class="reference internal" href="generated/stalker.models.studio.Studio.html#stalker.models.studio.Studio" title="stalker.models.studio.Studio"><code class="xref py py-class docutils literal"><span class="pre">Studio</span></code></a> instance that we
+have created at the beginning of this tutorial:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">TaskJugglerScheduler</span>
+
+<span class="n">my_studio</span><span class="o">.</span><span class="n">scheduler</span> <span class="o">=</span> <span class="n">TaskJugglerScheduler</span><span class="p">()</span>
+<span class="n">my_studio</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span>  <span class="c"># we are setting the</span>
+<span class="n">my_studio</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">scheduled_by</span><span class="o">=</span><span class="n">me</span><span class="p">)</span>                <span class="c"># duration to 1 year just</span>
+                                                   <span class="c"># to be sure that TJ3</span>
+                                                   <span class="c"># will not complain</span>
+                                                   <span class="c"># about the project is not</span>
+                                                   <span class="c"># fitting in to the time</span>
+                                                   <span class="c"># frame.</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>  <span class="c"># to reflect the change</span>
+</pre></div>
+</div>
+<p>This should take a little while depending to your projects size (around 1-2
+seconds for this tutorial, but around ~15 min for a project with 15000+ tasks).</p>
+<p>When it is finished all of your tasks now have their <code class="docutils literal"><span class="pre">computed_start</span></code> and
+<code class="docutils literal"><span class="pre">computed_end</span></code> values filled with proper data. Now check the start and end
+values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">previs</span><span class="o">.</span><span class="n">computed_start</span><span class="p">)</span>     <span class="c"># 2014-04-02 16:00:00</span>
+<span class="k">print</span><span class="p">(</span><span class="n">previs</span><span class="o">.</span><span class="n">computed_end</span><span class="p">)</span>       <span class="c"># 2014-04-15 15:00:00</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">matchmove</span><span class="o">.</span><span class="n">computed_start</span><span class="p">)</span>  <span class="c"># 2014-04-15 15:00:00</span>
+<span class="k">print</span><span class="p">(</span><span class="n">matchmove</span><span class="o">.</span><span class="n">computed_end</span><span class="p">)</span>    <span class="c"># 2014-04-17 13:00:00</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">computed_start</span><span class="p">)</span>       <span class="c"># 2014-04-17 13:00:00</span>
+<span class="k">print</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">computed_end</span><span class="p">)</span>         <span class="c"># 2014-04-23 17:00:00</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">lighting</span><span class="o">.</span><span class="n">computed_start</span><span class="p">)</span>   <span class="c"># 2014-04-23 17:00:00</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lighting</span><span class="o">.</span><span class="n">computed_end</span><span class="p">)</span>     <span class="c"># 2014-04-24 11:00:00</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">computed_start</span><span class="p">)</span>       <span class="c"># 2014-04-24 11:00:00</span>
+<span class="k">print</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">computed_end</span><span class="p">)</span>         <span class="c"># 2014-04-24 17:00:00</span>
+</pre></div>
+</div>
+<p>The dates are probably going to be different in your computer. But as you see
+Stalker has computed the start and end date values for each of the tasks. They
+are simply following one other, this is because we have entered only one
+resource for each of the task.</p>
+<p>You should know that &#8220;Scheduling&#8221; is a huge concept and it is greatly explained
+in <a class="reference external" href="http://www.taskjuggler.org/">TaskJuggler</a> documentation.</p>
+<p>For a last thing you can check the <code class="docutils literal"><span class="pre">to_tjp</span></code> values of each data we have
+created for now, so try running:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">my_studio</span><span class="o">.</span><span class="n">to_tjp</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">me</span><span class="o">.</span><span class="n">to_tjp</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">to_tjp</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">new_project</span><span class="o">.</span><span class="n">to_tjp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are familiar with TaskJuggler, you should recognize the output of each
+<code class="docutils literal"><span class="pre">to_tjp</span></code> variable. So essentially Stalker is mapping all of its data to a
+TaskJuggler compatible string. A very small part of TaskJuggler directives are
+currently supported. But it is enough to schedule very complex projects with
+complex dependency relation and Task hierarchies. And with every new version of
+Stalker the supported TaskJuggler directives are expanded.</p>
+</div>
+<div class="section" id="part-vi-asset-management">
+<h2>Part VI - Asset Management<a class="headerlink" href="#part-vi-asset-management" title="Permalink to this headline">¶</a></h2>
+<p>Now we have created a lot of things but other then storing all the data in the
+database, we didn&#8217;t do much. Stalker still doesn&#8217;t have information about a lot
+of things. For example, it doesn&#8217;t know how to handle your asset versions
+(<a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a>) namely it doesn&#8217;t know how to store your data that you are
+going to create while completing these tasks.</p>
+<p>So what we need to define is a place in our file structure. It doesn&#8217;t need to
+be a network shared directory but if you are not working alone than it means
+that everyone needs to reach your data and the simplest way to do this is to
+place your files in a network share, there are other alternatives like storing
+your files locally and sharing your revisions with a Software Configuration
+Management (SCM) system, Stalker doesn&#8217;t support the latter right now.</p>
+<p>We are going to see the first alternative, which uses a network share in our
+fileserver, and this network share is called a <a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> in Stalker.</p>
+<p>A repository is a file path, preferably a path which is mapped or mounted to
+the same path on every computer in your studio (also you can use <code class="docutils literal"><span class="pre">autofs</span></code>
+with an OpenLDAP server in which you can synchronize all off the mount points
+on all of your workstations and render slaves at once).</p>
+<p>In Stalker, you can have several repositories, let say one for Commercials and
+another one for each big Movie projects.</p>
+<p>You can define repositories and assign projects to those repositories.</p>
+<p>We have already created a repository while creating our first project. But the
+repository has missing information. A Repository object shows the path that we
+create our projects into. Lets enter the paths for all the major operating
+systems:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">commercial_repo</span><span class="o">.</span><span class="n">linux_path</span>   <span class="o">=</span> <span class="s">&quot;/mnt/M/commercials&quot;</span>
+<span class="n">commercial_repo</span><span class="o">.</span><span class="n">osx_path</span>     <span class="o">=</span> <span class="s">&quot;/Volumes/M/commercials&quot;</span>
+<span class="n">commercial_repo</span><span class="o">.</span><span class="n">windows_path</span> <span class="o">=</span> <span class="s">&quot;M:/commercials&quot;</span>  <span class="c"># you can use reverse</span>
+                                                 <span class="c"># slashes (\\) if you want</span>
+</pre></div>
+</div>
+<p>And if you ask for the path to a repository object it will always give the
+correct answer according to your operating system:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">commercial_repo</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="c"># under Windows outputs:</span>
+<span class="c"># M:/commercials</span>
+<span class="c">#</span>
+<span class="c"># in Linux and variants:</span>
+<span class="c"># /mnt/M/commercials</span>
+<span class="c">#</span>
+<span class="c"># and in OSX:</span>
+<span class="c"># /Volumes/M/commercials</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Stalker always uses forward slashes no matter what operating system you are
+using. It is like that even if you define your paths with reverse slashes
+(\).</p>
+</div>
+<p>Assigning this repository to our project is not enough, Stalker still doesn&#8217;t
+know about the directory structure of this project. To explain the project
+structure to Stalker we use a <a class="reference internal" href="generated/stalker.models.structure.Structure.html#stalker.models.structure.Structure" title="stalker.models.structure.Structure"><code class="xref py py-class docutils literal"><span class="pre">Structure</span></code></a> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Structure</span>
+
+<span class="n">commercial_project_structure</span> <span class="o">=</span> <span class="n">Structure</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;Commercial Projects Structure&quot;</span>
+<span class="p">)</span>
+
+<span class="c"># now assign this structure to our project</span>
+<span class="n">new_project</span><span class="o">.</span><span class="n">structure</span> <span class="o">=</span> <span class="n">commercial_project_structure</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.2.13: </span>Starting with Stalker version 0.2.13 <a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a> instances can have
+<strong>multiple</strong> <a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> instances attached. So you can create
+complex templates where you can for example store published versions on a
+different server/network share or you can setup so the outputs of a version
+(like the rendered files) are stored on a different server, and etc.</p>
+<p><em>The following examples are updated in a simple way and examples showing</em>
+<em>the advantage of having multiple repositories will be added on later</em>
+<em>versions.</em></p>
+</div>
+<p>Now we have created a very simple structure instance, but we still need to
+create <a class="reference internal" href="generated/stalker.models.template.FilenameTemplate.html#stalker.models.template.FilenameTemplate" title="stalker.models.template.FilenameTemplate"><code class="xref py py-class docutils literal"><span class="pre">FilenameTemplate</span></code></a> instances for Tasks which then will be used
+by the <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> instances to generate a consistent and meaningful path
+and filename:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">FilenameTemplate</span>
+
+<span class="n">task_template</span> <span class="o">=</span> <span class="n">FilenameTemplate</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Task Template for Commercials&#39;</span><span class="p">,</span>
+    <span class="n">target_entity_type</span><span class="o">=</span><span class="s">&#39;Task&#39;</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s">&#39;$REPO{{project.repository.id}}/{{project.code}}/{</span><span class="si">%- f</span><span class="s">or p in parent_tasks -%}{{p.nice_name}}/{</span><span class="si">%- e</span><span class="s">ndfor -%}&#39;</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s">&#39;{{version.nice_name}}_v{{&quot;</span><span class="si">%03d</span><span class="s">&quot;|format(version.version_number)}}&#39;</span>
+<span class="p">)</span>
+
+<span class="c"># and append it to our project structure</span>
+<span class="n">commercial_project_structure</span><span class="o">.</span><span class="n">templates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task_template</span><span class="p">)</span>
+
+<span class="c"># commit to database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>  <span class="c"># no need to add anything, project is already on db</span>
+</pre></div>
+</div>
+<p>By defining a <a class="reference internal" href="generated/stalker.models.template.FilenameTemplate.html#stalker.models.template.FilenameTemplate" title="stalker.models.template.FilenameTemplate"><code class="xref py py-class docutils literal"><span class="pre">FilenameTemplate</span></code></a> instance we have essentially told
+Stalker how to store <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> instances created for <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>
+entities in our <a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a>.</p>
+<p>The data entered both to the <code class="docutils literal"><span class="pre">path</span></code> and <code class="docutils literal"><span class="pre">filename</span></code> arguments are <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>
+directives. The <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> class knows how to render these templates
+while calculating its <code class="docutils literal"><span class="pre">path</span></code> and <code class="docutils literal"><span class="pre">filename</span></code> attributes.</p>
+<p>Also, if you noticed we have used an environment variable &#8220;$REPO&#8221; along with
+the id of the first repository in the project &#8220;{{project.repository.id}}&#8221;
+(attention! <code class="docutils literal"><span class="pre">project.repository</span></code> always shows the first repository in the
+project), this is a new feature introduced with Stalker version 0.2.13. Stalker
+creates environment variables on runtime for each of the repository whenever a
+repository is created and inserted in to the DB or it will create environment
+variables for already existing repositories upon a successful database
+connection.</p>
+<p>Lets create a <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> instance for one of our tasks:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="n">Version</span>
+
+<span class="n">vers1</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span>
+    <span class="n">task</span><span class="o">=</span><span class="n">comp</span>
+<span class="p">)</span>
+
+<span class="c"># we need to update the paths</span>
+<span class="n">vers1</span><span class="o">.</span><span class="n">update_paths</span><span class="p">()</span>
+
+<span class="c"># check the path and filename</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers1</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>                <span class="c"># &#39;$REPO33/FC/SH001/comp&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers1</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>            <span class="c"># &#39;SH001_comp_Main_v001&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers1</span><span class="o">.</span><span class="n">full_path</span><span class="p">)</span>           <span class="c"># &#39;$REPO33/FC/SH001/comp/SH001_comp_Main_v001&#39;</span>
+
+<span class="c"># now the absolute values, values with repository root</span>
+<span class="c"># because I&#39;m running this code in a Linux laptop, my results are using the</span>
+<span class="c"># linux path of the repository</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers1</span><span class="o">.</span><span class="n">absolute_path</span><span class="p">)</span>       <span class="c"># &#39;/mnt/M/commercials/FC/SH001/comp&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers1</span><span class="o">.</span><span class="n">absolute_full_path</span><span class="p">)</span>  <span class="c"># &#39;/mnt/M/commercials/FC/SH001/comp/SH001_comp_Main_v001&#39;</span>
+
+<span class="c"># check the version_number</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers1</span><span class="o">.</span><span class="n">version_number</span><span class="p">)</span>      <span class="c"># 1</span>
+
+<span class="c"># commit to database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you see, the <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version" title="stalker.models.version.Version"><code class="xref py py-class docutils literal"><span class="pre">Version</span></code></a> instance magically knows where to place
+itself and what to use as the filename. Thanks to Stalker it is now easy to
+create version files where you don&#8217;t have weird file names (ex:
+&#8216;Shot1_comp_Final&#8217;, &#8216;Shot1_comp_Final_revised&#8217;,
+&#8216;Shot1_comp_Final_revised_Final&#8217;, &#8216;Shot1_comp_Final_revised_Final_real_final&#8217;
+and the list goes on, we all know those filenames don&#8217;t we :) ).</p>
+<p>With Stalker the filename and path always follows strict rules.</p>
+<p>Also by using the <code class="xref py py-attr docutils literal"><span class="pre">Version.is_published</span></code> attribute you can define which
+of the versions are usable and which are versions that you are still working
+on:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">vers1</span><span class="o">.</span><span class="n">is_published</span> <span class="o">=</span> <span class="bp">False</span>  <span class="c"># I still work on this version, this is not a</span>
+                            <span class="c"># usable one</span>
+</pre></div>
+</div>
+<p>Lets create another version for the same task and see what happens:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># be sure that you&#39;ve committed the previous version to the database</span>
+<span class="c"># to let Stalker now what number to give for the next version</span>
+<span class="n">vers2</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">comp</span><span class="p">)</span>
+<span class="n">vers2</span><span class="o">.</span><span class="n">update_paths</span><span class="p">()</span>  <span class="c"># this call probably will disappear in next version of</span>
+                      <span class="c"># Stalker, so Stalker will automatically update the</span>
+                      <span class="c"># paths on Version.__init__()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">vers2</span><span class="o">.</span><span class="n">version_number</span><span class="p">)</span>  <span class="c"># 2</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers2</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>        <span class="c"># &#39;SH001_comp_Main_v002&#39;</span>
+
+<span class="c"># before creating a new version commit this one to db</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c"># now create a new version</span>
+<span class="n">vers3</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">comp</span><span class="p">)</span>
+<span class="n">vers3</span><span class="o">.</span><span class="n">update_paths</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">vers3</span><span class="o">.</span><span class="n">version_number</span><span class="p">)</span>  <span class="c"># 3</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vers3</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>        <span class="c"># &#39;SH001_comp_Main_v002&#39;</span>
+</pre></div>
+</div>
+<p>Isn&#8217;t that nice, Stalker increments the version number automatically.</p>
+<p>Also you can query all the versions of a specific task by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># using pure Python</span>
+<span class="n">vers_from_python</span> <span class="o">=</span> <span class="n">comp</span><span class="o">.</span><span class="n">versions</span>  <span class="c"># [&lt;FC_SH001_comp_Main_v001 (Version)&gt;,</span>
+                                  <span class="c">#  &lt;FC_SH001_comp_Main_v002 (Version)&gt;,</span>
+                                  <span class="c">#  &lt;FC_SH001_comp_Main_v003 (Version)&gt;]</span>
+
+<span class="c"># or using a query</span>
+<span class="n">vers_from_query</span> <span class="o">=</span> <span class="n">Version</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">comp</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c"># again returns</span>
+<span class="c"># [&lt;FC_SH001_comp_Main_v001 (Version)&gt;,</span>
+<span class="c">#  &lt;FC_SH001_comp_Main_v002 (Version)&gt;,</span>
+<span class="c">#  &lt;FC_SH001_comp_Main_v003 (Version)&gt;]</span>
+
+<span class="k">assert</span> <span class="n">vers_from_python</span> <span class="o">==</span> <span class="n">vers_from_query</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Stalker stores <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version.path" title="stalker.models.version.Version.path"><code class="xref py py-attr docutils literal"><span class="pre">Version.path</span></code></a> and <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version.filename" title="stalker.models.version.Version.filename"><code class="xref py py-attr docutils literal"><span class="pre">Version.filename</span></code></a>
+attributes in the database, so the values does not contain any OS specific
+path. It will only show the OS specific path on
+<a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version.absolute_path" title="stalker.models.version.Version.absolute_path"><code class="xref py py-attr docutils literal"><span class="pre">Version.absolute_path</span></code></a> and on <a class="reference internal" href="generated/stalker.models.version.Version.html#stalker.models.version.Version.absolute_full_path" title="stalker.models.version.Version.absolute_full_path"><code class="xref py py-attr docutils literal"><span class="pre">Version.absolute_full_path</span></code></a>
+attributes by joining the <a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository.path" title="stalker.models.repository.Repository.path"><code class="xref py py-attr docutils literal"><span class="pre">Repository.path</span></code></a> with the path values from
+database momentarily.</p>
+</div>
+<p>You can also setup your project structure to have default directories:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">commercial_project_structure</span><span class="o">.</span><span class="n">custom_template</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">Temp</span>
+<span class="s">References</span>
+<span class="s">References/Movies</span>
+<span class="s">References/Images</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>When the above template is executed each line will refer to a directory.</p>
+</div>
+<div class="section" id="part-vii-collaboration-not-completed">
+<h2>Part VII - Collaboration (not completed)<a class="headerlink" href="#part-vii-collaboration-not-completed" title="Permalink to this headline">¶</a></h2>
+<p>We came a lot from the start, but what is the use of an Production Asset
+Management System if we can not communicate with our colleagues.</p>
+<p>In Stalker you can communicate with others in the system, by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Leaving a <a class="reference internal" href="generated/stalker.models.note.Note.html#stalker.models.note.Note" title="stalker.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a> to anything created in
+Stalker (except you can not create a <a class="reference internal" href="generated/stalker.models.note.Note.html#stalker.models.note.Note" title="stalker.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a> to another
+<a class="reference internal" href="generated/stalker.models.note.Note.html#stalker.models.note.Note" title="stalker.models.note.Note"><code class="xref py py-class docutils literal"><span class="pre">Note</span></code></a> and to a <a class="reference internal" href="generated/stalker.models.tag.Tag.html#stalker.models.tag.Tag" title="stalker.models.tag.Tag"><code class="xref py py-class docutils literal"><span class="pre">Tag</span></code></a>).</li>
+<li>Sending a <a class="reference internal" href="generated/stalker.models.message.Message.html#stalker.models.message.Message" title="stalker.models.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> directly to them or to a group of users. (Not
+implemented yet).</li>
+<li>Anyone can create a <a class="reference internal" href="generated/stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket" title="stalker.models.ticket.Ticket"><code class="xref py py-class docutils literal"><span class="pre">Ticket</span></code></a> for a <a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a>.</li>
+<li>You can create wiki <a class="reference internal" href="generated/stalker.models.wiki.Page.html#stalker.models.wiki.Page" title="stalker.models.wiki.Page"><code class="xref py py-class docutils literal"><span class="pre">Page</span></code></a>s per <a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="part-viii-extending-som-coming">
+<h2>Part VIII - Extending SOM (coming)<a class="headerlink" href="#part-viii-extending-som-coming" title="Permalink to this headline">¶</a></h2>
+<p>This part will be covered soon</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, you have nearly learned a quarter of what Stalker supplies as
+a Python library.</p>
+<p>Stalker is a very flexible and powerful Production Asset Management system. As
+of writing this tutorial it has been developed for the last 5 years (4 years
+with the only developer being yours truly and for another 1 year where his wife
+is also attended to the project) and it is currently been used in production of
+a feature movie.</p>
+<p>But it is only a Python library so it doesn&#8217;t supply any graphical user
+interface.</p>
+<p>There are other projects, namely <a class="reference external" href="http://code.google.com/p/stalker-pyramid/">Stalker Pyramid</a> and <a class="reference external" href="https://github.com/eoyilmaz/anima">Anima</a> that is using
+Stalker in their back ends. <a class="reference external" href="http://code.google.com/p/stalker-pyramid/">Stalker Pyramid</a> is an <a class="reference external" href="http://www.pylonsproject.org/">Pyramid</a> based Web
+application and <a class="reference external" href="https://github.com/eoyilmaz/anima">Anima</a> is a pipeline library.</p>
+<p>You can clone their repositories to see how PyQt4 and PySide UIs are created
+with Stalker (in Anima) and how it is used as the database model for a Web
+application in <a class="reference external" href="http://code.google.com/p/stalker-pyramid/">Stalker Pyramid</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API Tutorial</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#part-i-basics">Part I - Basics</a></li>
+<li><a class="reference internal" href="#part-ii-a-creating-simple-data">Part II/A - Creating Simple Data</a></li>
+<li><a class="reference internal" href="#part-ii-b-querying-updating-and-deleting-data">Part II/B - Querying, Updating and Deleting Data</a></li>
+<li><a class="reference internal" href="#part-iii-pipeline">Part III - Pipeline</a></li>
+<li><a class="reference internal" href="#part-iv-task-resource-management">Part IV - Task &amp; Resource Management</a></li>
+<li><a class="reference internal" href="#part-v-scheduling">Part V - Scheduling</a></li>
+<li><a class="reference internal" href="#part-vi-asset-management">Part VI - Asset Management</a></li>
+<li><a class="reference internal" href="#part-vii-collaboration-not-completed">Part VII - Collaboration (not completed)</a></li>
+<li><a class="reference internal" href="#part-viii-extending-som-coming">Part VIII - Extending SOM (coming)</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="design.html"
+                        title="next chapter">Design</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="design.html" title="Design"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ColorTransfer &mdash; ColorTransfer 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="ColorTransfer 1 documentation" href="index.html"/>
+        <link rel="next" title="Histogram Matching" href="hmap.html"/>
+        <link rel="prev" title="Welcome to ColorTransfer’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ColorTransfer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">ColorTransfer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">ColorTransfer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#webreference">Webreference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#install-opencv-2-4-11">Install OpenCV 2.4.11</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kubuntu-14-04">Kubuntu 14.04</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hmap.html">Histogram Matching</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">ColorTransfer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>ColorTransfer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/colortransfer.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="colortransfer">
+<h1>ColorTransfer<a class="headerlink" href="#colortransfer" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/sunset_ocean.jpg"><img alt="_images/sunset_ocean.jpg" src="_images/sunset_ocean.jpg" style="width: 947.0px; height: 286.0px;" /></a>
+<div class="section" id="webreference">
+<h2>Webreference<a class="headerlink" href="#webreference" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.pyimagesearch.com/2014/06/30/super-fast-color-transfer-images/">http://www.pyimagesearch.com/2014/06/30/super-fast-color-transfer-images/</a></p>
+<p><a class="reference external" href="https://github.com/jrosebr1/color_transfer">https://github.com/jrosebr1/color_transfer</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su -
+apt-get install python-opencv
+pip install color_transfer
+exit
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>git clone https://github.com/jrosebr1/color_transfer.git
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-opencv-2-4-11">
+<h1>Install OpenCV 2.4.11<a class="headerlink" href="#install-opencv-2-4-11" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="kubuntu-14-04">
+<h2>Kubuntu 14.04<a class="headerlink" href="#kubuntu-14-04" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.samontab.com/web/2014/06/installing-opencv-2-4-9-in-ubuntu-14-04-lts/">http://www.samontab.com/web/2014/06/installing-opencv-2-4-9-in-ubuntu-14-04-lts/</a> (probleme de compilation avec 2.4.9)</p>
+<p><a class="reference external" href="https://gist.github.com/dynamicguy/3d1fce8dae65e765f7c4">https://gist.github.com/dynamicguy/3d1fce8dae65e765f7c4</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su
+apt-get install build-essential libgtk2.0-dev libjpeg-dev libtiff4-dev libjasper-dev libopenexr-dev cmake python-dev python-numpy python-tk libtbb-dev libeigen3-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev libqt4-dev libqt4-opengl-dev sphinx-common texlive-latex-extra libv4l-dev libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev default-jdk ant libvtk5-qt4-dev
+exit
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd ~
+wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.11/opencv-2.4.11.zip
+unzip opencv-2.4.11.zip
+cd opencv-2.4.11
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>mkdir build
+cd build
+cmake -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D WITH_VTK=ON -D CUDA_GENERATION=Auto  ..
+</pre></div>
+</div>
+<p><a class="reference external" href="http://stackoverflow.com/questions/28010399/build-opencv-with-cuda-support">http://stackoverflow.com/questions/28010399/build-opencv-with-cuda-support</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hmap.html" class="btn btn-neutral float-right" title="Histogram Matching" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to ColorTransfer’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, lulu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

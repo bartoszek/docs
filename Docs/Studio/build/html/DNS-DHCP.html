@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DNS-DHCP &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="LDAP Administration" href="NewUser.html"/>
+        <link rel="prev" title="RoyalRender" href="royalrender.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">DNS-DHCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#domain-name-system-dns">Domain Name System - DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#db-lamaison">db.lamaison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#db-192-168-32-1">db.192.168.32.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restart-bind-service">restart bind service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-host-configuration-protocol-dhcp">Dynamic Host Configuration Protocol - DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restart-dhcp-service">restart dhcp service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NewUser.html">LDAP Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>DNS-DHCP</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/DNS-DHCP.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dns-dhcp">
+<h1>DNS-DHCP<a class="headerlink" href="#dns-dhcp" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/dns-dhcp.png" src="_images/dns-dhcp.png" />
+<div class="section" id="domain-name-system-dns">
+<h2>Domain Name System - DNS<a class="headerlink" href="#domain-name-system-dns" title="Permalink to this headline">¶</a></h2>
+<p>The DNS is hosted on the virtual machine <strong>&#8220;vmsys1&#8221;</strong></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ssh root@vmsys1
+cd /etc/bind
+</pre></div>
+</div>
+</div>
+<div class="section" id="db-lamaison">
+<h2>db.lamaison<a class="headerlink" href="#db-lamaison" title="Permalink to this headline">¶</a></h2>
+<p>Machines and the IP they are registered on</p>
+</div>
+<div class="section" id="db-192-168-32-1">
+<h2>db.192.168.32.1<a class="headerlink" href="#db-192-168-32-1" title="Permalink to this headline">¶</a></h2>
+<p>IP adresses and the machines they are linked to</p>
+<p><strong>Any modifications have to be done in both files</strong></p>
+</div>
+<div class="section" id="restart-bind-service">
+<h2>restart bind service<a class="headerlink" href="#restart-bind-service" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>etc/init.d/bind9 restart
+</pre></div>
+</div>
+<p><em>The other files are backups of previous working configurations, the date of the backup is at the end of the name of each files.For example, a configuration file modified the 26th of January in 2013
+would be called &#8220;db.lamaison.13(year)01(month)26(day)&#8221;
+==&gt; db.lamaison130126 . Always make a backup before making any modifications to these files.</em></p>
+</div>
+<div class="section" id="dynamic-host-configuration-protocol-dhcp">
+<h2>Dynamic Host Configuration Protocol - DHCP<a class="headerlink" href="#dynamic-host-configuration-protocol-dhcp" title="Permalink to this headline">¶</a></h2>
+<p>The DHCP is hosted on the same virtual machine as the DNS</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ssh root@vmsys1
+vi /etc/dhcp3/dhcpd.master
+</pre></div>
+</div>
+</div>
+<div class="section" id="restart-dhcp-service">
+<h2>restart dhcp service<a class="headerlink" href="#restart-dhcp-service" title="Permalink to this headline">¶</a></h2>
+<p>For any modification to be taken into account, you have to restart the system</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>etc/init.d/dhcp3-server restart
+</pre></div>
+</div>
+<p><em>Same as for the DNS, other files are backups named after the date of the backups.
+Always do a backup before making any modification.</em></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NewUser.html" class="btn btn-neutral float-right" title="LDAP Administration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="royalrender.html" class="btn btn-neutral" title="RoyalRender" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

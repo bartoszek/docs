@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RoyalRender &mdash; NeuralArt 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="NeuralArt 1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Semantic Segmentation" href="segmentation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NeuralArt
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">NeuralArt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="webref.html">Web references</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jcjohnson.html">JcJohnson implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="andersbll.html">anderbsll implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CNNMRF.html">CNNMRF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styleswap.html">Style-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda.html">Cuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deepdream.html">Deepdream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imageanalogies.html">Images Analogies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deflickr.html">Deflickr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantization.html">Color Quantization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superresolution.html">Super-Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OpticalFlow.html">OpticalFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DepthEstimation.html">DepthEstimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segmentation.html">Semantic Segmentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">RoyalRender</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-reference">Web Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitter">Submitter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-config">Render config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-environment-file">add environment file</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">NeuralArt</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>RoyalRender</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/RoyalRender.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="royalrender">
+<h1>RoyalRender<a class="headerlink" href="#royalrender" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="web-reference">
+<h2>Web Reference<a class="headerlink" href="#web-reference" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.royalrender.de/help7/index.html">http://www.royalrender.de/help7/index.html</a></p>
+</div>
+<div class="section" id="submitter">
+<h2>Submitter<a class="headerlink" href="#submitter" title="Permalink to this headline">¶</a></h2>
+<p>create a submit.xml file and launch submitter</p>
+<p><a class="reference external" href="http://www.royalrender.de/help7/index.html?rrJobsubmitxmlfile.html">http://www.royalrender.de/help7/index.html?rrJobsubmitxmlfile.html</a></p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>#!/usr/bin/perl
+open (XML,&quot;&gt;&quot;,&quot;submit.xml&quot;);
+print XML &quot;&lt;rrJob_submitFile syntax_version=\&quot;6.0\&quot;&gt;\n&quot;;
+print XML &quot;&lt;DeleteXML&gt;1&lt;/DeleteXML&gt;\n&quot;;
+print XML &quot;&lt;Job&gt;\n&quot;;
+print XML &quot;  &lt;IsActive&gt; true &lt;/IsActive&gt;\n&quot;;
+print XML &quot;  &lt;SceneName&gt; $SCENENAME/NEURAL.conf &lt;/SceneName&gt;\n&quot;;
+print XML &quot;  &lt;SceneDatabaseDir&gt; $SCENENAME &lt;/SceneDatabaseDir&gt;\n&quot;;
+print XML &quot;  &lt;Software&gt; Neural &lt;/Software&gt;\n&quot;;
+print XML &quot;  &lt;SeqStart&gt; 1 &lt;/SeqStart&gt;\n&quot;;
+print XML &quot;  &lt;SeqEnd&gt; 100 &lt;/SeqEnd&gt;\n&quot;;
+print XML &quot;  &lt;Layer&gt; $STYLE &lt;/Layer&gt;\n&quot;;
+print XML &quot;  &lt;ImageDir&gt; $ANIMOUTPUTDIR/ &lt;/ImageDir&gt;\n&quot;;
+print XML &quot;  &lt;ImageFilename&gt; $OUTPUT &lt;/ImageFilename&gt;\n&quot;;
+print XML &quot;  &lt;ImageExtension&gt; .jpg &lt;/ImageExtension&gt;\n&quot;;
+print XML &quot;  &lt;ImageFramePadding&gt; 4 &lt;/ImageFramePadding&gt;\n&quot;;
+print XML &quot;&lt;/Job&gt;\n&quot;;
+print XML &quot;&lt;/rrJob_submitFile&gt;\n&quot;;
+$cmd=&quot;/shared/apps/royal-render/lx__rrSubmitter.sh submit.xml&quot;;
+print $cmd;
+system $cmd;
+</pre></div>
+</div>
+</div>
+<div class="section" id="render-config">
+<h2>Render config<a class="headerlink" href="#render-config" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.royalrender.de/help7/index.html?Addnewrenderapp.html">http://www.royalrender.de/help7/index.html?Addnewrenderapp.html</a></p>
+<p>/royal-render/render_apps/_config/N01__Neural.cfg</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>################################## Identify Render Application ##################################
+Name= Neural
+rendererName=
+Version=1
+Version_Minor=0
+Type=3D
+##################################  Commandlines Linux ##################################
+CommandLine_Lx=
+        &lt;SetEnvGlobal&gt;
+CommandLine_Lx=
+        &lt;SetEnvSoft&gt;
+CommandLine_Lx=
+        &lt;ResetExitCode&gt;
+CommandLine_Lx=
+        &quot;/shared/Code/bin/neural_jcj.pl&quot;
+        &lt;SeqStart&gt; &lt;SeqEnd&gt;
+        &quot;&lt;PD/&lt;Scene&gt;&gt;&quot;
+CommandLine_Lx=
+        &lt;CheckExitCode&gt; &lt;FN&gt;
+################################## Submitter Settings ##################################
+SequenceDivide= 1~1
+SeqDivMIN=1~2
+SeqDivMAX=1~2
+RenderPreviewFirst=1~0
+################################## Client Settings ##################################
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-environment-file">
+<h2>add environment file<a class="headerlink" href="#add-environment-file" title="Permalink to this headline">¶</a></h2>
+<p>render_apps/_setenv/lx/_globals.sh</p>
+<p>render_apps/_setenv/lx/autocolor.sh (lowercase only !!!)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>setenv PYTHONPATH &quot;/home/render/caffe/python&quot;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="segmentation.html" class="btn btn-neutral" title="Semantic Segmentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, lulu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

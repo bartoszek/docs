@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Install Plex Server &mdash; MediaServer 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="MediaServer 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Install UniversalMediaServer" href="UniversalMediaServer.html"/>
+        <link rel="prev" title="MediaServer" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> MediaServer
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">building a MediaServer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Install Plex Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Install Plex Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-plex-server">Access Plex server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UniversalMediaServer.html">Install UniversalMediaServer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UniversalMediaServer.html#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalMediaServer.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalMediaServer.html#run-universalmediaserver">Run UniversalMediaServer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mhddfs.html">mhddfs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mhddfs.html#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mhddfs.html#etc-fstab">/etc/fstab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bliss.html">Music Tags and ArtCover</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bliss.html#bliss-not-free">Bliss (not free)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bliss.html#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bliss.html#install-bliss">install bliss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bliss.html#re-install-bliss">re-install bliss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bliss.html#puddletag-free">Puddletag (free)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bliss.html#musicbrainz-picard">MusicBrainz Picard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="youtube-dl.html">Youtube Download</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="youtube-dl.html#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="youtube-dl.html#download-playlists">download playlists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="youtube-dl.html#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Avconv.html">Avconv/FFmpeg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#offset-image-or-sound"><strong>Offset image or sound</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#clipping-sound-and-video"><strong>clipping sound and video</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#watermarking-a-video"><strong>Watermarking a video</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#web-references-avconv">Web References <strong>avconv</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#web-references-ffmpeg">Web References <strong>ffmpeg</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#ffmpeg-for-kubuntu-14-04">ffmpeg for Kubuntu 14.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#install-kubuntu-14-04">Install (Kubuntu 14.04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#avconv-gui-tragtor">Avconv Gui : traGtor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#avconv-help">Avconv &#8211;help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Avconv.html#codecs">Codecs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dvd.html">Install libdvdcss2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dvd.html#web-references">Web References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dvd.html#id1">Install libdvdcss2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dvd.html#transcode-for-k3b">transcode for K3b</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MediaServer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Install Plex Server</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Plex.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="install-plex-server">
+<h1>Install Plex Server<a class="headerlink" href="#install-plex-server" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/plex.jpg" src="_images/plex.jpg" />
+<div class="section" id="web-references">
+<h2>Web References<a class="headerlink" href="#web-references" title="Permalink to this headline">¶</a></h2>
+<p>How to Get Perfect PLEX Covers / Posters / Metadata for your PLEX Media</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=Lsa7ayBzH7g">https://www.youtube.com/watch?v=Lsa7ayBzH7g</a></p>
+<ul class="simple">
+<li>Plex Download</li>
+</ul>
+<p><a class="reference external" href="https://plex.tv/downloads">https://plex.tv/downloads</a></p>
+<ul class="simple">
+<li>Plex Server Install</li>
+</ul>
+<p><a class="reference external" href="https://support.plex.tv/hc/en-us/articles/200288586">https://support.plex.tv/hc/en-us/articles/200288586</a></p>
+</div>
+<div class="section" id="id1">
+<h2>Install Plex Server<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>su -
+cd /var/tmp
+dpkg -i plexmediaserver_0.9.12.11.1406-8403350_amd64.deb
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-plex-server">
+<h2>Access Plex server<a class="headerlink" href="#access-plex-server" title="Permalink to this headline">¶</a></h2>
+<p>Plex est accessible a <a class="reference external" href="http://127.0.0.1:32400/web">http://127.0.0.1:32400/web</a></p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="UniversalMediaServer.html" class="btn btn-neutral float-right" title="Install UniversalMediaServer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="MediaServer" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

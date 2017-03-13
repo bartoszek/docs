@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Primitive &mdash; Stylize 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Stylize 1 documentation" href="index.html"/>
+        <link rel="prev" title="Stylize" href="stylize.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Stylize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Stylize</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="stylize.html">Stylize</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Primitive</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-go">Install go</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Stylize</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Primitive</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/primitive.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="primitive">
+<h1>Primitive<a class="headerlink" href="#primitive" title="Permalink to this headline">¶</a></h1>
+<p>GitHub : <a class="reference external" href="https://github.com/fogleman/primitive">https://github.com/fogleman/primitive</a></p>
+<p>TwitterBot : <a class="reference external" href="https://twitter.com/PrimitivePic">https://twitter.com/PrimitivePic</a></p>
+<p><a class="reference external" href="https://rogeralsing.com/2008/12/07/genetic-programming-evolution-of-mona-lisa/">https://rogeralsing.com/2008/12/07/genetic-programming-evolution-of-mona-lisa/</a></p>
+<a class="reference internal image-reference" href="_images/primitive3.png"><img alt="_images/primitive3.png" src="_images/primitive3.png" style="width: 615.0px; height: 390.0px;" /></a>
+<a class="reference internal image-reference" href="_images/primitive2.gif"><img alt="_images/primitive2.gif" src="_images/primitive2.gif" style="width: 480.0px; height: 318.0px;" /></a>
+<a class="reference internal image-reference" href="_images/primitive1.png"><img alt="_images/primitive1.png" src="_images/primitive1.png" style="width: 480.0px; height: 330.0px;" /></a>
+<div class="section" id="install-go">
+<h2>Install go<a class="headerlink" href="#install-go" title="Permalink to this headline">¶</a></h2>
+<p>Go Page : <a class="reference external" href="https://golang.org/doc/install">https://golang.org/doc/install</a></p>
+<p>download binaries : <a class="reference external" href="https://golang.org/dl/">https://golang.org/dl/</a></p>
+<p>Install : <a class="reference external" href="https://golang.org/doc/install?download=go1.7.1.linux-amd64.tar.gz">https://golang.org/doc/install?download=go1.7.1.linux-amd64.tar.gz</a></p>
+<p>untar in ~/go</p>
+<p>in ~/.bashrc</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>export GOROOT=$HOME/go
+export GOPATH=$HOME/gowork
+export PATH=/home/luluf/go/bin:$PATH
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>cd ~
+mkdir gowork
+go get -u github.com/fogleman/primitive
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>$GOPATH/bin/primitive -i ima.png -m 1 -n 100 -o tmp.png -s 900 -v
+</pre></div>
+</div>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>Flag  Default         Description
+-i    n/a     input file
+-o    n/a     output file
+-n    n/a     number of shapes
+-m    1       mode: 0=combo, 1=triangle, 2=rect, 3=ellipse, 4=circle, 5=rotatedrect
+-r    256     resize large input images to this size before processing
+-s    1024    output image size
+-a    128     color alpha
+-v    off     verbose output
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="stylize.html" class="btn btn-neutral" title="Stylize" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, lulu.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

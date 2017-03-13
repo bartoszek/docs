@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Design &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="index.html" />
+    <link rel="next" title="Configuring Stalker" href="configure.html" />
+    <link rel="prev" title="API Tutorial" href="tutorial.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="configure.html" title="Configuring Stalker"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="API Tutorial"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="design">
+<span id="design-toplevel"></span><h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<p>The design of Stalker is mentioned in the following sections.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Stalker is an Open Source Production Asset Management Library. Although it is
+designed VFX and Animation studios in mind, its flexible Project Management
+muscles will allow it to be used in a wide variety of fields.</p>
+<p>An Asset Management Systems&#8217; duty is to hold the data which are created by the
+users of the system in an organised manner, and let them quickly reach and find
+their files. A Production Asset Management Systems&#8217; duty is, in addition to the
+asset management systems&#8217;, also handle the production steps or tasks and
+allow the users of the system to collaborate. If more information about this
+subject is needed, there are great books about Digital Asset Management (DAM)
+Systems.</p>
+<p>The usage of an asset management system in an animation/vfx studio is a must
+for the sake of the studio itself. Even the benefits of the system becomes
+silly to be mentioned when compared to the lack of even a simple system to
+organise stuff.</p>
+<p>Every studio outside establishes and develops their own asset management
+system. Stalker will try to be the framework that these proprietary asset
+management systems will be build over. Thus reducing the work repeated on every
+big projects&#8217; start.</p>
+</div>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+<p>There are a couple of design concepts those needs to be clarified before any
+further explanation of Stalker.</p>
+<p>Stalker on itself basically is the <strong>Model</strong> in an <strong>MTV</strong> system (where the
+<a class="reference external" href="https://pypi.python.org/pypi/stalker_pyramid">Stalker Pyramid</a> is the <em>Template</em> and <em>View</em>). So it defines the data and
+the interaction of the data with itself.</p>
+<p>Because the idea behind Stalker was to build an open source library that any
+studio using it can build their own pipeline on top of it, it is designed to
+stay simple and solid at the same time. So the UI and other stuff is ripped off
+from the original Stalker package and moved to another Pyramid web application
+called <a class="reference external" href="https://pypi.python.org/pypi/stalker_pyramid">Stalker Pyramid</a>.</p>
+<div class="section" id="stalker-object-model-som">
+<h3>Stalker Object Model (SOM)<a class="headerlink" href="#stalker-object-model-som" title="Permalink to this headline">¶</a></h3>
+<p>Stalker has a very robust object model, which is called
+<strong>Stalker Object Model</strong> or <strong>SOM</strong>. The idea behind SOM is to create a class
+hierarchy which is both usable right out of the box and also expandable by the
+studios&#8217; developers. SOM is actually a little bit more complex than a basic
+possible model, it is designed in this way just to be able to create a simple
+pipeline to be able to build the system over it.</p>
+<p>Lets look at how a simple studio works and try to create our asset management
+concepts around it.</p>
+<p>An animation/vfx studios duty is to complete a <a class="reference internal" href="generated/stalker.models.project.Project.html#stalker.models.project.Project" title="stalker.models.project.Project"><code class="xref py py-class docutils literal"><span class="pre">Project</span></code></a>. A project,
+generally is about to create a <a class="reference internal" href="generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence" title="stalker.models.sequence.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a> of <a class="reference internal" href="generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot" title="stalker.models.shot.Shot"><code class="xref py py-class docutils literal"><span class="pre">Shot</span></code></a>s which
+are a series of images those at the end converts to a movie. So a sequence in
+general contains Shots. And Shots can use <a class="reference internal" href="generated/stalker.models.asset.Asset.html#stalker.models.asset.Asset" title="stalker.models.asset.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a>s. So basically to
+complete a project the studio should complete the shots and assets needed by
+those shots.</p>
+<p>Furthermore all the Projects, Sequences, Shots or Assets are divided in to
+different <a class="reference internal" href="generated/stalker.models.task.Task.html#stalker.models.task.Task" title="stalker.models.task.Task"><code class="xref py py-class docutils literal"><span class="pre">Task</span></code></a>s those need to be done sequentially or in parallel
+to complete that project.</p>
+<p>A Task relates to a work, a work is a quantity of time spent or going to be
+spend for that specific task. The time spent on the course of completion of a
+Task can be recorded with <a class="reference internal" href="generated/stalker.models.task.TimeLog.html#stalker.models.task.TimeLog" title="stalker.models.task.TimeLog"><code class="xref py py-class docutils literal"><span class="pre">TimeLog</span></code></a>s. TimeLogs show the total time
+spent by an artist for a certain Task. So it holds information about how much
+<strong>effort</strong> has been spent to complete a Task.</p>
+<p>During the completion of the Task or at the end of the work a <strong>User</strong> creates
+<code class="xref py py-class docutils literal"><span class="pre">Versions</span></code> for that particular Task. Versions are the different
+incarnations or the progress of the resultant product, and it is connected to
+files in the fileserver or in Stalkers term the <a class="reference internal" href="generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository" title="stalker.models.repository.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a>.</p>
+<p>All the names those shown in bold fonts are a class in SOM. and there are a
+series of other classes to accommodate the needs of a <a class="reference internal" href="generated/stalker.models.studio.Studio.html#stalker.models.studio.Studio" title="stalker.models.studio.Studio"><code class="xref py py-class docutils literal"><span class="pre">Studio</span></code></a>.</p>
+<p>The inheritance diagram of the classes in the SOM is shown below:</p>
+</div>
+</div>
+<div class="section" id="inheritance-diagram">
+<span id="inheritance-diagram-toplevel"></span><h2>Inheritance Diagram<a class="headerlink" href="#inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+<p class="graphviz">
+digraph inheritancee995fd9fac {
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;ACLMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.ACLMixin.html#stalker.models.mixins.ACLMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Asset&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.asset.Asset.html#stalker.models.asset.Asset&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Task&quot; -&gt; &quot;Asset&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Asset&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Base&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;ORMClass&quot; -&gt; &quot;Base&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Budget&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.budget.Budget.html#stalker.models.budget.Budget&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Budget&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ProjectMixin&quot; -&gt; &quot;Budget&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DAGMixin&quot; -&gt; &quot;Budget&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;BudgetEntry&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.budget.BudgetEntry.html#stalker.models.budget.BudgetEntry&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;BudgetEntry&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CircularDependencyError&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.exceptions.CircularDependencyError.html#stalker.exceptions.CircularDependencyError&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Client&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.client.Client.html#stalker.models.client.Client&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Client&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.CodeMixin.html#stalker.models.mixins.CodeMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;DAGMixin&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;DBError&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.exceptions.DBError.html#stalker.exceptions.DBError&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Daily&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.review.Daily.html#stalker.models.review.Daily&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Daily&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Daily&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ProjectMixin&quot; -&gt; &quot;Daily&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DailyLink&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.review.DailyLink.html#stalker.models.review.DailyLink&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;DailyLink&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.DateRangeMixin.html#stalker.models.mixins.DateRangeMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Department&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.department.Department.html#stalker.models.department.Department&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Department&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DepartmentUser&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.department.DepartmentUser.html#stalker.models.department.DepartmentUser&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;DepartmentUser&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DependencyViolationError&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;Entity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.entity.Entity.html#stalker.models.entity.Entity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Entity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;EntityType&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.type.EntityType.html#stalker.models.type.EntityType&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;EntityType&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;FilenameTemplate&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.template.FilenameTemplate.html#stalker.models.template.FilenameTemplate&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;FilenameTemplate&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TargetEntityTypeMixin&quot; -&gt; &quot;FilenameTemplate&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Good&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.budget.Good.html#stalker.models.budget.Good&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Good&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Group&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.auth.Group.html#stalker.models.auth.Group&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Group&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ACLMixin&quot; -&gt; &quot;Group&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ImageFormat&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.format.ImageFormat.html#stalker.models.format.ImageFormat&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;ImageFormat&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Link&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.link.Link.html#stalker.models.link.Link&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Link&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;LocalSession&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.auth.LocalSession.html#stalker.models.auth.LocalSession&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;LoginError&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.exceptions.LoginError.html#stalker.exceptions.LoginError&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Message&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.message.Message.html#stalker.models.message.Message&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Message&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Message&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Note&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.note.Note.html#stalker.models.note.Note&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Note&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ORMClass&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;OverBookedError&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.exceptions.OverBookedError.html#stalker.exceptions.OverBookedError&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Page&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.wiki.Page.html#stalker.models.wiki.Page&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Page&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ProjectMixin&quot; -&gt; &quot;Page&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Permission&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.auth.Permission.html#stalker.models.auth.Permission&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;Permission&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;PriceList&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.budget.PriceList.html#stalker.models.budget.PriceList&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;PriceList&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Project&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.project.Project.html#stalker.models.project.Project&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ReferenceMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Project&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ProjectMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.ProjectMixin.html#stalker.models.mixins.ProjectMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;ProjectRepository&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.project.ProjectRepository.html#stalker.models.project.ProjectRepository&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;ProjectRepository&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ProjectUser&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.project.ProjectUser.html#stalker.models.project.ProjectUser&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;ProjectUser&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ReferenceMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.ReferenceMixin.html#stalker.models.mixins.ReferenceMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Repository&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.repository.Repository.html#stalker.models.repository.Repository&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Repository&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Review&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.review.Review.html#stalker.models.review.Review&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Review&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ScheduleMixin&quot; -&gt; &quot;Review&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Review&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Scene&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.scene.Scene.html#stalker.models.scene.Scene&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Scene&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ProjectMixin&quot; -&gt; &quot;Scene&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Scene&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ScheduleMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.ScheduleMixin.html#stalker.models.mixins.ScheduleMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SchedulerBase&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.schedulers.SchedulerBase.html#stalker.models.schedulers.SchedulerBase&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Sequence&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.sequence.Sequence.html#stalker.models.sequence.Sequence&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Task&quot; -&gt; &quot;Sequence&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Sequence&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Shot&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.shot.Shot.html#stalker.models.shot.Shot&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Task&quot; -&gt; &quot;Shot&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Shot&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;SimpleEntity&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.entity.SimpleEntity.html#stalker.models.entity.SimpleEntity&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;SimpleEntity&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Status&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.status.Status.html#stalker.models.status.Status&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Status&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Status&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusError&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.exceptions.StatusError.html#stalker.exceptions.StatusError&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;StatusList&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;StatusList&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TargetEntityTypeMixin&quot; -&gt; &quot;StatusList&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.StatusMixin.html#stalker.models.mixins.StatusMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Structure&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.structure.Structure.html#stalker.models.structure.Structure&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Structure&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Studio&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.studio.Studio.html#stalker.models.studio.Studio&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Studio&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;Studio&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;WorkingHoursMixin&quot; -&gt; &quot;Studio&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Tag&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.tag.Tag.html#stalker.models.tag.Tag&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;Tag&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TargetEntityTypeMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.TargetEntityTypeMixin.html#stalker.models.mixins.TargetEntityTypeMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Task&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.task.Task.html#stalker.models.task.Task&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Task&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Task&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;Task&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ReferenceMixin&quot; -&gt; &quot;Task&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ScheduleMixin&quot; -&gt; &quot;Task&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DAGMixin&quot; -&gt; &quot;Task&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TaskDependency&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.task.TaskDependency.html#stalker.models.task.TaskDependency&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Base&quot; -&gt; &quot;TaskDependency&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ScheduleMixin&quot; -&gt; &quot;TaskDependency&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TaskJugglerScheduler&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.schedulers.TaskJugglerScheduler.html#stalker.models.schedulers.TaskJugglerScheduler&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SchedulerBase&quot; -&gt; &quot;TaskJugglerScheduler&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Ticket&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.ticket.Ticket.html#stalker.models.ticket.Ticket&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Ticket&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;StatusMixin&quot; -&gt; &quot;Ticket&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TicketLog&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.ticket.TicketLog.html#stalker.models.ticket.TicketLog&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;SimpleEntity&quot; -&gt; &quot;TicketLog&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TimeLog&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.task.TimeLog.html#stalker.models.task.TimeLog&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;TimeLog&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;TimeLog&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Type&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.type.Type.html#stalker.models.type.Type&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;Type&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;TargetEntityTypeMixin&quot; -&gt; &quot;Type&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;CodeMixin&quot; -&gt; &quot;Type&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;User&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.auth.User.html#stalker.models.auth.User&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Entity&quot; -&gt; &quot;User&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;ACLMixin&quot; -&gt; &quot;User&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Vacation&quot; [shape=box,style=&quot;setlinewidth(0.5)&quot;,fontsize=10,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25];
+  &quot;SimpleEntity&quot; -&gt; &quot;Vacation&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DateRangeMixin&quot; -&gt; &quot;Vacation&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;Version&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.version.Version.html#stalker.models.version.Version&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;Link&quot; -&gt; &quot;Version&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;DAGMixin&quot; -&gt; &quot;Version&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+  &quot;WorkingHours&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.studio.WorkingHours.html#stalker.models.studio.WorkingHours&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+  &quot;WorkingHoursMixin&quot; [style=&quot;setlinewidth(0.5)&quot;,URL=&quot;generated/stalker.models.mixins.WorkingHoursMixin.html#stalker.models.mixins.WorkingHoursMixin&quot;,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,height=0.25,shape=box,fontsize=10];
+}
+</p>
+<p>Stalker is a configurable and expandable and most importantly it is an
+open source system. All of these features allows the system to have a flexible
+structure.</p>
+<p>There are two levels of expansion, the first level is the simplest one, by just
+adding different statuses, different types or these kind of things in
+which Stalker&#8217;s current design is ready to. This is explained in <a class="reference internal" href="#how-to-customize-stalker">How To
+Customize Stalker</a>.</p>
+<p>The second level of expansion is achieved by expanding the SOM. Expanding the
+SOM includes creating new classes and database tables, and updating the old
+ones which are already coming with Stalker. These expansion schemes are
+further explained in <a class="reference internal" href="#how-to-extend-som">How To Extend SOM</a>.</p>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Developed purely in Python (2.6 and over) using TDD (Test Driven
+Development) practices</p>
+</li>
+<li><p class="first">SQLAlchemy for the database back-end and ORM</p>
+</li>
+<li><p class="first">Uses Jinja2 as the template system for the file and folder naming
+convention, it is possible to use templates like:</p>
+<p>{repository.path}/{project.code}/Assets/{asset.type.name}/{asset.code}/
+{asset.name}_{asset.type.name}_v{version.version_number}.{version.extension}</p>
+</li>
+<li><p class="first">File and folders and file sequences can be uploaded to the server as
+assets, and the server decides where to place the folder or file by using
+the template system.</p>
+</li>
+<li><p class="first">The event system gives full control for every CRUDL (create/insert, read,
+update, delete and list) by giving step like before insert, after insert
+call-backs.</p>
+</li>
+<li><p class="first">The messaging system allows the users collaborate efficiently.</p>
+</li>
+<li><p class="first">Has an embedded Ticket system.</p>
+</li>
+<li><p class="first">Uses TaskJuggler as the task management backend and supports basic Task
+attributes.</p>
+</li>
+<li><p class="first">Has a predefined workflow for task statuses called Task Status Workflow
+which manages the statuses of a Task during the project completion.</p>
+</li>
+</ol>
+</div></blockquote>
+<p>For usage examples see <a class="reference internal" href="tutorial.html#tutorial-toplevel"><span>API Tutorial</span></a>.</p>
+</div>
+</div>
+<div class="section" id="how-to-customize-stalker">
+<h2>How To Customize Stalker<a class="headerlink" href="#how-to-customize-stalker" title="Permalink to this headline">¶</a></h2>
+<p>This part explains the customization of Stalker.</p>
+</div>
+<div class="section" id="how-to-extend-som">
+<h2>How To Extend SOM<a class="headerlink" href="#how-to-extend-som" title="Permalink to this headline">¶</a></h2>
+<p>This part explains how to extend Stalker Object Model or SOM.</p>
+</div>
+<div class="section" id="creating-data">
+<h2>Creating Data<a class="headerlink" href="#creating-data" title="Permalink to this headline">¶</a></h2>
+<p>There are some examples here, to create simple data.</p>
+<div class="section" id="creating-a-project">
+<h3>Creating a Project<a class="headerlink" href="#creating-a-project" title="Permalink to this headline">¶</a></h3>
+<p>To create a Project, we need:</p>
+<ol class="arabic simple">
+<li>A Repository</li>
+<li>A Structure object to define the file structure of the Project:</li>
+<li>FilenameTemplates for Task, Asset, Shot, Sequence types, to define the
+placement of the Versions created for them.</li>
+<li>An ImageFormat to define the output size of the project.</li>
+<li>A StatusList with enough Statuses that will define the desired Project
+Statuses. Stalker doesn&#8217;t have a Project Status Workflow, yet! so define
+yours.</li>
+<li>If desired we can also add a Type for the Project to distinguish commercials
+from Feature Film projects.</li>
+<li>We need to create a user as the lead for the project.</li>
+</ol>
+<p>Here is the code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">stalker</span> <span class="kn">import</span> <span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">Repository</span><span class="p">,</span> <span class="n">Structure</span><span class="p">,</span> <span class="n">FilenameTemplate</span><span class="p">,</span> <span class="n">StatusList</span><span class="p">,</span>
+                     <span class="n">Status</span><span class="p">,</span> <span class="n">Task</span><span class="p">,</span> <span class="n">User</span><span class="p">)</span>
+
+<span class="c"># first setup the database connection (assuming that you have a config.py</span>
+<span class="c"># defined, so we do not need to supply a database address)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="c"># initialize the database just for the first time</span>
+<span class="n">db</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>  <span class="c"># run this only for the first time, subsequent runs will not</span>
+           <span class="c"># create any errors, but it is unnecessary</span>
+
+<span class="c"># re-use Statuses NEW, WIP and CMPL from default statuses</span>
+<span class="n">status_new</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;NEW&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">status_wip</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;WIP&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">status_cmpl</span> <span class="o">=</span> <span class="n">Status</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;CMPL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+<span class="c"># and create a new one</span>
+<span class="n">status_on_air</span> <span class="o">=</span> <span class="n">Status</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;On Air&#39;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s">&#39;OA&#39;</span><span class="p">)</span>
+
+<span class="c"># status list for project</span>
+<span class="n">project_status_list</span> <span class="o">=</span> <span class="n">StatusList</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Project Statuses&#39;</span><span class="p">,</span>
+    <span class="n">target_entity_type</span><span class="o">=</span><span class="s">&#39;Project&#39;</span><span class="p">,</span>
+    <span class="n">statuses</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">status_new</span><span class="p">,</span>
+        <span class="n">status_wip</span><span class="p">,</span>
+        <span class="n">status_cmpl</span><span class="p">,</span>
+        <span class="n">status_on_air</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">image_format_hd</span> <span class="o">=</span> <span class="n">ImageFormat</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;HD&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">1080</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">commercial_type</span> <span class="o">=</span> <span class="n">Type</span><span class="p">(</span>
+  <span class="n">name</span><span class="o">=</span><span class="s">&#39;Commercial&#39;</span><span class="p">,</span>
+  <span class="n">code</span><span class="o">=</span><span class="s">&#39;COMM&#39;</span><span class="p">,</span>
+  <span class="n">target_entity_type</span><span class="o">=</span><span class="s">&#39;Project&#39;</span>
+<span class="p">)</span>
+
+<span class="n">repo</span> <span class="o">=</span> <span class="n">Repository</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Commercials Repo&#39;</span><span class="p">,</span>
+    <span class="n">linux_path</span><span class="o">=</span><span class="s">&#39;/mnt/T/Commercials/&#39;</span><span class="p">,</span>
+    <span class="n">windows_path</span><span class="o">=</span><span class="s">&#39;T:/Commercials/&#39;</span><span class="p">,</span>
+    <span class="n">osx_path</span><span class="o">=</span><span class="s">&#39;/Volumes/T/Commercials/&#39;</span>
+<span class="p">)</span>
+
+<span class="n">commercial_structure</span> <span class="o">=</span> <span class="n">Structure</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Commercial Project Structure&#39;</span><span class="p">,</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+<span class="p">)</span>
+
+<span class="n">lead</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Erkan Ozgur Yilmaz&#39;</span><span class="p">,</span>
+    <span class="n">login</span><span class="o">=</span><span class="s">&#39;eoyilmaz&#39;</span><span class="p">,</span>
+    <span class="n">email</span><span class="o">=</span><span class="s">&#39;eoyilmaz@stalker.com&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s">&#39;secret&#39;</span>
+<span class="p">)</span>
+
+<span class="c"># lets create the Project</span>
+<span class="n">proj1</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Test Project&#39;</span><span class="p">,</span>
+    <span class="n">code</span><span class="o">=</span><span class="s">&#39;TP&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s">&quot;This is the first project&quot;</span><span class="p">,</span>
+    <span class="n">lead</span><span class="o">=</span><span class="n">lead</span><span class="p">,</span>
+    <span class="n">image_format</span><span class="o">=</span><span class="n">image_format_hd</span><span class="p">,</span>
+    <span class="n">fps</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="n">commercial_type</span><span class="p">,</span>
+    <span class="n">structure</span><span class="o">=</span><span class="n">commercial_structure</span><span class="p">,</span>
+    <span class="n">repository</span><span class="o">=</span><span class="n">repo</span><span class="p">,</span>
+    <span class="n">status_list</span><span class="o">=</span><span class="n">project_status_list</span><span class="p">,</span>
+    <span class="n">status</span><span class="o">=</span><span class="n">status_new</span>
+<span class="p">)</span>
+
+<span class="c"># just add the project to the database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">proj1</span><span class="p">)</span>
+
+<span class="c"># and commit the data to database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It may seem too much for just creating a Project, but it is for the first time
+only. For a second project, we can use the previous Repository, Structure,
+Lead, StatusList etc.</p>
+</div>
+<div class="section" id="create-a-task">
+<h3>Create a Task<a class="headerlink" href="#create-a-task" title="Permalink to this headline">¶</a></h3>
+<p>Because we have a project now lets create a task for this project:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># connect to the database if you have not done yet</span>
+<span class="n">db</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="c"># create a new user as the resource for the task</span>
+<span class="n">resource1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;User1&#39;</span><span class="p">,</span>
+    <span class="n">login</span><span class="o">=</span><span class="s">&#39;user1&#39;</span><span class="p">,</span>
+    <span class="n">email</span><span class="o">=</span><span class="s">&#39;user@users.com&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s">&#39;secret&#39;</span>
+<span class="p">)</span>
+
+<span class="c"># now create the task</span>
+<span class="n">task1</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&#39;Task1&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s">&quot;This is our first Task, and it is about, creating &quot;</span>
+                <span class="s">&quot;something fancy&quot;</span><span class="p">,</span>
+    <span class="n">resources</span><span class="o">=</span><span class="p">[</span><span class="n">resource1</span><span class="p">],</span>
+    <span class="n">schedule_timing</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">schedule_unit</span><span class="o">=</span><span class="s">&#39;d&#39;</span><span class="p">,</span>
+    <span class="n">schedule_model</span><span class="o">=</span><span class="s">&#39;effort&#39;</span><span class="p">,</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">proj1</span>
+<span class="p">)</span>
+<span class="c"># we do not need to supply a StatusList for the Task, statuses for tasks are</span>
+<span class="c"># created by default when we called db.init() in previous example</span>
+
+<span class="c"># add it to the database</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task1</span><span class="p">)</span>
+
+<span class="c"># and commit</span>
+<span class="n">db</span><span class="o">.</span><span class="n">DBSession</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now we have created a simple Task and assigned it to the resource1. Lets check
+the status of the Task:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">task1</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+<span class="c"># this should print something like &lt;Ready To Start (RTS) (Status)&gt;</span>
+<span class="c"># stating that our task is ready to start working on.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Design</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li><a class="reference internal" href="#stalker-object-model-som">Stalker Object Model (SOM)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inheritance-diagram">Inheritance Diagram</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-customize-stalker">How To Customize Stalker</a></li>
+<li><a class="reference internal" href="#how-to-extend-som">How To Extend SOM</a></li>
+<li><a class="reference internal" href="#creating-data">Creating Data</a><ul>
+<li><a class="reference internal" href="#creating-a-project">Creating a Project</a></li>
+<li><a class="reference internal" href="#create-a-task">Create a Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="previous chapter">API Tutorial</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="configure.html"
+                        title="next chapter">Configuring Stalker</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="configure.html" title="Configuring Stalker"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="API Tutorial"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

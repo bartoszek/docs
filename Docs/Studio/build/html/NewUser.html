@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LDAP Administration &mdash; my Docs .1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="my Docs .1 documentation" href="index.html"/>
+        <link rel="next" title="Using Crontab" href="crontab.html"/>
+        <link rel="prev" title="DNS-DHCP" href="DNS-DHCP.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> my Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                .1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Installing Kubuntu Desktop</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Basic.html">Basic Kubuntu Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Nvidia.html">Nvidia Drivers Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Desktop.html">Desktop Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Studio.html">Studio Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Volumes.html">Volumes Access Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoftimageXsi.html">Softimage Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Maya.html">Maya Specifics Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Houdini.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="royalrender.html">RoyalRender</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Studio Setup</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DNS-DHCP.html">DNS-DHCP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">LDAP Administration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-user-account">Creating a user account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-user-password">Changing user password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-group-memberships">Manage group memberships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-an-account">Deleting an account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reactualise-after-modification">Reactualise after modification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="crontab.html">Using Crontab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AptSources.html">changing apt sources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">my Docs</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>LDAP Administration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/NewUser.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ldap-administration">
+<h1>LDAP Administration<a class="headerlink" href="#ldap-administration" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/ldap.png" src="_images/ldap.png" />
+<p>LDAP users and groups:</p>
+<p>all ldap configuration has to be done as root on <strong>serenity</strong>.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>ssh root@serenity
+</pre></div>
+</div>
+<div class="section" id="creating-a-user-account">
+<h2>Creating a user account<a class="headerlink" href="#creating-a-user-account" title="Permalink to this headline">¶</a></h2>
+<p>To create an account, simply use the command:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>/shared/sbin/create-user username
+</pre></div>
+</div>
+<p><em>You will be asked twice to input the password for the new user. This command also creates basic structure for windows user profile.</em></p>
+</div>
+<div class="section" id="changing-user-password">
+<h2>Changing user password<a class="headerlink" href="#changing-user-password" title="Permalink to this headline">¶</a></h2>
+<p>To change a user&#8217;s password, input the following command:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>smbldap-passwd -s username
+</pre></div>
+</div>
+<p><em>As for user&#8217;s creation, you will need to input the password twice.</em></p>
+</div>
+<div class="section" id="manage-group-memberships">
+<h2>Manage group memberships<a class="headerlink" href="#manage-group-memberships" title="Permalink to this headline">¶</a></h2>
+<p>For adding a user into a group, two situations are possible, either we want to add all the groups for a specfic user.(all previous groups will be overwritten)</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>smbldap-usermod -G group1,group2,group3,group4 username
+</pre></div>
+</div>
+<p>Or we want to add a group without overwritting existing groups.</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>smbldap-usermod -G +group1,group2 username
+</pre></div>
+</div>
+<p><em>(Here, group1 and group2 will be added to User while keeping any groups previously added)</em></p>
+<p>If we want to remove access to a group, the command is:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>smbldap-usermod -G -group1,group2 username
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-an-account">
+<h2>Deleting an account<a class="headerlink" href="#deleting-an-account" title="Permalink to this headline">¶</a></h2>
+<p>To delete an account, input the following command:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>smbldap-userdel username
+</pre></div>
+</div>
+</div>
+<div class="section" id="reactualise-after-modification">
+<h2>Reactualise after modification<a class="headerlink" href="#reactualise-after-modification" title="Permalink to this headline">¶</a></h2>
+<p>For any changes to be taken into account, we need to re actualise ldap. To do so:</p>
+<div class="code tcsh highlight-python"><div class="highlight"><pre>nscd -i group
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crontab.html" class="btn btn-neutral float-right" title="Using Crontab" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DNS-DHCP.html" class="btn btn-neutral" title="DNS-DHCP" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, xXX.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

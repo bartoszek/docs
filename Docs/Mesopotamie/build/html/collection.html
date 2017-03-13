@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collecte de photos sur Internet &mdash; documentation MESOPOTAMIE </title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="documentation MESOPOTAMIE " href="index.html"/>
+        <link rel="next" title="Structure From Motion" href="Sfm.html"/>
+        <link rel="prev" title="Introduction" href="introduction.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MESOPOTAMIE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Collecte de photos sur Internet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#google-images"><strong>Google Images</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flickr-images"><strong>Flickr Images</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traitement-des-donnees-exifs"><strong>traitement des données EXIFs</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#taille-des-capteurs-cmos"><strong>Taille des capteurs CMOS</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sfm.html">Structure From Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvs.html">Multi-View Stereo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finalisation.html">Finalisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autres.html">Autres exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basrelief.html">Génération de Bas-reliefs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MESOPOTAMIE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Collecte de photos sur Internet</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/collection.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collecte-de-photos-sur-internet">
+<h1>Collecte de photos sur Internet<a class="headerlink" href="#collecte-de-photos-sur-internet" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Internet permet d’accéder a une masse gigantesque d&#8217;images.Afin de pouvoir downloader une collection conséquente d&#8217;images nous avons besoin d’accéder a ces recherches par une interface de commandes (cli).</p>
+<p>Il existe essentiellement 2 sources de photos accessibles par mot-clef:</p>
+<div class="section" id="google-images">
+<h2><strong>Google Images</strong><a class="headerlink" href="#google-images" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/mysnap5.jpg"><img alt="_images/mysnap5.jpg" src="_images/mysnap5.jpg" style="width: 1887.0px; height: 628.0px;" /></a>
+<p class="caption"><span class="caption-text">exemple de recherche Google image</span></p>
+<div class="legend">
+ici un Lamassu Assyrien exposé au musée Oriental de Chicago</div>
+</div>
+<p>Google ne propose plus de cli pour downloader automatiquement une sélection d&#8217;images par mot clef. Neanmoins en downloadant le contenu html du résultat d&#8217;une recherche et en le filtrant on peut récupérer les URL&#8217;s des images.Nous avons écrit un script en langage Perl permettant de faire cela.Malheureusement Google limite les résultats des recherches a 100 images.Ce qui limite un petit peu les résultats.</p>
+</div>
+<div class="section" id="flickr-images">
+<h2><strong>Flickr Images</strong><a class="headerlink" href="#flickr-images" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Flickr (Yahoo) propose une API accessible dans différents langages de programmation.Nous avons choisi le module Perl Flickr::API qui permet d&#8217;automatiser la recherche et le téléchargement d&#8217;images sur le site de Flickr. Un des grands avantages de Flickr est de donner accès aux images originales des appareils photos et donc a leur informations (MetaData) EXIF.</p>
+<p>En effet pour la plupart des algorithmes de StructureFromMotion ces données sont indispensables pour initialiser le processus incrémental de reconstruction des positions de cameras.</p>
+<p>La majorité de nos images proviendront donc de Flickr.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/mysnap4.jpg"><img alt="_images/mysnap4.jpg" src="_images/mysnap4.jpg" style="width: 1546.0px; height: 871.0px;" /></a>
+<p class="caption"><span class="caption-text">exemple de recherche Flickr image</span></p>
+<div class="legend">
+Flickr retourne 222 images pour cette recherche</div>
+</div>
+</div>
+<div class="section" id="traitement-des-donnees-exifs">
+<h2><strong>traitement des données EXIFs</strong><a class="headerlink" href="#traitement-des-donnees-exifs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les informations contenues dans les données EXIF nous servent a retrouver deux informations fondamentales pour initialiser les valeurs intrinsèques des cameras : la focale et la taille du capteur CMOS ou CCD utilise lors de la prise de vue.La focale est en général inscrite explicitement dans les données EXIFs. Par contre pour retrouver la taille du capteur il est nécessaire d’accéder a deux informations EXIFs : le Modèle et le Type de l&#8217;appareil photo.Ces deux paramètres sont en général fourni dans les EXIFs.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/mysnap78.jpg"><img alt="_images/mysnap78.jpg" src="_images/mysnap78.jpg" style="width: 950.0px; height: 518.0px;" /></a>
+<p class="caption"><span class="caption-text">exemple de donnes Exif accessibles</span></p>
+<div class="legend">
+image prise par un appareil Canon Powershot SX200 / focale de 5 mm</div>
+</div>
+<p>Pour manipuler les EXIFs de manière automatique nous utilisons le module Perl Image::ExifTool ainsi que la librairie Imagick et son module Perl Image::Magick pour un accès plus général aux opérations sur des images en ligne de commandes.</p>
+<p>Grace a ces outils nous avons mis au point une suite de scripts permettant de classifier les images par données Exifs , taille de capteur , résolution etc .. de manière automatique.</p>
+</div>
+<div class="section" id="taille-des-capteurs-cmos">
+<h2><strong>Taille des capteurs CMOS</strong><a class="headerlink" href="#taille-des-capteurs-cmos" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour récupérer les informations de taille de capteur CMOS nous avons construit une base de données contenant plusieurs milliers de références d&#8217;appareils photos.Cette base de données est remise a jour si besoin a partir d&#8217;internet et notamment du site DPreview.com qui constitue la référence en la matière.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="_images/mysnap80.jpg"><img alt="_images/mysnap80.jpg" src="_images/mysnap80.jpg" style="width: 500.0px; height: 256.8px;" /></a>
+<p class="caption"><span class="caption-text">exemple d&#8217;informations retournées par le site DPreview.com</span></p>
+<div class="legend">
+la taille du capteur est de 22.4 mm par 15 mm</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Sfm.html" class="btn btn-neutral float-right" title="Structure From Motion" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

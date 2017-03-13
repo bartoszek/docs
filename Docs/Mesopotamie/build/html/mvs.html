@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multi-View Stereo &mdash; documentation MESOPOTAMIE </title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="documentation MESOPOTAMIE " href="index.html"/>
+        <link rel="next" title="Finalisation" href="finalisation.html"/>
+        <link rel="prev" title="Structure From Motion" href="Sfm.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MESOPOTAMIE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collecte de photos sur Internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sfm.html">Structure From Motion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Multi-View Stereo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#logiciels-opensource-libre"><strong>Logiciels OpenSource (libre)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logiciels-commerciaux"><strong>Logiciels commerciaux</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#etapes-de-reconstruction"><strong>Étapes de reconstruction</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="finalisation.html">Finalisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autres.html">Autres exemples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basrelief.html">Génération de Bas-reliefs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MESOPOTAMIE</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Multi-View Stereo</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/mvs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multi-view-stereo">
+<h1>Multi-View Stereo<a class="headerlink" href="#multi-view-stereo" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Cette étape correspond a la densification des données calculées précédemment. En exploitant les correspondances entre chaque image on va reconstituer un nuage de points beaucoup plus dense (plusieurs millions de points).Ces données sont stockées dans des maps de profondeur (depth map) puis recombinées dans un seul nuage de points. Enfin un maillage polygonal est généré a partir des points.</p>
+<p>il existe plusieurs logiciels permettant de faire cette densification.</p>
+<div class="section" id="logiciels-opensource-libre">
+<h2><strong>Logiciels OpenSource (libre)</strong><a class="headerlink" href="#logiciels-opensource-libre" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>openMVS :  <a class="reference external" href="http://cdcseacave.github.io/openMVS/">http://cdcseacave.github.io/openMVS/</a></li>
+<li>MVE/fssrecon : <a class="reference external" href="http://www.gcc.tu-darmstadt.de/media/gcc/papers/Goesele-2007-MVS.pdf">http://www.gcc.tu-darmstadt.de/media/gcc/papers/Goesele-2007-MVS.pdf</a></li>
+<li>CMVS/PMVS : <a class="reference external" href="http://www.di.ens.fr/pmvs/">http://www.di.ens.fr/pmvs/</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="logiciels-commerciaux">
+<h2><strong>Logiciels commerciaux</strong><a class="headerlink" href="#logiciels-commerciaux" title="Lien permanent vers ce titre">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Agisoft Photoscan : <a class="reference external" href="http://www.agisoft.com/">http://www.agisoft.com/</a></li>
+<li>Capturing Reality : <a class="reference external" href="https://www.capturingreality.com/">https://www.capturingreality.com/</a></li>
+<li>Autodesk 123D Catch : <a class="reference external" href="http://www.123dapp.com/catch">http://www.123dapp.com/catch</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="etapes-de-reconstruction">
+<h2><strong>Étapes de reconstruction</strong><a class="headerlink" href="#etapes-de-reconstruction" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/mve3.jpg"><img alt="_images/mve3.jpg" src="_images/mve3.jpg" style="width: 1024.0px; height: 724.0px;" /></a>
+<p class="caption"><span class="caption-text">depth map obtenue pour une image</span></p>
+<div class="legend">
+les points sont encore organisés en grille de pixels</div>
+</div>
+<p>Calcul des maps de profondeur (depth map).Le logiciel estime aussi une notion de qualité des points (confidence) ainsi que le gradient de profondeur dz indiquant des fortes variations de profondeur.(fig. 9)</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/mve2.jpg"><img alt="_images/mve2.jpg" src="_images/mve2.jpg" style="width: 1024.0px; height: 724.0px;" /></a>
+<p class="caption"><span class="caption-text">visualisation d&#8217;une depth map (Umve)</span></p>
+<div class="legend">
+a) image originale b) dz
+c) depth           e) confidence</div>
+</div>
+<p>Génération du nuage de points dense.(fig. 10 fig. 11)</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/mysnap12.jpg"><img alt="_images/mysnap12.jpg" src="_images/mysnap12.jpg" style="width: 779.2px; height: 682.4px;" /></a>
+<p class="caption"><span class="caption-text">dense point cloud</span></p>
+<div class="legend">
+plusieurs millions de points</div>
+</div>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="_images/mysnap18.jpg"><img alt="_images/mysnap18.jpg" src="_images/mysnap18.jpg" style="width: 1073.6px; height: 780.8px;" /></a>
+<p class="caption"><span class="caption-text">dense point cloud</span></p>
+<div class="legend">
+plusieurs millions de points</div>
+</div>
+<p>Les points obtenus sont regroupes dans une structure de voxels (octree) puis filtrées et maillées pour générer un premier maillage polygonal,
+ce maillage polygonal est alors raffiné avec divers algorithmes.(fig. 12)</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="_images/mysnap19.jpg"><img alt="_images/mysnap19.jpg" src="_images/mysnap19.jpg" style="width: 1073.6px; height: 780.8px;" /></a>
+<p class="caption"><span class="caption-text">exemple de maillage polygonal</span></p>
+<div class="legend">
+la couleur est appliquée uniquement aux points</div>
+</div>
+<p>Application de la texture.Une texture unique est générée en choisissant la meilleure vue dans toutes les photos et assemblée par une méthode de graph-cut au niveau des paramètres uv (atlas).(fig. 13)</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="_images/mysnap17.jpg"><img alt="_images/mysnap17.jpg" src="_images/mysnap17.jpg" style="width: 1029.6px; height: 792.8px;" /></a>
+<p class="caption"><span class="caption-text">le meme maillage avec sa texture appliquée</span></p>
+</div>
+<p>Cette texture exploite le maximum de résolution fournie.Elle est par contre inexploitable dans un logiciel de retouche d&#8217;images (Photoshop ou Gimp).(fig. 14)</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="_images/mysnap50.jpg"><img alt="_images/mysnap50.jpg" src="_images/mysnap50.jpg" style="width: 872.8px; height: 484.8px;" /></a>
+<p class="caption"><span class="caption-text">exemple de texture (png) obtenue aprés projection</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="finalisation.html" class="btn btn-neutral float-right" title="Finalisation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Sfm.html" class="btn btn-neutral" title="Structure From Motion" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

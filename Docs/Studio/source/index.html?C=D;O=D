@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /Docs/Studio/source</title>
+ </head>
+ <body>
+<h1>Index of /Docs/Studio/source</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/Docs/Studio/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="royalrender.rst">royalrender.rst</a></td><td align="right">2015-11-09 18:58  </td><td align="right">3.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="index.rst">index.rst</a></td><td align="right">2016-07-06 19:34  </td><td align="right">468 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="images/">images/</a></td><td align="right">2015-11-09 18:32  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="exemple.txt">exemple.txt</a></td><td align="right">2015-09-07 13:02  </td><td align="right">2.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="crontab.rst">crontab.rst</a></td><td align="right">2016-01-11 13:19  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="conf.py">conf.py</a></td><td align="right">2015-10-07 18:22  </td><td align="right">8.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="_templates/">_templates/</a></td><td align="right">2015-09-04 17:35  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="_static/">_static/</a></td><td align="right">2015-09-04 17:35  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Volumes.rst">Volumes.rst</a></td><td align="right">2015-09-08 18:24  </td><td align="right">1.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Studio.rst">Studio.rst</a></td><td align="right">2015-10-07 18:21  </td><td align="right">3.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="SoftimageXsi.rst">SoftimageXsi.rst</a></td><td align="right">2015-10-30 16:44  </td><td align="right">3.5K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Nvidia.rst">Nvidia.rst</a></td><td align="right">2015-11-04 12:43  </td><td align="right">2.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="NewUser.rst">NewUser.rst</a></td><td align="right">2015-10-07 16:10  </td><td align="right">1.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Maya.rst">Maya.rst</a></td><td align="right">2015-09-09 18:53  </td><td align="right">5.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Houdini.rst">Houdini.rst</a></td><td align="right">2015-11-09 18:31  </td><td align="right">2.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Desktop.rst">Desktop.rst</a></td><td align="right">2015-09-09 18:54  </td><td align="right">1.5K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="DNS-DHCP.rst">DNS-DHCP.rst</a></td><td align="right">2015-09-14 13:52  </td><td align="right">1.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Basic.rst">Basic.rst</a></td><td align="right">2015-10-30 16:37  </td><td align="right">4.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="AptSources.rst">AptSources.rst</a></td><td align="right">2016-07-06 19:35  </td><td align="right">186 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.7 (Ubuntu) Server at 82.127.216.226 Port 80</address>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Statuses and Status Lists &mdash; Stalker 0.2.13.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.13.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Stalker 0.2.13.3 documentation" href="index.html" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="statuses-and-status-lists">
+<span id="status-and-status-lists-toplevel"></span><h1>Statuses and Status Lists<a class="headerlink" href="#statuses-and-status-lists" title="Permalink to this headline">¶</a></h1>
+<p>In Stalker, classes mixed with <a class="reference internal" href="generated/stalker.models.mixins.StatusMixin.html#stalker.models.mixins.StatusMixin" title="stalker.models.mixins.StatusMixin"><code class="xref py py-class docutils literal"><span class="pre">StatusMixin</span></code></a> needs to be created with a
+<em>suitable</em> <a class="reference internal" href="generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList" title="stalker.models.status.StatusList"><code class="xref py py-class docutils literal"><span class="pre">StatusList</span></code></a> instance.</p>
+<p>Because most of the <em>statusable</em> classes are going to be using the same
+<a class="reference internal" href="generated/stalker.models.status.Status.html#stalker.models.status.Status" title="stalker.models.status.Status"><code class="xref py py-class docutils literal"><span class="pre">Status</span></code></a>es (ex: <strong>WIP</strong>, <strong>Pending Review</strong>, <strong>Completed</strong> etc.) over
+and over again, it is much efficient to create those Statuses only once and use
+them multiple times by grouping them in <a class="reference internal" href="generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList" title="stalker.models.status.StatusList"><code class="xref py py-class docutils literal"><span class="pre">StatusList</span></code></a>s.</p>
+<p>A <em>suitable status list</em> means, the <a class="reference internal" href="generated/stalker.models.status.StatusList.html#stalker.models.status.StatusList.target_entity_type" title="stalker.models.status.StatusList.target_entity_type"><code class="xref py py-attr docutils literal"><span class="pre">StatusList.target_entity_type</span></code></a> is
+set to the name of that particular class.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Stalker 0.2.13.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2009-2014, Stalker authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
